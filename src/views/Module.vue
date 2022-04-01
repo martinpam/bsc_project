@@ -1,0 +1,46 @@
+<template>
+    <div v-if="mdl">
+        <h1>{{mdl[0].name_de}}</h1>
+        <h2> Kapitelauswahl </h2>
+            <div  class="button-group"
+            :class="{'less-than-three': mdl[0].chapters.length < 3}"
+            >
+                <ModuleButton v-for="(chapter, index) in mdl[0].chapters" :key="index" :name="'Kapitel ' + (index+1)" :goTo="'/'+moduleName+'/chapters/' + (index+1)"/>
+            </div>
+            <div class="filler"></div>
+        <router-link to="Home"> Zurück </router-link>
+    </div>
+    <div v-else> <h1>Loading...</h1></div>
+</template>
+
+<script>
+import { ref } from 'vue'
+import { computed } from '@vue/runtime-core'
+import ModuleButton from '../components/ModuleButton.vue'
+import getModule from '../composables/getModule.js'
+
+export default {
+    props: ['moduleName'],
+    components: { ModuleButton },
+    setup(props) {
+        const moduleName = props.moduleName
+        const { mdl, error, load } = getModule(moduleName)
+        load()
+
+        const append = computed((text,index) => {
+            return text +''+ index
+        })
+        return {mdl, error, append }
+    }
+}
+</script>
+
+<style scoped>
+    .filler {
+        height: 200px;
+    }
+    .linebreak {
+        width: 100%;
+    }
+</style>
+

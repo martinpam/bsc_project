@@ -1,0 +1,97 @@
+{
+    "modules": [
+        {
+            "name_en": "supermarket",
+            "name_de": "Supermarkt",
+            "chapters" : [
+                {
+                    "chapterId" : 1,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's?"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir?"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke"}
+                    ]
+                },
+                {
+                    "chapterId" : 2,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                },
+                {
+                    "chapterId" : 3,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                },
+                {
+                    "chapterId" : 4,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                },
+                {
+                    "chapterId" : 5,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                },
+                {
+                    "chapterId" : 6,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name_en": "parking",
+            "name_de": "Parkplatz",
+            "chapters" : [
+                {
+                    "chapterId" : 1,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's?"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir?"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke"}
+                    ]
+                },
+                {
+                    "chapterId" : 2,
+                    "conversation" : [
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                    ]
+                }
+            ]
+        }    
+        
+    ]
+}
