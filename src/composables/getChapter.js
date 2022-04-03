@@ -1,24 +1,25 @@
 import { ref } from 'vue'
 
-const getChapters = (moduleName, chapterId) => {
+const getChapter = (moduleName, chapterId) => {
 
-  const chapter = ref(null)
+  const chapterData = ref(null)
   const error = ref(null)
-
+  console.log('trying to fetch chapter data', moduleName, chapterId)
   const load = async () => {
     try {
-      let data = await fetch('http://localhost:3000/modules/' + moduleName + '/' + chapterId)
+      let data = await fetch('http://localhost:3000/modules?name_en='+ moduleName)
       if(!data.ok) {
         throw Error('no available data')
       }
-      chapter.value = await data.json()
+      chapterData.value = await data.json()
+      chapterData.value = chapterData.value[0].chapters[chapterId].conversation
+
     }
     catch(err) {
       error.value = err.message
     }
   }
-
-  return { chapter, error, load }
+  return { chapterData, error, load }
 }
 
 export default getChapter

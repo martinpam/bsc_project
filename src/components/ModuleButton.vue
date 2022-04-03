@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
   .inner-text {
     text-decoration: none;
     color: white;

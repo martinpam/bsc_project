@@ -8,7 +8,7 @@
       </div>
     </div>
     <div v-else class="story-board-outer">
-      <StoryBoard/>
+      <StoryBoard moduleName="supermarket" :chapterId="chapterId"/>
     </div>
   </div>
 </template>
@@ -38,5 +38,6 @@ export default {
 .story-board-outer {
   height: 100%;
   width: 100%;
+  display: block;
 }
 </style>
