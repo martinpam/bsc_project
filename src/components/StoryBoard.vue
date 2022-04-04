@@ -4,7 +4,7 @@
       
     <div class="story-board">
         <div class="button-navigation top"><img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> </div>
-      <div class="dialog-field">
+      <div class="dialog-field" @click="goForward">
         <div class="text">
           <div v-if="isSpeaking('Narrator')">
             {{ chapterData.conversation[currentIndex]["text"] }}
@@ -104,7 +104,7 @@ export default {
 <style scoped>
 .story-board {
   height: 100%;
-  width: 87%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -156,7 +156,7 @@ export default {
   background: #778899;
   margin-top: 0px;
   max-height: 700px;
-  max-width: 1400px;
+  max-width: 1600px;
   border-radius: 12px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -168,7 +168,7 @@ export default {
   margin: 0 auto;
   background: tan;
   max-height: 700px;
-  max-width: 1400px;
+  max-width: 1600px;
   border-radius: 12px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -220,7 +220,7 @@ export default {
 .code-line {
     display: flex;
     color: #f0f0f0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: left;
     padding-left: 12px;
     padding-top: 5px;
