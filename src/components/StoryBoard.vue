@@ -138,11 +138,13 @@ export default {
 
 .text-style-karin {
   color: #d8c94e;
+  font-size: 1.7rem;
 }
 
 .text-style-robot {
   color: #145a23;
   max-width: 20%;
+  font-size: 1.7rem;
 }
 
 .dialog-field {

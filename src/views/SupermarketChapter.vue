@@ -44,7 +44,9 @@ export default {
 .story-board-outer {
   height: 100%;
   width: 100%;
+  max-width: 1400px;
   display: block;
+  margin: 0 auto;
 }
 
 .header {
