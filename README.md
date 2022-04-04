@@ -1,4 +1,5 @@
-# algobot
+# Project for my Bachelor's Thesis
+Goal is to show people of little knowledge about computers the importance of algorithms
 
 ## Project setup
 ```

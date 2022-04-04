@@ -7,61 +7,243 @@
                 {
                     "chapterId" : 1,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's?"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir?"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke"}
+                        {"speaker" : "Narrator", "text": "Da Karin Ihre Kunden möglichst lange in der Bibliothek behalten will, hatte Sie die Idee, Kaffee und Erfrischungsgetränke anzubieten. Die LeserInnen sind begeistert und das Getränkegeschäft läuft so gut, dass Karin mittlerweile mehr Zeit im Supermarkt verbringt, um nötige Zutaten zu kaufen, als ihr lieb ist. Sie hat schließlich die Idee, [robotName] darum zu bitten.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Hi [robotName], kann ich dich um einen Gefallen bitten?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Natürlich, was kann ich für dich tun?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Es ist leider kaum noch Milch übrig. Könntest du bitte eine Packung kaufen gehen?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Gerne, kannst du mir bitte erklären, wie dieses Einkaufen funktioniert?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ähm, ja.. Du schaust dir den obersten Artikel auf der Einkaufsliste an, dann gehst einfach nach der Reihe in die einzelnen Gänge des Supermarkts und vergleicht dort die Artikel mit dem, den du suchst." , "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wenn der Artikel übereinstimmt, nimm ihn mit und streich ihn durch. Das machst du solang, bist du alles gefunden hast" , "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Danke für die Erklärung, ich schaffe das.", "showCode"  : false },
+                        {"speaker" : "Karin", "text": "Perfekt, bitte beeil dich!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt. Er geht wieder nach folgendem Algorithmus vor...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 1 View mit Algorithmus 1]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] kehrt zu Karins Zufriedenheit nach kurzer Zeit zurück.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wow das ging ja schnell, vielen Dank [robotName]!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Gern geschehen!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betritt den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
                     ]
                 },
                 {
                     "chapterId" : 2,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Narrator", "text": "Karin hat wieder viel zu tun und bittet [robotName] um einen weiteren Einkauf", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "[robotName], könntest du bitte wieder für mich Einkaufen gehen?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Gerne, was wird benötigt?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Und zwar bräuchte ich Schokolade und Butter.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Schokolade gibt es aber nicht bei dem Laden vom letzten mal. Du müsstest also bitte in den größeren Supermarkt in der Mediumstraße", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Alles klar, ich mache mich sofort auf den Weg.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Super, danke!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum etwas größeren Supermarkt. Er geht nach selbigem Algorithmus vor...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 1]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "Stunden später kommt [robotName] endlich nach Hause. Karin ist entsetzt..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Was ist denn passiert? Ich dachte schon, du bist verloren gegangen.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich weiß nicht, was du meinst. Ich habe genau das selbe gemacht wie das letzte mal.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Kannst du mir Schritt für Schritt berichten, was du gemacht hast?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Natürlich, und zwar..", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Betrat ich den Supermarkt, dann ging is in den ersten Gang...", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Ich sah mir den ersten Artikel an, es handelte sich um 'Kartoffelchips'...", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Schokolade'.", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Ich ging zum nächsten Artikel, es handelte sich um 'Schokolade'.", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Ich konnte den Artikel von der Einkaufsliste streichen.", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Ich ging zum nächsten Artikel, es handelte sich um 'Kekse'", "showCode"  : true},
+                        {"speaker" : "Robot", "text": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Schokolade'.", "showCode"  : true},
+                        {"speaker" : "Karin", "text": "Moment! Du vergleichst noch immer mit Schokolade?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Na klar. Ich soll für jeden Artikel jeden Gang nach dem gewünschten Artikel absuchen.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Darum hast du also so lange gebraucht.. Ab jetzt, wenn du einen Artikel gefunden hast, kannst du ruhig schon mit dem nächsten Artikel anfangen, ok?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich verstehe", "showCode"  : false} 
+                    ],
+                    "algorithm" :  [
+                        {"text" : "Betritt den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
                     ]
                 },
                 {
                     "chapterId" : 3,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Narrator", "text": "Nachdem [robotName] das letzte mal zu lange gebraucht hat, ergibt sich nun die Chance, sich anhand des neuen Algorithmus zu beweisen.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Kannst du bitte noch einmal zu dem Supermarkt in der Mediumstraße? Ich brauche wieder Schokolade und Butter.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Selbstverständlich!", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "..und vergiss nicht worüber wir das letzte mal gesprochen haben!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Wenn ich einen Artikel gefunden habe, fange ich mit dem nächsten an.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wunderbar, danke [robotName] ", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt. Er geht nach folgendem Algorithmus vor...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 2]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] braucht diesmal nur fast die Hälfte der Zeit wie letztes mal. Katrin ist erfreut über den Fortschritt.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Du bist schon wieder da? Ich habe schlimmeres berfürchtet, danke dir!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Immer zu Diensten!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch und ", "indent" : 5},
+                        {"text" : "starte die Suche mit dem nächsten Artikel", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                  
                     ]
                 },
                 {
                     "chapterId" : 4,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Narrator", "text": "Ein neuer Tag birgt eine scheinbar leichte Aufgabe für [robotName]..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Hi [robotName], kann ich dich wieder um einen Gefallen bitten?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Natürlich, soll ich wieder einkaufen gehen?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Genau, und zwar brauche ich für den kommenden Leseabend Sojamilch. Die solltest du auch beim kleinen Laden bekommen können.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Alles klar, ich kümmere mich darum!", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Spitze, bis dann!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt. Er geht nach folgendem Algorithmus vor...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt View 1 mit Algorithmus 2]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "Karin wartet und wartet, aber [robotName] kommt nicht zurück. Sie beschließt schließlich, selbst zum Laden zu gehen.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Da bist du ja, was machst du denn so lange?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich suche nach Sojamilch. Aktuell starte ich in Runde 63.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wenn es einen Artikel nicht gibt, dann brauchst du doch nicht weitersuchen!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Du sagtest, ich solle suchen, bis ich alles gefunden habe.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Stimmt, das sagte ich, aber das war Blödsinn.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Geh einfach einmal durch und wenn ein Artikel fehlt, dann komm trotzdem nach Hause!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Du meinst sicherlich, geh einmal durch pro Artikel auf der Einkaufsliste?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ähm .. nein, wozu denn das? Einmal durchgehen reicht doch.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich verstehe nicht ganz. Ich sollte für jeden Artikel alle Gänge durchgehen..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Du kannst doch nur einmal durchgehen und nach allen Artikeln Ausschau halten.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich verstehe.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Sehr gut. Komm, lass uns nach Hause gehen!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch und ", "indent" : 5},
+                        {"text" : "starte die Suche mit dem nächsten Artikel", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                  
                     ]
                 },
                 {
                     "chapterId" : 5,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Narrator", "text": "Der Leseabend rückt näher und die Einkaufsliste wird länger..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Hey [robotName]! Kannst du wieder eine Runde einkaufen gehen für mich?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Sehr gerne, was soll ich besorgen?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Zum einen brauche ich noch immer Sojamilch, außerdem kaufst du bitte Schlagsahne und Kaffeebohnen", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Sicherheitshalber schicke ich dich in den Riesen-Supermarkt am Ende der Stadt. Dort haben sie alles.", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich mache mich auf den Weg!", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Du schaffst das!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt.  Er geht nach folgendem, verbesserten Algorithmus vor...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View  mit Algorithmus 3]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "Obwohl der Supermarkt der bisher größte war, kommt [robotName] recht schnell zurück", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wow [robotName], du machst tolle Fortschritte!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Vielen Dank, ich freue mich auf's nächste mal!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 1},
+                        {"text" : "Betrachte den nächsten Artikel", "indent" : 2},
+                        {"text" : "Für jeden Artikel auf der Einkaufsliste", "indent" : 2},
+                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 3},
+                        {"text" : "falls ja", "indent" : 3},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 4},
+                        {"text" : "streiche den Artikel durch", "indent" : 4},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                  
                     ]
                 },
                 {
                     "chapterId" : 6,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Narrator", "text": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird [robotName]s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. ", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Hör mal [robotName], ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ich gehe, wenn ich z.b Milch suche, nicht alle Gänge ab, sondern gehe nur in die Kühlabteilung..", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wenn ich sonst nichts brauche aus der Kühlabteilung, gehe ich gleich weiter weil klar ist, dass ich hier nichts mehr finde", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Verstehst du, was ich meine?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Woher weiß ich, welche Abteilung welchen Artikel beinhaltet?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ich habe mir gedacht, ich schreib es dir mit auf die Einkaufsliste,..", "showCode"  : false },
+                        {"speaker" : "Karin", "text": "Dann kannst du Gänge auslassen, die nicht auf der Liste stehen.", "showCode"  : false },
+                        {"speaker" : "Robot", "text": "Ich verstehe!", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Wollen wir einen Testkauf starten? Ich bräuchte ohnehin Bananen, Milch und Joghurt", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Gerne, ich mache mich auf den Weg", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt. Er verwendet diesen, verbesserten Algorithmus ...", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View mit Algorithmus 4]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "Nach kurzer Zeit kommt [robotName] wieder zurück.. ", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ich bin hin und weg, das war ja fast so schnell wie ich", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Vielen Dank!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
+                        {"text" : "Schaue dir das Schild am Gangeingang an", "indent" : 1},
+                        {"text" : "wenn die Betitelung auf der Einkaufsliste ist", "indent" : 1},
+                        {"text" : "betritt den Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast und ein Artikel dieser Abteilung auf der Liste steht", "indent" : 2},
+                        {"text" : "Betrachte den nächsten Artikel", "indent" : 3},
+                        {"text" : "Für jeden Artikel auf der Einkaufsliste mit dem aktuellen Abteilungsnamen", "indent" : 3},
+                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 4},
+                        {"text" : "falls ja", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                  
+                    ]
+                },
+                {
+                    "chapterId" : 7,
+                    "conversation" : [
+                        {"speaker" : "Narrator", "text": "Karin hat einen Freund, welcher Informatiker ist. Neulich hat sie ihm stolz von [robotName]s Fortschritten beim Einkaufen erzählt. Daraufhin hat ihr dieser vom sogenannten 'Traveling Salesman Problem' erzählt, dessen Algorithmus auch zum optimalen Einkaufen verwendet werden kann. ", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Hi [robotName], ich habe gute Neuigkeiten. Du kannst bald noch effizienter einkaufen", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Fantastisch! Und wie, wenn ich fragen darf?", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Ein Freund hat mir diesen Algorithmus für dich mitgegeben, er meinte du wirst das sofort verstehen", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Logisch!", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Damit du den Algorithmus anwenden kannst, musst du einmal durch alle Supermärkte gehen und dir die Distanzen aller Artikel zueinander merken", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Wie berechne ich die Distanz?", "showCode"  : false },
+                        {"speaker" : "Karin", "text": "Hmm, für jeden Schritt den du machen musst, um von einen zum anderen Artikel zu kommen, rechnest du +1", "showCode"  : false },
+                        {"speaker" : "Karin", "text": "Wenn es mehrere Wege gibt, dann probiere alle und notiere dir den kürzesten", "showCode"  : false },
+                        {"speaker" : "Robot", "text": "Ich verstehe, ich gehe jetzt und erstelle die Liste mit den Distanzen", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Alles klar, viel Erfolg!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] geht wie besprochen alle Supermärkte ab und erstellt eine Liste mit allen Artikeln und deren Distanzen zueinander. Nach einem langen Lernprozess kommt er zurück und ist bereit für optimales Einkaufen", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Ich bin zurück", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Und bist du bereit, das Gelernte in die Tat umzusetzen?", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Bin bereit.", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Dann kaufe bitte einen Apfel, Bananen, Kaffeebohnen, Milch und Butter!", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Wird gemacht!", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Riesen-Supermarkt, er verwendet diesen Algorithmus", "showCode"  : true},
+                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View mit Algorithmus 5]", "showCode"  : false},
+                        {"speaker" : "Narrator", "text": "Nach wenigen Minuten kommt [robotName] wieder zurück.. ", "showCode"  : false},
+                        {"speaker" : "Karin", "text": "Unglaublich, so schnell hätte ich das nie geschafft.. Du bist wirklich ein Einkaufsexperte geworden", "showCode"  : false},
+                        {"speaker" : "Robot", "text": "Vielen Dank!", "showCode"  : false}
+                    ],
+                    "algorithm" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Wende den bereitgestellten Algorithmus anhang der Distanz-Liste an", "indent" : 0},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
                     ]
                 }
             ]
@@ -73,21 +255,21 @@
                 {
                     "chapterId" : 1,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's?"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir?"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke"}
+                        {"speaker" : "Karin", "text": "Hallo"},
+                        {"speaker" : "Robot", "text": "Hallo"},
+                        {"speaker" : "Karin", "text": "Wie geht's?"},
+                        {"speaker" : "Robot", "text": "Gut, und dir?"},
+                        {"speaker" : "Karin", "text": "Gut, danke"}
                     ]
                 },
                 {
                     "chapterId" : 2,
                     "conversation" : [
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Hallo 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"sentenceId" : 1, "speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"sentenceId" : 1, "speaker" : "Karin", "text": "Gut, danke 2"}
+                        {"speaker" : "Karin", "text": "Hallo 2"},
+                        {"speaker" : "Robot", "text": "Hallo 2"},
+                        {"speaker" : "Karin", "text": "Wie geht's? 2"},
+                        {"speaker" : "Robot", "text": "Gut, und dir? 2"},
+                        {"speaker" : "Karin", "text": "Gut, danke 2"}
                     ]
                 }
             ]

@@ -1,16 +1,24 @@
 <template>
-    <div v-if="mdl">
-        <h1>{{mdl[0].name_de}}</h1>
-        <h2> Kapitelauswahl </h2>
-            <div  class="button-group"
-            :class="{'less-than-three': mdl[0].chapters.length < 3}"
-            >
-                <ModuleButton v-for="(chapter, index) in mdl[0].chapters" :key="index" :name="'Kapitel ' + (index+1)" :goTo="'/'+moduleName+'/chapters/' + (index+1)"/>
-            </div>
-            <div class="filler"></div>
-        <router-link to="Home"> Zurück </router-link>
+    <div>
+        
+        <div v-if="mdl">
+            <div class="header">
+               <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> 
+                <div class="header-text">
+                    <h1>{{mdl[0].name_de}}</h1>
+                </div>
+                </div>
+            
+            <h2> Kapitelauswahl </h2>
+                <div  class="button-group"
+                :class="{'less-than-three': mdl[0].chapters.length < 3}"
+                >
+                    <ModuleButton v-for="(chapter, index) in mdl[0].chapters" :key="index" :name="'Kapitel ' + (index + 1)" :goTo="'/'+moduleName+'/chapters/' + (index + 1)"/>
+                </div>
+                <div class="filler"></div>
+        </div>
+        <div v-else> <h1>Loading...</h1></div>
     </div>
-    <div v-else> <h1>Loading...</h1></div>
 </template>
 
 <script>
@@ -41,6 +49,22 @@ export default {
     }
     .linebreak {
         width: 100%;
+    }
+
+    .header {
+        display: flex;
+    }
+
+    .smaller {
+        height: 40px;
+        position: absolute;
+        top: 45px;
+        left: 50px;
+    }
+
+    .header-text {
+       position: relative ;
+       margin: 0 auto;
     }
 </style>
 

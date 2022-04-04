@@ -1,7 +1,13 @@
 <template>
   <div>
     <div v-if="!started">
-      <h1>Supermarkt Kapitel {{chapterId}}</h1>
+      <div class="header">
+        <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/>
+        <div class="header-text">
+          <h1>Supermarkt </h1>
+        </div>
+      </div>
+      <h2>Kapitel {{chapterId}}</h2>
       <div class="filler"></div>
       <div class="container" @click="handleClick">
         <div class="inner-text">Starten</div>
@@ -33,11 +39,27 @@ export default {
 
 <style scoped>
 .filler {
-  height: 50px;
+  height: 30px;
 }
 .story-board-outer {
   height: 100%;
   width: 100%;
   display: block;
 }
+
+.header {
+        display: flex;
+    }
+
+    .smaller {
+        height: 40px;
+        position: absolute;
+        top: 45px;
+        left: 50px;
+    }
+
+    .header-text {
+       position: relative ;
+       margin: 0 auto;
+    }
 </style>
