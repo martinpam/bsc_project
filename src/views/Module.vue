@@ -13,7 +13,9 @@
                 <div  class="button-group"
                 :class="{'less-than-three': mdl[0].chapters.length < 3}"
                 >
-                    <ModuleButton v-for="(chapter, index) in mdl[0].chapters" :key="index" :name="'Kapitel ' + (index + 1)" :goTo="'/'+moduleName+'/chapters/' + (index + 1)"/>
+                    <ModuleButton :name="'Story Mode'" :goTo="'/'+moduleName+'/chapters/1'"/>
+                    <ModuleButton :name="'Algorithmen'" :goTo="'/'+moduleName+'/algorithms/'"/>
+                    <ModuleButton :name="'Labor'" :goTo="'/'+moduleName+'/laboratory/'"/>
                 </div>
                 <div class="filler"></div>
         </div>

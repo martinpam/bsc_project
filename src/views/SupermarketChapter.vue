@@ -9,9 +9,6 @@
       </div>
       <h2>Kapitel {{chapterId}}</h2>
       <div class="filler"></div>
-      <div class="container" @click="handleClick">
-        <div class="inner-text">Starten</div>
-      </div>
     </div>
     <div v-else class="story-board-outer">
       <StoryBoard moduleName="supermarket" :chapterId="chapterId"/>
@@ -27,12 +24,8 @@ export default {
   components: { StoryBoard },
   setup(props) {
     const chapterId = props.chapterId
-    const handleClick = () => {
-      console.log("starting story...")
-      started.value = true;
-    }
-    const started = ref(false)
-    return {chapterId, handleClick, started}
+    const started = ref(true)
+    return {chapterId, started}
   }
 }
 </script>

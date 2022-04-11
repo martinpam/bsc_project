@@ -18,11 +18,7 @@
             src="../assets/images/karin.png"
             alt="Karin"
           />
-          <div v-else class="code-box">
-            <div v-for="(line, index) in chapterData.algorithm" :key="line"  class="code-line">
-              <div class="line-number">{{index+1}}</div>  <div v-for="i in line['indent'] " :key="i" class='indent'></div> {{line["text"]}}
-            </div>
-          </div>
+          <CodeBox class="code-box" v-else :algorithm="chapterData.algorithm"/>
           <div
             v-if="isSpeaking('Robot')"
             :class="{
@@ -67,10 +63,11 @@
 import { computed, onMounted, ref } from "vue";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import getChapter from "../composables/getChapter.js";
+import CodeBox from "../components/CodeBox.vue";
 export default {
   props: ["moduleName", "chapterId"],
   name: "StoryBoard",
-  components: { ButtonNavigation },
+  components: { ButtonNavigation,CodeBox },
   setup(props) {
     console.log(props.moduleName, props.chapterId);
     const { chapterData, error, load } = getChapter(
@@ -130,6 +127,10 @@ export default {
   width: 100%;
 }
 
+.code-box {
+  width: 70%;
+}
+
 .karin,
 .robot {
   position: relative;
@@ -174,11 +175,7 @@ export default {
   border-top-right-radius: 0;
 }
 
-.line-number {
-    text-align: right;
-    margin-right: 1rem;
-    min-width: 2rem;
-}
+
 
 .button-navigation {
   width: 150px;
@@ -206,38 +203,10 @@ export default {
     margin: 0 0;
 }
 
-.code-box {
-  width: 70%;
-  background-color: #0e0e0e;
-  margin-bottom: 45px;
-  margin-left: 25px;
-  border-radius: 12px;
-  overflow: scroll;
-  margin-right: 12px;
-  
-}
-
-.code-line {
-    display: flex;
-    color: #f0f0f0;
-    font-size: 1.2rem;
-    text-align: left;
-    padding-left: 12px;
-    padding-top: 5px;
-    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-}
-
-.indent {
-    min-width: 1.3rem;
-}
-
 .smaller {
         width: 40px;
         margin-left: 0;
         margin-right: auto;
-        display: block;
-     
-        
-        
+        display: block; 
     }
 </style>

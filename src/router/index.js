@@ -3,6 +3,7 @@ import  Home  from '../views/Home.vue'
 import  Parking  from '../views/Parking.vue'
 import  Module  from '../views/Module.vue'
 import  SupermarketChapter  from '../views/SupermarketChapter.vue'
+import  AlgorithmOverview  from '../views/AlgorithmOverview.vue'
 
 const routes = [
   {
@@ -26,6 +27,13 @@ const routes = [
     path: '/supermarket/chapters/:chapterId',
     name: 'supermarket_chapter_1',
     component: SupermarketChapter,
+    props: true
+    
+  },
+  {
+    path: '/:moduleName/algorithms/',
+    name: 'algorithms',
+    component: AlgorithmOverview,
     props: true
     
   }
