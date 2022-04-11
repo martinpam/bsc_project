@@ -22,17 +22,12 @@
                         {"speaker" : "Karin", "text": "Wow das ging ja schnell, vielen Dank [robotName]!", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Gern geschehen!", "showCode"  : false}
                     ],
-                    "algorithm" : [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
-                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
-                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
-                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
-                        {"text" : "streiche den Artikel durch", "indent" : 5},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                    "simulations" : [
+                        {
+                            "algorithm" : 1,
+                            "supermarket" : "small",
+                            "shoppingList" : ["milk"]
+                        }
                     ]
                 },
                 {
@@ -62,24 +57,9 @@
                         {"speaker" : "Karin", "text": "Moment! Du vergleichst noch immer mit Schokolade?", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Na klar. Ich soll für jeden Artikel jeden Gang nach dem gewünschten Artikel absuchen.", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Darum hast du also so lange gebraucht.. Ab jetzt, wenn du einen Artikel gefunden hast, kannst du ruhig schon mit dem nächsten Artikel anfangen, ok?", "showCode"  : false},
-                        {"speaker" : "Robot", "text": "Ich verstehe", "showCode"  : false} 
-                    ],
-                    "algorithm" :  [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
-                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
-                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
-                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
-                        {"text" : "streiche den Artikel durch", "indent" : 5},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
-                    ]
-                },
-                {
-                    "chapterId" : 3,
-                    "conversation" : [
+                        {"speaker" : "Robot", "text": "Ich verstehe", "showCode"  : false},
+                    
+
                         {"speaker" : "Narrator", "text": "Nachdem [robotName] das letzte mal zu lange gebraucht hat, ergibt sich nun die Chance, sich anhand des neuen Algorithmus zu beweisen.", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Kannst du bitte noch einmal zu dem Supermarkt in der Mediumstraße? Ich brauche wieder Schokolade und Butter.", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Selbstverständlich!", "showCode"  : false},
@@ -92,23 +72,21 @@
                         {"speaker" : "Karin", "text": "Du bist schon wieder da? Ich habe schlimmeres berfürchtet, danke dir!", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Immer zu Diensten!", "showCode"  : false}
                     ],
-                    "algorithm" : [
-                        {"text" : "Betrete den Supermarkt", "indent" : 0},
-                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
-                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
-                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
-                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
-                        {"text" : "streiche den Artikel durch und ", "indent" : 5},
-                        {"text" : "starte die Suche mit dem nächsten Artikel", "indent" : 5},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
-                  
+                    "simulations" : [
+                        {
+                            "algorithm" : 1,
+                            "supermarket" : "medium",
+                            "shoppingList" : ["chocolate", "butter"]
+                        },
+                        {
+                            "algorithm" : 2,
+                            "supermarket" : "medium",
+                            "shoppingList" : ["chocolate", "butter"]
+                        }
                     ]
                 },
                 {
-                    "chapterId" : 4,
+                    "chapterId" : 3,
                     "conversation" : [
                         {"speaker" : "Narrator", "text": "Ein neuer Tag birgt eine scheinbar leichte Aufgabe für [robotName]..", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Hi [robotName], kann ich dich wieder um einen Gefallen bitten?", "showCode"  : false},
@@ -130,26 +108,9 @@
                         {"speaker" : "Robot", "text": "Ich verstehe nicht ganz. Ich sollte für jeden Artikel alle Gänge durchgehen..", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Du kannst doch nur einmal durchgehen und nach allen Artikeln Ausschau halten.", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Ich verstehe.", "showCode"  : false},
-                        {"speaker" : "Karin", "text": "Sehr gut. Komm, lass uns nach Hause gehen!", "showCode"  : false}
-                    ],
-                    "algorithm" : [
-                        {"text" : "Betrete den Supermarkt", "indent" : 0},
-                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
-                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
-                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
-                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
-                        {"text" : "streiche den Artikel durch und ", "indent" : 5},
-                        {"text" : "starte die Suche mit dem nächsten Artikel", "indent" : 5},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
-                  
-                    ]
-                },
-                {
-                    "chapterId" : 5,
-                    "conversation" : [
+                        {"speaker" : "Karin", "text": "Sehr gut. Komm, lass uns nach Hause gehen!", "showCode"  : false},
+
+
                         {"speaker" : "Narrator", "text": "Der Leseabend rückt näher und die Einkaufsliste wird länger..", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Hey [robotName]! Kannst du wieder eine Runde einkaufen gehen für mich?", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Sehr gerne, was soll ich besorgen?", "showCode"  : false},
@@ -163,22 +124,21 @@
                         {"speaker" : "Karin", "text": "Wow [robotName], du machst tolle Fortschritte!", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Vielen Dank, ich freue mich auf's nächste mal!", "showCode"  : false}
                     ],
-                    "algorithm" : [
-                        {"text" : "Betrete den Supermarkt", "indent" : 0},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 1},
-                        {"text" : "Betrachte den nächsten Artikel", "indent" : 2},
-                        {"text" : "Für jeden Artikel auf der Einkaufsliste", "indent" : 2},
-                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 3},
-                        {"text" : "falls ja", "indent" : 3},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 4},
-                        {"text" : "streiche den Artikel durch", "indent" : 4},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
-                  
-                    ]
+                    "simulations" : [
+                      {
+                        "algorithm" : 2,
+                        "supermarket" : "small",
+                        "shoppingList" : ["soja-milk"]
+                      },
+                      {
+                        "algorithm" : 3,
+                        "supermarket" : "medium",
+                        "shoppingList" : ["soja-milk", "whip-cream", "coffee-beans"] 
+                      }  
+                    ]  
                 },
                 {
-                    "chapterId" : 6,
+                    "chapterId" : 4,
                     "conversation" : [
                         {"speaker" : "Narrator", "text": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird [robotName]s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. ", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Hör mal [robotName], ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe..", "showCode"  : false},
@@ -197,25 +157,16 @@
                         {"speaker" : "Karin", "text": "Ich bin hin und weg, das war ja fast so schnell wie ich", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Vielen Dank!", "showCode"  : false}
                     ],
-                    "algorithm" : [
-                        {"text" : "Betrete den Supermarkt", "indent" : 0},
-                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
-                        {"text" : "Schaue dir das Schild am Gangeingang an", "indent" : 1},
-                        {"text" : "wenn die Betitelung auf der Einkaufsliste ist", "indent" : 1},
-                        {"text" : "betritt den Gang", "indent" : 2},
-                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast und ein Artikel dieser Abteilung auf der Liste steht", "indent" : 2},
-                        {"text" : "Betrachte den nächsten Artikel", "indent" : 3},
-                        {"text" : "Für jeden Artikel auf der Einkaufsliste mit dem aktuellen Abteilungsnamen", "indent" : 3},
-                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 4},
-                        {"text" : "falls ja", "indent" : 4},
-                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
-                        {"text" : "streiche den Artikel durch", "indent" : 5},
-                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
-                  
+                    "simulations" : [
+                        {
+                            "algorithm" : 4,
+                            "supermarket" : "medium",
+                            "shoppingList" : ["bananas:fruits_vegetables", "milk:cooling", "yoghurt:cooling"]
+                        }
                     ]
                 },
                 {
-                    "chapterId" : 7,
+                    "chapterId" : 5,
                     "conversation" : [
                         {"speaker" : "Narrator", "text": "Karin hat einen Freund, welcher Informatiker ist. Neulich hat sie ihm stolz von [robotName]s Fortschritten beim Einkaufen erzählt. Daraufhin hat ihr dieser vom sogenannten 'Traveling Salesman Problem' erzählt, dessen Algorithmus auch zum optimalen Einkaufen verwendet werden kann. ", "showCode"  : false},
                         {"speaker" : "Karin", "text": "Hi [robotName], ich habe gute Neuigkeiten. Du kannst bald noch effizienter einkaufen", "showCode"  : false},
@@ -240,7 +191,89 @@
                         {"speaker" : "Karin", "text": "Unglaublich, so schnell hätte ich das nie geschafft.. Du bist wirklich ein Einkaufsexperte geworden", "showCode"  : false},
                         {"speaker" : "Robot", "text": "Vielen Dank!", "showCode"  : false}
                     ],
-                    "algorithm" : [
+                    "simulations" : [
+                        {
+                            "algorithm" : 4,
+                            "supermarket" : "large",
+                            "shoppingList" : ["apple:fruits_vegetables", "milk:cooling", "coffee-beans:stimulants", "cookies:stimultans"]
+                        },
+                        {
+                            "algorithm" : 5,
+                            "supermarket" : "large",
+                            "shoppingList" : ["apple", "bananas", "soja-milk", "coffee-beans", "chocolate", "yoghurt"]
+                        }
+                    ]   
+                }
+            ],
+            "algorithms" : [
+                {
+                    "algorithmNr" : 1,
+                    "lines" : [
+                        {"text" : "Betritt den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                    ]
+                },
+                {
+                    "algorithmNr" : 2,
+                    "lines" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Solange es Artikel auf der Einkaufsliste gibt", "indent" : 0},
+                        {"text" : "Mach folgendes für jeden Artikel auf der Einkaufsliste", "indent" : 1},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 3},
+                        {"text" : "Schaue dir den nächsten Artikel an", "indent" : 4},
+                        {"text" : "Wenn es der gewünschte Artikel ist", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch und ", "indent" : 5},
+                        {"text" : "starte die Suche mit dem nächsten Artikel", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                    ]
+                },
+                {
+                    "algorithmNr" : 3, 
+                    "lines" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast", "indent" : 1},
+                        {"text" : "Betrachte den nächsten Artikel", "indent" : 2},
+                        {"text" : "Für jeden Artikel auf der Einkaufsliste", "indent" : 2},
+                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 3},
+                        {"text" : "falls ja", "indent" : 3},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 4},
+                        {"text" : "streiche den Artikel durch", "indent" : 4},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                    ]
+                },
+                {
+                    "algorithmNr" : 4,
+                    "lines" : [
+                        {"text" : "Betrete den Supermarkt", "indent" : 0},
+                        {"text" : "Mache folgendes für jeden Gang", "indent" : 0},
+                        {"text" : "Schaue dir das Schild am Gangeingang an", "indent" : 1},
+                        {"text" : "wenn die Betitelung auf der Einkaufsliste ist", "indent" : 1},
+                        {"text" : "betritt den Gang", "indent" : 2},
+                        {"text" : "Solange du nicht alle Artikel im Gang angesehen hast und ein Artikel dieser Abteilung auf der Liste steht", "indent" : 2},
+                        {"text" : "Betrachte den nächsten Artikel", "indent" : 3},
+                        {"text" : "Für jeden Artikel auf der Einkaufsliste mit dem aktuellen Abteilungsnamen", "indent" : 3},
+                        {"text" : "vergleiche ob es sich um den betrachteten Artikel handelt", "indent" : 4},
+                        {"text" : "falls ja", "indent" : 4},
+                        {"text" : "lege ihn in den Einkaufskorb und", "indent" : 5},
+                        {"text" : "streiche den Artikel durch", "indent" : 5},
+                        {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
+                  
+                    ]
+                },
+                {
+                    "algorithmNr" : 5,
+                    "lines" : [
                         {"text" : "Betrete den Supermarkt", "indent" : 0},
                         {"text" : "Wende den bereitgestellten Algorithmus anhang der Distanz-Liste an", "indent" : 0},
                         {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
