@@ -51,6 +51,7 @@
       </div>
       <div class="lower-part"></div>
       <ButtonNavigation
+        :story="true"
         @handleClickForward="goForward"
         @handleClickBack="goBack"
         class="button-navigation"

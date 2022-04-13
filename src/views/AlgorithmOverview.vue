@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>{{ mdl[0].name_de }}</h1>
-    <h2>Story Algorithmen</h2>
+    <h1>{{ mdl[0].name_de }} Kapitel 1</h1>
     <div class="grid">
         <div class="left-side">
            <div class="algorithm-container">
@@ -23,7 +22,7 @@
         <div class="right-side">
          <div class="supermarket-container">
           <h3>Supermarkt: {{ allSimulations[currentSimulation].supermarket }} </h3>
-          <div class="supermarket"></div>
+          <Supermarket size="small"/>
         </div>
         </div>
     </div>
@@ -36,10 +35,11 @@
 import { ref } from "@vue/reactivity";
 import getModule from "../composables/getModule";
 import CodeBox from "../components/CodeBox.vue";
+import Supermarket from "../components/Supermarket.vue";
 export default {
   props: ["moduleName"],
   name: "AlgorithmOverview",
-  components: { CodeBox },
+  components: { CodeBox, Supermarket },
   setup(props) {
     const { mdl, error, load } = getModule(props.moduleName);
     load();
@@ -57,6 +57,7 @@ export default {
 <style>
 .grid {
     display: flex;
+    padding-top: 20px;
 }
 .left-side {
     width: 40%;
@@ -65,18 +66,12 @@ export default {
     width: 60%;
 }
 .supermarket-container {
-
+    
     border-radius: 12px;
     margin-right: 25px;
     margin-left: 15px;
 }
-.supermarket {
-    height: 600px;
-    width: 100%;
-    background-color:blanchedalmond;
-    border-radius: 12px;
-  
-}
+
 .supermarket:after {
     content: "";
     display: block;
