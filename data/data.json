@@ -279,6 +279,50 @@
                         {"text" : "Bezahle an der Kasse und verlasse den Supermarkt", "indent" : 0}
                     ]
                 }
+            ],
+            "supermarketLayouts" : [
+                {
+                    "name" : "small",
+                    "shelfs" : [
+                        {
+                            "name" : "vegetables",
+                            "items" : ["tomato", "cucumber", "salad"]
+                        },
+                        {
+                            "name" : "fruits",
+                            "items" : ["apple", "banana", "melon"]
+                        },
+                        {
+                            "name" : "cooler",
+                            "items" : ["milk", "yoghurt", "whip-cream"]
+                        },
+                        {
+                            "name" : "freezer",
+                            "items" : ["spinach", "ice-cream", "pizza"]
+                        }
+                    ]
+                },
+                {
+                    "name" : "medium",
+                    "shelfs" : [
+                        {
+                            "name" : "vegetables",
+                            "items" : ["tomato", "cucumber", "salad"]
+                        },
+                        {
+                            "name" : "fruits",
+                            "items" : ["apple", "banana", "melon"]
+                        },
+                        {
+                            "name" : "cooler",
+                            "items" : ["milk", "yoghurt", "whip-cream"]
+                        },
+                        {
+                            "name" : "freezer",
+                            "items" : ["spinach", "ice-cream", "pizza"]
+                        }
+                    ]
+                }
             ]
         },
         {

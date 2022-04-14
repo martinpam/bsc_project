@@ -22,7 +22,7 @@
         <div class="right-side">
          <div class="supermarket-container">
           <h3>Supermarkt: {{ allSimulations[currentSimulation].supermarket }} </h3>
-          <Supermarket size="small"/>
+          <Supermarket size="small" :algorithm="1" :shoppingList="['apple', 'milk']"/>
         </div>
         </div>
     </div>
