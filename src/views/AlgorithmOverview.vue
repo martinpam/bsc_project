@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>{{ mdl[0].name_de }} Kapitel 1</h1>
+    <div class="header-overview">
+      <div class="previous-chapter" @click="currentSimulation--" ><h1 v-show="currentSimulation!=0" >&lt;&lt;</h1></div>
+      <h1>{{ mdl[0].name_de }} Kapitel {{allSimulations[currentSimulation].name}}</h1>
+      <div class="next-chapter"  @click="currentSimulation++"><h1 v-show="currentSimulation!=(allSimulations.length-1) ">&gt;&gt;</h1></div>
+    </div>
     <div class="grid">
         <div class="left-side">
            <div class="algorithm-container">
@@ -22,7 +26,7 @@
         <div class="right-side">
          <div class="supermarket-container">
           <h3>Supermarkt: {{ allSimulations[currentSimulation].supermarket }} </h3>
-          <Supermarket size="small" :algorithm="1" :shoppingList="['apple', 'milk']"/>
+          <Supermarket :size="allSimulations[currentSimulation].supermarket" :algorithm="allSimulations[currentSimulation].algorithm" :shoppingList="allSimulations[currentSimulation].shoppingList"/>
         </div>
         </div>
     </div>
@@ -55,6 +59,15 @@ export default {
 </script>
 
 <style>
+.next-chapter {
+  min-width: 80px;
+  cursor: pointer;
+}
+.previous-chapter {
+  min-width: 80px;
+  cursor: pointer;
+}
+
 .grid {
     display: flex;
     padding-top: 20px;
@@ -77,6 +90,14 @@ export default {
     display: block;
 
 }
+.header-overview {
+  display: flex;
+  width: 670px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+
 
 .code-box {
     width: 95%;

@@ -24,6 +24,7 @@
                     ],
                     "simulations" : [
                         {
+                            "name" : "1",
                             "algorithm" : 1,
                             "supermarket" : "small",
                             "shoppingList" : ["milk"]
@@ -74,11 +75,13 @@
                     ],
                     "simulations" : [
                         {
+                            "name" : "2a",
                             "algorithm" : 1,
                             "supermarket" : "medium",
                             "shoppingList" : ["chocolate", "butter"]
                         },
                         {
+                            "name" : "2b",
                             "algorithm" : 2,
                             "supermarket" : "medium",
                             "shoppingList" : ["chocolate", "butter"]
@@ -126,11 +129,13 @@
                     ],
                     "simulations" : [
                       {
+                        "name" : "3a",
                         "algorithm" : 2,
                         "supermarket" : "small",
                         "shoppingList" : ["soja-milk"]
                       },
                       {
+                        "name" : "3b",
                         "algorithm" : 3,
                         "supermarket" : "medium",
                         "shoppingList" : ["soja-milk", "whip-cream", "coffee-beans"] 
@@ -159,6 +164,7 @@
                     ],
                     "simulations" : [
                         {
+                            "name" : "4",
                             "algorithm" : 4,
                             "supermarket" : "medium",
                             "shoppingList" : ["bananas:fruits_vegetables", "milk:cooling", "yoghurt:cooling"]
@@ -193,11 +199,13 @@
                     ],
                     "simulations" : [
                         {
+                            "name" : "5a",
                             "algorithm" : 4,
                             "supermarket" : "large",
                             "shoppingList" : ["apple:fruits_vegetables", "milk:cooling", "coffee-beans:stimulants", "cookies:stimultans"]
                         },
                         {
+                            "name" : "5b",
                             "algorithm" : 5,
                             "supermarket" : "large",
                             "shoppingList" : ["apple", "bananas", "soja-milk", "coffee-beans", "chocolate", "yoghurt"]
@@ -290,11 +298,11 @@
                         },
                         {
                             "name" : "fruits",
-                            "items" : ["apple", "banana", "melon"]
+                            "items" : ["apple", "banana", "water-melon"]
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["milk", "yoghurt", "whip-cream"]
+                            "items" : ["milk", "yogurt", "cheese"]
                         },
                         {
                             "name" : "freezer",
