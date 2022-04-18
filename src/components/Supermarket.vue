@@ -75,7 +75,7 @@ export default {
   setup(props) {
     console.log(props);
     const shoppingList = ref([]);
-    shoppingList.value.push(...props.shoppingListProp)
+    shoppingList.value.push(...props.shoppingListProp);
     const supermarket = ref(null);
     const corridor = ref(null);
     const playing = ref(false);
@@ -91,8 +91,10 @@ export default {
     const plannedCoordinates = [];
     const exit = ref(null);
     const currentItem = ref(null);
-    const currentAnimation =ref(0);
-    const currentItemName = ref(shoppingListLive.value[shoppingListLive.value.length-1]);
+    const currentAnimation = ref(0);
+    const currentItemName = ref(
+      shoppingListLive.value[shoppingListLive.value.length - 1]
+    );
     const cell = {
       height: 0,
       width: 0,
@@ -107,12 +109,14 @@ export default {
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
     onMounted(() => {
-
       console.log("mounted", robotWidth.value);
       cell.width = Math.max(door.value.clientWidth, door.value.clientHeight);
-      cell.height = props.size === 'large' ? document.getElementsByClassName("shelf")[0].clientHeight / 4 : document.getElementsByClassName("shelf")[0].clientHeight / 3
-      currentItem.value.height = cell.height/2;
-      currentItem.value.width = cell.width/2;
+      cell.height =
+        props.size === "large"
+          ? document.getElementsByClassName("shelf")[0].clientHeight / 4
+          : document.getElementsByClassName("shelf")[0].clientHeight / 3;
+      currentItem.value.height = cell.height / 2;
+      currentItem.value.width = cell.width / 2;
     });
 
     return {
@@ -138,8 +142,8 @@ export default {
       shoppingList,
       currentAnimation,
       MAX_ROUNDS,
-      endlessRoundStarter, 
-      rounds
+      endlessRoundStarter,
+      rounds,
     };
   },
   watch: {
@@ -147,10 +151,13 @@ export default {
     shoppingListProp(newShoppingList, oldShoppingList) {
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.door.clientWidth, this.door.clientHeight);
-      this.cell.height = this.size === 'large' ? this.shelfs[0].clientHeight / 4 : this.shelfs[0].clientHeight / 3
-      this.currentItem.height = this.cell.height/2;
-      this.currentItem.width = this.cell.width/2;
-      console.log('updated to new chapter', this.cell)
+      this.cell.height =
+        this.size === "large"
+          ? this.shelfs[0].clientHeight / 4
+          : this.shelfs[0].clientHeight / 3;
+      this.currentItem.height = this.cell.height / 2;
+      this.currentItem.width = this.cell.width / 2;
+      console.log("updated to new chapter", this.cell);
       this.resetSimulation();
     },
   },
@@ -163,13 +170,14 @@ export default {
       this.shelfs = document.getElementsByClassName("shelf");
       this.plannedCoordinates = [];
       this.robotPosPlanned = null;
-      this.currentItemName = this.shoppingListLive[this.shoppingListLive.length-1];
+      this.currentItemName =
+        this.shoppingListLive[this.shoppingListLive.length - 1];
       this.currentAnimation = 0;
       this.playing = false;
       this.rounds = 0;
       this.gameStarted = false;
-      this.animations.forEach(element => {
-        element.animation.cancel()
+      this.animations.forEach((element) => {
+        element.animation.cancel();
       });
       this.animations = [];
       this.MAX_ROUNDS = 2;
@@ -178,30 +186,32 @@ export default {
       this.playing = !this.playing;
       if (!this.gameStarted) this.startSimulation();
       if (!this.playing && this.gameStarted) {
-       this.animations[this.currentAnimation].animation.pause();
+        this.animations[this.currentAnimation].animation.pause();
       } else {
         this.animations[this.currentAnimation].animation.play();
       }
     },
     getItemUrl(itemName) {
       if (itemName !== undefined) {
-        var items = require.context('../assets/icons/items', false, /\.png$/)
-    return items('./' + itemName + ".png")
+        var items = require.context("../assets/icons/items", false, /\.png$/);
+        return items("./" + itemName + ".png");
       }
-
-  },
+    },
     startSimulation() {
-      console.log(this.animations)
+      console.log(this.animations);
       this.resetSimulation();
-      console.log(this.animations)
+      console.log(this.animations);
       console.log("resetting simulation", this.shoppingList);
       this.gameStarted = true;
       this.playing = true;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.door.clientWidth, this.door.clientHeight);
-      this.cell.height = this.size === 'large' ? this.shelfs[0].clientHeight / 4 : this.shelfs[0].clientHeight / 3
-      this.currentItem.height = this.cell.height/2;
-      this.currentItem.width = this.cell.width/2;
+      this.cell.height =
+        this.size === "large"
+          ? this.shelfs[0].clientHeight / 4
+          : this.shelfs[0].clientHeight / 3;
+      this.currentItem.height = this.cell.height / 2;
+      this.currentItem.width = this.cell.width / 2;
       this.setRobotStartPosition();
       this.fillAnimations();
       this.startSearch();
@@ -217,9 +227,17 @@ export default {
       };
     },
     setRobotStartPosition() {
-      console.log('reset pos of robot to start')
-      this.robot.style.top = document.getElementsByClassName('start')[0].getBoundingClientRect().top + 2 + 'px';
-      this.robot.style.left = document.getElementsByClassName('start')[0].getBoundingClientRect().left + 2 + 'px';
+      console.log("reset pos of robot to start");
+      this.robot.style.top =
+        document.getElementsByClassName("start")[0].getBoundingClientRect()
+          .top +
+        2 +
+        "px";
+      this.robot.style.left =
+        document.getElementsByClassName("start")[0].getBoundingClientRect()
+          .left +
+        2 +
+        "px";
     },
     fastForward() {
       this.fastForward = !this.fastForward;
@@ -239,9 +257,11 @@ export default {
     },
     checkCorrectColumn(shelf) {
       if (shelf.classList.contains("articles-left")) {
-        console.log(this.robotPosPlanned.x,
-              this.cell.width * 0.825,
-              this.getPos(shelf).x)
+        console.log(
+          this.robotPosPlanned.x,
+          this.cell.width * 0.825,
+          this.getPos(shelf).x
+        );
         return (
           Math.abs(
             this.robotPosPlanned.x +
@@ -251,9 +271,11 @@ export default {
         );
       }
       if (shelf.classList.contains("articles-right")) {
-        console.log(this.robotPosPlanned.x,
-              this.cell.width * 1.175,
-              this.getPos(shelf).x)
+        console.log(
+          this.robotPosPlanned.x,
+          this.cell.width * 1.175,
+          this.getPos(shelf).x
+        );
         return (
           Math.abs(
             this.robotPosPlanned.x -
@@ -270,11 +292,11 @@ export default {
       const step = walk_x
         ? "translateX(" + walk_x + "px)"
         : "translateY(" + walk_y + "px)";
-      this.animations.push({ animation :
-        this.robot.animate([{ transform: step }], {
+      this.animations.push({
+        animation: this.robot.animate([{ transform: step }], {
           duration: duration,
           delay: delay,
-        })
+        }),
       });
       this.robotPosPlanned.x += walk_x;
       this.robotPosPlanned.y += walk_y;
@@ -284,37 +306,37 @@ export default {
       });
     },
     addFadingAnimation(fadeIn) {
-      this.animations.push( { animation :
-        this.robot.animate([fadeIn ? { opacity: 1 } : { opacity: 0 }], {
-          duration: 1000,
-          fill: "forwards",
-        })
+      this.animations.push({
+        animation: this.robot.animate(
+          [fadeIn ? { opacity: 1 } : { opacity: 0 }],
+          {
+            duration: 1000,
+            fill: "forwards",
+          }
+        ),
       });
       this.plannedCoordinates.push(null);
     },
-    addFinishedRoundAnimation() {
-       this.animations.push( { animation :
-        this.robot.animate([{}], {
+    addFinishedRoundAnimation(nextItem) {
+      console.log('addFinishRound with nextItem ' , nextItem)
+      this.animations.push({
+        animation: this.robot.animate([{}], {
           duration: 0,
-        })
-      ,finishedRound: true},
-
-      );
+        }),
+        finishedRound: true,
+        nextItem: nextItem
+      });
       this.plannedCoordinates.push(null);
     },
     calculateWalkingDistance_x(shelf) {
       if (shelf.classList.contains("articles-left")) {
         return (
-          this.getPos(shelf).x -
-          this.robotPosPlanned.x -
-          this.cell.width + 20
+          this.getPos(shelf).x - this.robotPosPlanned.x - this.cell.width + 20
         );
       }
       if (shelf.classList.contains("articles-right")) {
         return (
-          this.getPos(shelf).x -
-          this.robotPosPlanned.x +
-          this.cell.width + 30
+          this.getPos(shelf).x - this.robotPosPlanned.x + this.cell.width + 30
         );
       }
       console.log("error");
@@ -324,7 +346,7 @@ export default {
       this.addFadingAnimation(true);
       this.robotPosPlanned = this.robotPos();
       while (this.shoppingList.length > 0 && this.rounds < this.MAX_ROUNDS) {
-        console.log(this.rounds)
+        console.log(this.rounds);
         this.rounds++;
         let foundTopItem = false;
         let restart = false;
@@ -333,63 +355,77 @@ export default {
           [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem);
           if (restart) break;
         }
-        
-       if (this.endlessRoundStarter <= 0) this.endlessRoundStarter = this.animations.length ;
+
+        if (this.endlessRoundStarter <= 0)
+          this.endlessRoundStarter = this.animations.length;
       }
 
       //pay and leave
       if (this.algorithm < 3 && this.shoppingList.length !== 0) {
-       this.repeatAnimations();
+        this.repeatAnimations();
       }
 
-      if (this.size === 'small') {
+      if (this.size === "small") {
         this.addWalkingAnimation(
-        0,
-        0,
-        this.getPos(this.checkout).y -
-          this.robotPosPlanned.y +
-          this.checkout.clientHeight * 1.2
-      );
-      this.addWalkingAnimation(
-        0,
-        this.getPos(this.checkout).x -
-          this.robotPosPlanned.x +
-          this.cell.height * 0.125,
-        0
-      );
-      this.addWalkingAnimation(
-        500,
-        this.getPos(this.exit).x -
-          this.robotPosPlanned.x +
-          this.cell.height * 0.175,
-        0
-      );
-      this.addWalkingAnimation(
-        0,
-        0,
-        this.getPos(this.exit).y - this.robotPosPlanned.y
-      );
+          0,
+          0,
+          this.getPos(this.checkout).y -
+            this.robotPosPlanned.y +
+            this.checkout.clientHeight * 1.2
+        );
+        this.addWalkingAnimation(
+          0,
+          this.getPos(this.checkout).x -
+            this.robotPosPlanned.x +
+            this.cell.height * 0.125,
+          0
+        );
+        this.addWalkingAnimation(
+          500,
+          this.getPos(this.exit).x -
+            this.robotPosPlanned.x +
+            this.cell.height * 0.175,
+          0
+        );
+        this.addWalkingAnimation(
+          0,
+          0,
+          this.getPos(this.exit).y - this.robotPosPlanned.y
+        );
       } else {
         //medium or large
         let walk_x, walk_y;
-        walk_y = this.getPos(this.corridor).y - this.cell.height * 0.1 - this.robotPosPlanned.y;
+        walk_y =
+          this.getPos(this.corridor).y -
+          this.cell.height * 0.1 -
+          this.robotPosPlanned.y;
         this.addWalkingAnimation(0, 0, walk_y);
-        walk_x = this.getPos(this.checkout).x - this.cell.width * 0.9 - this.robotPosPlanned.x;
+        walk_x =
+          this.getPos(this.checkout).x -
+          this.cell.width * 0.9 -
+          this.robotPosPlanned.x;
         this.addWalkingAnimation(0, walk_x, 0);
-        walk_y = this.getPos(this.exit).y + this.cell.height * 0.2 - this.robotPosPlanned.y;
+        walk_y =
+          this.getPos(this.exit).y +
+          this.cell.height * 0.2 -
+          this.robotPosPlanned.y;
         this.addWalkingAnimation(500, 0, walk_y);
-        walk_x = this.getPos(this.exit).x - this.cell.width * 0.4 - this.robotPosPlanned.x;
+        walk_x =
+          this.getPos(this.exit).x -
+          this.cell.width * 0.4 -
+          this.robotPosPlanned.x;
         this.addWalkingAnimation(0, walk_x, 0);
       }
 
       this.addFadingAnimation(false);
-      this.animations.push({exit: true, animation : this.currentItem.animate([{}], {
+      this.animations.push({
+        exit: true,
+        animation: this.currentItem.animate([{}], {
           duration: 0,
-        }) })
-
+        }),
+      });
 
       for (let u = 0; u < this.animations.length; u++) {
-        console.log('current u', u)
         this.animations[u].animation.pause();
         this.animations[u].animation.onfinish = () => {
           this.currentAnimation++;
@@ -399,143 +435,187 @@ export default {
               this.plannedCoordinates[u].y
             );
           }
-          if (u != this.animations.length - 1) this.animations[u + 1].animation.play();
-          if (this.animations[u].type === 'search') {
-            this.currentItem.style.display = 'none'
+          if (u != this.animations.length - 1)
+            this.animations[u + 1].animation.play();
+          if (this.animations[u].type === "search") {
+            this.currentItem.style.display = "none";
           }
-          if (this.animations[u+1].type && this.animations[u+1].type === 'search') {
-            this.currentItem.style.display = 'block'
-            this.currentItem.style.top = (this.getPos(this.animations[u+1].shelf).y + this.animations[u+1].cell * this.cell.height + this.cell.height * 0.07) + 'px';
-            this.currentItem.style.left = (this.getPos(this.animations[u+1].shelf).x) + this.cell.width*0.175 + 'px';
+          if (
+            this.animations[u + 1].type &&
+            this.animations[u + 1].type === "search"
+          ) {
+            this.currentItem.style.display = "block";
+            this.currentItem.style.top =
+              this.getPos(this.animations[u + 1].shelf).y +
+              this.animations[u + 1].cell * this.cell.height +
+              this.cell.height * 0.07 +
+              "px";
+            this.currentItem.style.left =
+              this.getPos(this.animations[u + 1].shelf).x +
+              this.cell.width * 0.175 +
+              "px";
 
-            if (this.animations[u+1].successful === true) {
-              document.getElementById('itemText').innerHTML  ='✔️';
+            if (this.animations[u + 1].successful === true) {
+              document.getElementById("itemText").innerHTML = "✔️";
             } else {
-              document.getElementById('itemText').innerHTML  ='&#10060';
+              document.getElementById("itemText").innerHTML = "&#10060";
             }
-
-
-            }
-            if (this.animations[u+1].finishedRound === true) {
+          }
+          if (this.animations[u + 1].finishedRound === true) {
             /* this.shoppingListLive.pop();
              this.currentItemName = this.shoppingListLive[this.shoppingListLive.length-1] */
-             this.currentItemName = this.animations[u+1].nextItem;
-             console.log('changed currentItemName')
-            }
+             let prev = this.currentItemName
+            this.currentItemName = this.animations[u + 1].nextItem;
+            console.log("changed currentItemName from " + prev  +  "to" + this.currentItemName);
+          }
 
+          if (this.animations[u + 1].exit === true) {
+            this.gameStarted = false;
+            this.playing = false;
+          }
 
-             if (this.animations[u+1].exit === true) {
-                this.gameStarted = false;
-             this.playing = false;
-             }
-
-             if (this.animations[u+1].endlessLoop === true) {
-                console.log(this.endlessRoundStarter)
-                this.animations[this.endlessRoundStarter].animation.play();
-                this.animations[u+1].animation.pause();
-
-             }
-
+          if (this.animations[u + 1].endlessLoop === true) {
+            console.log(this.endlessRoundStarter);
+            this.animations[this.endlessRoundStarter].animation.play();
+            this.animations[u + 1].animation.pause();
+          }
         };
       }
     },
     goToNextShelf(nextShelf) {
       let walk_x = 0,
-          walk_y = 0;
+        walk_y = 0;
       console.log(this.checkCorrectColumn(this.shelfs[nextShelf]));
-          if (this.checkCorrectColumn(this.shelfs[nextShelf])) {
-            walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
-            this.addWalkingAnimation(0, 0, walk_y);
-          } else {
-            walk_y = this.getPos(this.corridor).y - this.cell.width*0.1 - this.robotPosPlanned.y;
-            this.addWalkingAnimation(0, 0, walk_y);
-            walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]);
-            this.addWalkingAnimation(0, walk_x, 0);
-            walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
-            this.addWalkingAnimation(0, 0, walk_y);
-          }
+      if (this.checkCorrectColumn(this.shelfs[nextShelf])) {
+        walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
+        this.addWalkingAnimation(0, 0, walk_y);
+      } else {
+        walk_y =
+          this.getPos(this.corridor).y -
+          this.cell.width * 0.1 -
+          this.robotPosPlanned.y;
+        this.addWalkingAnimation(0, 0, walk_y);
+        walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]);
+        this.addWalkingAnimation(0, walk_x, 0);
+        walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
+        this.addWalkingAnimation(0, 0, walk_y);
+      }
     },
     handleShelfSearch(currentShelf, foundTopItem) {
-      const shelfCells = this.size === 'large' ? 4 : 3;
+      const shelfCells = this.size === "large" ? 4 : 3;
       const items = this.shelfData.filter(
-          (s) => s.name === this.shelfs[currentShelf].classList[1]
+        (s) => s.name === this.shelfs[currentShelf].classList[1]
       )[0].items;
 
-          switch(this.algorithm) {
-            case 1: case 2:
-               for (let i = 0; i < shelfCells; i++) {
-                 if (items[i] === this.shoppingList[this.shoppingList.length-1]) {
-                  this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], true, this.shelfs[currentShelf], i  );
-                  this.rounds = 0;
-                  foundTopItem = true;
-                  if (this.algorithm === 2) {
-                    this.shoppingList.pop();
-                    this.addFinishedRoundAnimation(this.shoppingList[this.shoppingList.length-1]);
-                    return [foundTopItem, true];
-                  }
-                 } else {
-                  this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], false, this.shelfs[currentShelf], i );
-                 }
-                 if ((i+1) !== shelfCells) {
-                   this.addWalkingAnimation(
-                   0,
-                   0,
-                   this.shelfs[currentShelf].clientHeight / shelfCells
-                   );
-                  } 
-                  else if (foundTopItem && currentShelf === (this.shelfs.length -1)) {
-                    this.shoppingList.pop();
-                    this.addFinishedRoundAnimation(this.shoppingList[this.shoppingList.length-1]);
-                  }
-               } 
-               return [foundTopItem, false];
-  
-            case 3:
-              for (let i = 0; i < shelfCells; i++) {
-                console.log('looking through shopping list')
-                for (let u = 0; u < this.shoppingList.length; u++) {
-                  console.log('comparing ', items[i],this.shoppingList[u] )
-                  if (items[i] === this.shoppingList[u]) {
-                    console.log('showing success', this.shoppingList[u])
-                  this.addSearchAnimation(this.shoppingList[u], true, this.shelfs[currentShelf], i  );
-                  this.rounds = 0;
-                  foundTopItem = true;
-                  this.addFinishedRoundAnimation(this.shoppingList[u+1] | this.shoppingList[0]);
-                 
-                  this.shoppingList.pop();
-                  console.log('breaking out')
-                  break;
-                  
-                 } else {
-                   console.log('showing', this.shoppingList[u])
-                  this.addSearchAnimation(this.shoppingList[u], false, this.shelfs[currentShelf], i );
-                 }
-                 this.addFinishedRoundAnimation(this.shoppingList[u+1] | this.shoppingList[0]);
-                }
-                 
-                 if ((i+1) !== shelfCells) {
-                   this.addWalkingAnimation(
-                   0,
-                   0,
-                   this.shelfs[currentShelf].clientHeight / shelfCells
-                   );
-                  } 
-                  
-               } 
-               return [foundTopItem, false];
-
-              break;
-            case 4:
-
-
-              break;
-            case 5:
-
-
-              break;
-
+      switch (this.algorithm) {
+        case 1:
+        case 2:
+          for (let i = 0; i < shelfCells; i++) {
+            if (items[i] === this.shoppingList[this.shoppingList.length - 1]) {
+              this.addSearchAnimation(
+                this.shoppingList[this.shoppingList.length - 1],
+                true,
+                this.shelfs[currentShelf],
+                i
+              );
+              this.rounds = 0;
+              foundTopItem = true;
+              if (this.algorithm === 2) {
+                this.shoppingList.pop();
+                this.addFinishedRoundAnimation(
+                  this.shoppingList[this.shoppingList.length - 1]
+                );
+                return [foundTopItem, true];
+              }
+            } else {
+              this.addSearchAnimation(
+                this.shoppingList[this.shoppingList.length - 1],
+                false,
+                this.shelfs[currentShelf],
+                i
+              );
+            }
+            if (i + 1 !== shelfCells) {
+              this.addWalkingAnimation(
+                0,
+                0,
+                this.shelfs[currentShelf].clientHeight / shelfCells
+              );
+            } else if (
+              foundTopItem &&
+              currentShelf === this.shelfs.length - 1
+            ) {
+              this.shoppingList.pop();
+              this.addFinishedRoundAnimation(
+                this.shoppingList[this.shoppingList.length - 1]
+              );
+            }
           }
-        /*
+          return [foundTopItem, false];
+
+        case 3:
+      
+                this.addFinishedRoundAnimation(
+                  this.shoppingList[0 ]
+                );
+          for (let i = 0; i < shelfCells; i++) {
+            console.log("looking through shopping list");
+            if (this.shoppingList.length === 0) break;
+            for (let u = 0; u < this.shoppingList.length; u++) {
+         
+              console.log("comparing ", items[i], this.shoppingList[u]); //"shoppingList" : ["coffee","soy-milk", "yogurt"] 
+              if (items[i] === this.shoppingList[u]) {                  // "items" : ["milk", "yogurt", "soy-milk"]
+                console.log("showing success", this.shoppingList[u]);
+                this.addSearchAnimation(
+                  this.shoppingList[u%this.shoppingList.length],
+                  true,
+                  this.shelfs[currentShelf],
+                  i
+                );
+                this.rounds = 0;
+                foundTopItem = true;
+                 
+                
+               
+            
+
+                this.addFinishedRoundAnimation(
+                  this.shoppingList[(u+1)%this.shoppingList.length ]
+                );
+           this.shoppingList.splice(u,1)
+                console.log("breaking out");
+                break;
+              } else {
+                console.log("showing", this.shoppingList[u]);
+                this.addSearchAnimation(
+                  this.shoppingList[u%this.shoppingList.length],
+                  false,
+                  this.shelfs[currentShelf],
+                  i
+                );
+              }
+              this.addFinishedRoundAnimation(
+                this.shoppingList[(u+1)%this.shoppingList.length]
+              );
+            }
+
+            if (i + 1 !== shelfCells && this.shoppingList.length > 0) {
+              this.addWalkingAnimation(
+                0,
+                0,
+                this.shelfs[currentShelf].clientHeight / shelfCells
+              );
+            }
+          }
+          return [foundTopItem, false];
+
+          break;
+        case 4:
+          break;
+        case 5:
+          break;
+      }
+      /*
           if (this.algorithm == 1 || !foundTopItem) {
             if (!this.checkItem(items, 0)) {
             this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], false, this.shelfs[currentShelf], 0 );
@@ -568,33 +648,35 @@ export default {
             }
           }   if (this.algorithm > 1 && foundTopItem) break;  */
     },
-    addSearchAnimation(itemName, successful, shelf, cell ) {
+    addSearchAnimation(itemName, successful, shelf, cell) {
       this.animations.push({
-        type : 'search',
-        itemName : itemName,
-        successful : successful,
+        type: "search",
+        itemName: itemName,
+        successful: successful,
         shelf: shelf,
         cell: cell,
-        animation : this.currentItem.animate([{}], {
+        animation: this.currentItem.animate([{}], {
           duration: successful ? 1000 : 500,
-        })
-      }
-
-      );
+        }),
+      });
       this.plannedCoordinates.push(null);
     },
     checkItem(items, index) {
       switch (this.algorithm) {
         case 1:
-          console.log("algo 1 checking item", this.shoppingList );
-          if (items[index] === this.shoppingList[this.shoppingList.length-1]) {
+          console.log("algo 1 checking item", this.shoppingList);
+          if (
+            items[index] === this.shoppingList[this.shoppingList.length - 1]
+          ) {
             return true;
           }
           return false;
           break;
         case 2:
           console.log("algo 2 checking item");
-          if (items[index] === this.shoppingList[this.shoppingList.length-1]) {
+          if (
+            items[index] === this.shoppingList[this.shoppingList.length - 1]
+          ) {
             return true;
           }
           return false;
@@ -603,9 +685,9 @@ export default {
         case 3:
           console.log("algo 3 checking item");
           for (let i = 0; i < shoppingList.length; i++)
-          if (items[index] === this.shoppingList[i]) {
-            return true;
-          }
+            if (items[index] === this.shoppingList[i]) {
+              return true;
+            }
           return false;
 
           break;
@@ -620,22 +702,22 @@ export default {
       }
     },
     changeRobotPos(x, y) {
-     // console.log(this.robot.style.top, this.robot.style.left, x, y);
+      // console.log(this.robot.style.top, this.robot.style.left, x, y);
       this.robot.style.top = y + "px";
       this.robot.style.left = x + "px";
-   //   console.log(this.robot.style.top, this.robot.style.left);
+      //   console.log(this.robot.style.top, this.robot.style.left);
     },
     startSearch() {
       this.animations[0].animation.play();
     },
-    repeatAnimations(){
+    repeatAnimations() {
       this.animations.push({
-        endlessLoop : true,
-        animation : this.currentItem.animate([{}], {
+        endlessLoop: true,
+        animation: this.currentItem.animate([{}], {
           duration: 0,
-        })
-      })
-    }
+        }),
+      });
+    },
   },
 };
 </script>
