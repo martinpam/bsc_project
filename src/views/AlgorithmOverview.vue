@@ -26,7 +26,7 @@
         <div class="right-side">
          <div class="supermarket-container">
           <h3>Supermarkt: {{ allSimulations[currentSimulation].supermarket }} </h3>
-          <Supermarket :size="allSimulations[currentSimulation].supermarket" :algorithm="allSimulations[currentSimulation].algorithm" :shoppingList="allSimulations[currentSimulation].shoppingList"/>
+          <Supermarket :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === allSimulations[currentSimulation].supermarket)[0].shelfs" :size="allSimulations[currentSimulation].supermarket" :algorithm="allSimulations[currentSimulation].algorithm" :shoppingListProp="allSimulations[currentSimulation].shoppingList"/>
         </div>
         </div>
     </div>
@@ -47,12 +47,13 @@ export default {
   setup(props) {
     const { mdl, error, load } = getModule(props.moduleName);
     load();
-    const currentSimulation = ref(0);
+    const currentSimulation = ref(2);
     const allSimulations = ref([]);
     console.log(mdl.value[0]);
     for (let chapter in mdl.value[0].chapters) {
       allSimulations.value.push(...mdl.value[0].chapters[chapter].simulations);
     }
+
     return { mdl, currentSimulation, allSimulations };
   },
 };

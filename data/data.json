@@ -78,13 +78,13 @@
                             "name" : "2a",
                             "algorithm" : 1,
                             "supermarket" : "medium",
-                            "shoppingList" : ["chocolate", "butter"]
+                            "shoppingList" : ["chocolate", "yogurt"]
                         },
                         {
                             "name" : "2b",
                             "algorithm" : 2,
                             "supermarket" : "medium",
-                            "shoppingList" : ["chocolate", "butter"]
+                            "shoppingList" : ["chocolate", "yogurt"]
                         }
                     ]
                 },
@@ -132,13 +132,13 @@
                         "name" : "3a",
                         "algorithm" : 2,
                         "supermarket" : "small",
-                        "shoppingList" : ["soja-milk"]
+                        "shoppingList" : ["soy-milk"]
                       },
                       {
                         "name" : "3b",
                         "algorithm" : 3,
                         "supermarket" : "medium",
-                        "shoppingList" : ["soja-milk", "whip-cream", "coffee-beans"] 
+                        "shoppingList" : ["coffee","soy-milk", "yogurt"] 
                       }  
                     ]  
                 },
@@ -167,7 +167,7 @@
                             "name" : "4",
                             "algorithm" : 4,
                             "supermarket" : "medium",
-                            "shoppingList" : ["bananas:fruits_vegetables", "milk:cooling", "yoghurt:cooling"]
+                            "shoppingList" : ["bananas:fruits_vegetables", "milk:cooling", "yogurt:cooling"]
                         }
                     ]
                 },
@@ -202,13 +202,13 @@
                             "name" : "5a",
                             "algorithm" : 4,
                             "supermarket" : "large",
-                            "shoppingList" : ["apple:fruits_vegetables", "milk:cooling", "coffee-beans:stimulants", "cookies:stimultans"]
+                            "shoppingList" : ["apple:fruits_vegetables", "milk:cooling", "coffee:stimulants", "cookies:stimultans"]
                         },
                         {
                             "name" : "5b",
                             "algorithm" : 5,
                             "supermarket" : "large",
-                            "shoppingList" : ["apple", "bananas", "soja-milk", "coffee-beans", "chocolate", "yoghurt"]
+                            "shoppingList" : ["apple", "bananas", "soja-milk", "coffee", "chocolate", "yogurt"]
                         }
                     ]   
                 }
@@ -302,7 +302,7 @@
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["milk", "yogurt", "cheese"]
+                            "items" : ["milk", "yogurt", ""]
                         },
                         {
                             "name" : "freezer",
@@ -323,11 +323,27 @@
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["milk", "yoghurt", "whip-cream"]
+                            "items" : ["milk", "yogurt", "soy-milk"]
                         },
                         {
                             "name" : "freezer",
                             "items" : ["spinach", "ice-cream", "pizza"]
+                        },
+                        {
+                            "name" : "drinks",
+                            "items" : ["coffee", "water", "lemonade"]
+                        },
+                        {
+                            "name" : "meat",
+                            "items" : ["", "sausage", ""]
+                        },
+                        {
+                            "name" : "sweets",
+                            "items" : ["chocolate", "", "chips"]
+                        },
+                        {
+                            "name" : "cleaning",
+                            "items" : ["toilet-paper", "soap", ""]
                         }
                     ]
                 }
