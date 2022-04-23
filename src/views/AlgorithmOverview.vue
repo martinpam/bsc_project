@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="header-overview">
-      <div class="previous-chapter" @click="currentSimulation--" ><h1 v-show="currentSimulation!=0" >&lt;&lt;</h1></div>
+      <div v-if="!isLaboratory" class="previous-chapter" @click="currentSimulation--" ><h1 v-show="currentSimulation!=0" >&lt;&lt;</h1></div>
       <h1>{{ mdl[0].name_de }} Kapitel {{allSimulations[currentSimulation].name}}</h1>
-      <div class="next-chapter"  @click="currentSimulation++"><h1 v-show="currentSimulation!=(allSimulations.length-1) ">&gt;&gt;</h1></div>
+      <div v-if="!isLaboratory" class="next-chapter"  @click="currentSimulation++"><h1 v-show="currentSimulation!=(allSimulations.length-1) ">&gt;&gt;</h1></div>
     </div>
     <div class="grid">
         <div class="left-side">
@@ -40,21 +40,28 @@ import { ref } from "@vue/reactivity";
 import getModule from "../composables/getModule";
 import CodeBox from "../components/CodeBox.vue";
 import Supermarket from "../components/Supermarket.vue";
+import { onMounted } from "@vue/runtime-core";
 export default {
-  props: ["moduleName"],
+  props: ["moduleName", "laboratory"],
   name: "AlgorithmOverview",
   components: { CodeBox, Supermarket },
   setup(props) {
     const { mdl, error, load } = getModule(props.moduleName);
     load();
+    const isLaboratory = ref(false);
+    isLaboratory.value = props.laboratory === 'laboratory' ? true : false;
     const currentSimulation = ref(2);
     const allSimulations = ref([]);
     console.log(mdl.value[0]);
     for (let chapter in mdl.value[0].chapters) {
       allSimulations.value.push(...mdl.value[0].chapters[chapter].simulations);
     }
-
-    return { mdl, currentSimulation, allSimulations };
+    console.log(props)
+    onMounted(() => {
+      console.log(this.$route.name);
+      
+    });
+    return { mdl, currentSimulation, allSimulations, isLaboratory, onMounted };
   },
 };
 </script>

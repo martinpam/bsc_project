@@ -8,6 +8,12 @@
       alt="r"
       :style="{ width: cell.width * 0.65 + 'px', height: cell.height + 'px' }"
     />
+    <div class="current-item" ref="currentItem">
+        <div id="itemImageOuter">
+          <img id="itemImage" :src="getItemUrl(currentItemName)" alt="milk" ref="itemImage"/>
+        </div>
+        <div id="itemText">&#10060;</div>
+      </div>
 
     <div v-if="size === 'small'" class="supermarket small" ref="supermarket">
       <div class="start"></div>
@@ -19,12 +25,7 @@
       <div class="shelf freezer articles-right"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
-      <div class="current-item" ref="currentItem">
-        <div id="itemImageOuter">
-          <img id="itemImage" :src="getItemUrl(currentItemName)" alt="milk" />
-        </div>
-        <div id="itemText">&#10060;</div>
-      </div>
+      
     </div>
 
     <div
@@ -45,15 +46,9 @@
       <div class="shelf drinks articles-right"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
-      <div class="current-item" ref="currentItem">
-        <div id="itemImageOuter">
-          <img id="itemImage" :src="getItemUrl(currentItemName)" alt="milk" />
-        </div>
-        <div id="itemText">&#10060;</div>
-      </div>
     </div>
     <div v-else class="supermarket large" ref="supermarket">
-         <div class="start"></div>
+         <div class="start special"></div>
       <div class="door-entry" ref="door"></div>
       <div class="door-exit" ref="exit"></div>
       <div class="shelf cooler articles-left"></div>
@@ -74,12 +69,7 @@
       <div class="shelf sweets sweets2 articles-right"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
-      <div class="current-item" ref="currentItem">
-        <div id="itemImageOuter">
-          <img id="itemImage" :src="getItemUrl(currentItemName)" alt="milk" />
-        </div>
-        <div id="itemText">&#10060;</div>
-      </div>
+     
     </div>
     <ButtonNavigation
       :story="false"
@@ -119,6 +109,7 @@ export default {
     const plannedCoordinates = [];
     const exit = ref(null);
     const currentItem = ref(null);
+    const itemImage = ref(null);
     const currentAnimation = ref(0);
     const currentItemName = ref(
       shoppingListLive.value[shoppingListLive.value.length - 1]
@@ -138,13 +129,11 @@ export default {
     const endlessRoundStarter = ref(0);
     onMounted(() => {
       console.log("mounted", robotWidth.value);
-      cell.width = Math.max(door.value.clientWidth, door.value.clientHeight);
+      cell.width = Math.max(door.value.clientWidth, door.value.clientHeight) * 2;
       cell.height =
         props.size === "large"
-          ? document.getElementsByClassName("shelf")[0].clientHeight / 4
+          ? document.getElementsByClassName("shelf")[0].clientHeight / 3.3
           : document.getElementsByClassName("shelf")[0].clientHeight / 3;
-      currentItem.value.height = cell.height / 2;
-      currentItem.value.width = cell.width / 2;
     });
 
     return {
@@ -172,19 +161,18 @@ export default {
       MAX_ROUNDS,
       endlessRoundStarter,
       rounds,
+      itemImage
     };
   },
   watch: {
     // whenever shoppingList changes, update simulation
     shoppingListProp(newShoppingList, oldShoppingList) {
       this.shelfs = document.getElementsByClassName("shelf");
-      this.cell.width = Math.max(this.door.clientWidth, this.door.clientHeight);
+      this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
         this.size === "large"
-          ? this.shelfs[0].clientHeight / 4
+          ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
-      this.currentItem.height = this.cell.height / 2;
-      this.currentItem.width = this.cell.width / 2;
       console.log("updated to new chapter", this.cell);
       this.resetSimulation();
     },
@@ -233,13 +221,13 @@ export default {
       this.gameStarted = true;
       this.playing = true;
       this.shelfs = document.getElementsByClassName("shelf");
-      this.cell.width = Math.max(this.door.clientWidth, this.door.clientHeight);
+      this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
         this.size === "large"
-          ? this.shelfs[0].clientHeight / 4
+          ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
-      this.currentItem.height = this.cell.height / 2;
-      this.currentItem.width = this.cell.width / 2;
+      document.getElementById('itemImage').width = this.cell.width * 0.7;
+      document.getElementById('itemImage').height = this.cell.width * 0.7;
       this.setRobotStartPosition();
       this.fillAnimations();
       this.startSearch();
@@ -359,12 +347,12 @@ export default {
     calculateWalkingDistance_x(shelf) {
       if (shelf.classList.contains("articles-left")) {
         return (
-          this.getPos(shelf).x - this.robotPosPlanned.x - this.cell.width + 20
+          this.getPos(shelf).x - this.robotPosPlanned.x - this.cell.width + (this.size !== 'large' ? this.cell.width * 0.15 : this.cell.width * 0.15 )
         );
       }
       if (shelf.classList.contains("articles-right")) {
         return (
-          this.getPos(shelf).x - this.robotPosPlanned.x + this.cell.width + 30
+          this.getPos(shelf).x - this.robotPosPlanned.x + this.cell.width + (this.size !== 'large' ? this.cell.width * 0.25 : -this.cell.width * 0.15)
         );
       }
       console.log("error");
@@ -480,6 +468,7 @@ export default {
             this.animations[u + 1].type === "search"
           ) {
             this.currentItem.style.display = "block";
+            let padding = this.size === 'small' ? 0.13 : this.size === 'medium' ? 0.2 : 0.07
             this.currentItem.style.top =
               this.getPos(this.animations[u + 1].shelf).y +
               this.animations[u + 1].cell * this.cell.height +
@@ -487,13 +476,27 @@ export default {
               "px";
             this.currentItem.style.left =
               this.getPos(this.animations[u + 1].shelf).x +
-              this.cell.width * 0.175 +
+              this.cell.width * padding +
               "px";
-
-            if (this.animations[u + 1].successful === true) {
-              document.getElementById("itemText").innerHTML = "✔️";
+            let itemText = document.getElementById("itemText");
+            if (this.size === 'small') {
+              itemText.style.top = '2.4rem';
+              itemText.style.left = '2rem';
+              itemText.style.fontSize = '3rem';
+            } else if (this.size === 'small') {
+              itemText.style.top = '2rem';
+              itemText.style.left = '1.6rem';
+              itemText.style.fontSize = '2rem';
             } else {
-              document.getElementById("itemText").innerHTML = "&#10060";
+              itemText.style.top = '1.2rem';
+              itemText.style.left = '1.1rem';
+              itemText.style.fontSize = '2rem';
+            }
+            
+            if (this.animations[u + 1].successful === true) {
+              itemText.innerHTML = "✔️";
+            } else {
+             itemText.innerHTML = "&#10060";
             }
           }
           if (this.animations[u + 1].finishedRound === true) {
@@ -532,10 +535,10 @@ export default {
       } else {
         walk_y =
           this.getPos(this.corridor).y -
-          this.cell.width * 0.1 -
-          this.robotPosPlanned.y;
+          this.cell.height * 0.1 -
+          this.robotPosPlanned.y + (this.size == 'large' ? this.cell.height * 0.3 : 0 );
         this.addWalkingAnimation(0, 0, walk_y);
-        walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]);
+        walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]) ;
         this.addWalkingAnimation(0, walk_x, 0);
         walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
         this.addWalkingAnimation(0, 0, walk_y);
@@ -641,8 +644,9 @@ export default {
 
           break;
         case 4:
-           this.addFinishedRoundAnimation(this.shoppingList[0]);
+           
            let shoppingListPartial = this.shoppingList.filter((item) => items.indexOf(item) >= 0)
+           this.addFinishedRoundAnimation(shoppingListPartial[0]);
           for (let i = 0; i < shelfCells; i++) {
             console.log("looking through shopping list");
             if (shoppingListPartial.length === 0) break;
@@ -803,6 +807,7 @@ export default {
   background-color: greenyellow;
   grid-area: f;
 }
+
 .fruits2 {
   background-color: greenyellow;
   grid-area: j;
@@ -863,6 +868,9 @@ export default {
 .start {
   grid-area: S;
 }
+.special {
+  background-color: brown;
+}
 .shelf {
   border-radius: 12px;
 }
@@ -885,7 +893,7 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 80px;
+  width: 0px;
   font-size: 2.7rem;
 }
 
@@ -899,8 +907,7 @@ export default {
 }
 
 #itemImage {
-  width: 70px;
-  height: 70px;
+
   position: absolute;
 }
 
@@ -978,7 +985,7 @@ export default {
 .large {
   grid-template-columns: repeat(49, 1fr);
   grid-template-areas:
-    "i S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."

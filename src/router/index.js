@@ -36,6 +36,13 @@ const routes = [
     component: AlgorithmOverview,
     props: true
     
+  },
+  {
+    path: '/:moduleName/:laboratory/',
+    name: 'laboratory',
+    component: AlgorithmOverview,
+    props: true
+    
   }
 ]
 
