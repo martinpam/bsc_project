@@ -167,7 +167,7 @@
                             "name" : "4",
                             "algorithm" : 4,
                             "supermarket" : "medium",
-                            "shoppingList" : ["bananas:fruits_vegetables", "milk:cooling", "yogurt:cooling"]
+                            "shoppingList" : ["banana", "milk", "yogurt"]
                         }
                     ]
                 },
@@ -202,13 +202,13 @@
                             "name" : "5a",
                             "algorithm" : 4,
                             "supermarket" : "large",
-                            "shoppingList" : ["apple:fruits_vegetables", "milk:cooling", "coffee:stimulants", "cookies:stimultans"]
+                            "shoppingList" : ["apple", "milk", "coffee", "chips"]
                         },
                         {
                             "name" : "5b",
                             "algorithm" : 5,
                             "supermarket" : "large",
-                            "shoppingList" : ["apple", "bananas", "soja-milk", "coffee", "chocolate", "yogurt"]
+                            "shoppingList" : ["apple", "banana", "soja-milk", "coffee", "chocolate", "yogurt"]
                         }
                     ]   
                 }
@@ -312,6 +312,43 @@
                 },
                 {
                     "name" : "medium",
+                    "shelfs" : [
+                        {
+                            "name" : "vegetables",
+                            "items" : ["tomato", "cucumber", "salad"]
+                        },
+                        {
+                            "name" : "fruits",
+                            "items" : ["apple", "banana", "melon"]
+                        },
+                        {
+                            "name" : "cooler",
+                            "items" : ["milk", "yogurt", "soy-milk"]
+                        },
+                        {
+                            "name" : "freezer",
+                            "items" : ["spinach", "ice-cream", "pizza"]
+                        },
+                        {
+                            "name" : "drinks",
+                            "items" : ["coffee", "water", "lemonade"]
+                        },
+                        {
+                            "name" : "meat",
+                            "items" : ["", "sausage", ""]
+                        },
+                        {
+                            "name" : "sweets",
+                            "items" : ["chocolate", "", "chips"]
+                        },
+                        {
+                            "name" : "cleaning",
+                            "items" : ["toilet-paper", "soap", ""]
+                        }
+                    ]
+                },
+                {
+                    "name" : "large",
                     "shelfs" : [
                         {
                             "name" : "vegetables",

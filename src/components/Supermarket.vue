@@ -52,7 +52,35 @@
         <div id="itemText">&#10060;</div>
       </div>
     </div>
-    <div v-else class="supermarket large" />
+    <div v-else class="supermarket large" ref="supermarket">
+         <div class="start"></div>
+      <div class="door-entry" ref="door"></div>
+      <div class="door-exit" ref="exit"></div>
+      <div class="shelf cooler articles-left"></div>
+      <div class="shelf fruits articles-left"></div>
+      <div class="shelf vegetables articles-right"></div>
+      <div class="shelf freezer articles-right"></div>
+      <div class="shelf vegetables vegetables2 articles-left"></div>
+      <div class="shelf freezer freezer2 articles-left"></div>
+      <div class="shelf cooler cooler2 articles-right"></div>
+      <div class="shelf fruits fruits2 articles-right"></div>
+       <div class="shelf drinks drinks2 articles-left"></div>
+      <div class="shelf drinks articles-left"></div>
+      <div class="shelf meat articles-right"></div>
+      <div class="shelf cleaning articles-right"></div>
+      <div class="shelf meat meat2 articles-left"></div>
+      <div class="shelf cleaning cleaning2 articles-left"></div>
+      <div class="shelf sweets articles-right"></div>
+      <div class="shelf sweets sweets2 articles-right"></div>
+      <div class="checkout" ref="checkout"></div>
+      <div class="corridor" ref="corridor"></div>
+      <div class="current-item" ref="currentItem">
+        <div id="itemImageOuter">
+          <img id="itemImage" :src="getItemUrl(currentItemName)" alt="milk" />
+        </div>
+        <div id="itemText">&#10060;</div>
+      </div>
+    </div>
     <ButtonNavigation
       :story="false"
       :playing="playing"
@@ -318,13 +346,13 @@ export default {
       this.plannedCoordinates.push(null);
     },
     addFinishedRoundAnimation(nextItem) {
-      console.log('addFinishRound with nextItem ' , nextItem)
+      console.log("addFinishRound with nextItem ", nextItem);
       this.animations.push({
         animation: this.robot.animate([{}], {
           duration: 0,
         }),
         finishedRound: true,
-        nextItem: nextItem
+        nextItem: nextItem,
       });
       this.plannedCoordinates.push(null);
     },
@@ -350,10 +378,17 @@ export default {
         this.rounds++;
         let foundTopItem = false;
         let restart = false;
+     
         for (let i = 0; i < this.shelfs.length; i++) {
-          this.goToNextShelf(i);
-          [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem);
+           let currentItems = this.shelfData.filter(
+        (s) => s.name === this.shelfs[i].classList[1]
+      )[0].items;
+          if (this.algorithm !== 4 || currentItems.some(item=> this.shoppingList.indexOf(item) >= 0)) {
+            this.goToNextShelf(i);
+          [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem, currentItems);
           if (restart) break;
+          }
+         
         }
 
         if (this.endlessRoundStarter <= 0)
@@ -464,9 +499,14 @@ export default {
           if (this.animations[u + 1].finishedRound === true) {
             /* this.shoppingListLive.pop();
              this.currentItemName = this.shoppingListLive[this.shoppingListLive.length-1] */
-             let prev = this.currentItemName
+            let prev = this.currentItemName;
             this.currentItemName = this.animations[u + 1].nextItem;
-            console.log("changed currentItemName from " + prev  +  "to" + this.currentItemName);
+            console.log(
+              "changed currentItemName from " +
+                prev +
+                "to" +
+                this.currentItemName
+            );
           }
 
           if (this.animations[u + 1].exit === true) {
@@ -501,11 +541,9 @@ export default {
         this.addWalkingAnimation(0, 0, walk_y);
       }
     },
-    handleShelfSearch(currentShelf, foundTopItem) {
+    handleShelfSearch(currentShelf, foundTopItem, items) {
       const shelfCells = this.size === "large" ? 4 : 3;
-      const items = this.shelfData.filter(
-        (s) => s.name === this.shelfs[currentShelf].classList[1]
-      )[0].items;
+
 
       switch (this.algorithm) {
         case 1:
@@ -554,48 +592,40 @@ export default {
           return [foundTopItem, false];
 
         case 3:
-      
-                this.addFinishedRoundAnimation(
-                  this.shoppingList[0 ]
-                );
+          this.addFinishedRoundAnimation(this.shoppingList[0]);
           for (let i = 0; i < shelfCells; i++) {
             console.log("looking through shopping list");
             if (this.shoppingList.length === 0) break;
             for (let u = 0; u < this.shoppingList.length; u++) {
-         
-              console.log("comparing ", items[i], this.shoppingList[u]); //"shoppingList" : ["coffee","soy-milk", "yogurt"] 
-              if (items[i] === this.shoppingList[u]) {                  // "items" : ["milk", "yogurt", "soy-milk"]
+              console.log("comparing ", items[i], this.shoppingList[u]);
+              if (items[i] === this.shoppingList[u]) {
                 console.log("showing success", this.shoppingList[u]);
                 this.addSearchAnimation(
-                  this.shoppingList[u%this.shoppingList.length],
+                  this.shoppingList[u % this.shoppingList.length],
                   true,
                   this.shelfs[currentShelf],
                   i
                 );
                 this.rounds = 0;
                 foundTopItem = true;
-                 
-                
-               
-            
 
                 this.addFinishedRoundAnimation(
-                  this.shoppingList[(u+1)%this.shoppingList.length ]
+                  this.shoppingList[(u + 1) % this.shoppingList.length]
                 );
-           this.shoppingList.splice(u,1)
+                this.shoppingList.splice(u, 1);
                 console.log("breaking out");
                 break;
               } else {
                 console.log("showing", this.shoppingList[u]);
                 this.addSearchAnimation(
-                  this.shoppingList[u%this.shoppingList.length],
+                  this.shoppingList[u % this.shoppingList.length],
                   false,
                   this.shelfs[currentShelf],
                   i
                 );
               }
               this.addFinishedRoundAnimation(
-                this.shoppingList[(u+1)%this.shoppingList.length]
+                this.shoppingList[(u + 1) % this.shoppingList.length]
               );
             }
 
@@ -611,42 +641,61 @@ export default {
 
           break;
         case 4:
-          break;
-        case 5:
-          break;
-      }
-      /*
-          if (this.algorithm == 1 || !foundTopItem) {
-            if (!this.checkItem(items, 0)) {
-            this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], false, this.shelfs[currentShelf], 0 );
-          } else {
-            foundTopItem = true;
-            this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], true, this.shelfs[currentShelf], 0  );
-            rounds = 0;
+           this.addFinishedRoundAnimation(this.shoppingList[0]);
+           let shoppingListPartial = this.shoppingList.filter((item) => items.indexOf(item) >= 0)
+          for (let i = 0; i < shelfCells; i++) {
+            console.log("looking through shopping list");
+            if (shoppingListPartial.length === 0) break;
+            for (let u = 0; u < shoppingListPartial.length; u++) {
+              console.log("comparing ", items[i], shoppingListPartial[u]);
+              if (items[i] === shoppingListPartial[u]) {
+                console.log("showing success", shoppingListPartial[u]);
+                this.addSearchAnimation(
+                  shoppingListPartial[u % shoppingListPartial.length],
+                  true,
+                  this.shelfs[currentShelf],
+                  i
+                );
+                this.rounds = 0;
+                foundTopItem = true;
 
-          }
-          }
+                this.addFinishedRoundAnimation(
+                  shoppingListPartial[(u + 1) % shoppingListPartial.length]
+                );
+                console.log(this.shoppingListPartial, this.shoppingList)
+                this.shoppingList.splice(this.shoppingList.indexOf(shoppingListPartial[(u+1) % shoppingListPartial.length]), 1);
+                shoppingListPartial.splice(u, 1);
+                console.log(this.shoppingListPartial, this.shoppingList)
+                console.log("breaking out");
+                break;
+              } else {
+                console.log("showing", shoppingListPartial[u]);
+                this.addSearchAnimation(
+                  shoppingListPartial[u % shoppingListPartial.length],
+                  false,
+                  this.shelfs[currentShelf],
+                  i
+                );
+              }
+              this.addFinishedRoundAnimation(
+                shoppingListPartial[(u + 1) % shoppingListPartial.length]
+              );
+            }
 
-          for (let y = 1; y < shelfCells; y++) {
-            if (this.algorithm > 1 && foundTopItem) break;
-            if (this.getPos(this.shelfs[currentShelf]).y <= this.robotPosPlanned.y) {
+            if (i + 1 !== shelfCells && shoppingListPartial.length > 0) {
               this.addWalkingAnimation(
                 0,
                 0,
                 this.shelfs[currentShelf].clientHeight / shelfCells
               );
-              if (!this.checkItem(items, y)) {
-                this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], false, this.shelfs[i], y );
-              } else {
-                foundTopItem = true;
-                this.addSearchAnimation(this.shoppingList[this.shoppingList.length-1], true, this.shelfs[i], y );
-                rounds = 0;
-
-              }
-              console.log("added animation downwards");
-
             }
-          }   if (this.algorithm > 1 && foundTopItem) break;  */
+          }
+          return [foundTopItem, false];
+          break;
+        case 5:
+          break;
+      }
+      
     },
     addSearchAnimation(itemName, successful, shelf, cell) {
       this.animations.push({
@@ -746,33 +795,65 @@ export default {
   background-color: green;
   grid-area: v;
 }
+.vegetables2 {
+  background-color: green;
+  grid-area: h;
+}
 .fruits {
   background-color: greenyellow;
   grid-area: f;
+}
+.fruits2 {
+  background-color: greenyellow;
+  grid-area: j;
 }
 .freezer {
   background-color: blue;
   grid-area: g;
 }
+.freezer2 {
+  background-color: blue;
+  grid-area: a;
+}
 .cooler {
   background-color: lightblue;
   grid-area: c;
+}
+.cooler2 {
+  background-color: lightblue;
+  grid-area: b;
 }
 .meat {
   background-color: red;
   grid-area: m;
 }
+.meat2 {
+  background-color: red;
+  grid-area: n;
+}
 .sweets {
   background-color: chocolate;
   grid-area: s;
+}
+.sweets2 {
+  background-color: chocolate;
+  grid-area: r;
 }
 .cleaning {
   background-color: pink;
   grid-area: l;
 }
+.cleaning2 {
+  background-color: pink;
+  grid-area: o;
+}
 .drinks {
   background-color: violet;
   grid-area: d;
+}
+.drinks2 {
+  background-color: violet;
+  grid-area: k;
 }
 .checkout {
   background-color: gold;
@@ -895,9 +976,35 @@ export default {
     ". . . . . v v v v v f f f f f . . . . . . . . . . l l l l l d d d d d . . . . . . .";
 }
 .large {
-  background-color: green;
-  width: 480px;
-  height: 310px;
+  grid-template-columns: repeat(49, 1fr);
+  grid-template-areas:
+    "i S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."
+    "q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q p"
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . p"
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . f f f v v v . . . . . . h h h j j j . . . . . . k k k l l l . . . . . . o o o r r r . . . ." 
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . e"
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . e"
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . e"
+
+ 
 }
 .door {
   position: relative;
