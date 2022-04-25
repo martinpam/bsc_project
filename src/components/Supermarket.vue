@@ -105,6 +105,7 @@ export default {
     const shelfs = [];
     const shoppingListLive = ref([]);
     shoppingListLive.value.push(...props.shoppingListProp);
+    console.log(shoppingListLive.value)
     const checkout = ref(null);
     const plannedCoordinates = [];
     const exit = ref(null);
@@ -128,7 +129,7 @@ export default {
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
     onMounted(() => {
-      console.log("mounted", robotWidth.value);
+      console.log("mounted", robotWidth.value, props.algorithm, props.size);
       cell.width = Math.max(door.value.clientWidth, door.value.clientHeight) * 2;
       cell.height =
         props.size === "large"
@@ -167,6 +168,17 @@ export default {
   watch: {
     // whenever shoppingList changes, update simulation
     shoppingListProp(newShoppingList, oldShoppingList) {
+      this.resetSimulation();
+    },
+    algorithm() {
+      this.resetSimulation();
+    },
+    size() {
+      this.resetSimulation();
+    }
+  },
+  methods: {
+    resetSimulation() {
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
@@ -174,15 +186,12 @@ export default {
           ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
       console.log("updated to new chapter", this.cell);
-      this.resetSimulation();
-    },
-  },
-  methods: {
-    resetSimulation() {
       this.shoppingListLive = [];
       this.shoppingList = [];
       this.shoppingListLive.push(...this.shoppingListProp);
       this.shoppingList.push(...this.shoppingListProp);
+      
+      
       this.shelfs = document.getElementsByClassName("shelf");
       this.plannedCoordinates = [];
       this.robotPosPlanned = null;
@@ -366,14 +375,30 @@ export default {
         this.rounds++;
         let foundTopItem = false;
         let restart = false;
-     
+
         for (let i = 0; i < this.shelfs.length; i++) {
+          let index = this.shelfs[i].classList[2].substring(this.shelfs[i].classList[2].length-1, this.shelfs[i].classList[2].length) == '2' ? 1 : 0;
            let currentItems = this.shelfData.filter(
         (s) => s.name === this.shelfs[i].classList[1]
-      )[0].items;
-          if (this.algorithm !== 4 || currentItems.some(item=> this.shoppingList.indexOf(item) >= 0)) {
+      )[index].items;
+          let categoryItems = [];
+          if (this.algorithm === 4) {
+            categoryItems.push(...this.shelfData.filter(
+        (s) => s.name === this.shelfs[i].classList[1]
+      )[0].items ) 
+      console.log(categoryItems)
+      if (this.size === 'large') {
+          categoryItems.push(...this.shelfData.filter(
+        (s) => s.name === this.shelfs[i].classList[1]
+      )[1].items )
+      }
+    
+
+          }
+          console.log(categoryItems)
+          if (this.algorithm !== 4 || categoryItems.some(item=> this.shoppingList.indexOf(item) >= 0)) {
             this.goToNextShelf(i);
-          [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem, currentItems);
+          [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem, currentItems, categoryItems);
           if (restart) break;
           }
          
@@ -471,7 +496,7 @@ export default {
             let padding = this.size === 'small' ? 0.13 : this.size === 'medium' ? 0.2 : 0.07
             this.currentItem.style.top =
               this.getPos(this.animations[u + 1].shelf).y +
-              this.animations[u + 1].cell * this.cell.height +
+              this.animations[u + 1].cell * (this.size === 'large' ? this.cell.height / 3.3 * 2.5 : this.cell.height) +
               this.cell.height * 0.07 +
               "px";
             this.currentItem.style.left =
@@ -483,10 +508,10 @@ export default {
               itemText.style.top = '2.4rem';
               itemText.style.left = '2rem';
               itemText.style.fontSize = '3rem';
-            } else if (this.size === 'small') {
+            } else if (this.size === 'medium') {
               itemText.style.top = '2rem';
               itemText.style.left = '1.6rem';
-              itemText.style.fontSize = '2rem';
+              itemText.style.fontSize = '2.5rem';
             } else {
               itemText.style.top = '1.2rem';
               itemText.style.left = '1.1rem';
@@ -544,7 +569,7 @@ export default {
         this.addWalkingAnimation(0, 0, walk_y);
       }
     },
-    handleShelfSearch(currentShelf, foundTopItem, items) {
+    handleShelfSearch(currentShelf, foundTopItem, items, categoryItems) {
       const shelfCells = this.size === "large" ? 4 : 3;
 
 
@@ -645,8 +670,12 @@ export default {
           break;
         case 4:
            
-           let shoppingListPartial = this.shoppingList.filter((item) => items.indexOf(item) >= 0)
-           this.addFinishedRoundAnimation(shoppingListPartial[0]);
+           let shoppingListPartial = this.shoppingList.filter((item) => categoryItems.indexOf(item) >= 0)
+           console.log(shoppingListPartial)
+    
+             this.addFinishedRoundAnimation(shoppingListPartial[0]);
+            
+           
           for (let i = 0; i < shelfCells; i++) {
             console.log("looking through shopping list");
             if (shoppingListPartial.length === 0) break;
@@ -662,12 +691,16 @@ export default {
                 );
                 this.rounds = 0;
                 foundTopItem = true;
-
-                this.addFinishedRoundAnimation(
+                if (shoppingListPartial.length > 0) {
+                  this.addFinishedRoundAnimation(
                   shoppingListPartial[(u + 1) % shoppingListPartial.length]
                 );
+                } else {
+                  
+                }
+                
                 console.log(this.shoppingListPartial, this.shoppingList)
-                this.shoppingList.splice(this.shoppingList.indexOf(shoppingListPartial[(u+1) % shoppingListPartial.length]), 1);
+                this.shoppingList.splice(this.shoppingList.indexOf(shoppingListPartial[u]), 1);
                 shoppingListPartial.splice(u, 1);
                 console.log(this.shoppingListPartial, this.shoppingList)
                 console.log("breaking out");
