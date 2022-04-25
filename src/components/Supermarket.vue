@@ -75,9 +75,11 @@
       :story="false"
       :playing="playing"
       :fastForwarding="fastForwarding"
+      :showContinue="showContinue && isStory"
       @handleClickPlayPause="playPause()"
       @handleClickRestart="startSimulation()"
       @handleClickFastForward="fastForward()"
+      @handleClickContinueStory="$emit('handleClickContinueStory')"
     />
   </div>
 </template>
@@ -88,13 +90,14 @@ import ButtonNavigation from "../components/ButtonNavigation.vue";
 
 import { onMounted } from "@vue/runtime-core";
 export default {
-  props: ["size", "algorithm", "shoppingListProp", "shelfData"],
+  props: ["size", "algorithm", "shoppingListProp", "shelfData", "allShelfs" ,"isStory"],
   components: { ButtonNavigation },
   setup(props) {
     console.log(props);
     const shoppingList = ref([]);
     shoppingList.value.push(...props.shoppingListProp);
     const supermarket = ref(null);
+    const showContinue = ref(false);
     const corridor = ref(null);
     const playing = ref(false);
     const fastForwarding = ref(false);
@@ -150,6 +153,7 @@ export default {
       corridor,
       animations,
       robotPosPlanned,
+      showContinue,
       plannedCoordinates,
       walkingSpeed,
       checkout,
@@ -190,7 +194,14 @@ export default {
       this.shoppingList = [];
       this.shoppingListLive.push(...this.shoppingListProp);
       this.shoppingList.push(...this.shoppingListProp);
-      
+      let itemsToDelete = document.getElementsByClassName('algorithm-five-item')
+      let lines = document.getElementsByClassName('line-outer')
+      while (itemsToDelete[0]) {
+            itemsToDelete[0].parentNode.removeChild(itemsToDelete[0]);
+      }
+      while (lines[0]) {
+            lines[0].parentNode.removeChild(lines[0]);
+      }
       
       this.shelfs = document.getElementsByClassName("shelf");
       this.plannedCoordinates = [];
@@ -201,6 +212,7 @@ export default {
       this.playing = false;
       this.rounds = 0;
       this.gameStarted = false;
+      this.currentItem.style.display = 'none';
       this.animations.forEach((element) => {
         element.animation.cancel();
       });
@@ -216,6 +228,9 @@ export default {
         this.animations[this.currentAnimation].animation.play();
       }
     },
+    continueStory() {
+      this.$emit('handleClickContinueStory');
+    },
     getItemUrl(itemName) {
       if (itemName !== undefined) {
         var items = require.context("../assets/icons/items", false, /\.png$/);
@@ -223,9 +238,7 @@ export default {
       }
     },
     startSimulation() {
-      console.log(this.animations);
       this.resetSimulation();
-      console.log(this.animations);
       console.log("resetting simulation", this.shoppingList);
       this.gameStarted = true;
       this.playing = true;
@@ -312,8 +325,8 @@ export default {
     },
     addWalkingAnimation(delay, walk_x, walk_y) {
       const duration = walk_x
-        ? (Math.abs(walk_x) * 300) / this.walkingSpeed
-        : (Math.abs(walk_y) * 300) / this.walkingSpeed;
+        ? (Math.abs(walk_x) * 300) / this.walkingSpeed * (this.size === 'medium' ? 1.2 : this.size ==='large' ? 1.5 : 1)
+        : (Math.abs(walk_y) * 300) / this.walkingSpeed * (this.size === 'medium' ? 1.2 : this.size ==='large' ? 1.5 : 1)
       const step = walk_x
         ? "translateX(" + walk_x + "px)"
         : "translateY(" + walk_y + "px)";
@@ -335,7 +348,7 @@ export default {
         animation: this.robot.animate(
           [fadeIn ? { opacity: 1 } : { opacity: 0 }],
           {
-            duration: 1000,
+            duration:  1000,
             fill: "forwards",
           }
         ),
@@ -368,13 +381,23 @@ export default {
     },
 
     fillAnimations() {
-      this.addFadingAnimation(true);
+      
+      
       this.robotPosPlanned = this.robotPos();
+      
+      this.addFadingAnimation(true);
+      if (this.algorithm === 5) {
+          this.handleAlgorithmFive();
+          console.log('algo 5 init')
+        }
       while (this.shoppingList.length > 0 && this.rounds < this.MAX_ROUNDS) {
         console.log(this.rounds);
         this.rounds++;
         let foundTopItem = false;
         let restart = false;
+
+        
+
 
         for (let i = 0; i < this.shelfs.length; i++) {
           let index = this.shelfs[i].classList[2].substring(this.shelfs[i].classList[2].length-1, this.shelfs[i].classList[2].length) == '2' ? 1 : 0;
@@ -383,12 +406,12 @@ export default {
       )[index].items;
           let categoryItems = [];
           if (this.algorithm === 4) {
-            categoryItems.push(...this.shelfData.filter(
+            categoryItems.push(...this.allShelfs.filter(
         (s) => s.name === this.shelfs[i].classList[1]
       )[0].items ) 
       console.log(categoryItems)
       if (this.size === 'large') {
-          categoryItems.push(...this.shelfData.filter(
+          categoryItems.push(...this.allShelfs.filter(
         (s) => s.name === this.shelfs[i].classList[1]
       )[1].items )
       }
@@ -401,11 +424,13 @@ export default {
           [foundTopItem, restart] = this.handleShelfSearch(i, foundTopItem, currentItems, categoryItems);
           if (restart) break;
           }
-         
+        
         }
 
         if (this.endlessRoundStarter <= 0)
           this.endlessRoundStarter = this.animations.length;
+        
+      if (this.algorithm >= 3) this.rounds = this.MAX_ROUNDS;
       }
 
       //pay and leave
@@ -472,10 +497,11 @@ export default {
           duration: 0,
         }),
       });
-
+      console.log(this.animations)
       for (let u = 0; u < this.animations.length; u++) {
         this.animations[u].animation.pause();
         this.animations[u].animation.onfinish = () => {
+          console.log('finished' , this.currentAnimation)
           this.currentAnimation++;
           if (this.plannedCoordinates[u]) {
             this.changeRobotPos(
@@ -525,22 +551,35 @@ export default {
             }
           }
           if (this.animations[u + 1].finishedRound === true) {
-            /* this.shoppingListLive.pop();
-             this.currentItemName = this.shoppingListLive[this.shoppingListLive.length-1] */
-            let prev = this.currentItemName;
             this.currentItemName = this.animations[u + 1].nextItem;
-            console.log(
-              "changed currentItemName from " +
-                prev +
-                "to" +
-                this.currentItemName
-            );
           }
 
           if (this.animations[u + 1].exit === true) {
             this.gameStarted = false;
             this.playing = false;
+            this.showContinue = true;
+            this.resetSimulation();
           }
+
+          console.log(this.currentAnimation, this.animations[u].lines && this.animations[u].lines.length > 0)
+          if (this.animations[u].lines && this.animations[u].lines.length > 0) {
+            
+            
+            
+            for (let i = 0; i < this.animations[u].lines.length; i++ ) {
+              
+              
+              this.animations[u].lines[i].style.display = 'none'
+            } 
+          } 
+
+           if (this.animations[u + 1].lines && this.animations[u + 1].lines.length > 0) {
+            for (let i = 0; i < this.animations[u + 1].lines.length; i++ ) {
+              this.animations[u + 1].lines[i].children[0].style.backgroundColor = this.getColor(1/this.animations[u + 1].lines.length*i);
+              this.animations[u + 1].lines[i].style.display = 'block'
+              
+            } 
+          } 
 
           if (this.animations[u + 1].endlessLoop === true) {
             console.log(this.endlessRoundStarter);
@@ -549,6 +588,201 @@ export default {
           }
         };
       }
+    },
+    getColor(value){
+    //value from 0 to 1
+    var hue=((1-value)*120).toString(10);
+    return ["hsl(",hue,",100%,50%)"].join("");
+    },
+     getWidth(obj) {
+   
+      return parseInt(obj.style.width.substring(0, obj.style.width.length - 2));
+    },
+    handleAlgorithmFive() {
+      let items = this.showItems();
+      let locations = [];
+      locations.push( ...items, this.checkout);
+      let itemLineSets = [];
+      let adjacencyMatrix = Array(this.shoppingList.length+2);
+      
+      let x1,y1,x2,y2,from,to;
+      let lines = []
+
+      for (let x = 0; x < items.length; x++) {
+        x1 = this.robotPosPlanned.x + this.cell.width * 0.35;
+        y1 = this.robotPosPlanned.y + this.cell.height * 0.35;
+        from = 'robot';
+        x2 = items[x].location === 'articles-left' ? this.getPos(items[x].item).x - this.cell.width/4 : this.getPos(items[x].item).x + this.cell.width
+        y2 =  this.getPos(items[x].item).y + this.cell.height / 2;
+        to = this.shoppingList[x];
+        let line = this.linedraw(x1, y1, x2, y2);
+        line.classList.add(from+'-'+to)
+        line.classList.add('line-outer');
+        line.style.display = 'none'
+        lines.push(line)
+       
+      }
+      adjacencyMatrix[0] = [0];
+      lines.forEach((line) => adjacencyMatrix[0].push(this.getWidth(line.children[0])))   
+      lines.sort((a, b) =>  this.getWidth(a.children[0]) - this.getWidth(b.children[0]) );
+      this.addShowItemLineAnimation( lines);
+      console.log(adjacencyMatrix)
+      adjacencyMatrix[0].push(5000)
+
+
+      for (let i = 0; i < items.length; i++) {
+        let lines = [];
+        for (let u = 0; u < locations.length; u++) {
+          if (items[i] !== locations[u]) {
+            console.log(items[i].location)
+            x1 = items[i].location === 'articles-left' ? this.getPos(items[i].item).x - this.cell.width/4 : this.getPos(items[i].item).x + this.cell.width
+            y1 =  this.getPos(items[i].item).y + this.cell.height / 2;
+            x2, y2;
+            from = this.shoppingList[i];
+            to = '';
+            if (locations[u].item) {
+              x2 =  locations[u].location === 'articles-left' ? this.getPos(locations[u].item).x - this.cell.width/4 : this.getPos(locations[u].item).x + this.cell.width
+              y2 = this.getPos(locations[u].item).y + this.cell.height / 2;
+              to = this.shoppingList[u-1];
+            } else {
+              if (locations[u].classList[0] === 'robot') {
+                x2 = this.robotPosPlanned.x + this.cell.width * 0.35;
+                y2 = this.robotPosPlanned.y + this.cell.height * 0.35;
+                to = 'robot';
+
+              } else {
+                console.log(locations[u].style.top, locations[u].style.left)
+              x2 = this.getPos(locations[u]).x + locations[u].clientWidth/2; 
+              y2 = this.getPos(locations[u]).y + locations[u].clientHeight/2; 
+              to = 'checkout'
+              }
+              
+            }
+            let line = this.linedraw(x1, y1, x2, y2);
+            line.classList.add(from+'-'+to)
+            line.classList.add('line-outer');
+            line.style.display = 'none'
+            lines.push(line)
+          }
+        }
+
+        
+        adjacencyMatrix[i+1] = [5000]
+        let c = -1;
+        lines.forEach((line) => {
+          c++
+          if (c === i) adjacencyMatrix[i+1].push(0)
+          adjacencyMatrix[i+1].push(this.getWidth(line.children[0]))
+        });
+        lines.sort((a, b) =>  this.getWidth(a.children[0]) - this.getWidth(b.children[0]) );
+        console.log(lines)
+        itemLineSets.push({'item' : items[i], 'lines' : lines })
+        this.addShowItemLineAnimation(lines);
+      } 
+      console.log(adjacencyMatrix)
+      adjacencyMatrix[(this.shoppingList.length+1)] = [];
+      for (let i = 0; i < (this.shoppingList.length+1);i++) {
+        
+        adjacencyMatrix[(this.shoppingList.length+1)].push(5000);
+      }
+      adjacencyMatrix[(this.shoppingList.length+1)].push(0);
+
+      let shortest = [];
+      let distances = []
+      let visited = [];
+      for (let i = 0; i < adjacencyMatrix.length; i++) {
+        
+        let smallestDistance = Number.MAX_SAFE_INTEGER;
+        let smallestDistanceIndex;
+        for (let u = 0; u < adjacencyMatrix[i].length-1; u++) {
+          if (adjacencyMatrix[i][u] < smallestDistance && adjacencyMatrix[i][u] !== 0 && visited.indexOf(u) === -1){
+            
+            smallestDistance = adjacencyMatrix[i][u];
+            smallestDistanceIndex = i;
+          } 
+        }
+        shortest.push(smallestDistanceIndex);
+        distances.push(smallestDistance);
+        visited.push(i)
+        console.log(visited)
+      }
+      shortest.push(adjacencyMatrix.length);
+      console.log(shortest, distances)
+    },
+   
+   
+    addShowItemLineAnimation( lines) {
+      console.log('called this', lines)
+      this.animations.push({
+        lines: lines,
+       
+        animation: this.exit.animate([{}], {
+          duration: 800,
+        }),
+      });
+      this.plannedCoordinates.push(null);
+    },
+    linedraw(x1, y1, x2, y2) {
+    if (x2 < x1) {
+        var tmp;
+        tmp = x2 ; x2 = x1 ; x1 = tmp;
+        tmp = y2 ; y2 = y1 ; y1 = tmp;
+    }
+
+    var lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    var m = (y2 - y1) / (x2 - x1);
+
+    var degree = Math.atan(m) * 180 / Math.PI;
+
+    let line = document.createElement('div')
+    line.innerHTML = "<div class='line' style='transform-origin: top left; transform: rotate(" + degree + "deg); width: " + lineLength + "px; height: 1.5px; border: solid 0.5px; background: red; display: block; position: absolute; top: " + y1 + "px; left: " + x1 + "px;'></div>"
+
+    document.getElementsByClassName('supermarket-container')[0].appendChild(line);
+    return line;
+    },
+    showItems() {
+      console.log(this.shelfData)
+      let res = [];
+      for (let i = 0; i < this.shoppingList.length; i++) {
+
+      let category; let prevcategory; let index = -1; let itemPosition;
+      for (let u = 0; u < this.shelfData.length;u++) {
+
+        if (this.shelfData[u].items.indexOf(this.shoppingList[i]) >= 0) {
+          category = this.shelfData[u].name;
+          index = 0;
+          itemPosition = this.shelfData[u].items.indexOf(this.shoppingList[i]);
+          if (prevcategory === category) index = 1;
+        }
+        prevcategory = this.shelfData[u].name;
+      }
+      console.log(this.shelfs)
+     
+      let shelf = document.getElementsByClassName(category)[index]
+      
+
+      let item = document.createElement('img');
+      item.classList.add('algorithm-five-item');
+      item.src = this.getItemUrl(this.shoppingList[i]);
+      item.style.position = 'absolute'
+      item.width = this.cell.width * 0.7;
+      item.height = this.cell.width * 0.7;
+      let padding = this.size === 'small' ? 0.13 : this.size === 'medium' ? 0.2 : 0.07
+      item.style.top =
+              this.getPos(shelf).y +
+              itemPosition * (this.size === 'large' ? this.cell.height / 3.3 * 2.5 : this.cell.height) +
+              this.cell.height * 0.07 +
+              "px";
+      console.log(item.style.top, this.getPos(shelf).y + itemPosition * (this.size === 'large' ? this.cell.height / 3.3 * 2.5 : this.cell.height))        
+      item.style.left =
+              this.getPos(shelf).x +
+              this.cell.width * padding +
+              "px";  
+      document.getElementsByClassName('supermarket-container')[0].appendChild(item)      
+      res.push({'item' : item, 'location' : shelf.classList[shelf.classList.length-1]});
+      
+      }
+      return res;  
     },
     goToNextShelf(nextShelf) {
       let walk_x = 0,
@@ -576,10 +810,11 @@ export default {
       switch (this.algorithm) {
         case 1:
         case 2:
+          this.addFinishedRoundAnimation(this.shoppingList[0]);
           for (let i = 0; i < shelfCells; i++) {
-            if (items[i] === this.shoppingList[this.shoppingList.length - 1]) {
+            if (items[i] === this.shoppingList[0]) {
               this.addSearchAnimation(
-                this.shoppingList[this.shoppingList.length - 1],
+                this.shoppingList[0],
                 true,
                 this.shelfs[currentShelf],
                 i
@@ -587,15 +822,15 @@ export default {
               this.rounds = 0;
               foundTopItem = true;
               if (this.algorithm === 2) {
-                this.shoppingList.pop();
+                this.shoppingList.splice(0,1)
                 this.addFinishedRoundAnimation(
-                  this.shoppingList[this.shoppingList.length - 1]
+                  this.shoppingList[0]
                 );
                 return [foundTopItem, true];
               }
             } else {
               this.addSearchAnimation(
-                this.shoppingList[this.shoppingList.length - 1],
+                this.shoppingList[0],
                 false,
                 this.shelfs[currentShelf],
                 i
@@ -611,9 +846,9 @@ export default {
               foundTopItem &&
               currentShelf === this.shelfs.length - 1
             ) {
-              this.shoppingList.pop();
+              this.shoppingList.splice(0,1);
               this.addFinishedRoundAnimation(
-                this.shoppingList[this.shoppingList.length - 1]
+                this.shoppingList[0]
               );
             }
           }
@@ -669,7 +904,7 @@ export default {
 
           break;
         case 4:
-           
+
            let shoppingListPartial = this.shoppingList.filter((item) => categoryItems.indexOf(item) >= 0)
            console.log(shoppingListPartial)
     
@@ -730,6 +965,49 @@ export default {
           return [foundTopItem, false];
           break;
         case 5:
+          this.addFinishedRoundAnimation(this.shoppingList[0]);
+          for (let i = 0; i < shelfCells; i++) {
+            if (items[i] === this.shoppingList[0]) {
+              this.addSearchAnimation(
+                this.shoppingList[0],
+                true,
+                this.shelfs[currentShelf],
+                i
+              );
+              this.rounds = 0;
+              foundTopItem = true;
+              if (this.algorithm === 2) {
+                this.shoppingList.splice(0,1)
+                this.addFinishedRoundAnimation(
+                  this.shoppingList[0]
+                );
+                return [foundTopItem, true];
+              }
+            } else {
+              this.addSearchAnimation(
+                this.shoppingList[0],
+                false,
+                this.shelfs[currentShelf],
+                i
+              );
+            }
+            if (i + 1 !== shelfCells) {
+              this.addWalkingAnimation(
+                0,
+                0,
+                this.shelfs[currentShelf].clientHeight / shelfCells
+              );
+            } else if (
+              foundTopItem &&
+              currentShelf === this.shelfs.length - 1
+            ) {
+              this.shoppingList.splice(0,1);
+              this.addFinishedRoundAnimation(
+                this.shoppingList[0]
+              );
+            }
+          }
+          return [foundTopItem, false];
           break;
       }
       
@@ -794,7 +1072,9 @@ export default {
       //   console.log(this.robot.style.top, this.robot.style.left);
     },
     startSearch() {
+      console.log(this.animations)
       this.animations[0].animation.play();
+      console.log(this.animations)
     },
     repeatAnimations() {
       this.animations.push({

@@ -11,6 +11,9 @@
     <img v-else src="../assets/icons/play-solid.svg"  class="navigation-button pt" @click="$emit('handleClickPlayPause')"/>
     <div class="filler"></div>
     <img src="../assets/icons/forward-fast-solid.svg"  class="navigation-button" @click="$emit('handleClickFastForward')"/>
+    <div class="filler"></div>
+    <div v-if="showContinue"  class="continue" @click="$emit('handleClickContinueStory')"> WEITER </div>
+
 
   </div>
 </template>
@@ -18,7 +21,7 @@
 <script>
 export default {
     name: 'ButtonNavigation',    
-    props: ['story','playing','fastForwarding'],
+    props: ['story','playing','fastForwarding', 'showContinue'],
     emits: ["handleClickBack", "handleClickForward"],
 }
 </script>
@@ -35,6 +38,13 @@ export default {
   min-width: 50px;
 }
 
+.continue {
+  font-size: 3rem;
+  color: black;
+  padding-left: 11rem;
+  padding-top: 0.1rem;
+  cursor: pointer;
+}
 .filler {
   min-width: 40px;
 }

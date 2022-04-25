@@ -1,6 +1,6 @@
 <template>
 
-  <div v-if="chapterData">
+  <div v-if="chapterData && !chapterData.conversation[currentIndex]['showSimulation']">
       
     <div class="story-board">
         <div class="button-navigation top"><img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> </div>
@@ -58,30 +58,45 @@
       />
     </div>
   </div>
+  <div v-else> 
+    <AlgorithmOverview 
+    moduleName="supermarket" 
+    :isStory="true" 
+    :chapterId="chapterData.conversation[currentIndex].showSimulation"
+    @handleClickContinueStory="currentIndex++"
+    />
+  </div>
 </template>
 
 <script>
 import { computed, onMounted, ref } from "vue";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
-import getChapter from "../composables/getChapter.js";
+import getModule from "../composables/getModule.js";
 import CodeBox from "../components/CodeBox.vue";
+import AlgorithmOverview from "../views/AlgorithmOverview.vue";
+import router from "../router/index.js"
 export default {
   props: ["moduleName", "chapterId"],
   name: "StoryBoard",
-  components: { ButtonNavigation,CodeBox },
+  components: { ButtonNavigation,CodeBox, AlgorithmOverview},
   setup(props) {
     console.log(props.moduleName, props.chapterId);
-    const { chapterData, error, load } = getChapter(
-      props.moduleName,
-      props.chapterId
-    );
+    
+    const { mdl, error, load } = getModule(props.moduleName);
     load();
-
+    const chapterData = mdl.value[0].chapters[props.chapterId-1]
     const currentIndex = ref(0);
 
     const goForward = () => {
-      if (currentIndex.value < chapterData.value.conversation.length - 1) {
+      if (currentIndex.value < chapterData.conversation.length - 1) {
         currentIndex.value++;
+      } else {
+        router.push('/supermarket/chapters/' + (props.chapterId.value + 1))
+        props.chapterId++
+        currentIndex.value = 0;
+        chapterData.value = mdl[0].chapters[chapterId-1]
+        console.log('did smth')
+       
       }
     };
 
@@ -92,9 +107,9 @@ export default {
     };
 
     const isSpeaking = (name) => {
-        return chapterData.value.conversation[currentIndex.value]['speaker'] === name
+        return chapterData.conversation[currentIndex.value]['speaker'] === name
     }
-    return { chapterData, currentIndex, goForward, goBack,isSpeaking };
+    return { chapterData, currentIndex, goForward, goBack,isSpeaking ,mdl};
   },
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="header-overview">
-      <div  class="previous-chapter" @click="currentSimulation--" ><h1 v-show="currentSimulation!=0  && !isLaboratory" >&lt;&lt;</h1></div>
+      <div  class="previous-chapter" @click="currentSimulation--" ><h2 v-show="currentSimulation!=0  && !isLaboratory && !isStory" >&lt;&lt;</h2></div>
       <h2 v-if="!isLaboratory">{{ mdl[0].name_de }}  Kapitel {{allSimulations[currentSimulation].name}}</h2>
       <h2 v-else>Labor - {{ mdl[0].name_de }}</h2>
-      <div class="next-chapter"  @click="currentSimulation++"><h1 v-show="currentSimulation!=(allSimulations.length-1) && !isLaboratory ">&gt;&gt;</h1></div>
+      <div class="next-chapter"  @click="currentSimulation++"><h2 v-show="currentSimulation!=(allSimulations.length-1) && !isLaboratory && !isStory ">&gt;&gt;</h2></div>
     </div>
     <div class="grid">
         <div class="left-side">
@@ -53,8 +53,18 @@
             <h3  v-show="currentChosenSupermarket!='large' && isLaboratory" @click="currentChosenSupermarket = currentChosenSupermarket === 'medium' ? 'large' : 'medium'" class="next-chapter">&gt;&gt;</h3>
           </div>
           <div >
-            <Supermarket v-if="!isLaboratory" :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === allSimulations[currentSimulation].supermarket)[0].shelfs" :size="allSimulations[currentSimulation].supermarket" :algorithm="allSimulations[currentSimulation].algorithm" :shoppingListProp="allSimulations[currentSimulation].shoppingList"/>
-            <Supermarket v-else :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList"/>
+            <Supermarket
+             v-if="!isLaboratory" 
+             :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === allSimulations[currentSimulation].supermarket)[0].shelfs" 
+             :isStory="isStory" 
+             :size="allSimulations[currentSimulation].supermarket" 
+             :algorithm="allSimulations[currentSimulation].algorithm" 
+             :shoppingListProp="allSimulations[currentSimulation].shoppingList" 
+             :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"
+             @handleClickContinueStory="$emit('handleClickContinueStory')"
+             />
+
+            <Supermarket v-else :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList" :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"/>
           </div>
           
         </div>
@@ -92,7 +102,7 @@ import CodeBox from "../components/CodeBox.vue";
 import Supermarket from "../components/Supermarket.vue";
 import { onMounted } from "@vue/runtime-core";
 export default {
-  props: ["moduleName", "laboratory"],
+  props: ["moduleName", "laboratory", "isStory", "chapterId"],
   name: "AlgorithmOverview",
   components: { CodeBox, Supermarket },
   setup(props) {
@@ -101,7 +111,7 @@ export default {
     const isLaboratory = ref(false);
     isLaboratory.value = props.laboratory === 'laboratory' ? true : false;
     console.log(isLaboratory.value)
-    const currentSimulation = ref(2);
+    
     const allSimulations = ref([]);
     const showModal = ref(false);
     const currentChosenAlgorithm = ref(1);
@@ -111,6 +121,7 @@ export default {
    
 
     const getAllCategories = () => {
+      console.log('called')  
       let allShelfs = mdl.value[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs
       let res = [];
       let added = [];
@@ -148,10 +159,22 @@ export default {
       return mdl.value[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket.value)[0].shelfs.filter((shelf) => shelf.items.indexOf(item) >= 0).length > 0;
     }
     console.log(mdl.value[0]);
+    
     for (let chapter in mdl.value[0].chapters) {
       allSimulations.value.push(...mdl.value[0].chapters[chapter].simulations);
     }
     console.log(props)
+    let index;
+
+    console.log(allSimulations.value)
+    for (let i = 0; i < allSimulations.value.length; i++) {
+      console.log(allSimulations.value[i].name, props.chapterId )
+      if (allSimulations.value[i].name === props.chapterId) {
+        index = i;
+      } 
+    }
+    const currentSimulation = ref(index);
+    console.log(currentSimulation.value)
 
     return { mdl, getAllCategories, allCategories, openModal, removeItem, addItem, isAvailable, showModal, currentSimulation, allSimulations, isLaboratory, onMounted , currentChosenAlgorithm, currentChosenSupermarket, currentChosenShoppingList};
   },
@@ -183,7 +206,7 @@ export default {
     
     border-radius: 12px;
     margin-right: 25px;
-    margin-left: 15px;
+    margin-left: 1rem;
 }
 .algorithm-container {
   text-align: center;
@@ -309,7 +332,7 @@ export default {
 }
 .header-overview {
   display: flex;
-  width: 670px;
+  width: 440px;
   margin: 0 auto;
   justify-content: space-between;
   text-align: center;
@@ -319,7 +342,7 @@ export default {
 .chooser {
   display: flex;
   margin: 0 auto;
- 
+  margin-top: -0.75rem;
   text-align: center;
   width : 300px;
 }
