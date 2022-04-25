@@ -335,11 +335,11 @@
                         },
                         {
                             "name" : "meat",
-                            "items" : ["", "sausage", ""]
+                            "items" : ["steak", "sausage", "minced-meat"]
                         },
                         {
                             "name" : "sweets",
-                            "items" : ["chocolate", "", "chips"]
+                            "items" : ["chocolate", "popcorn", "chips"]
                         },
                         {
                             "name" : "cleaning",
@@ -352,35 +352,67 @@
                     "shelfs" : [
                         {
                             "name" : "vegetables",
-                            "items" : ["tomato", "cucumber", "salad"]
+                            "items" : ["tomato", "", "salad"]
+                        },
+                        {
+                            "name" : "vegetables",
+                            "items" : ["", "cucumber", "aubergine"]
                         },
                         {
                             "name" : "fruits",
-                            "items" : ["apple", "banana", "melon"]
+                            "items" : ["apple", "banana", ""]
+                        },
+                        {
+                            "name" : "fruits",
+                            "items" : ["", "mandarin", "melon"]
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["milk", "yogurt", "soy-milk"]
+                            "items" : ["", "yogurt", "soy-milk"]
+                        },
+                        {
+                            "name" : "cooler",
+                            "items" : ["milk", "", "cheese"]
                         },
                         {
                             "name" : "freezer",
-                            "items" : ["spinach", "ice-cream", "pizza"]
+                            "items" : ["spinach", "", "pizza"]
+                        },
+                        {
+                            "name" : "freezer",
+                            "items" : ["", "ice-cream", "fish"]
                         },
                         {
                             "name" : "drinks",
-                            "items" : ["coffee", "water", "lemonade"]
+                            "items" : ["", "water", "cola"]
+                        },
+                        {
+                            "name" : "drinks",
+                            "items" : ["coffee", "", "lemonade"]
                         },
                         {
                             "name" : "meat",
-                            "items" : ["", "sausage", ""]
+                            "items" : ["", "sausage", "steak"]
+                        },
+                        {
+                            "name" : "meat",
+                            "items" : ["chicken", "minced-meat", ""]
                         },
                         {
                             "name" : "sweets",
-                            "items" : ["chocolate", "", "chips"]
+                            "items" : ["chocolate", "", "confectionary"]
+                        },
+                        {
+                            "name" : "sweets",
+                            "items" : ["", "popcorn", "chips"]
                         },
                         {
                             "name" : "cleaning",
-                            "items" : ["toilet-paper", "soap", ""]
+                            "items" : ["toilet-paper", "", "broom"]
+                        },
+                        {
+                            "name" : "cleaning",
+                            "items" : ["", "soap", "tooth-brush"]
                         }
                     ]
                 }
