@@ -36,9 +36,9 @@
           :class="{
             'twoCols' : isLaboratory && currentChosenShoppingList.length > 4 || allSimulations[currentSimulation].shoppingList.length > 4, 
             'threeCols' : isLaboratory && currentChosenShoppingList.length > 8 || allSimulations[currentSimulation].shoppingList.length > 8, 
-            
+             'shopping-outer-story' : isStory
             }">
-            <div v-if="!isLaboratory"> <div class="shopping-list-text" v-for="(item, index) in allSimulations[currentSimulation].shoppingList" :key="item">{{item}} {{allSimulations[currentSimulation].algorithm === 4 || currentChosenAlgorithm === 4 ? '( ' +currentCategories[index] + ' )' : ''}}</div></div>
+            <div v-if="!isLaboratory"> <div class="shopping-list-text" :class="{bought: boughtItems.indexOf(item) >= 0}" v-for="(item, index) in allSimulations[currentSimulation].shoppingList" :key="item">{{item}} {{allSimulations[currentSimulation].algorithm === 4 || currentChosenAlgorithm === 4 ? '( ' +currentCategories[index] + ' )' : ''}}</div></div>
             <div v-else><div class="shopping-list-text" v-for="(item,index) in currentChosenShoppingList" :key="item">{{item}} {{currentChosenAlgorithm === 4 ? '( ' +getCurrentCategories()[index] + ' )' : ''}}</div></div>
           </div>
           <img id="shopping-list" src="../assets/images/notetop.png" alt="" srcset="">
@@ -63,9 +63,10 @@
              :shoppingListProp="allSimulations[currentSimulation].shoppingList" 
              :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"
              @handleClickContinueStory="$emit('handleClickContinueStory')"
+              :boughtItems="boughtItems"
              />
 
-            <Supermarket v-else :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList" :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"/>
+            <Supermarket v-else :boughtItems="boughtItems" :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList" :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"/>
           </div>
           
         </div>
@@ -118,7 +119,7 @@ export default {
     const currentChosenAlgorithm = ref(1);
     const currentChosenSupermarket = ref('small');
     const currentChosenShoppingList = ref(['milk', 'apple', 'banana', 'salad' ]);
-   
+    const boughtItems = ref([])
    
 
     const getAllCategories = () => {
@@ -194,7 +195,7 @@ export default {
     
     const currentCategories  = getCurrentCategories()
  console.log(currentCategories)
-    return { mdl, getAllCategories, getCurrentCategories, currentCategories, allCategories, openModal, removeItem, addItem, isAvailable, showModal, currentSimulation, allSimulations, isLaboratory, onMounted , currentChosenAlgorithm, currentChosenSupermarket, currentChosenShoppingList};
+    return { mdl, getAllCategories, boughtItems, getCurrentCategories, currentCategories, allCategories, openModal, removeItem, addItem, isAvailable, showModal, currentSimulation, allSimulations, isLaboratory, onMounted , currentChosenAlgorithm, currentChosenSupermarket, currentChosenShoppingList};
   },
   watch: {
     currentSimulation() {
@@ -287,6 +288,9 @@ export default {
   column-count: 1;
   column-width: 30rem;
 }
+.shopping-outer-story {
+  padding-top:4.5rem;
+}
 .action {
   width: 2rem;
   font-size: 1.4rem;
@@ -308,6 +312,11 @@ export default {
   border-radius: 20px;
   height: 1.5rem;
   color: beige; 
+}
+
+.bought {
+
+  text-decoration: line-through 2px red;
 }
 
 .in-stock {

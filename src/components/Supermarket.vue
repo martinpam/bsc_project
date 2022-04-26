@@ -92,7 +92,7 @@ import ButtonNavigation from "../components/ButtonNavigation.vue";
 
 import { onMounted } from "@vue/runtime-core";
 export default {
-  props: ["size", "algorithm", "shoppingListProp", "shelfData", "allShelfs" ,"isStory"],
+  props: ["size", "algorithm", "shoppingListProp", "shelfData", "allShelfs" ,"isStory", "boughtItems"],
   components: { ButtonNavigation },
   setup(props) {
     console.log(props);
@@ -548,6 +548,7 @@ export default {
             
             if (this.animations[u + 1].successful === true) {
               itemText.innerHTML = "✔️";
+              this.boughtItems.push(this.animations[u + 1].itemName)
             } else {
              itemText.innerHTML = "&#10060";
             }
@@ -825,6 +826,7 @@ export default {
               this.rounds = 0;
               foundTopItem = true;
               if (this.algorithm === 2) {
+      
                 this.shoppingList.splice(0,1)
                 this.addFinishedRoundAnimation(
                   this.shoppingList[0]
