@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/>
     <div class="header-overview">
       <div  class="previous-chapter" @click="currentSimulation--" ><h2 v-show="currentSimulation!=0  && !isLaboratory && !isStory" >&lt;&lt;</h2></div>
       <h2 v-if="!isLaboratory">{{ mdl[0].name_de }}  Kapitel {{allSimulations[currentSimulation].name}}</h2>
@@ -37,8 +38,8 @@
             'threeCols' : isLaboratory && currentChosenShoppingList.length > 8 || allSimulations[currentSimulation].shoppingList.length > 8, 
             
             }">
-            <div v-if="!isLaboratory"> <div class="shopping-list-text" v-for="item in allSimulations[currentSimulation].shoppingList" :key="item">{{item}}</div></div>
-            <div v-else><div class="shopping-list-text" v-for="item in currentChosenShoppingList" :key="item">{{item}}</div></div>
+            <div v-if="!isLaboratory"> <div class="shopping-list-text" v-for="(item, index) in allSimulations[currentSimulation].shoppingList" :key="item">{{item}} {{allSimulations[currentSimulation].algorithm === 4 || currentChosenAlgorithm === 4 ? '( ' +currentCategories[index] + ' )' : ''}}</div></div>
+            <div v-else><div class="shopping-list-text" v-for="(item,index) in currentChosenShoppingList" :key="item">{{item}} {{currentChosenAlgorithm === 4 ? '( ' +getCurrentCategories()[index] + ' )' : ''}}</div></div>
           </div>
           <img id="shopping-list" src="../assets/images/notetop.png" alt="" srcset="">
         </div>
@@ -147,7 +148,8 @@ export default {
       showModal.value = !showModal.value
       console.log(allCategories)
       }
-
+    
+    
 
     const addItem = (item) => {
       currentChosenShoppingList.value.push(item);
@@ -164,7 +166,7 @@ export default {
       allSimulations.value.push(...mdl.value[0].chapters[chapter].simulations);
     }
     console.log(props)
-    let index;
+    let index = 0;
 
     console.log(allSimulations.value)
     for (let i = 0; i < allSimulations.value.length; i++) {
@@ -174,10 +176,36 @@ export default {
       } 
     }
     const currentSimulation = ref(index);
-    console.log(currentSimulation.value)
-
-    return { mdl, getAllCategories, allCategories, openModal, removeItem, addItem, isAvailable, showModal, currentSimulation, allSimulations, isLaboratory, onMounted , currentChosenAlgorithm, currentChosenSupermarket, currentChosenShoppingList};
+    const getCurrentCategories = () => {
+      let shoppingListCurrent = isLaboratory.value ? currentChosenShoppingList.value : allSimulations.value[currentSimulation.value].shoppingList;
+      console.log(shoppingListCurrent)
+      let res = []
+      for (let i = 0; i < shoppingListCurrent.length; i++) {
+              for (let u = 0; u < allCategories.length; u++) {
+                if (allCategories[u].items.indexOf(shoppingListCurrent[i]) >= 0) {
+                console.log('returning ' + allCategories[u].name)
+                res.push( allCategories[u].name)
+              }
+            }
+             
+          }
+          return res
+        }
+    
+    const currentCategories  = getCurrentCategories()
+ console.log(currentCategories)
+    return { mdl, getAllCategories, getCurrentCategories, currentCategories, allCategories, openModal, removeItem, addItem, isAvailable, showModal, currentSimulation, allSimulations, isLaboratory, onMounted , currentChosenAlgorithm, currentChosenSupermarket, currentChosenShoppingList};
   },
+  watch: {
+    currentSimulation() {
+      this.currentCategories = this.getCurrentCategories()
+    },
+    currentChosenShoppingList() {
+      this.currentCategories = this.getCurrentCategories();
+    }
+    
+  }
+      
 };
 </script>
 
@@ -228,6 +256,13 @@ export default {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.smaller {
+        height: 40px;
+        position: absolute;
+        top: 15px;
+        left: 50px;
+    }
 
 .shopping-list-text {
   position: relative;

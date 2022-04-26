@@ -38,10 +38,12 @@
       <div class="door-exit" ref="exit"></div>
       <div class="shelf cooler articles-left"></div>
       <div class="shelf vegetables articles-left"></div>
+
       <div class="shelf freezer articles-right"></div>
+      <div class="shelf fruits articles-right"></div>  
       <div class="shelf meat articles-left"></div>
       <div class="shelf cleaning articles-left"></div>
-      <div class="shelf fruits articles-right"></div>
+    
       <div class="shelf sweets articles-right"></div>
       <div class="shelf drinks articles-right"></div>
       <div class="checkout" ref="checkout"></div>
@@ -128,7 +130,7 @@ export default {
     };
     const animations = ref([]);
     const walkingSpeed = ref(250);
-    const MAX_ROUNDS = 2;
+    const MAX_ROUNDS = 1;
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
     onMounted(() => {
@@ -584,6 +586,7 @@ export default {
           if (this.animations[u + 1].endlessLoop === true) {
             console.log(this.endlessRoundStarter);
             this.animations[this.endlessRoundStarter].animation.play();
+            this.showContinue = true;
             this.animations[u + 1].animation.pause();
           }
         };

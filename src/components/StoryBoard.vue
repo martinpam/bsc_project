@@ -18,7 +18,6 @@
             src="../assets/images/karin.png"
             alt="Karin"
           />
-          <CodeBox class="code-box" v-else :algorithm="chapterData.algorithm"/>
           <div
             v-if="isSpeaking('Robot')"
             :class="{
@@ -81,21 +80,19 @@ export default {
   components: { ButtonNavigation,CodeBox, AlgorithmOverview},
   setup(props) {
     console.log(props.moduleName, props.chapterId);
-    
+    const chapterId = ref(props.chapterId);
     const { mdl, error, load } = getModule(props.moduleName);
     load();
-    const chapterData = mdl.value[0].chapters[props.chapterId-1]
+    const chapterData = mdl.value[0].chapters[chapterId.value-1]
     const currentIndex = ref(0);
 
     const goForward = () => {
       if (currentIndex.value < chapterData.conversation.length - 1) {
         currentIndex.value++;
       } else {
-        router.push('/supermarket/chapters/' + (props.chapterId.value + 1))
-        props.chapterId++
-        currentIndex.value = 0;
-        chapterData.value = mdl[0].chapters[chapterId-1]
-        console.log('did smth')
+        chapterId.value++
+        router.push('/supermarket/chapters/' + chapterId.value)
+        
        
       }
     };
@@ -109,8 +106,14 @@ export default {
     const isSpeaking = (name) => {
         return chapterData.conversation[currentIndex.value]['speaker'] === name
     }
-    return { chapterData, currentIndex, goForward, goBack,isSpeaking ,mdl};
+    return { chapterData, chapterId, currentIndex, goForward, goBack,isSpeaking ,mdl};
   },
+  watch: {
+    chapterId() {
+      this.chapterData = this.mdl[0].chapters[this.chapterId-1]
+      this.currentIndex = 0;
+    }
+  }
 };
 </script>
 

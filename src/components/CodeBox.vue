@@ -4,6 +4,7 @@
       v-for="(line, index) in algorithm"
       :key="line"
       class="code-line"
+      :class="{highlight: line['highlight']}"
     >
       <div class="line-number">{{ index + 1 }}</div>
       <div v-for="i in line['indent']" :key="i" class="indent"></div>
@@ -48,6 +49,8 @@ export default {
     min-width: 2rem;
 }
 
+
+
 .code-line {
     display: flex;
     color: #f0f0f0;
@@ -56,6 +59,10 @@ export default {
     padding-left: 12px;
     padding-top: 5px;
     font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+}
+
+.highlight {
+  color: 	orange;
 }
 
 .indent {

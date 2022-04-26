@@ -2,7 +2,10 @@
   <div>
     <div v-if="!started">
       <div class="header">
-        <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/>
+        <router-link  class="container" to="/home"> 
+        <img src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/>
+      </router-link>
+        
         <div class="header-text">
           <h1>Supermarkt </h1>
         </div>
