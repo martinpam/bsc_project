@@ -7,7 +7,7 @@ import  AlgorithmOverview  from '../views/AlgorithmOverview.vue'
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },

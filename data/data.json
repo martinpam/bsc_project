@@ -7,8 +7,8 @@
                 {
                     "chapterId" : 1,
                     "conversation" : [
-                        {"speaker" : "Narrator", "text": "Da Karin Ihre Kunden möglichst lange in der Bibliothek behalten will, hatte Sie die Idee, Kaffee und Erfrischungsgetränke anzubieten. Die LeserInnen sind begeistert und das Getränkegeschäft läuft so gut, dass Karin mittlerweile mehr Zeit im Supermarkt verbringt, um nötige Zutaten zu kaufen, als ihr lieb ist. Sie hat schließlich die Idee, [robotName] darum zu bitten."},
-                        {"speaker" : "Karin", "text": "Hi [robotName], kann ich dich um einen Gefallen bitten?"},
+                        {"speaker" : "Narrator", "text": "Da Karin Ihre Kunden möglichst lange in der Bibliothek behalten will, hatte Sie die Idee, Kaffee und Erfrischungsgetränke anzubieten. Die LeserInnen sind begeistert und das Getränkegeschäft läuft so gut, dass Karin mittlerweile mehr Zeit im Supermarkt verbringt, um nötige Zutaten zu kaufen, als ihr lieb ist. Sie hat schließlich die Idee, Dev0 darum zu bitten."},
+                        {"speaker" : "Karin", "text": "Hi Dev0, kann ich dich um einen Gefallen bitten?"},
                         {"speaker" : "Robot", "text": "Natürlich, was kann ich für dich tun?"},
                         {"speaker" : "Karin", "text": "Es ist leider kaum noch Milch übrig. Könntest du bitte eine Packung kaufen gehen?"},
                         {"speaker" : "Robot", "text": "Gerne, kannst du mir bitte erklären, wie dieses Einkaufen funktioniert?"},
@@ -16,10 +16,10 @@
                         {"speaker" : "Karin", "text": "indem du durch die Gänge von Anfang bis Ende durchgehst" },
                         {"speaker" : "Robot", "text": "Danke für die Erklärung, ich schaffe das." },
                         {"speaker" : "Karin", "text": "Perfekt, bitte beeil dich!"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt.."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 1 View mit Algorithmus 1]", "showSimulation" : "1"},
-                        {"speaker" : "Narrator", "text": "[robotName] kehrt zu Karins Zufriedenheit nach kurzer Zeit zurück."},
-                        {"speaker" : "Karin", "text": "Wow das ging ja schnell, vielen Dank [robotName]!"},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt.."},
+                        {"speaker" : "Narrator", "text": "", "showSimulation" : "1"},
+                        {"speaker" : "Narrator", "text": "Dev0 kehrt zu Karins Zufriedenheit nach kurzer Zeit zurück."},
+                        {"speaker" : "Karin", "text": "Wow das ging ja schnell, vielen Dank Dev0!"},
                         {"speaker" : "Robot", "text": "Gern geschehen!"}
                     ],
                     "simulations" : [
@@ -34,16 +34,16 @@
                 {
                     "chapterId" : 2,
                     "conversation" : [
-                        {"speaker" : "Narrator", "text": "Karin hat wieder viel zu tun und bittet [robotName] um einen weiteren Einkauf"},
-                        {"speaker" : "Karin", "text": "[robotName], könntest du bitte wieder für mich Einkaufen gehen?"},
+                        {"speaker" : "Narrator", "text": "Karin hat wieder viel zu tun und bittet Dev0 um einen weiteren Einkauf"},
+                        {"speaker" : "Karin", "text": "Dev0, könntest du bitte wieder für mich Einkaufen gehen?"},
                         {"speaker" : "Robot", "text": "Gerne, was wird benötigt?"},
                         {"speaker" : "Karin", "text": "Und zwar bräuchte ich Yoghurt und Schokolade."},
                         {"speaker" : "Karin", "text": "Schokolade gibt es aber nicht bei dem Laden vom letzten mal. Du müsstest also bitte in den größeren Supermarkt in der Mediumstraße"},
                         {"speaker" : "Robot", "text": "Alles klar, ich mache mich sofort auf den Weg."},
                         {"speaker" : "Karin", "text": "Super, danke!"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum etwas größeren Supermarkt. Er geht nach dem selben Algorithmus vor..."},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum etwas größeren Supermarkt. Er geht nach dem selben Algorithmus vor..."},
                         {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 1]", "showSimulation" : "2a"},
-                        {"speaker" : "Narrator", "text": "Deutlich später kommt [robotName] endlich nach Hause. Karin ist entsetzt.."},
+                        {"speaker" : "Narrator", "text": "Deutlich später kommt Dev0 endlich nach Hause. Karin ist entsetzt.."},
                         {"speaker" : "Karin", "text": "Was ist denn passiert? Ich dachte schon, du bist verloren gegangen."},
                         {"speaker" : "Robot", "text": "Ich weiß nicht, was du meinst. Ich habe genau das selbe gemacht wie das letzte mal."},
                         {"speaker" : "Karin", "text": "Kannst du mir Schritt für Schritt berichten, was du gemacht hast?"},
@@ -61,9 +61,9 @@
                         {"speaker" : "Robot", "text": "Ich verstehe"},
                         {"speaker" : "Karin", "text": "Dann ist gut. Willst du es noch einmal versuchen?. Ich bräuchte ohnehin noch Käse und Kaffee"},
                         {"speaker" : "Robot", "text": "Selbstverständlich!"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt..."},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt..."},
                         {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 2]", "showSimulation" : "2b"},
-                        {"speaker" : "Narrator", "text": "[robotName] braucht diesmal nur fast die Hälfte der Zeit wie letztes mal. Katrin ist erfreut über den Fortschritt."},
+                        {"speaker" : "Narrator", "text": "Dev0 braucht diesmal nur fast die Hälfte der Zeit wie letztes mal. Katrin ist erfreut über den Fortschritt."},
                         {"speaker" : "Karin", "text": "Du bist schon wieder da? Ich habe schlimmeres berfürchtet, danke dir!"},
                         {"speaker" : "Robot", "text": "Immer zu Diensten!"}
                     ],
@@ -85,15 +85,15 @@
                 {
                     "chapterId" : 3,
                     "conversation" : [
-                        {"speaker" : "Narrator", "text": "Ein neuer Tag beginnt und Karin hat wieder eine Bitte an [robotName].."},
-                        {"speaker" : "Karin", "text": "Hi [robotName], kann ich dich wieder um einen Gefallen bitten?"},
+                        {"speaker" : "Narrator", "text": "Ein neuer Tag beginnt und Karin hat wieder eine Bitte an Dev0.."},
+                        {"speaker" : "Karin", "text": "Hi Dev0, kann ich dich wieder um einen Gefallen bitten?"},
                         {"speaker" : "Robot", "text": "Natürlich, soll ich wieder einkaufen gehen?"},
                         {"speaker" : "Karin", "text": "Genau, und zwar brauche ich ganz dringend Sojamilch. Die solltest du auch beim kleinen Laden bekommen können."},
                         {"speaker" : "Robot", "text": "Alles klar, ich kümmere mich darum!"},
                         {"speaker" : "Karin", "text": "Spitze, bis dann!"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt..."},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt..."},
                         {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt View 1 mit Algorithmus 2]" , "showSimulation" :"3a"},
-                        {"speaker" : "Narrator", "text": "Karin wartet und wartet, aber [robotName] kommt nicht zurück. Sie beschließt schließlich, selbst zum Laden zu gehen."},
+                        {"speaker" : "Narrator", "text": "Karin wartet und wartet, aber Dev0 kommt nicht zurück. Sie beschließt schließlich, selbst zum Laden zu gehen."},
                         {"speaker" : "Karin", "text": "Da bist du ja, was machst du denn so lange?"},
                         {"speaker" : "Robot", "text": "Ich suche nach Sojamilch. Aktuell starte ich in Runde 63."},
                         {"speaker" : "Karin", "text": "Was meinst du damit?. Kannst du mir erklären, was passiert ist"},
@@ -118,10 +118,10 @@
                         {"speaker" : "Karin", "text": "Nimm mir auch noch Äpfel und Seife mit, bitte!"},
                         {"speaker" : "Robot", "text": "Ich mache mich auf den Weg!"},
                         {"speaker" : "Karin", "text": "Du schaffst das!"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich mit verbessertem Algorithmus zum Supermarkt..."},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich mit verbessertem Algorithmus zum Supermarkt..."},
                         {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View  mit Algorithmus 3]" , "showSimulation" :"3b"},
-                        {"speaker" : "Narrator", "text": "Obwohl der Supermarkt der bisher größte war, kommt [robotName] recht schnell zurück"},
-                        {"speaker" : "Karin", "text": "Wow [robotName], du machst tolle Fortschritte!"},
+                        {"speaker" : "Narrator", "text": "Obwohl der Supermarkt der bisher größte war, kommt Dev0 recht schnell zurück"},
+                        {"speaker" : "Karin", "text": "Wow Dev0, du machst tolle Fortschritte!"},
                         {"speaker" : "Robot", "text": "Vielen Dank, ich freue mich auf's nächste mal!"}
                     ],
                     "simulations" : [
@@ -142,8 +142,8 @@
                 {
                     "chapterId" : 4,
                     "conversation" : [
-                        {"speaker" : "Narrator", "text": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird [robotName]s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. "},
-                        {"speaker" : "Karin", "text": "Hör mal [robotName], ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe.."},
+                        {"speaker" : "Narrator", "text": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird Dev0s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. "},
+                        {"speaker" : "Karin", "text": "Hör mal Dev0, ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe.."},
                         {"speaker" : "Karin", "text": "Ich gehe, wenn ich z.b Milch suche, nicht alle Gänge ab, sondern gehe nur in die Kühlabteilung.."},
                         {"speaker" : "Karin", "text": "Wenn ich sonst nichts brauche aus der Kühlabteilung, gehe ich gleich weiter weil klar ist, dass ich hier nichts mehr finde"},
                         {"speaker" : "Karin", "text": "Verstehst du, was ich meine?"},
@@ -153,9 +153,9 @@
                         {"speaker" : "Robot", "text": "Ich verstehe!"},
                         {"speaker" : "Karin", "text": "Wollen wir einen Testkauf starten? Ich bräuchte ohnehin Käse, Schokolade und Würstchen"},
                         {"speaker" : "Robot", "text": "Gerne, ich mache mich auf den Weg"},
-                        {"speaker" : "Narrator", "text": "[robotName] begibt sich zum Supermarkt. Er verwendet diesen, verbesserten Algorithmus ..."},
+                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt. Er verwendet diesen, verbesserten Algorithmus ..."},
                         {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View mit Algorithmus 4]", "showSimulation" :"4" },
-                        {"speaker" : "Narrator", "text": "Nach kurzer Zeit kommt [robotName] wieder zurück.. "},
+                        {"speaker" : "Narrator", "text": "Nach kurzer Zeit kommt Dev0 wieder zurück.. "},
                         {"speaker" : "Karin", "text": "Ich bin hin und weg, das war ja fast so schnell wie ich"},
                         {"speaker" : "Robot", "text": "Vielen Dank!"}
                     ],
@@ -171,16 +171,16 @@
                 {
                     "chapterId" : 5,
                     "conversation" : [
-                        {"speaker" : "Narrator", "text": "Karin hat wieder einen neuen Auftrag für [robotName] "},
+                        {"speaker" : "Narrator", "text": "Karin hat wieder einen neuen Auftrag für Dev0 "},
                         {"speaker" : "Karin", "text": "Wärst du wieder so freundlich, und gehst für mich einkaufen?"},
                         {"speaker" : "Robot", "text": "Mit Vergnügen! Was soll es sein?"},
                         {"speaker" : "Karin", "text": "Ich brauche diesmal Mandarinen, Gurken, Spinat und Limonade"},
                         {"speaker" : "Karin", "text": "Dazu müsstest du aber in den Giga Supermarkt, denn nur dort gibt es alles"},
                         {"speaker" : "Robot", "text": "Alles klar, ich mache mich auf den Weg"},
                         {"speaker" : "Karin", "text": "Danke, bis gleich!"},
-                        {"speaker" : "Narrator", "text": "[robotName] macht sich auf zum Giga Supermarkt.." },
+                        {"speaker" : "Narrator", "text": "Dev0 macht sich auf zum Giga Supermarkt.." },
                         {"speaker" : "Narrator", "text": ".", "showSimulation" : "5a" },
-                        {"speaker" : "Narrator", "text": "Die Suche dauert länger als erwartet, aber [robotName] kommt schließlich zurück"},
+                        {"speaker" : "Narrator", "text": "Die Suche dauert länger als erwartet, aber Dev0 kommt schließlich zurück"},
                         {"speaker" : "Karin", "text": "Hmm, das war irgendwie nicht so schnell, wie ich es erhofft hätte.. Je größer der Supermarkt, desto länger die Suche.."},
                         {"speaker" : "Karin", "text": "Ich frage mich, ob es noch einen Weg gibt, wie du noch etwas schneller werden kannst.."},
                         {"speaker" : "Karin", "text": "Aber mir fällt da nichts mehr ein... Ich hab's! Ich frage meinen Freund Markus, der ist Informatiker"},
@@ -188,16 +188,16 @@
                         {"speaker" : "Narrator", "text": "Markus erklärt Karin, dass das Problem des Einkaufens sehr ähnlich zu einem namens Traveling Salesman Problem ist, wo es darum geht, dass ein Verkäufer zu allen Städten will, aber nur einmal und zum Schluss wieder am Anfang ankommen will. Um den optimalen Pfad zu finden, müssten alle Routen berechnet werden, was sehr viel Rechenleistung in Anspruch nimmt."},
                         {"speaker" : "Narrator", "text": "Es gibt jedoch Algorithmen, die anhand von Heuristiken, wie zum Beispiel dem kürzesten Weg von einer Stadt zu einer anderen (oder wie bei uns, Artikeln) ein sehr gutes Ergebnis liefern"},
                         {"speaker" : "Narrator", "text": "Markus erklärt weiters, dass man, um diesen Algorithmus anweden zu können, lediglich alle Standpunkte bzw Koordinaten der Artikel benötigen würde. Glücklicherweiße gibt es genau solche für die Supermärkte im Internet zu finden"},
-                        {"speaker" : "Karin", "text": "Schau mal, [robotName]! Ich habe hier für dich eine Karte mit Koordinaten der ganzen Artikel im Supermarkt und diesen Algorithmus dazu von Markus"},
+                        {"speaker" : "Karin", "text": "Schau mal, Dev0! Ich habe hier für dich eine Karte mit Koordinaten der ganzen Artikel im Supermarkt und diesen Algorithmus dazu von Markus"},
                         {"speaker" : "Karin", "text": "Wenn du den anwendest, bekommst du die beste Route für jeden Einkauf. Er meinte, du weißt bestimmt, was zu tun ist.."},
                         {"speaker" : "Robot", "text": "Vielen Dank, ja das ist für mich als Roboter nicht schwer zu verstehen"},
                         {"speaker" : "Karin", "text": "Super, kann ich dich dann gleich um eine Einkaufstour bitten?"},
                         {"speaker" : "Robot", "text": "Natürlich, was soll ich kaufen?"},
                         {"speaker" : "Karin", "text": "Ich brauche Äpfel, Pralinen, Soja Milch, Kaffee, Schokolade und Joghurt. Denkst du, das kriegst du hin?"},
                         {"speaker" : "Robot", "text": "Das schaffe ich!"},
-                        {"speaker" : "Narrator", "text": "[robotName] macht sich auf den Weg in den Giga Supermarkt"},
+                        {"speaker" : "Narrator", "text": "Dev0 macht sich auf den Weg in den Giga Supermarkt"},
                         {"speaker" : "Narrator", "text": "" , "showSimulation" : "5b" },
-                        {"speaker" : "Narrator", "text": "Nach erfolgreichem Einkauf kommt [robotName] zurück.." },
+                        {"speaker" : "Narrator", "text": "Nach erfolgreichem Einkauf kommt Dev0 zurück.." },
                         {"speaker" : "Karin", "text": "Unglaublich, jetzt bist du wirklich ein Meister im Einkaufen geworden!" },
                         {"speaker" : "Robot", "text": "Vielen Dank!" }
 
@@ -348,67 +348,67 @@
                     "shelfs" : [
                         {
                             "name" : "vegetables",
-                            "items" : ["tomato", "", "salad"]
+                            "items" : ["tomato", "", "salad", ""]
                         },
                         {
                             "name" : "vegetables",
-                            "items" : ["", "cucumber", "aubergine"]
+                            "items" : ["", "cucumber", "aubergine", ""]
                         },
                         {
                             "name" : "fruits",
-                            "items" : ["apple", "banana", ""]
+                            "items" : ["apple", "banana", "", ""]
                         },
                         {
                             "name" : "fruits",
-                            "items" : ["", "mandarin", "melon"]
+                            "items" : ["", "mandarin", "melon", ""]
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["", "yogurt", "cheese" ]
+                            "items" : ["", "yogurt", "cheese", "" ]
                         },
                         {
                             "name" : "cooler",
-                            "items" : ["milk", "", ""]
+                            "items" : ["milk", "", "", ""]
                         },
                         {
                             "name" : "freezer",
-                            "items" : ["spinach", "", "pizza"]
+                            "items" : ["spinach", "", "pizza", ""]
                         },
                         {
                             "name" : "freezer",
-                            "items" : ["", "ice-cream", "fish"]
+                            "items" : ["", "ice-cream", "fish", ""]
                         },
                         {
                             "name" : "drinks",
-                            "items" : ["", "water", "cola"]
+                            "items" : ["", "water", "cola", ""]
                         },
                         {
                             "name" : "drinks",
-                            "items" : ["coffee", "soy-milk", "lemonade"]
+                            "items" : ["coffee", "soy-milk", "lemonade", ""]
                         },
                         {
                             "name" : "meat",
-                            "items" : ["", "sausage", "steak"]
+                            "items" : ["", "sausage", "steak", ""]
                         },
                         {
                             "name" : "meat",
-                            "items" : ["chicken", "minced-meat", ""]
+                            "items" : ["chicken", "minced-meat", "", ""]
                         },
                         {
                             "name" : "sweets",
-                            "items" : ["chocolate", "", "confectionary"]
+                            "items" : ["chocolate", "", "confectionary", ""]
                         },
                         {
                             "name" : "sweets",
-                            "items" : ["", "popcorn", "chips"]
+                            "items" : ["", "popcorn", "chips", ""]
                         },
                         {
                             "name" : "cleaning",
-                            "items" : ["toilet-paper", "", "broom"]
+                            "items" : ["toilet-paper", "", "broom", ""]
                         },
                         {
                             "name" : "cleaning",
-                            "items" : ["", "soap", "tooth-brush"]
+                            "items" : ["", "soap", "tooth-brush", ""]
                         }
                     ]
                 }
