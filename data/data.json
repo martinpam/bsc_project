@@ -415,8 +415,8 @@
             ]
         },
         {
-            "name_en": "parking",
-            "name_de": "Parkplatz",
+            "name_en": "socks",
+            "name_de": "Socken",
             "chapters" : [
                 {
                     "chapterId" : 1,
