@@ -19,10 +19,10 @@
       <div class="start"></div>
       <div class="door-entry" ref="door"></div>
       <div class="door-exit" ref="exit"></div>
-      <div class="shelf vegetables articles-left"></div>
-      <div class="shelf fruits articles-right"></div>
-      <div class="shelf cooler articles-left"></div>
-      <div class="shelf freezer articles-right"></div>
+      <div class="shelf vegetables articles-left text-small"></div>
+      <div class="shelf fruits articles-right text-small"></div>
+      <div class="shelf cooler articles-left text-small"></div>
+      <div class="shelf freezer articles-right text-small"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
       
@@ -36,16 +36,16 @@
       <div class="start"></div>
       <div class="door-entry" ref="door"></div>
       <div class="door-exit" ref="exit"></div>
-      <div class="shelf cooler articles-left"></div>
-      <div class="shelf vegetables articles-left"></div>
+      <div class="shelf cooler articles-left text-medium"></div>
+      <div class="shelf vegetables articles-left text-medium"></div>
 
-      <div class="shelf freezer articles-right"></div>
-      <div class="shelf fruits articles-right"></div>  
-      <div class="shelf meat articles-left"></div>
-      <div class="shelf cleaning articles-left"></div>
+      <div class="shelf freezer articles-right text-medium"></div>
+      <div class="shelf fruits articles-right text-medium"></div>  
+      <div class="shelf meat articles-left text-medium"></div>
+      <div class="shelf cleaning articles-left text-medium"></div>
     
-      <div class="shelf sweets articles-right"></div>
-      <div class="shelf drinks articles-right"></div>
+      <div class="shelf sweets articles-right text-medium"></div>
+      <div class="shelf drinks articles-right text-medium"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
     </div>
@@ -53,22 +53,22 @@
          <div class="start special"></div>
       <div class="door-entry" ref="door"></div>
       <div class="door-exit" ref="exit"></div>
-      <div class="shelf cooler articles-left"></div>
-      <div class="shelf fruits articles-left"></div>
-      <div class="shelf vegetables articles-right"></div>
-      <div class="shelf freezer articles-right"></div>
-      <div class="shelf vegetables vegetables2 articles-left"></div>
-      <div class="shelf freezer freezer2 articles-left"></div>
-      <div class="shelf cooler cooler2 articles-right"></div>
-      <div class="shelf fruits fruits2 articles-right"></div>
-       <div class="shelf drinks drinks2 articles-left"></div>
-      <div class="shelf drinks articles-left"></div>
-      <div class="shelf meat articles-right"></div>
-      <div class="shelf cleaning articles-right"></div>
-      <div class="shelf meat meat2 articles-left"></div>
-      <div class="shelf cleaning cleaning2 articles-left"></div>
-      <div class="shelf sweets articles-right"></div>
-      <div class="shelf sweets sweets2 articles-right"></div>
+      <div class="shelf cooler articles-left text-large"></div>
+      <div class="shelf fruits articles-left text-large"></div>
+      <div class="shelf vegetables articles-right text-large"></div>
+      <div class="shelf freezer articles-right text-large"></div>
+      <div class="shelf vegetables vegetables2 articles-left text-large"></div>
+      <div class="shelf freezer freezer2 articles-left text-large"></div>
+      <div class="shelf cooler cooler2 articles-right text-large"></div>
+      <div class="shelf fruits fruits2 articles-right text-large"></div>
+       <div class="shelf drinks drinks2 articles-left text-large"></div>
+      <div class="shelf drinks articles-left text-large"></div>
+      <div class="shelf meat articles-right text-large"></div>
+      <div class="shelf cleaning articles-right text-large"></div>
+      <div class="shelf meat meat2 articles-left text-large"></div>
+      <div class="shelf cleaning cleaning2 articles-left text-large"></div>
+      <div class="shelf sweets articles-right text-large"></div>
+      <div class="shelf sweets sweets2 articles-right text-large"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor" ref="corridor"></div>
      
@@ -215,6 +215,7 @@ export default {
       this.rounds = 0;
       this.gameStarted = false;
       this.currentItem.style.display = 'none';
+      this.$emit('resetBoughtItems');
       this.animations.forEach((element) => {
         element.animation.cancel();
       });
@@ -1114,30 +1115,45 @@ export default {
   grid-area: e;
 }
 .vegetables {
-  background-color: green;
+  background-color: #66ff66;
   grid-area: v;
+  
 }
+
+.vegetables:after, .vegetables2:after{
+  content: "Gemüse";
+}
+
 .vegetables2 {
-  background-color: green;
+  background-color: #66ff66;
   grid-area: h;
 }
+
 .fruits {
-  background-color: greenyellow;
+  background-color: #00cc00;
   grid-area: f;
 }
 
+.fruits:after, .fruits2:after {
+  content: "Obst";
+}
+
 .fruits2 {
-  background-color: greenyellow;
+  background-color: #00cc00;
   grid-area: j;
 }
 .freezer {
-  background-color: blue;
+  background-color: #33ccff;
   grid-area: g;
 }
 .freezer2 {
-  background-color: blue;
+  background-color: #33ccff;
   grid-area: a;
 }
+.freezer:after, .freezer2:after {
+  content: "Gefrierschrank";
+}
+
 .cooler {
   background-color: lightblue;
   grid-area: c;
@@ -1146,21 +1162,30 @@ export default {
   background-color: lightblue;
   grid-area: b;
 }
+.cooler:after, .cooler2:after {
+  content: "Kühltruhe";
+}
 .meat {
-  background-color: red;
+  background-color: #ff6666;
   grid-area: m;
 }
 .meat2 {
-  background-color: red;
+  background-color: #ff6666;
   grid-area: n;
 }
+.meat:after, .meat2:after {
+  content: "Fleisch";
+}
 .sweets {
-  background-color: chocolate;
+  background-color: #b35900;
   grid-area: s;
 }
 .sweets2 {
-  background-color: chocolate;
+  background-color: #b35900;
   grid-area: r;
+}
+.sweets:after, .sweets2:after {
+  content: "Süßigkeiten";
 }
 .cleaning {
   background-color: pink;
@@ -1170,6 +1195,9 @@ export default {
   background-color: pink;
   grid-area: o;
 }
+.cleaning:after, .cleaning2:after {
+  content: "Reinungsmittel";
+}
 .drinks {
   background-color: violet;
   grid-area: d;
@@ -1178,24 +1206,57 @@ export default {
   background-color: violet;
   grid-area: k;
 }
+.drinks:after, .drinks2:after {
+  content: "Getränke";
+}
 .checkout {
   background-color: gold;
   grid-area: p;
   border-radius: 12px;
 }
+
 .start {
-  grid-area: S;
+  grid-area: x;
+  background-color: brown;
 }
 .special {
   background-color: brown;
 }
 .shelf {
   border-radius: 12px;
+  
+   writing-mode: vertical-lr;
+   
+   z-index: 1;
+  text-orientation: mixed;
+   text-align: center;
+   color: #2c3e50;
+
+}
+
+
+.text-small {
+ padding-left: 0.8rem;
+ font-size: 1.9rem;
+ 
+}
+.text-medium {
+  padding-left: 0.8rem;
+ font-size: 1.7rem;
+}
+.text-large {
+  padding-left: 0.5rem;
+ font-size: 1.3rem;
+}
+
+.articles-right {
+  transform: rotate(180deg)
 }
 
 .corridor {
   grid-area: q;
 }
+
 
 .supermarket {
   background-color: grey;
@@ -1204,6 +1265,9 @@ export default {
   text-align: left;
   grid-template-rows: auto;
   display: grid;
+  grid-auto-rows: 1fr;
+
+ 
 }
 
 .current-item {
@@ -1213,6 +1277,7 @@ export default {
   left: 0px;
   width: 0px;
   font-size: 2.7rem;
+  z-index: 2;
 }
 
 #itemImageOuter {
@@ -1232,8 +1297,9 @@ export default {
 .small {
   grid-template-columns: repeat(48, 1fr);
   grid-template-areas:
-    "i i i i i i . . . . . . . . . . . . . . . . . . . . . . . . . p p p p p . . . . . . e e e e e e"
-    ". S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . p p p p p . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "x i i i i i . . . . . . . . . . . . . . . . . . . . . . . . . p p p p p . . . . . . e e e e e e"
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . p p p p p . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -1268,10 +1334,11 @@ export default {
 .medium {
   grid-template-columns: repeat(42, 1fr);
   grid-template-areas:
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     ". . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
     ". . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
+    "x . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
     "i . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
-    "i S . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
     "i . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
     "i . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
     "i . . . . c c c c c g g g g g . . . . . . . . . . m m m m m s s s s s . . . . . . ."
@@ -1303,7 +1370,8 @@ export default {
 .large {
   grid-template-columns: repeat(49, 1fr);
   grid-template-areas:
-    "S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "x . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     "i . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     ". . . c c c g g g . . . . . . a a a b b b . . . . . . d d d m m m . . . . . . n n n s s s . . . ."

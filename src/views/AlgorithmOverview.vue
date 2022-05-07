@@ -34,12 +34,11 @@
           <div class="add-button" @click="openModal()">&#43;</div>
           <div class="shopping-outer" 
           :class="{
-            'twoCols' : isLaboratory && currentChosenShoppingList.length > 4 || allSimulations[currentSimulation].shoppingList.length > 4, 
-            'threeCols' : isLaboratory && currentChosenShoppingList.length > 8 || allSimulations[currentSimulation].shoppingList.length > 8, 
+            'twoCols' : isLaboratory && currentChosenShoppingList.length > 5 || allSimulations[currentSimulation].shoppingList.length > 5, 
              'shopping-outer-story' : isStory
             }">
             <div v-if="!isLaboratory"> <div class="shopping-list-text" :class="{bought: boughtItems.indexOf(item) >= 0}" v-for="(item, index) in allSimulations[currentSimulation].shoppingList" :key="item">{{item}} {{allSimulations[currentSimulation].algorithm === 4 || currentChosenAlgorithm === 4 ? '( ' +currentCategories[index] + ' )' : ''}}</div></div>
-            <div v-else><div class="shopping-list-text" v-for="(item,index) in currentChosenShoppingList" :key="item">{{item}} {{currentChosenAlgorithm === 4 ? '( ' +getCurrentCategories()[index] + ' )' : ''}}</div></div>
+            <div v-else><div class="shopping-list-text" :class="{bought: boughtItems.indexOf(item) >= 0}" v-for="(item,index) in currentChosenShoppingList" :key="item">{{item}} {{currentChosenAlgorithm === 4 ? '( ' +getCurrentCategories()[index] + ' )' : ''}}</div></div>
           </div>
           <img id="shopping-list" src="../assets/images/notetop.png" alt="" srcset="">
         </div>
@@ -63,10 +62,11 @@
              :shoppingListProp="allSimulations[currentSimulation].shoppingList" 
              :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"
              @handleClickContinueStory="$emit('handleClickContinueStory')"
+             @resetBoughtItems="boughtItems = []"
               :boughtItems="boughtItems"
              />
 
-            <Supermarket v-else :boughtItems="boughtItems" :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList" :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"/>
+            <Supermarket v-else :boughtItems="boughtItems"  @resetBoughtItems="boughtItems = []" :shelfData="mdl[0].supermarketLayouts.filter((l) => l.name === currentChosenSupermarket)[0].shelfs" :size="currentChosenSupermarket" :algorithm="currentChosenAlgorithm" :shoppingListProp="currentChosenShoppingList" :allShelfs="mdl[0].supermarketLayouts.filter((l) => l.name === 'large')[0].shelfs"/>
           </div>
           
         </div>
@@ -153,7 +153,10 @@ export default {
     
 
     const addItem = (item) => {
-      currentChosenShoppingList.value.push(item);
+      if (currentChosenShoppingList.value.length < 10) {
+        currentChosenShoppingList.value.push(item);
+      }
+      
     }
     const removeItem = (item) => {
       currentChosenShoppingList.value.splice(currentChosenShoppingList.value.indexOf(item), 1);
@@ -330,10 +333,6 @@ export default {
   column-width: 16rem;
 }
 
-.threeCols {
-  column-count: 3;
-  column-width: 10.5rem;
-}
 
 .add-button {
   position: absolute;
