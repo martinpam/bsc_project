@@ -35,7 +35,7 @@
       <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-right text-small"></div>
       <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-small"></div>
       <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-small"></div>
-      <div  class="checkout" ref="checkout"></div>
+      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}"  class="checkout text-small-checkout" ref="checkout"></div>
       <div  class="corridor corridor1" ref="corridor"></div>
     </div>
 
@@ -64,7 +64,7 @@
 
       <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-medium"></div>
       <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks articles-right text-medium"></div>
-      <div class="checkout" ref="checkout"></div>
+      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}" class="checkout text-medium-checkout" ref="checkout"></div>
       <div class="corridor corridor1" ref="corridor"></div>
     </div>
     <div v-else-if="size==='LARGE'" class="supermarket large" ref="supermarket">
@@ -93,7 +93,7 @@
       <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning cleaning2 articles-left text-large"></div>
       <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-large"></div>
       <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets sweets2 articles-right text-large"></div>
-      <div class="checkout" ref="checkout"></div>
+      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}" class="checkout text-large-checkout" ref="checkout"></div>
       <div class="corridor corridor1" ref="corridor"></div>
       <div class="corridor corridor2"></div>
       <div class="corridor corridor3"></div>
@@ -265,7 +265,7 @@ export default {
         element.animation.cancel();
       });
       this.animations = [];
-      this.MAX_ROUNDS = 1;
+      this.MAX_ROUNDS = 2;
     },
     playPause() {
       this.playing = !this.playing;
@@ -1618,10 +1618,15 @@ export default {
 .drinks2:after {
   content: var(--drinks);
 }
+
+
 .checkout {
   background-color: gold;
   grid-area: p;
   border-radius: 12px;
+}
+.checkout:after {
+  content: '$';
 }
 
 .start {
@@ -1649,12 +1654,27 @@ export default {
 .text-medium {
   padding-left: 0.8rem;
   font-size: 1.7rem;
+  
 }
 .text-large {
   padding-left: 0.5rem;
   font-size: 1.3rem;
 }
-
+.text-small-checkout {
+  padding-left: 2.45rem;
+  font-size: 1.9rem;
+}
+.text-medium-checkout {
+  padding-left: 1.0rem;
+  padding-top: 1.5rem;
+  font-size: 1.7rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.3rem;
+  padding-top: 0.85rem;
+  font-size: 1.3rem;
+}
 .articles-right {
   transform: rotate(180deg);
 }
