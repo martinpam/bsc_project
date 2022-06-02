@@ -1,445 +1,1185 @@
 {
-    "modules": [
-        {
-            "name_en": "supermarket",
-            "name_de": "Supermarkt",
-            "chapters" : [
-                {
-                    "chapterId" : 1,
-                    "conversation" : [
-                        {"speaker" : "Narrator", "text": "Da Karin Ihre Kunden möglichst lange in der Bibliothek behalten will, hatte Sie die Idee, Kaffee und Erfrischungsgetränke anzubieten. Die LeserInnen sind begeistert und das Getränkegeschäft läuft so gut, dass Karin mittlerweile mehr Zeit im Supermarkt verbringt, um nötige Zutaten zu kaufen, als ihr lieb ist. Sie hat schließlich die Idee, Dev0 darum zu bitten."},
-                        {"speaker" : "Karin", "text": "Hi Dev0, kann ich dich um einen Gefallen bitten?"},
-                        {"speaker" : "Robot", "text": "Natürlich, was kann ich für dich tun?"},
-                        {"speaker" : "Karin", "text": "Es ist leider kaum noch Milch übrig. Könntest du bitte eine Packung kaufen gehen?"},
-                        {"speaker" : "Robot", "text": "Gerne, kannst du mir bitte erklären, wie dieses Einkaufen funktioniert?"},
-                        {"speaker" : "Karin", "text": "Das ist ganz einfach. Du nimmst diese Einkaufsliste und suchst nach allen Artikeln bis du sie gefunden hast.." },
-                        {"speaker" : "Karin", "text": "indem du durch die Gänge von Anfang bis Ende durchgehst" },
-                        {"speaker" : "Robot", "text": "Danke für die Erklärung, ich schaffe das." },
-                        {"speaker" : "Karin", "text": "Perfekt, bitte beeil dich!"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt.."},
-                        {"speaker" : "Narrator", "text": "", "showSimulation" : "1"},
-                        {"speaker" : "Narrator", "text": "Dev0 kehrt zu Karins Zufriedenheit nach kurzer Zeit zurück."},
-                        {"speaker" : "Karin", "text": "Wow das ging ja schnell, vielen Dank Dev0!"},
-                        {"speaker" : "Robot", "text": "Gern geschehen!"}
-                    ],
-                    "simulations" : [
-                        {
-                            "name" : "1",
-                            "algorithm" : 1,
-                            "supermarket" : "small",
-                            "shoppingList" : ["milk"]
-                        }
-                    ]
-                },
-                {
-                    "chapterId" : 2,
-                    "conversation" : [
-                        {"speaker" : "Narrator", "text": "Karin hat wieder viel zu tun und bittet Dev0 um einen weiteren Einkauf"},
-                        {"speaker" : "Karin", "text": "Dev0, könntest du bitte wieder für mich Einkaufen gehen?"},
-                        {"speaker" : "Robot", "text": "Gerne, was wird benötigt?"},
-                        {"speaker" : "Karin", "text": "Und zwar bräuchte ich Yoghurt und Schokolade."},
-                        {"speaker" : "Karin", "text": "Schokolade gibt es aber nicht bei dem Laden vom letzten mal. Du müsstest also bitte in den größeren Supermarkt in der Mediumstraße"},
-                        {"speaker" : "Robot", "text": "Alles klar, ich mache mich sofort auf den Weg."},
-                        {"speaker" : "Karin", "text": "Super, danke!"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum etwas größeren Supermarkt. Er geht nach dem selben Algorithmus vor..."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 1]", "showSimulation" : "2a"},
-                        {"speaker" : "Narrator", "text": "Deutlich später kommt Dev0 endlich nach Hause. Karin ist entsetzt.."},
-                        {"speaker" : "Karin", "text": "Was ist denn passiert? Ich dachte schon, du bist verloren gegangen."},
-                        {"speaker" : "Robot", "text": "Ich weiß nicht, was du meinst. Ich habe genau das selbe gemacht wie das letzte mal."},
-                        {"speaker" : "Karin", "text": "Kannst du mir Schritt für Schritt berichten, was du gemacht hast?"},
-                        {"speaker" : "Robot", "text": "Natürlich, und zwar.."},
-                        {"speaker" : "Robot", "text": "Betrat ich den Supermarkt, dann ging is in den ersten Gang..."},
-                        {"speaker" : "Robot", "text": "Ich sah mir den ersten Artikel an, es handelte sich um 'Milch'..."},
-                        {"speaker" : "Robot", "text": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Yoghurt'."},
-                        {"speaker" : "Robot", "text": "Ich ging zum nächsten Artikel, es handelte sich um 'Yoghurt'."},
-                        {"speaker" : "Robot", "text": "Ich konnte den Artikel von der Einkaufsliste streichen."},
-                        {"speaker" : "Robot", "text": "Ich ging zum nächsten Artikel, es handelte sich um 'Käse'"},
-                        {"speaker" : "Robot", "text": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Yoghurt'."},
-                        {"speaker" : "Karin", "text": "Moment! Du vergleichst noch immer mit Yoghurt?"},
-                        {"speaker" : "Robot", "text": "Na klar. Ich gehe für jeden Artikel alle Gänge auf und ab"},
-                        {"speaker" : "Karin", "text": "Darum hast du also so lange gebraucht.. Ab jetzt, wenn du einen Artikel gefunden hast, kannst du ruhig schon mit dem nächsten Artikel anfangen, ok?"},
-                        {"speaker" : "Robot", "text": "Ich verstehe"},
-                        {"speaker" : "Karin", "text": "Dann ist gut. Willst du es noch einmal versuchen?. Ich bräuchte ohnehin noch Käse und Kaffee"},
-                        {"speaker" : "Robot", "text": "Selbstverständlich!"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt..."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 2 View mit Algorithmus 2]", "showSimulation" : "2b"},
-                        {"speaker" : "Narrator", "text": "Dev0 braucht diesmal nur fast die Hälfte der Zeit wie letztes mal. Katrin ist erfreut über den Fortschritt."},
-                        {"speaker" : "Karin", "text": "Du bist schon wieder da? Ich habe schlimmeres berfürchtet, danke dir!"},
-                        {"speaker" : "Robot", "text": "Immer zu Diensten!"}
-                    ],
-                    "simulations" : [
-                        {
-                            "name" : "2a",
-                            "algorithm" : 1,
-                            "supermarket" : "medium",
-                            "shoppingList" : ["yogurt", "chocolate"]
+    "modules": [{
+            "name": "MODULE_SUPERMARKET",
+            "link": "supermarket",
+            "chapters": [{
+                    "chapterId": 1,
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "Since Karin wants to keep her customers in the library for as long as possible, she had the idea of offering coffee and soft drinks. The readers are enthusiastic and the beverage business is doing so well that Karin now spends more time in the supermarket to buy the necessary ingredients than she would like. She finally comes up with the idea of asking Dev0 to do it.",
+                            "de": "Da Karin Ihre Kunden möglichst lange in der Bibliothek behalten will, hatte Sie die Idee, Kaffee und Erfrischungsgetränke anzubieten. Die LeserInnen sind begeistert und das Getränkegeschäft läuft so gut, dass Karin mittlerweile mehr Zeit im Supermarkt verbringt, um nötige Zutaten zu kaufen, als ihr lieb ist. Sie hat schließlich die Idee, Dev0 darum zu bitten."
                         },
                         {
-                            "name" : "2b",
-                            "algorithm" : 2,
-                            "supermarket" : "medium",
-                            "shoppingList" : ["cheese", "coffee"]
-                        }
-                    ]
-                },
-                {
-                    "chapterId" : 3,
-                    "conversation" : [
-                        {"speaker" : "Narrator", "text": "Ein neuer Tag beginnt und Karin hat wieder eine Bitte an Dev0.."},
-                        {"speaker" : "Karin", "text": "Hi Dev0, kann ich dich wieder um einen Gefallen bitten?"},
-                        {"speaker" : "Robot", "text": "Natürlich, soll ich wieder einkaufen gehen?"},
-                        {"speaker" : "Karin", "text": "Genau, und zwar brauche ich ganz dringend Sojamilch. Die solltest du auch beim kleinen Laden bekommen können."},
-                        {"speaker" : "Robot", "text": "Alles klar, ich kümmere mich darum!"},
-                        {"speaker" : "Karin", "text": "Spitze, bis dann!"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt..."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt View 1 mit Algorithmus 2]" , "showSimulation" :"3a"},
-                        {"speaker" : "Narrator", "text": "Karin wartet und wartet, aber Dev0 kommt nicht zurück. Sie beschließt schließlich, selbst zum Laden zu gehen."},
-                        {"speaker" : "Karin", "text": "Da bist du ja, was machst du denn so lange?"},
-                        {"speaker" : "Robot", "text": "Ich suche nach Sojamilch. Aktuell starte ich in Runde 63."},
-                        {"speaker" : "Karin", "text": "Was meinst du damit?. Kannst du mir erklären, was passiert ist"},
-                        {"speaker" : "Robot", "text": "Natürlich, und zwar.."},
-                        {"speaker" : "Robot", "text": "Ging ich durch die Gänge wie besprochen und verglich jeden Artikel mit Sojamilch"},
-                        {"speaker" : "Robot", "text": "Als ich am Ende des letzten Ganges angekommen war, startete ich von vorne, also in die nächste Runde"},
-                        {"speaker" : "Robot", "text": "weil ich noch nicht alle Artikel gefunden hatte"},
-                        {"speaker" : "Robot", "text": "Und aktuell bin ich bereits 62 mal von Anfang bis Ende durch die Gänge gelaufen."},
-                        {"speaker" : "Robot", "text": "Aber die Soja Milch habe ich leider noch nicht gefunden, ich versuche es aber weiterhin!"},
-                        {"speaker" : "Karin", "text": "Nein das brauchst du nicht! Soja Milch gibt es wohl hier nicht. Wenn es einen Artikel nicht gibt, dann komm ruhig nach Hause"},
-                        {"speaker" : "Karin", "text": "Und ohnehin brauchst du doch eh nur einmal durch alle Gänge gehen, wozu diese Runden?"},
-                        {"speaker" : "Robot", "text": "Ich starte für jeden Artikel, den ich suche, immer von vorne"},
-                        {"speaker" : "Karin", "text": "Meinst du, du suchst immer nur nach einem Artikel gleichzeitig?"},
-                        {"speaker" : "Robot", "text": "Ja, nach dem obersten auf der Liste"},
-                        {"speaker" : "Karin", "text": "Das ist doch viel zu langsam, suche doch stattdessen nach allen Artikeln gleichzeitig."},
-                        {"speaker" : "Robot", "text": "Ich verstehe.."},
-                        {"speaker" : "Karin", "text": "Sehr gut. Komm, lass uns gehen!"},
-                        {"speaker" : "Narrator", "text": "Wieder zurück in der Bibliothek.."},
-                        {"speaker" : "Karin", "text": "Hmm Sojamilch bräuchte ich eigentlich immer noch, aber wenn es die im kleinen Laden nicht gibt.."},
-                        {"speaker" : "Karin", "text": "Könntest du bitte schnell zum größeren Geschäft in der Mediumstrasse laufen?"},
-                        {"speaker" : "Robot", "text": "Sehr gerne, brauchst du sonst noch etwas?"},
-                        {"speaker" : "Karin", "text": "Nimm mir auch noch Äpfel und Seife mit, bitte!"},
-                        {"speaker" : "Robot", "text": "Ich mache mich auf den Weg!"},
-                        {"speaker" : "Karin", "text": "Du schaffst das!"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich mit verbessertem Algorithmus zum Supermarkt..."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View  mit Algorithmus 3]" , "showSimulation" :"3b"},
-                        {"speaker" : "Narrator", "text": "Obwohl der Supermarkt der bisher größte war, kommt Dev0 recht schnell zurück"},
-                        {"speaker" : "Karin", "text": "Wow Dev0, du machst tolle Fortschritte!"},
-                        {"speaker" : "Robot", "text": "Vielen Dank, ich freue mich auf's nächste mal!"}
-                    ],
-                    "simulations" : [
-                      {
-                        "name" : "3a",
-                        "algorithm" : 2,
-                        "supermarket" : "small",
-                        "shoppingList" : ["soy-milk"]
-                      },
-                      {
-                        "name" : "3b",
-                        "algorithm" : 3,
-                        "supermarket" : "medium",
-                        "shoppingList" : ["soy-milk", "apple", "soap"] 
-                      }  
-                    ]  
-                },
-                {
-                    "chapterId" : 4,
-                    "conversation" : [
-                        {"speaker" : "Narrator", "text": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird Dev0s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. "},
-                        {"speaker" : "Karin", "text": "Hör mal Dev0, ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe.."},
-                        {"speaker" : "Karin", "text": "Ich gehe, wenn ich z.b Milch suche, nicht alle Gänge ab, sondern gehe nur in die Kühlabteilung.."},
-                        {"speaker" : "Karin", "text": "Wenn ich sonst nichts brauche aus der Kühlabteilung, gehe ich gleich weiter weil klar ist, dass ich hier nichts mehr finde"},
-                        {"speaker" : "Karin", "text": "Verstehst du, was ich meine?"},
-                        {"speaker" : "Robot", "text": "Woher weiß ich, welcher Gang welchen Artikel beinhaltet?"},
-                        {"speaker" : "Karin", "text": "Ich habe mir gedacht, ich schreib es dir mit auf die Einkaufsliste,.." },
-                        {"speaker" : "Karin", "text": "Dann kannst du Gänge auslassen, die nicht auf der Liste stehen." },
-                        {"speaker" : "Robot", "text": "Ich verstehe!"},
-                        {"speaker" : "Karin", "text": "Wollen wir einen Testkauf starten? Ich bräuchte ohnehin Käse, Schokolade und Würstchen"},
-                        {"speaker" : "Robot", "text": "Gerne, ich mache mich auf den Weg"},
-                        {"speaker" : "Narrator", "text": "Dev0 begibt sich zum Supermarkt. Er verwendet diesen, verbesserten Algorithmus ..."},
-                        {"speaker" : "Narrator", "text": "[Hier kommt der Supermarkt 3 View mit Algorithmus 4]", "showSimulation" :"4" },
-                        {"speaker" : "Narrator", "text": "Nach kurzer Zeit kommt Dev0 wieder zurück.. "},
-                        {"speaker" : "Karin", "text": "Ich bin hin und weg, das war ja fast so schnell wie ich"},
-                        {"speaker" : "Robot", "text": "Vielen Dank!"}
-                    ],
-                    "simulations" : [
+                            "speaker": "Karin",
+                            "en": "Hi Dev0, can I ask a favor of you?",
+                            "de": "Hi Dev0, kann ich dich um einen Gefallen bitten?"
+                        },
                         {
-                            "name" : "4",
-                            "algorithm" : 4,
-                            "supermarket" : "medium",
-                            "shoppingList" : ["cheese", "chocolate", "sausage"]
+                            "speaker": "Robot",
+                            "en": "Of course, what can I do for you?",
+                            "de": "Natürlich, was kann ich für dich tun?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Unfortunately, there is hardly any milk left. Could you please go buy a pack?",
+                            "de": "Es ist leider kaum noch Milch übrig. Könntest du bitte eine Packung kaufen gehen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Gladly, can you please explain to me how this shopping thing works?",
+                            "de": "Gerne, kannst du mir bitte erklären, wie dieses Einkaufen funktioniert?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Thats is quite easy. You take this shopping list and look for all the items..",
+                            "de": "Das ist ganz einfach. Du nimmst diese Einkaufsliste und suchst nach allen Artikeln.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "by going through the aisles from start to finish. And then you come back home!",
+                            "de": "indem du durch die Gänge von Anfang bis Ende durchgehst. Und dann kommst du wieder nach Hause!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Thanks for the explanation, I can do it.",
+                            "de": "Danke für die Erklärung, ich schaffe das."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Perfect, please hurry!",
+                            "de": "Perfekt, bitte beeil dich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the supermarket..",
+                            "de": "Dev0 begibt sich zum Supermarkt.."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 returns after a short while, to Karin's satisfaction.",
+                            "de": "Dev0 kehrt zu Karins Zufriedenheit nach kurzer Zeit zurück."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Wow that was quick, thanks Dev0!",
+                            "de": "Wow das ging ja schnell, vielen Dank Dev0!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "But suddenly the phone rings. It's the owner of the store where Dev0 was just shopping..",
+                            "de": "Doch plötzlich klingelt das Telefon. Es ist der Inhaber des Geschäftes, in dem Dev0 eben einkaufen war.. "
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Dev0, you didn't pay for the milk?!",
+                            "de": "Dev0, du hast die Milch nicht bezahlt?!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Should I have done that? I can't find a word about it in the shopping manual you gave me.",
+                            "de": "Hätte ich das tun sollen? In deiner Einkaufsanleitung finde ich davon kein Wort."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "But it goes without saying that you pay for the purchase...",
+                            "de": "Aber das ist doch ganz selbstverständlich, dass man den Einkauf bezahlt..."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Not for me. But I will pay from now on!",
+                            "de": "Nicht für mich. Aber ich werde ab jetzt bezahlen!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "All right.. you should go back to the shop and give the owner the money for the milk, please!",
+                            "de": "Also gut.. du müsstest gleich noch mal zurück in den Laden und dem Inhaber das Geld für die Milch geben, bitte!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "And once you're there, please pick up some bananas as well!",
+                            "de": "Und wenn du drüben bist, kauf doch bitte gleich noch Bananen ein!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Alright, on my way!",
+                            "de": "Mache ich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "And so Dev0 goes back to the supermarket to pay off the debt and make another purchase..",
+                            "de": "Und so begibt sich Dev0 zurück in den Supermarket, um die Schulden zu begleichen und einen weiteren Einkauf zu tätigen.."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "After successful payment at the checkout, Dev0 goes back home.",
+                            "de": "Nach erfolgreicher Bezahlung an der Kasse, macht sich Dev0 zurück nach Hause."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Did everything work out? Did you pay this time too?",
+                            "de": "Hat alles geklappt? Hast du diesmal auch bezahlt?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, at the end of the shopping you have to pay!",
+                            "de": "Natürlich, am Ende des Einkaufs hat man zu bezahlen!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Exactly!",
+                            "de": "Genau!"
                         }
-                    ]
-                },
-                {
-                    "chapterId" : 5,
-                    "conversation" : [
-                        {"speaker" : "Narrator", "text": "Karin hat wieder einen neuen Auftrag für Dev0 "},
-                        {"speaker" : "Karin", "text": "Wärst du wieder so freundlich, und gehst für mich einkaufen?"},
-                        {"speaker" : "Robot", "text": "Mit Vergnügen! Was soll es sein?"},
-                        {"speaker" : "Karin", "text": "Ich brauche diesmal Mandarinen, Gurken, Spinat und Limonade"},
-                        {"speaker" : "Karin", "text": "Dazu müsstest du aber in den Giga Supermarkt, denn nur dort gibt es alles"},
-                        {"speaker" : "Robot", "text": "Alles klar, ich mache mich auf den Weg"},
-                        {"speaker" : "Karin", "text": "Danke, bis gleich!"},
-                        {"speaker" : "Narrator", "text": "Dev0 macht sich auf zum Giga Supermarkt.." },
-                        {"speaker" : "Narrator", "text": ".", "showSimulation" : "5a" },
-                        {"speaker" : "Narrator", "text": "Die Suche dauert länger als erwartet, aber Dev0 kommt schließlich zurück"},
-                        {"speaker" : "Karin", "text": "Hmm, das war irgendwie nicht so schnell, wie ich es erhofft hätte.. Je größer der Supermarkt, desto länger die Suche.."},
-                        {"speaker" : "Karin", "text": "Ich frage mich, ob es noch einen Weg gibt, wie du noch etwas schneller werden kannst.."},
-                        {"speaker" : "Karin", "text": "Aber mir fällt da nichts mehr ein... Ich hab's! Ich frage meinen Freund Markus, der ist Informatiker"},
-                        {"speaker" : "Karin", "text": "Vielleicht hat der noch einen Trick auf Lager!"},
-                        {"speaker" : "Narrator", "text": "Markus erklärt Karin, dass das Problem des Einkaufens sehr ähnlich zu einem namens Traveling Salesman Problem ist, wo es darum geht, dass ein Verkäufer zu allen Städten will, aber nur einmal und zum Schluss wieder am Anfang ankommen will. Um den optimalen Pfad zu finden, müssten alle Routen berechnet werden, was sehr viel Rechenleistung in Anspruch nimmt."},
-                        {"speaker" : "Narrator", "text": "Es gibt jedoch Algorithmen, die anhand von Heuristiken, wie zum Beispiel dem kürzesten Weg von einer Stadt zu einer anderen (oder wie bei uns, Artikeln) ein sehr gutes Ergebnis liefern"},
-                        {"speaker" : "Narrator", "text": "Markus erklärt weiters, dass man, um diesen Algorithmus anweden zu können, lediglich alle Standpunkte bzw Koordinaten der Artikel benötigen würde. Glücklicherweiße gibt es genau solche für die Supermärkte im Internet zu finden"},
-                        {"speaker" : "Karin", "text": "Schau mal, Dev0! Ich habe hier für dich eine Karte mit Koordinaten der ganzen Artikel im Supermarkt und diesen Algorithmus dazu von Markus"},
-                        {"speaker" : "Karin", "text": "Wenn du den anwendest, bekommst du die beste Route für jeden Einkauf. Er meinte, du weißt bestimmt, was zu tun ist.."},
-                        {"speaker" : "Robot", "text": "Vielen Dank, ja das ist für mich als Roboter nicht schwer zu verstehen"},
-                        {"speaker" : "Karin", "text": "Super, kann ich dich dann gleich um eine Einkaufstour bitten?"},
-                        {"speaker" : "Robot", "text": "Natürlich, was soll ich kaufen?"},
-                        {"speaker" : "Karin", "text": "Ich brauche Äpfel, Pralinen, Soja Milch, Kaffee, Schokolade und Joghurt. Denkst du, das kriegst du hin?"},
-                        {"speaker" : "Robot", "text": "Das schaffe ich!"},
-                        {"speaker" : "Narrator", "text": "Dev0 macht sich auf den Weg in den Giga Supermarkt"},
-                        {"speaker" : "Narrator", "text": "" , "showSimulation" : "5b" },
-                        {"speaker" : "Narrator", "text": "Nach erfolgreichem Einkauf kommt Dev0 zurück.." },
-                        {"speaker" : "Karin", "text": "Unglaublich, jetzt bist du wirklich ein Meister im Einkaufen geworden!" },
-                        {"speaker" : "Robot", "text": "Vielen Dank!" }
+
 
                     ],
-                    "simulations" : [
-                        {
-                            "name" : "5a",
-                            "algorithm" : 4,
-                            "supermarket" : "large",
-                            "shoppingList" : ["mandarin", "cucumber", "spinach", "lemonade"]
+                    "simulations": [{
+                            "name": "1a",
+                            "algorithm": 1,
+                            "supermarket": "SMALL",
+                            "shoppingList": ["MILK"]
                         },
                         {
-                            "name" : "5b",
-                            "algorithm" : 5,
-                            "supermarket" : "large",
-                            "shoppingList" : ["apple", "confectionary", "soy-milk", "coffee", "chocolate", "yogurt"]
+                            "name": "1b",
+                            "algorithm": 2,
+                            "supermarket": "SMALL",
+                            "shoppingList": ["BANANA"]
                         }
-                    ]   
+                    ]
+                },
+                {
+                    "chapterId": 2,
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "Karin is once again very busy and therefore asks Dev0 for another purchase",
+                            "de": "Karin hat wieder viel zu tun und bittet Dev0 um einen weiteren Einkauf"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Dev0, could you go shopping for me again, please?",
+                            "de": "Dev0, könntest du bitte wieder für mich Einkaufen gehen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Gladly, what is required?",
+                            "de": "Gerne, was wird benötigt?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I need yoghurt and chocolate.",
+                            "de": "Und zwar bräuchte ich Yoghurt und Schokolade."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "But there is no chocolate at the store from last time. So you would have to go to the larger supermarket on Mediumstrasse",
+                            "de": "Schokolade gibt es aber nicht bei dem Laden vom letzten mal. Du müsstest also bitte in den größeren Supermarkt in der Mediumstraße"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "All right, I'll be on my way immediately.",
+                            "de": "Alles klar, ich mache mich sofort auf den Weg."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Great, thanks!",
+                            "de": "Super, danke!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the slightly larger supermarket. He uses the same algorithm...",
+                            "de": "Dev0 begibt sich zum etwas größeren Supermarkt. Er geht nach dem selben Algorithmus vor..."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "2a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Much later, Dev0 finally comes home. Karin is shocked.",
+                            "de": "Deutlich später kommt Dev0 endlich nach Hause. Karin ist entsetzt.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "What happened? I already thought you got lost.",
+                            "de": "Was ist denn passiert? Ich dachte schon, du bist verloren gegangen."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I do not know what you mean. I did exactly the same thing as last time.",
+                            "de": "Ich weiß nicht, was du meinst. Ich habe genau das selbe gemacht wie das letzte mal."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Can you tell me step by step what you did?",
+                            "de": "Kannst du mir Schritt für Schritt berichten, was du gemacht hast?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, I..",
+                            "de": "Natürlich, und zwar.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "entered the supermarket, it was the first aisle...",
+                            "de": "Betrat ich den Supermarkt, dann ging is in den ersten Gang..."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I looked at the first item, it was 'milk'...",
+                            "de": "Ich sah mir den ersten Artikel an, es handelte sich um 'Milch'..."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "This article did not equal the desired article 'Yoghurt'.",
+                            "de": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Yoghurt'."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I went to the next article, it was 'yogurt'.",
+                            "de": "Ich ging zum nächsten Artikel, es handelte sich um 'Yoghurt'."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I removed the item from the shopping list.",
+                            "de": "Ich konnte den Artikel von der Einkaufsliste streichen."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I went to the next article, it was 'cheese'",
+                            "de": "Ich ging zum nächsten Artikel, es handelte sich um 'Käse'"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "This article did not equal the desired article 'yogurt'.",
+                            "de": "Dieser Artikel entsprach nicht dem gewünschten Artikel 'Yoghurt'."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Wait a second! You are still comparing with yogurt?",
+                            "de": "Moment! Du vergleichst noch immer mit Yoghurt?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Certainly. I walk up and down all the aisles for each item",
+                            "de": "Na klar. Ich gehe für jeden Artikel alle Gänge auf und ab"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "So that's why it took you so long. From now on, if you've found an article, feel free to move on to the next article, ok?",
+                            "de": "Darum hast du also so lange gebraucht.. Ab jetzt, wenn du einen Artikel gefunden hast, kannst du ruhig schon mit dem nächsten Artikel anfangen, ok?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "And when you have all the items, you can go straight to the checkout",
+                            "de": "Und wenn du alle Artikel hast, kannst du gleich zur Kasse gehen"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I understand.",
+                            "de": "Ich verstehe."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Alright then. Do you want to try again? I still need cheese and coffee anyway",
+                            "de": "Dann ist gut. Willst du es noch einmal versuchen? Ich bräuchte ohnehin noch Käse und Kaffee"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course!",
+                            "de": "Selbstverständlich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the supermarket...",
+                            "de": "Dev0 begibt sich zum Supermarkt..."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "2b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "This time Dev0 only takes around half the time as last time. Katrin is pleased with the progress.",
+                            "de": "Dev0 braucht diesmal nur fast die Hälfte der Zeit wie letztes mal. Katrin ist erfreut über den Fortschritt."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Are you back already? I assumed it would take longer, thank you!",
+                            "de": "Du bist schon wieder da? Ich habe schlimmeres berfürchtet, danke dir!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Always at your service!",
+                            "de": "Immer zu Diensten!"
+                        }
+                    ],
+                    "simulations": [{
+                            "name": "2a",
+                            "algorithm": 2,
+                            "supermarket": "MEDIUM",
+                            "shoppingList": ["YOGURT", "CHOCOLATE"]
+                        },
+                        {
+                            "name": "2b",
+                            "algorithm": 3,
+                            "supermarket": "MEDIUM",
+                            "shoppingList": ["CHEESE", "COFFEE"]
+                        }
+                    ]
+                },
+                {
+                    "chapterId": 3,
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "A new day begins and Karin has another request for Dev0..",
+                            "de": "Ein neuer Tag beginnt und Karin hat wieder eine Bitte an Dev0.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Hi Dev0, can I ask you a favor again?",
+                            "de": "Hi Dev0, kann ich dich wieder um einen Gefallen bitten?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, should I go shopping again?",
+                            "de": "Natürlich, soll ich wieder einkaufen gehen?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Exactly, I really need soy milk. You should be able to get some at the small shop.",
+                            "de": "Genau, und zwar brauche ich ganz dringend Sojamilch. Die solltest du auch beim kleinen Laden bekommen können."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "All right, I'll take care of it!",
+                            "de": "Alles klar, ich kümmere mich darum!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Great, see you then!",
+                            "de": "Spitze, bis dann!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the supermarket...",
+                            "de": "Dev0 begibt sich zum Supermarkt..."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "3a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Karin waits and waits, but Dev0 doesn't come back. She eventually decides to go to the store herself.",
+                            "de": "Karin wartet und wartet, aber Dev0 kommt nicht zurück. Sie beschließt schließlich, selbst zum Laden zu gehen."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "There you are, what are you doing for so long?",
+                            "de": "Da bist du ja, was machst du denn so lange?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I'm looking for soy milk. I'm currently starting on round 63.",
+                            "de": "Ich suche nach Sojamilch. Aktuell starte ich in Runde 63."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "What do you mean by that? Can you explain to me what happened?",
+                            "de": "Was meinst du damit? Kannst du mir erklären, was passiert ist?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, I..",
+                            "de": "Natürlich, und zwar.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "walked the aisles as discussed and compared each item to soy milk",
+                            "de": "Ging ich durch die Gänge wie besprochen und verglich jeden Artikel mit Sojamilch"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "When I got to the end of the last aisle, I started from the beginning, that is, into the next round..",
+                            "de": "Als ich am Ende des letzten Ganges angekommen war, startete ich von vorne, also in die nächste Runde.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "because I hadn't found all the articles yet",
+                            "de": "weil ich noch nicht alle Artikel gefunden hatte"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "And currently I've walked the aisles from start to finish 62 times.",
+                            "de": "Und aktuell bin ich bereits 62 mal von Anfang bis Ende durch die Gänge gelaufen."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "But unfortunately I haven't found the soy milk yet, but I'll keep looking!",
+                            "de": "Aber die Soja Milch habe ich leider noch nicht gefunden, ich versuche es aber weiterhin!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "No you don't have to do that that! There apparently is no soy milk here. If an article isn't available, feel free to come home",
+                            "de": "Nein das brauchst du nicht! Soja Milch gibt es wohl hier nicht. Wenn es einen Artikel nicht gibt, dann komm ruhig nach Hause"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "And anyway, you only need to go through all the aisles once anyway, what are these rounds for?",
+                            "de": "Und ohnehin brauchst du doch eh nur einmal durch alle Gänge gehen, wozu diese Runden?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I always start from the first aisle for every item I'm looking for",
+                            "de": "Ich starte für jeden Artikel, den ich suche, immer von vorne"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Does that mean you're only looking for one item at a time?",
+                            "de": "Meinst du, du suchst immer nur nach einem Artikel gleichzeitig?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Yes, for the item at the top of the list",
+                            "de": "Ja, nach dem obersten auf der Liste"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "That's much too slow, search for all articles at once instead.",
+                            "de": "Das ist doch viel zu langsam, suche doch stattdessen nach allen Artikeln gleichzeitig."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I understand..",
+                            "de": "Ich verstehe.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Okay then. Come, let's go home!",
+                            "de": "Sehr gut. Komm, lass uns gehen!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Back in the library...",
+                            "de": "Wieder zurück in der Bibliothek.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Hmm I still need soy milk, but if the little shop doesn't have it...",
+                            "de": "Hmm Sojamilch bräuchte ich eigentlich immer noch, aber wenn es die im kleinen Laden nicht gibt.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Could you please run to the larger store on Mediumstrasse?",
+                            "de": "Könntest du bitte schnell zum größeren Geschäft in der Mediumstrasse laufen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "With pleasure, do you need anything else?",
+                            "de": "Sehr gerne, brauchst du sonst noch etwas?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Please also bring some apples and soap too!",
+                            "de": "Nimm mir auch noch Äpfel und Seife mit, bitte!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I'm on my way!",
+                            "de": "Ich mache mich auf den Weg!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "You can do it!",
+                            "de": "Du schaffst das!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to supermarket with an improved algorithm...",
+                            "de": "Dev0 begibt sich mit verbessertem Algorithmus zum Supermarkt..."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "3b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Even though the supermarket was the biggest so far, Dev0 comes back quite quickly",
+                            "de": "Obwohl der Supermarkt der bisher größte war, kommt Dev0 recht schnell zurück"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Wow Dev0, you're making great progress!",
+                            "de": "Wow Dev0, du machst tolle Fortschritte!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Thank you, I'm looking forward to the next time!",
+                            "de": "Vielen Dank, ich freue mich auf's nächste mal!"
+                        }
+                    ],
+                    "simulations": [{
+                            "name": "3a",
+                            "algorithm": 3,
+                            "supermarket": "SMALL",
+                            "shoppingList": ["SOY-MILK"]
+                        },
+                        {
+                            "name": "3b",
+                            "algorithm": 4,
+                            "supermarket": "MEDIUM",
+                            "shoppingList": ["SOY-MILK", "APPLE", "SOAP"]
+                        }
+                    ]
+                },
+                {
+                    "chapterId": 4,
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "The library has had more customers than ever since offering drinks. Karin knows she will need to use Dev0's shopping service more often in the future. She therefore considers whether there is still room for improvement.",
+                            "de": "Die Bibliothek hat seit dem Anbieten von Getränken so viele Kunden wie noch nie. Karin weiß, sie wird Dev0s Einkaufsservice in Zukunft noch öfter in Anspruch nehmen müssen. Sie überlegt daher, ob es noch Verbesserungspotenzial gibt.. "
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Listen Dev0, I've been thinking about what to do when I go shopping..",
+                            "de": "Hör mal Dev0, ich habe mir überlegt, wie ich vorgehe wenn ich einkaufen gehe.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "When I'm looking for milk, for example, I don't go through all the aisles, I only go to the refrigerated section.",
+                            "de": "Ich gehe, wenn ich z.b Milch suche, nicht alle Gänge ab, sondern gehe nur in die Kühlabteilung.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "If I don't need anything else from the refrigeration department, I go straight on because it's clear that I won't find anything else here",
+                            "de": "Wenn ich sonst nichts brauche aus der Kühlabteilung, gehe ich gleich weiter weil klar ist, dass ich hier nichts mehr finde"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Do you understand what I mean?",
+                            "de": "Verstehst du, was ich meine?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "How do I know which aisle contains which item?",
+                            "de": "Woher weiß ich, welcher Gang welchen Artikel beinhaltet?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I thought I'd put the info on your shopping list...",
+                            "de": "Ich habe mir gedacht, ich schreib es dir mit auf die Einkaufsliste,.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Then you can skip aisles that are not on the list.",
+                            "de": "Dann kannst du Gänge auslassen, die nicht auf der Liste stehen."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I understand!",
+                            "de": "Ich verstehe!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Do you want to start a test purchase? I would need cheese, chocolate and sausages anyway",
+                            "de": "Wollen wir einen Testkauf starten? Ich bräuchte ohnehin Käse, Schokolade und Würstchen"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Gladly, I'll be on my way.",
+                            "de": "Gerne, ich mache mich auf den Weg."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the supermarket. He uses the once more improved algorithm...",
+                            "de": "Dev0 begibt sich zum Supermarkt. Er verwendet den wiedermals verbesserten Algorithmus ..."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "4"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "After a short time Dev0 comes back again..",
+                            "de": "Nach kurzer Zeit kommt Dev0 wieder zurück.. "
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I'm blown away, that was almost as fast as me!",
+                            "de": "Ich bin hin und weg, das war ja fast so schnell wie ich!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Thank you very much!",
+                            "de": "Vielen Dank!"
+                        }
+                    ],
+                    "simulations": [{
+                        "name": "4",
+                        "algorithm": 5,
+                        "supermarket": "MEDIUM",
+                        "shoppingList": ["CHEESE", "CHOCOLATE", "SAUSAGE"]
+                    }]
+                },
+                {
+                    "chapterId": 5,
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "Karin has another new assignment for Dev0.",
+                            "de": "Karin hat wieder einen neuen Auftrag für Dev0. "
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Would you be so kind again and go shopping for me?",
+                            "de": "Wärst du wieder so freundlich, und gehst für mich einkaufen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "With pleasure! What should it be?",
+                            "de": "Mit Vergnügen! Was soll es sein?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I need tangerines, cucumbers, spinach and lemonade this time",
+                            "de": "Ich brauche diesmal Mandarinen, Gurken, Spinat und Limonade"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "But for that you would have to go to the Giga supermarket, as only there all articles are available.",
+                            "de": "Dazu müsstest du aber in den Giga Supermarkt, denn nur dort gibt es alles."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "All right, I'm on my way.",
+                            "de": "Alles klar, ich mache mich auf den Weg."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Thank you, see you soon!",
+                            "de": "Danke, bis gleich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 goes to the Giga Supermarket..",
+                            "de": "Dev0 macht sich auf zum Giga Supermarkt.."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": ".",
+                            "showSimulation": "5a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "The search takes longer than expected, but Dev0 eventually comes back.",
+                            "de": "Die Suche dauert länger als erwartet, aber Dev0 kommt schließlich zurück."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Hmm, somehow that wasn't as fast as I would have hoped.. The bigger the supermarket, the longer the search..",
+                            "de": "Hmm, das war irgendwie nicht so schnell, wie ich es erhofft hätte.. Je größer der Supermarkt, desto länger die Suche.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I'm wondering if there's another way you can go a little faster..",
+                            "de": "Ich frage mich, ob es noch einen Weg gibt, wie du noch etwas schneller werden kannst.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "But I can't think of anything anymore... I've got it! I ask my friend Markus, who is a computer scientist",
+                            "de": "Aber mir fällt da nichts mehr ein... Ich hab's! Ich frage meinen Freund Markus, der ist Informatiker"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Maybe he has some trick up his sleeve!",
+                            "de": "Vielleicht hat der noch einen Trick auf Lager!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Markus explains to Karin that the shopping problem is very similar to a problem called the Traveling Salesman Problem, where a salesman needs to get to all cities, but only wants to visit each city once. In the end he wants to return to the starting city. To find the optimal path, all routes would have to be calculated, which would require a lot of computing power.",
+                            "de": "Markus erklärt Karin, dass das Problem des Einkaufens sehr ähnlich zu einem namens Traveling Salesman Problem ist, wo es darum geht, dass ein Verkäufer zu allen Städten will, aber nur einmal und zum Schluss wieder am Anfang ankommen will. Um den optimalen Pfad zu finden, müssten alle Routen berechnet werden, was sehr viel Rechenleistung in Anspruch nimmt."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "However, there are algorithms that use heuristics, such as the shortest route from one city to another (or, as in our case, articles), to deliver a very good result",
+                            "de": "Es gibt jedoch Algorithmen, die anhand von Heuristiken, wie zum Beispiel dem kürzesten Weg von einer Stadt zu einer anderen (oder wie bei uns, Artikeln) ein sehr gutes Ergebnis liefern"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Markus also explains that in order to be able to use this algorithm, you would only need all the positions or coordinates of the articles. Luckily there are just such for the supermarkets to be found on the internet",
+                            "de": "Markus erklärt weiters, dass man, um diesen Algorithmus anweden zu können, lediglich alle Standpunkte bzw Koordinaten der Artikel benötigen würde. Glücklicherweiße gibt es genau solche für die Supermärkte im Internet zu finden"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Look Dev0! I have a map for you with the coordinates of all the items in the supermarket and this algorithm from Markus",
+                            "de": "Schau mal, Dev0! Ich habe hier für dich eine Karte mit Koordinaten der ganzen Artikel im Supermarkt und diesen Algorithmus dazu von Markus"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Using it will give you the best route for each purchase. He said you probably know what to do.",
+                            "de": "Wenn du den anwendest, bekommst du die beste Route für jeden Einkauf. Er meinte, du weißt bestimmt, was zu tun ist.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Thank you, yes this is not difficult for me as a robot to understand",
+                            "de": "Vielen Dank, ja das ist für mich als Roboter nicht schwer zu verstehen"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Great, can I ask you for a shopping spree right away?",
+                            "de": "Super, kann ich dich dann gleich um eine Einkaufstour bitten?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, what should I buy?",
+                            "de": "Natürlich, was soll ich kaufen?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "I need apples, chips, soy milk, coffee, chocolate and yogurt. Do you think you can do it?",
+                            "de": "Ich brauche Äpfel, chips, Soja Milch, Kaffee, Schokolade und Joghurt. Denkst du, das kriegst du hin?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I can do it!",
+                            "de": "Das schaffe ich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 makes his way to the Giga Supermarket",
+                            "de": "Dev0 macht sich auf den Weg in den Giga Supermarkt"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "5b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 returns after a succesful purchase..",
+                            "de": "Nach erfolgreichem Einkauf kommt Dev0 zurück.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Unbelievable, now you've really become a master of shopping!",
+                            "de": "Unglaublich, jetzt bist du wirklich ein Meister im Einkaufen geworden!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Thank you very much!",
+                            "de": "Vielen Dank!"
+                        }
+
+                    ],
+                    "simulations": [{
+                            "name": "5a",
+                            "algorithm": 5,
+                            "supermarket": "LARGE",
+                            "shoppingList": ["TANGERINE", "CUCUMBER", "SPINACH", "LEMONADE"]
+                        },
+                        {
+                            "name": "5b",
+                            "algorithm": 6,
+                            "supermarket": "LARGE",
+                            "shoppingList": ["APPLE", "CHIPS", "SOY-MILK", "COFFEE", "CHOCOLATE", "YOGURT"]
+                        }
+                    ]
                 }
             ],
-            "algorithms" : [
-                {
-                    "algorithmNr" : 1,
-                    "lines" : [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent" : 0},
-                        {"text" : "bis du alle gefunden hast", "indent" : 0},
-                        {"text" : "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent" : 0},
-        
-                        {"text" : "Bezahle an der Kassa", "indent" : 0},
-                        {"text" : "Verlasse den Supermarkt", "indent" : 0}
+            "algorithms": [{
+                    "algorithmNr": 1,
+                    "name": "1",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
+                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
+                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
                     ]
                 },
                 {
-                    "algorithmNr" : 2,
-                    "lines" : [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent" : 0},
-                        {"text" : "bis du alle gefunden hast", "indent" : 0},
-                        {"text" : "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent" : 0},
-                        {"text" : "Wenn du einen Artikel gefunden hast", "indent" : 0, "highlight" : true},
-                        {"text" : "suche nach dem nächsten", "indent" : 1, "highlight" : true},
-                        {"text" : "Bezahle an der Kassa", "indent" : 0},
-                        {"text" : "Verlasse den Supermarkt", "indent" : 0}
+                    "algorithmNr": 2,
+                    "name": "2",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
+                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
+                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
+                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0, "highlight": true },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
                     ]
                 },
                 {
-                    "algorithmNr" : 3, 
-                    "lines" : [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent" : 0},
-                        {"text" : "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent" : 0 , "highlight" : true},
-                        {"text" : "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent" : 0},
-                        {"text" : "und mit allen Artikeln auf der Einkaufsliste vergleichst", "indent" : 0 ,"highlight" : true},
-                        {"text" : "Wenn du einen Artikel gefunden hast", "indent" : 0},
-                        {"text" : "suche nach dem nächsten", "indent" : 1 },
-                        {"text" : "Bezahle an der Kassa", "indent" : 0},
-                        {"text" : "Verlasse den Supermarkt", "indent" : 0}
+                    "algorithmNr": 3,
+                    "name": "3",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
+                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
+                        { "en": "until you found all", "de": "bis du alle gefunden hast", "indent": 0, "highlight": true },
+                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
+                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0, "highlight": true },
+                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1, "highlight": true },
+                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
                     ]
                 },
                 {
-                    "algorithmNr" : 4,
-                    "lines" : [
-                        {"text" : "Betritt den Supermarkt", "indent" : 0},
-                        {"text" : "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent" : 0},
-                        {"text" : "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent" : 0},
-                        {"text" : "Indem du durch relevante Gänge gehst", "indent" : 0 ,"highlight" : true},
-                        {"text" : "und mit den Artikeln auf der Einkaufsliste aus diesem Gang vergleichst", "indent" : 0 ,"highlight" : true},
-                        {"text" : "Wenn du einen Artikel gefunden hast", "indent" : 0},
-                        {"text" : "suche nach dem nächsten", "indent" : 1 },
-                        {"text" : "Bezahle an der Kassa", "indent" : 0},
-                        {"text" : "Verlasse den Supermarkt", "indent" : 0}
+                    "algorithmNr": 4,
+                    "name": "4",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
+                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
+                        { "en": "until you found all or an article is not available", "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent": 0, "highlight": true },
+                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
+                        { "en": "while comparing with all articles on the shopping list", "de": "und mit allen Artikeln auf der Einkaufsliste vergleichst", "indent": 0, "highlight": true },
+                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0 },
+                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1 },
+                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
                     ]
                 },
                 {
-                    "algorithmNr" : 5,
-                    "lines" : [
-                        {"text" : "Betrete den Supermarkt", "indent" : 0},
-                        {"text" : "Nimm die Karte mit Koordinaten und berechne die Distanzen der Artikel", "indent" : 0,"highlight" : true },
-                        {"text" : "Wende anhand der Distanzen den Algorithmus von Markus an", "indent" : 0 ,"highlight" : true},
-                        {"text" : "Gehe den Pfad ab, den du erhalten hast und nimm alle Artikel mit", "indent" : 0 ,"highlight" : true},
-                        {"text" : "Bezahle an der Kassa", "indent" : 0},
-                        {"text" : "Verlasse den Supermarkt", "indent" : 0}
+                    "algorithmNr": 5,
+                    "name": "5",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
+                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
+                        { "en": "until you found all or an article is not available", "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent": 0 },
+                        { "en": "by going to the relevant aisles", "de": "Indem du durch relevante Gänge gehst", "indent": 0, "highlight": true },
+                        { "en": "and comparing with the articles on the shopping list from the aisle", "de": "und mit den Artikeln auf der Einkaufsliste aus diesem Gang vergleichst", "indent": 0, "highlight": true },
+                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0 },
+                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1 },
+                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    ]
+                },
+                {
+                    "algorithmNr": 6,
+                    "name": "6",
+                    "lines": [
+                        { "en": "Enter the supermarket", "de": "Betrete den Supermarkt", "indent": 0 },
+                        { "en": "Take the map of item coordinates and calculate the shortes distances", "de": "Nimm die Karte mit Koordinaten und berechne die Distanzen der Artikel", "indent": 0, "highlight": true },
+                        { "en": "Apply the algorithm from Markus based on the distances", "de": "Wende anhand der Distanzen den Algorithmus von Markus an", "indent": 0, "highlight": true },
+                        { "en": "Go along the calculated shortest path and pick up the articles", "de": "Gehe den Pfad ab, den du erhalten hast und nimm alle Artikel mit", "indent": 0, "highlight": true },
+                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
+                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
                     ]
                 }
             ],
-            "supermarketLayouts" : [
-                {
-                    "name" : "small",
-                    "shelfs" : [
-                        {
-                            "name" : "vegetables",
-                            "items" : ["tomato", "cucumber", "salad"]
+            "supermarketLayouts": [{
+                    "name": "SMALL",
+                    "shelfs": [{
+                            "name": "VEGETABLES",
+                            "items": ["TOMATO", "CUCUMBER", "SALAD"]
                         },
                         {
-                            "name" : "fruits",
-                            "items" : ["apple", "banana", "water-melon"]
+                            "name": "FRUITS",
+                            "items": ["APPLE", "BANANA", "WATER-MELON"]
                         },
                         {
-                            "name" : "cooler",
-                            "items" : ["milk", "yogurt", "cheese"]
+                            "name": "COOLER",
+                            "items": ["MILK", "YOGURT", "CHEESE"]
                         },
                         {
-                            "name" : "freezer",
-                            "items" : ["spinach", "ice-cream", "pizza"]
+                            "name": "FREEZER",
+                            "items": ["SPINACH", "ICE-CREAM", "PIZZA"]
                         }
                     ]
                 },
                 {
-                    "name" : "medium",
-                    "shelfs" : [
-                        {
-                            "name" : "vegetables",
-                            "items" : ["tomato", "cucumber", "salad"]
+                    "name": "MEDIUM",
+                    "shelfs": [{
+                            "name": "VEGETABLES",
+                            "items": ["TOMATO", "CUCUMBER", "SALAD"]
                         },
                         {
-                            "name" : "fruits",
-                            "items" : ["apple", "banana", "melon"]
+                            "name": "FRUITS",
+                            "items": ["APPLE", "BANANA", "MELON"]
                         },
                         {
-                            "name" : "cooler",
-                            "items" : ["milk", "yogurt", "cheese" ]
+                            "name": "COOLER",
+                            "items": ["MILK", "YOGURT", "CHEESE"]
                         },
                         {
-                            "name" : "freezer",
-                            "items" : ["spinach", "ice-cream", "pizza"]
+                            "name": "FREEZER",
+                            "items": ["SPINACH", "ICE-CREAM", "PIZZA"]
                         },
                         {
-                            "name" : "drinks",
-                            "items" : ["coffee", "water", "soy-milk"]
+                            "name": "DRINKS",
+                            "items": ["COFFEE", "WATER", "SOY-MILK"]
                         },
                         {
-                            "name" : "meat",
-                            "items" : ["steak", "sausage", "minced-meat"]
+                            "name": "MEAT",
+                            "items": ["STEAK", "SAUSAGE", "MINCED-MEAT"]
                         },
                         {
-                            "name" : "sweets",
-                            "items" : ["chocolate", "popcorn", "chips"]
+                            "name": "SWEETS",
+                            "items": ["CHOCOLATE", "POPCORN", "CHIPS"]
                         },
                         {
-                            "name" : "cleaning",
-                            "items" : ["toilet-paper", "soap", ""]
+                            "name": "CLEANING",
+                            "items": ["TOILET-PAPER", "SOAP", ""]
                         }
                     ]
                 },
                 {
-                    "name" : "large",
-                    "shelfs" : [
-                        {
-                            "name" : "vegetables",
-                            "items" : ["tomato", "", "salad", ""]
+                    "name": "LARGE",
+                    "shelfs": [{
+                            "name": "VEGETABLES",
+                            "items": ["TOMATO", "", "SALAD", ""]
                         },
                         {
-                            "name" : "vegetables",
-                            "items" : ["", "cucumber", "aubergine", ""]
+                            "name": "VEGETABLES",
+                            "items": ["", "CUCUMBER", "AUBERGINE", ""]
                         },
                         {
-                            "name" : "fruits",
-                            "items" : ["apple", "banana", "", ""]
+                            "name": "FRUITS",
+                            "items": ["APPLE", "BANANA", "", ""]
                         },
                         {
-                            "name" : "fruits",
-                            "items" : ["", "mandarin", "melon", ""]
+                            "name": "FRUITS",
+                            "items": ["", "TANGERINE", "MELON", ""]
                         },
                         {
-                            "name" : "cooler",
-                            "items" : ["", "yogurt", "cheese", "" ]
+                            "name": "COOLER",
+                            "items": ["", "YOGURT", "CHEESE", ""]
                         },
                         {
-                            "name" : "cooler",
-                            "items" : ["milk", "", "", ""]
+                            "name": "COOLER",
+                            "items": ["MILK", "", "", ""]
                         },
                         {
-                            "name" : "freezer",
-                            "items" : ["spinach", "", "pizza", ""]
+                            "name": "FREEZER",
+                            "items": ["SPINACH", "", "PIZZA", ""]
                         },
                         {
-                            "name" : "freezer",
-                            "items" : ["", "ice-cream", "fish", ""]
+                            "name": "FREEZER",
+                            "items": ["", "ICE-CREAM", "FISH", ""]
                         },
                         {
-                            "name" : "drinks",
-                            "items" : ["", "water", "cola", ""]
+                            "name": "DRINKS",
+                            "items": ["", "WATER", "COLA", ""]
                         },
                         {
-                            "name" : "drinks",
-                            "items" : ["coffee", "soy-milk", "lemonade", ""]
+                            "name": "DRINKS",
+                            "items": ["COFFEE", "SOY-MILK", "LEMONADE", ""]
                         },
                         {
-                            "name" : "meat",
-                            "items" : ["", "sausage", "steak", ""]
+                            "name": "MEAT",
+                            "items": ["", "SAUSAGE", "STEAK", ""]
                         },
                         {
-                            "name" : "meat",
-                            "items" : ["chicken", "minced-meat", "", ""]
+                            "name": "MEAT",
+                            "items": ["CHICKEN", "", "MINCED-MEAT", ""]
                         },
                         {
-                            "name" : "sweets",
-                            "items" : ["chocolate", "", "confectionary", ""]
+                            "name": "SWEETS",
+                            "items": ["CHOCOLATE", "", "PRALINE", ""]
                         },
                         {
-                            "name" : "sweets",
-                            "items" : ["", "popcorn", "chips", ""]
+                            "name": "SWEETS",
+                            "items": ["", "POPCORN", "CHIPS", ""]
                         },
                         {
-                            "name" : "cleaning",
-                            "items" : ["toilet-paper", "", "broom", ""]
+                            "name": "CLEANING",
+                            "items": ["TOILET-PAPER", "", "BROOM", ""]
                         },
                         {
-                            "name" : "cleaning",
-                            "items" : ["", "soap", "tooth-brush", ""]
+                            "name": "CLEANING",
+                            "items": ["", "SOAP", "TOOTH-BRUSH", ""]
                         }
                     ]
                 }
             ]
         },
         {
-            "name_en": "socks",
-            "name_de": "Socken",
-            "chapters" : [
+            "name": "MODULE_SOCKS",
+            "link": "socks",
+            "chapters": [{
+                    "chapterId": 1,
+                    "conversation": [
+                        { "speaker": "Robot", "en": "", "de": "Hallo, ich bin Dev0" },
+                        { "speaker": "Robot", "en": "", "de": "Lasst uns Socken sortieren!" },
+                        { "speaker": "Robot", "en": "", "de": "", "showSimulation": "1" },
+                        { "speaker": "Robot", "en": "", "de": "bye, chapter 1" }
+
+                    ],
+                    "simulations": [{
+                        "name": "1",
+                        "algorithm": 1,
+                        "collection": "SMALL",
+                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
+                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
+                    }]
+                },
                 {
-                    "chapterId" : 1,
-                    "conversation" : [
-                        {"speaker" : "Karin", "text": "Hallo"},
-                        {"speaker" : "Robot", "text": "Hallo"},
-                        {"speaker" : "Karin", "text": "Wie geht's?"},
-                        {"speaker" : "Robot", "text": "Gut, und dir?"},
-                        {"speaker" : "Karin", "text": "Gut, danke"}
+                    "chapterId": 2,
+                    "conversation": [
+
+                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 2" },
+                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "2" },
+                        { "speaker": "Robot", "en": "", "de": "bye, chapter 2" }
+
+                    ],
+                    "simulations": [{
+                        "name": "2",
+                        "algorithm": 2,
+                        "collection": "MEDIUM",
+                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
+                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
+                    }]
+                },
+                {
+                    "chapterId": 3,
+                    "conversation": [
+
+                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 3" },
+                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "3" },
+                        { "speaker": "Robot", "en": "", "de": "bye, chapter 3" }
+
+                    ],
+                    "simulations": [{
+                        "name": "3",
+                        "algorithm": 3,
+                        "collection": "LARGE",
+                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
+                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
+                    }]
+                },
+                {
+                    "chapterId": 4,
+                    "conversation": [
+
+                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 4 random algo" },
+                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "4" },
+                        { "speaker": "Robot", "en": "", "de": "Schau ins Labor, bye" }
+
+                    ],
+                    "simulations": [{
+                        "name": "4",
+                        "algorithm": 4,
+                        "collection": "MEDIUM",
+                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
+                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
+                    }]
+                }
+            ],
+            "algorithms": [{
+                    "algorithmNr": 1,
+                    "name": "Simple",
+                    "lines": [
+                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
+                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
+                        { "en": "Find its match in the pile", "de": "Find das Gegenstück", "indent": 1 },
+                        { "en": "Put it aside", "de": "Lege das Sockenpaar zur Seite", "indent": 1 }
                     ]
                 },
                 {
-                    "chapterId" : 2,
-                    "conversation" : [
-                        {"speaker" : "Karin", "text": "Hallo 2"},
-                        {"speaker" : "Robot", "text": "Hallo 2"},
-                        {"speaker" : "Karin", "text": "Wie geht's? 2"},
-                        {"speaker" : "Robot", "text": "Gut, und dir? 2"},
-                        {"speaker" : "Karin", "text": "Gut, danke 2"}
+                    "algorithmNr": 2,
+                    "name": "SimpleDivideAndSweep",
+                    "lines": [
+                        { "en": "Pick a sock and put it in a box", "de": "Wähle einen Socken und gib ihn in eine Box", "indent": 0 },
+                        { "en": "Repeat for all other socks:", "de": "Wiederhole für alle anderen Sockne:", "indent": 0 },
+                        { "en": "Pick a sock", "de": "Wähle einen Socken", "indent": 1 },
+                        { "en": "If it matches a sock in one of the boxes:", "de": "Wenn er ident ist mit einem Socken aus einer Box", "indent": 1 },
+                        { "en": "Match it and put it in the final pile", "de": "Gib sie zusammen und lege das Paar zur Seite", "indent": 2 }
+                    ]
+                },
+                {
+                    "algorithmNr": 3,
+                    "name": "DivideAndSweep",
+                    "lines": [
+                        { "en": "Repeat for each criteria (color, pattern..):", "de": "Wiederhole für jede Sockenkriterium (Farbe, Muster..):", "indent": 0 },
+                        { "en": "Divide all socks by criteria into boxes", "de": "Teile alle Socken nach dem Kriterium in Boxen", "indent": 1 },
+                        { "en": "If all socks in a box are identical:", "de": "Wenn alle Socken in einer Box ident sind", "indent": 1 },
+                        { "en": "Make pairs from that box to the final pile", "de": "Mache Sockenpaare aus ihnen und lege es zur Seite", "indent": 2 },
+                        { "en": "If all boxes are empty", "de": "Wenn alle Boxen leer sind", "indent": 1 },
+                        { "en": "Stop the algorithm", "de": "stoppe den Algorithmus", "indent": 2 }
+
+                    ]
+                },
+                {
+                    "algorithmNr": 4,
+                    "name": "Random",
+                    "lines": [
+                        { "en": "Repeat until all socks are matched", "de": "Wiederhole bis alle Socken sortiert sind", "indent": 0 },
+                        { "en": "Pick 2 socks", "de": "Wähle zwei Socken zufällig", "indent": 1 },
+                        { "en": "If it's a pair:", "de": "Wenn sie ident sind", "indent": 1 },
+                        { "en": "Add it to the final pile", "de": "Mache ein Sockenpaar aus ihnen und lege es zur Seite", "indent": 2 },
+                        { "en": "Otherwise:", "de": "Andernfalls:", "indent": 1 },
+                        { "en": "Put them back in the original pile", "de": "Gib sie zurück in den Anfangshaufen", "indent": 2 }
+
                     ]
                 }
+
+
+            ],
+            "sockCollections": [{
+                    "name": "SMALL",
+                    "socks": [
+                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" }
+                    ]
+                },
+                {
+                    "name": "MEDIUM",
+                    "socks": [
+                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" }
+
+                    ]
+                },
+                {
+                    "name": "LARGE",
+                    "socks": [
+                        { "color": "yellow", "pattern": "None", "type": "double" },
+                        { "color": "yellow", "lineAmount": 3, "pattern": "heart", "patternColor": "magenta", "type": "double" },
+                        { "color": "blue", "patternColor": "orange", "lineAmount": 0, "pattern": "dots", "type": "double" },
+                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "blue", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "green", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "green", "type": "double" },
+                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "orange", "lineAmount": 0, "pattern": "None", "type": "double" },
+                        { "color": "darkgrey", "lineAmount": 3, "pattern": "heart", "type": "double" },
+                        { "color": "darkgrey", "lineAmount": 0, "pattern": "heart", "type": "double" }
+                    ]
+                },
+                {
+                    "name": "CUSTOM",
+                    "socks": [
+                        { "color": "red", "lineAmount": 3, "pattern": "JKU", "patternColor": "green", "type": "double" },
+                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
+                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "single" }
+                    ]
+                }
+            ],
+            "colors": [
+                "black", "#343434", "darkgrey", "orange", "#E30B5C", "red", "maroon", "yellow", "#FFBF00", "olive", "lime", "green", "aqua", "#89CFF0", "teal", "blue", "navy", "fuchsia", "#AA336A", "purple"
             ]
-        }    
-        
+
+        }
+
     ]
 }
