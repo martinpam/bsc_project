@@ -24,23 +24,23 @@
       <div id="itemText">&#10060;</div>
     </div>
 
-    <div v-if="size === 'small'" class="supermarket small" ref="supermarket">
+    <div v-if="size === 'SMALL'" class="supermarket small" ref="supermarket">
       <div class="door-entry" ref="door" style="transform: rotate(0deg)"></div>
       <div
         class="door-exit"
         ref="exit"
         style="transform: rotate(0deg) scaleX(-1)"
       ></div>
-      <div class="shelf vegetables articles-left text-small"></div>
-      <div class="shelf fruits articles-right text-small"></div>
-      <div class="shelf cooler articles-left text-small"></div>
-      <div class="shelf freezer articles-right text-small"></div>
-      <div class="checkout" ref="checkout"></div>
-      <div class="corridor corridor1" ref="corridor"></div>
+      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}"  class="shelf vegetables articles-left text-small"></div>
+      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-right text-small"></div>
+      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-small"></div>
+      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-small"></div>
+      <div  class="checkout" ref="checkout"></div>
+      <div  class="corridor corridor1" ref="corridor"></div>
     </div>
 
     <div
-      v-else-if="size === 'medium'"
+      v-else-if="size === 'MEDIUM'"
       class="supermarket medium"
       ref="supermarket"
     >
@@ -54,42 +54,45 @@
         ref="exit"
         style="transform: rotate(180deg) scaleX(-1)"
       ></div>
-      <div class="shelf cooler articles-left text-medium"></div>
-      <div class="shelf vegetables articles-left text-medium"></div>
+      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-medium" style="{'content':'asdf'}"></div>
+      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables articles-left text-medium"></div>
 
-      <div class="shelf freezer articles-right text-medium"></div>
-      <div class="shelf fruits articles-right text-medium"></div>
-      <div class="shelf meat articles-left text-medium"></div>
-      <div class="shelf cleaning articles-left text-medium"></div>
+      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-medium"></div>
+      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-right text-medium"></div>
+      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat articles-left text-medium"></div>
+      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning articles-left text-medium"></div>
 
-      <div class="shelf sweets articles-right text-medium"></div>
-      <div class="shelf drinks articles-right text-medium"></div>
+      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-medium"></div>
+      <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks articles-right text-medium"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor corridor1" ref="corridor"></div>
     </div>
-    <div v-else class="supermarket large" ref="supermarket">
+    <div v-else-if="size==='LARGE'" class="supermarket large" ref="supermarket">
       <div class="door-entry" ref="door"></div>
       <div
         class="door-exit"
         ref="exit"
         style="transform: rotate(180deg) scaleX(-1)"
       ></div>
-      <div class="shelf cooler articles-left text-large"></div>
-      <div class="shelf fruits articles-left text-large"></div>
-      <div class="shelf vegetables articles-right text-large"></div>
-      <div class="shelf freezer articles-right text-large"></div>
-      <div class="shelf vegetables vegetables2 articles-left text-large"></div>
-      <div class="shelf freezer freezer2 articles-left text-large"></div>
-      <div class="shelf cooler cooler2 articles-right text-large"></div>
-      <div class="shelf fruits fruits2 articles-right text-large"></div>
-      <div class="shelf drinks drinks2 articles-left text-large"></div>
-      <div class="shelf drinks articles-left text-large"></div>
-      <div class="shelf meat articles-right text-large"></div>
-      <div class="shelf cleaning articles-right text-large"></div>
-      <div class="shelf meat meat2 articles-left text-large"></div>
-      <div class="shelf cleaning cleaning2 articles-left text-large"></div>
-      <div class="shelf sweets articles-right text-large"></div>
-      <div class="shelf sweets sweets2 articles-right text-large"></div>
+      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-large"></div>
+      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-left text-large"></div>
+      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-large"></div>
+    
+      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables articles-right text-large"></div>
+       <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer freezer2 articles-left text-large"></div>
+      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables vegetables2 articles-left text-large"></div>
+     <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler cooler2 articles-right text-large"></div>
+      
+      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits fruits2 articles-right text-large"></div>
+       <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks articles-left text-large"></div>
+      <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks drinks2 articles-left text-large"></div>
+     
+      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat articles-right text-large"></div>
+      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning articles-right text-large"></div>
+      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat meat2 articles-left text-large"></div>
+      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning cleaning2 articles-left text-large"></div>
+      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-large"></div>
+      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets sweets2 articles-right text-large"></div>
       <div class="checkout" ref="checkout"></div>
       <div class="corridor corridor1" ref="corridor"></div>
       <div class="corridor corridor2"></div>
@@ -111,6 +114,7 @@
 <script>
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
+import {t} from '../helpers/helperFunctions.js'
 
 import { onMounted } from "@vue/runtime-core";
 export default {
@@ -160,16 +164,17 @@ export default {
       y: 0,
     };
     const animations = ref([]);
-    const walkingSpeed = ref(250);
+    const walkingSpeed = ref(200);
     const MAX_ROUNDS = 1;
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
     onMounted(() => {
-      console.log("mounted", robotWidth.value, props.algorithm, props.size);
+      console.log(currentItemName.value, shoppingList.value, props.shoppingListProp, props.size)
+      console.log(document.children, "mounted", robotWidth.value, props.algorithm, props.size, document.getElementsByClassName("shelf")[0]);
       cell.width =
         Math.max(door.value.clientWidth, door.value.clientHeight) * 2;
       cell.height =
-        props.size === "large"
+        props.size === 'LARGE'
           ? document.getElementsByClassName("shelf")[0].clientHeight / 3.3
           : document.getElementsByClassName("shelf")[0].clientHeight / 3;
     });
@@ -191,6 +196,7 @@ export default {
       plannedCoordinates,
       walkingSpeed,
       checkout,
+      t,
       exit,
       currentItem,
       currentItemName,
@@ -216,24 +222,30 @@ export default {
       this.resetSimulation();
     },
   },
+  mounted() {
+    window.addEventListener('resize', this.resetSimulation);
+  },
+  unmounted() {
+    window.removeEventListener('resize', this.resetSimulation);
+  },
+
   methods: {
     resetSimulation() {
+      console.log('asdf')
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
-        this.size === "large"
+        this.size === 'LARGE'
           ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
-      console.log("updated to new chapter", this.cell);
       this.shoppingListLive = [];
       this.shoppingList = [];
       this.shoppingListLive.push(...this.shoppingListProp);
       this.shoppingList.push(...this.shoppingListProp);
       let itemsToDelete = document.querySelectorAll(
-        ".algorithm-five-item, .line-outer, .target-point, .start-point"
+        ".algorithm-six-item, .line-outer, .target-point, .start-point"
       );
 
-      console.log(itemsToDelete);
       for (let i = 0; i < itemsToDelete.length; i++) {
         itemsToDelete[i].parentNode.removeChild(itemsToDelete[i]);
       }
@@ -253,7 +265,7 @@ export default {
         element.animation.cancel();
       });
       this.animations = [];
-      this.MAX_ROUNDS = 2;
+      this.MAX_ROUNDS = 1;
     },
     playPause() {
       this.playing = !this.playing;
@@ -270,24 +282,25 @@ export default {
     getItemUrl(itemName) {
       if (itemName !== undefined) {
         var items = require.context("../assets/icons/items", false, /\.png$/);
-        return items("./" + itemName + ".png");
+        return items("./" + itemName.toLowerCase() + ".png");
       }
     },
     startSimulation() {
+      
       this.resetSimulation();
-      console.log("resetting simulation", this.shoppingList);
       this.gameStarted = true;
       this.playing = true;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
-        this.size === "large"
+        this.size === 'LARGE'
           ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
       document.getElementById("itemImage").width = this.cell.width * 0.7;
       document.getElementById("itemImage").height = this.cell.width * 0.7;
       this.setRobotStartPosition();
       this.fillAnimations();
+      console.log(this.animations)
       this.startSearch();
     },
     robotPos() {
@@ -301,7 +314,6 @@ export default {
       };
     },
     setRobotStartPosition() {
-      console.log("reset pos of robot to start");
       this.robot.style.top =
         document.getElementsByClassName("door-entry")[0].getBoundingClientRect()
           .top +
@@ -310,7 +322,7 @@ export default {
       this.robot.style.left =
         document.getElementsByClassName("door-entry")[0].getBoundingClientRect()
           .left +
-        (this.size === "medium" ? this.cell.width / 4 : 0) +
+        (this.size === 'MEDIUM' ? this.cell.width / 4 : 0) +
         2 +
         "px";
     },
@@ -332,40 +344,30 @@ export default {
     },
     checkCorrectColumn(shelf) {
       if (shelf.classList.contains("articles-left")) {
-        console.log(
-          this.robotPosPlanned.x,
-          this.cell.width * 0.825,
-          this.getPos(shelf).x
-        );
         return (
           Math.abs(
             this.robotPosPlanned.x +
-              this.cell.width * 0.825 -
-              this.getPos(shelf).x
-          ) < 10
+            this.cell.width * 0.825 -
+            this.getPos(shelf).x
+          ) <   (this.size === 'LARGE' ? this.cell.width * 0.33 : this.cell.width * 0.1)
         );
       }
       if (shelf.classList.contains("articles-right")) {
-        console.log(
-          this.robotPosPlanned.x,
-          this.cell.width * 1.175,
-          this.getPos(shelf).x
-        );
         return (
           Math.abs(
             this.robotPosPlanned.x -
-              this.cell.width * 1.175 -
-              this.getPos(shelf).x
-          ) < 2
+            this.cell.width * 1.175 -
+            this.getPos(shelf).x
+          ) <  this.cell.width * 0.33
         );
       }
     },
     addWalkingAnimation(delay, walk_x, walk_y) {
       const duration = walk_x
         ? ((Math.abs(walk_x) * 300) / this.walkingSpeed) *
-          (this.size === "medium" ? 1.2 : this.size === "large" ? 1.5 : 1)
+        (this.size === 'MEDIUM' ? 1.2 : this.size === 'LARGE' ? 1.5 : 1)
         : ((Math.abs(walk_y) * 300) / this.walkingSpeed) *
-          (this.size === "medium" ? 1.2 : this.size === "large" ? 1.5 : 1);
+        (this.size === 'MEDIUM' ? 1.2 : this.size === 'LARGE' ? 1.5 : 1);
       const step = walk_x
         ? "translateX(" + walk_x + "px)"
         : "translateY(" + walk_y + "px)";
@@ -373,7 +375,11 @@ export default {
         animation: this.robot.animate([{ transform: step }], {
           duration: duration,
           delay: delay,
+          
         }),
+        walking: true,
+          x: walk_x,
+          y: walk_y,
       });
       this.robotPosPlanned.x += walk_x;
       this.robotPosPlanned.y += walk_y;
@@ -395,7 +401,6 @@ export default {
       this.plannedCoordinates.push(null);
     },
     addFinishedRoundAnimation(nextItem) {
-      console.log("addFinishRound with nextItem ", nextItem);
       this.animations.push({
         animation: this.robot.animate([{}], {
           duration: 0,
@@ -411,7 +416,7 @@ export default {
           this.getPos(shelf).x -
           this.robotPosPlanned.x -
           this.cell.width +
-          (this.size !== "large"
+          (this.size !== 'LARGE'
             ? this.cell.width * 0.15
             : this.cell.width * 0.15)
         );
@@ -421,24 +426,25 @@ export default {
           this.getPos(shelf).x -
           this.robotPosPlanned.x +
           this.cell.width +
-          (this.size !== "large"
+          (this.size !== 'LARGE'
             ? this.cell.width * 0.25
             : -this.cell.width * 0.15)
         );
       }
-      console.log("error");
     },
 
     fillAnimations() {
       this.robotPosPlanned = this.robotPos();
 
       this.addFadingAnimation(true);
-      if (this.algorithm === 5) {
-        this.handleAlgorithmFive();
-        console.log("algo 5 init");
-      } 
-      while (this.shoppingList.length > 0 && this.rounds < this.MAX_ROUNDS && this.algorithm !== 5) {
-        console.log(this.rounds);
+      if (this.algorithm === 6) {
+        this.handleTSP();
+      }
+      while (
+        this.shoppingList.length > 0 &&
+        this.rounds < this.MAX_ROUNDS &&
+        this.algorithm !== 6
+      ) {
         this.rounds++;
         let foundTopItem = false;
         let restart = false;
@@ -455,27 +461,25 @@ export default {
               ? 1
               : 0;
           let currentItems = this.shelfData.filter(
-            (s) => s.name === this.shelfs[i].classList[1]
+            (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
           )[index].items;
           let categoryItems = [];
-          if (this.algorithm === 4) {
+         
             categoryItems.push(
               ...this.allShelfs.filter(
-                (s) => s.name === this.shelfs[i].classList[1]
+                (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
               )[0].items
             );
-            console.log(categoryItems);
-            if (this.size === "large") {
+            if (this.size === 'LARGE') {
               categoryItems.push(
                 ...this.allShelfs.filter(
-                  (s) => s.name === this.shelfs[i].classList[1]
+                  (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
                 )[1].items
               );
             }
-          }
-          console.log(categoryItems);
+        
           if (
-            this.algorithm !== 4 ||
+            this.algorithm !== 5 ||
             categoryItems.some((item) => this.shoppingList.indexOf(item) >= 0)
           ) {
             this.goToNextShelf(i);
@@ -485,6 +489,7 @@ export default {
               currentItems,
               categoryItems
             );
+            console.log(foundTopItem, restart, )
             if (restart) break;
           }
         }
@@ -492,67 +497,58 @@ export default {
         if (this.endlessRoundStarter <= 0)
           this.endlessRoundStarter = this.animations.length;
 
-        if (this.algorithm >= 3) this.rounds = this.MAX_ROUNDS;
+        if (this.algorithm >= 4) this.rounds = this.MAX_ROUNDS;
       }
 
       //pay and leave
-      if (this.algorithm < 3 && this.shoppingList.length !== 0) {
+      if (this.algorithm < 4 && this.shoppingList.length !== 0) {
         this.repeatAnimations();
       }
-  if (this.algorithm !== 5) {
-   if (this.size === "small") {
-        this.addWalkingAnimation(
-          0,
-          0,
-          this.getPos(this.checkout).y -
-            this.robotPosPlanned.y +
-            this.checkout.clientHeight * 1.2
-        );
-        this.addWalkingAnimation(
-          0,
-          this.getPos(this.checkout).x -
-            this.robotPosPlanned.x +
-            this.cell.height * 0.125,
-          0
-        );
-        this.addWalkingAnimation(
-          500,
-          this.getPos(this.exit).x -
-            this.robotPosPlanned.x +
-            this.cell.height * 0.175,
-          0
-        );
-        this.addWalkingAnimation(
-          0,
-          0,
-          this.getPos(this.exit).y - this.robotPosPlanned.y
-        );
-      } else {
-        //medium or large
-        let walk_x, walk_y;
-        walk_y =
-          this.getPos(this.corridor).y -
-          this.cell.height * 0.1 -
-          this.robotPosPlanned.y;
-        this.addWalkingAnimation(0, 0, walk_y);
-        walk_x =
-          this.getPos(this.checkout).x -
-          this.cell.width * 0.9 -
-          this.robotPosPlanned.x;
-        this.addWalkingAnimation(0, walk_x, 0);
-        walk_y =
-          this.getPos(this.exit).y +
-          this.cell.height * 0.2 -
-          this.robotPosPlanned.y;
-        this.addWalkingAnimation(500, 0, walk_y);
-        walk_x =
-          this.getPos(this.exit).x -
-          this.cell.width * 0.4 -
-          this.robotPosPlanned.x;
-        this.addWalkingAnimation(0, walk_x, 0);
-      } 
-  }
-      
+      if (this.algorithm !== 6) {
+        
+          let walk_x, walk_y;
+          walk_y =
+            this.getPos(this.corridor).y -
+            this.cell.height * 0.1 -
+            this.robotPosPlanned.y;
+          this.addWalkingAnimation(0, 0, walk_y);
+
+          if (this.algorithm !== 1) {
+            walk_x =
+            this.getPos(this.checkout).x +
+            (this.size === 'SMALL' ? this.cell.width * 0.2 : (-this.cell.width * 0.8)) -
+            this.robotPosPlanned.x;
+            this.addWalkingAnimation(0, walk_x, 0);
+            if (this.size === 'SMALL') {
+               walk_y =
+            this.getPos(this.checkout).y +
+            this.cell.height * 0.2 -
+            this.robotPosPlanned.y;
+          this.addWalkingAnimation(0, 0, walk_y);
+            }
+             walk_y =
+            this.getPos(this.exit).y +
+            this.cell.height * 0.2 -
+            this.robotPosPlanned.y;
+          this.addWalkingAnimation(500, 0, walk_y);
+          } else {
+            walk_y =
+            this.getPos(this.exit).y +
+            this.cell.height * 0.2 -
+            this.robotPosPlanned.y;
+          this.addWalkingAnimation(0, 0, walk_y);
+          }
+          
+
+
+          
+          walk_x =
+            this.getPos(this.exit).x +
+            (this.size === 'SMALL' ? this.cell.width * 0.2 : this.cell.width * 0.05) -
+            this.robotPosPlanned.x;
+          this.addWalkingAnimation(0, walk_x, 0);
+        
+      }
 
       this.addFadingAnimation(false);
       this.animations.push({
@@ -561,14 +557,14 @@ export default {
           duration: 0,
         }),
       });
-      this.plannedCoordinates.push(null);
-      console.log(this.animations, this.plannedCoordinates);
+     // this.plannedCoordinates.push(null);
       for (let u = 0; u < this.animations.length; u++) {
         this.animations[u].animation.pause();
         this.animations[u].animation.onfinish = () => {
-          console.log("finished", this.currentAnimation);
           this.currentAnimation++;
+          console.log(this.plannedCoordinates[u], u)
           if (this.plannedCoordinates[u]) {
+            
             this.changeRobotPos(
               this.plannedCoordinates[u].x,
               this.plannedCoordinates[u].y
@@ -585,17 +581,17 @@ export default {
           ) {
             this.currentItem.style.display = "block";
             let padding =
-              this.size === "small"
+              this.size === 'SMALL'
                 ? 0.13
-                : this.size === "medium"
-                ? 0.2
-                : 0.07;
+                : this.size === 'MEDIUM'
+                  ? 0.2
+                  : 0.07;
             this.currentItem.style.top =
               this.getPos(this.animations[u + 1].shelf).y +
               this.animations[u + 1].cell *
-                (this.size === "large"
-                  ? (this.cell.height / 3.3) * 2.5
-                  : this.cell.height) +
+              (this.size === 'LARGE'
+                ? (this.cell.height / 3.3) * 2.5
+                : this.cell.height) +
               this.cell.height * 0.07 +
               "px";
             this.currentItem.style.left =
@@ -603,18 +599,23 @@ export default {
               this.cell.width * padding +
               "px";
             let itemText = document.getElementById("itemText");
-            if (this.size === "small") {
-              itemText.style.top = "2.4rem";
-              itemText.style.left = "2rem";
-              itemText.style.fontSize = "3rem";
-            } else if (this.size === "medium") {
-              itemText.style.top = "2rem";
-              itemText.style.left = "1.6rem";
-              itemText.style.fontSize = "2.5rem";
+            const comp = 1729;
+            let width = document.body.clientWidth;
+            width = width > comp ? comp : width;
+
+            
+            if (this.size === 'SMALL') {
+              itemText.style.top = 2.4/comp*width+"rem";
+              itemText.style.left = 2/comp*width+"rem";
+              itemText.style.fontSize = 3/comp*width+"rem";
+            } else if (this.size === 'MEDIUM') {
+              itemText.style.top = 2/comp*width+"rem";
+              itemText.style.left = 1.6/comp*width+"rem";
+              itemText.style.fontSize = 2.5/comp*width+"rem";
             } else {
-              itemText.style.top = "1.2rem";
-              itemText.style.left = "1.1rem";
-              itemText.style.fontSize = "2rem";
+              itemText.style.top = 1.2/comp*width+"rem";
+              itemText.style.left = 1.1/comp*width+"rem";
+              itemText.style.fontSize = 2.0/comp*width+"rem";
             }
 
             if (this.animations[u + 1].successful === true) {
@@ -635,30 +636,42 @@ export default {
             this.resetSimulation();
           }
 
-          if (
-            this.animations[u].allPaths !== null &&
-            this.animations[u].allPaths !== undefined &&
-            this.animations[u].allPaths.length > 0
-          ) {
+           console.log(this.animations)
+           let allStartPoints = document.getElementsByClassName('start-point');
+           console.log(allStartPoints)
+           if (this.animations[u+1].walking === true) {
+            for (let point = 0; point < allStartPoints.length; point++) {
+              if (this.getPos(allStartPoints[point])) {
+                console.log((this.getPos(allStartPoints[point]).x - this.cell.width*0.5) , this.plannedCoordinates[u+1].x*0.91,this.plannedCoordinates[u+1].x*1.09)
+                console.log((this.getPos(allStartPoints[point]).y - this.cell.height*0.5) , this.plannedCoordinates[u+1].y*0.91,this.plannedCoordinates[u+1].y*1.09)
+                const minX = (this.getPos(allStartPoints[point]).x - this.cell.width*0.5) > this.plannedCoordinates[u+1].x*0.91
+                const maxX = (this.getPos(allStartPoints[point]).x - this.cell.width*0.5) < this.plannedCoordinates[u+1].x*1.09
+                const minY = (this.getPos(allStartPoints[point]).y - this.cell.height*0.5) > this.plannedCoordinates[u+1].y*0.91
+                const maxY = (this.getPos(allStartPoints[point]).y - this.cell.height*0.5) < this.plannedCoordinates[u+1].y*1.09
+                console.log(minX, maxX, minY, maxY)
+                if (minX && maxX && minY && maxY) {
+                  console.log('at start point')
+                  let itemName = allStartPoints[point].classList[0].slice(0,allStartPoints[point].classList[0].length-12)
+                  console.log(itemName)
+                  this.boughtItems.push(itemName)
+                }
+              }
+            
+            }
+          }
+
+          if (this.animations[u].allPaths !== null &&this.animations[u].allPaths !== undefined &&this.animations[u].allPaths.length > 0) {
             let targetPoints = document.getElementsByClassName("target-point");
             for (let t = 0; t < targetPoints.length; t++) {
               targetPoints[t].innerHTML = "";
             }
 
             for (let i = 0; i < this.animations[u].allPaths.length; i++) {
-              console.log(
-                this.animations[u].allPaths[i],
-                this.shortestPathGreedy
-              );
               for (
                 let m = 0;
                 m < this.animations[u].allPaths[i].path.length;
                 m++
               ) {
-                console.log(
-                  this.animations[u].allPaths[i].path[m],
-                  this.shortestPathGreedy[0].children[0].parentNode
-                );
                 if (
                   this.checkIsInShortest(this.animations[u].allPaths[i].path[m])
                 ) {
@@ -671,30 +684,17 @@ export default {
                 } else {
                   this.animations[u].allPaths[i].path[m].style.display = "none";
                 }
-                
-                
               }
             }
           }
 
-          if (
-            this.animations[u + 1].allPaths &&
-            this.animations[u + 1].allPaths.length > 0
-          ) {
-            console.log(this.animations[u + 1].allPaths);
+          if (this.animations[u + 1].allPaths && this.animations[u + 1].allPaths.length > 0) {
             for (let i = 0; i < this.animations[u + 1].allPaths.length; i++) {
-              console.log(this.animations[u + 1].allPaths[i].path.length);
               for (
                 let m = 0;
                 m < this.animations[u + 1].allPaths[i].path.length;
                 m++
               ) {
-                console.log(
-                  u,
-                  i,
-                  m,
-                  this.animations[u + 1].allPaths[i].path[m]
-                );
                 this.animations[u + 1].allPaths[i].path[
                   m
                 ].children[0].style.backgroundColor = this.getColor(
@@ -711,35 +711,38 @@ export default {
                   const searchFor =
                     this.animations[u + 1].allPaths[i].path[m].classList[0] +
                     " target-point";
-                  console.log(
-                    searchFor,
-                    this.animations[u + 1].allPaths[i].path[m].to
-                  );
+
                   let point = document.getElementsByClassName(searchFor)[0];
-                  point.style.zIndex = 13;
+           
+                  if (point) {
+                     point.style.zIndex = 13;
                   point.innerHTML =
                     "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem;'>&#9679;</div>";
-                  console.log(point, "asdf");
+                  }
+                 
                 }
               }
               if (this.animations[u + 1].allPaths[i].from !== "robot") {
                 let searchFor =
                   this.animations[u + 1].allPaths[i].from + "-start-point";
                 let point = document.getElementsByClassName(searchFor)[0];
-                point.style.zIndex = 13;
+                if (point) {
+                   point.style.zIndex = 13;
                 point.innerHTML =
                   "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem; color:blue'>&#9679;</div>";
-                console.log(point, "asdf");
+                }
+               
               }
             }
           }
-
-          if (this.animations[u + 1].endlessLoop === true) {
-            console.log(this.endlessRoundStarter);
+         
+        
+           if (this.animations[u + 1].endlessLoop === true) {
             this.animations[this.endlessRoundStarter].animation.play();
             this.showContinue = true;
             this.animations[u + 1].animation.pause();
           }
+          
         };
       }
     },
@@ -757,16 +760,15 @@ export default {
     },
     totalWidth(path) {
       let length = 0;
-      console.log(path);
+
       for (let i = 0; i < path.length; i++) {
-        console.log(path[i].children[0].style);
         length += parseInt(
           path[i].children[0].style.width.substring(
             0,
             path[i].children[0].style.width.length - 2
           )
         );
-        console.log(length);
+
         if (
           parseInt(
             path[i].children[0].style.width.substring(
@@ -775,16 +777,14 @@ export default {
             )
           ) === 0
         ) {
-          console.log("WTF", path[i].children[0].style.width, path[i]);
         }
       }
       return length;
     },
-    handleAlgorithmFive() {
+    handleTSP() {
       let items = this.showItems();
       let locations = [];
       locations.push(...items, this.checkout);
-      console.log(locations);
 
       let x1, y1, x2, y2, from, to;
       let allPaths = [];
@@ -798,9 +798,8 @@ export default {
         from = "robot";
 
         //check robot correct column already
-        console.log(this.checkCorrectColumn(items[x].shelf));
+
         if (this.checkCorrectColumn(items[x].shelf)) {
-          console.log("robot in correct column to shelf", items[x].shelf);
           x2 = x1;
           y2 = this.getPos(items[x].item).y + this.cell.height / 2;
           to = this.shoppingList[x];
@@ -811,7 +810,7 @@ export default {
           lines.push(line);
         } else {
           //get nearest horizontal corridor
-          y2 = this.getNearestCorridorHeight(items[x]);
+          y2 = this.getNearestCorridorHeight(this.robot, items[x]);
           x2 = x1;
           to = this.shoppingList[x];
           let line1 = this.linedraw(x1, y1, x2, y2);
@@ -822,7 +821,7 @@ export default {
           //line from corridor to item x pos
           x1 = x2;
           y1 = y2;
-          console.log(items[x].location);
+
           x2 =
             items[x].location === "articles-left"
               ? this.getPos(items[x].item).x - this.cell.width / 2.2
@@ -853,11 +852,6 @@ export default {
         targetPoint.style.left = x2 + "px";
         targetPoint.style.top = y2 + "px";
 
-        console.log("added ", targetPoint);
-        console.log(
-          document.getElementsByClassName("supermarket-container")[0],
-          targetPoint
-        );
         allPaths.push({
           from: from,
           to: to,
@@ -865,12 +859,12 @@ export default {
           length: this.totalWidth(lines),
         });
       }
-      console.log(allPaths);
+
       allPaths.sort((a, b) => a.length - b.length);
-      console.log(allPaths);
+
       this.shortestPathGreedy.push(...allPaths[0].path);
       shortestFound.push(allPaths[0].to);
-      console.log(this.shortestPathGreedy);
+
       this.addShowItemLineAnimation(allPaths);
 
       let finishedSearch = false;
@@ -885,7 +879,7 @@ export default {
             i++;
           }
         }
-        console.log(i, shortestFound[shortestFound.length - 1], items);
+
         x1 =
           items[i].location === "articles-left"
             ? this.getPos(items[i].item).x - this.cell.width / 2.2
@@ -905,7 +899,6 @@ export default {
         startPoint.style.top = y1 + "px";
         for (let u = 0; u < locations.length; u++) {
           let lines = [];
-          console.log(items[i].itemName, locations[u]);
 
           x1 =
             items[i].location === "articles-left"
@@ -923,52 +916,61 @@ export default {
             shortestFound.indexOf(locations[u].itemName) === -1
           ) {
             to = locations[u].itemName;
-            console.log(
-              locations[u].item,
-              locations[u].itemName,
-              items[i].itemName
-            );
+
             //check if items in same column
             let expectedX =
               locations[u].location === "articles-left"
                 ? this.getPos(locations[u].item).x - this.cell.width / 2.2
                 : this.getPos(locations[u].item).x + this.cell.width * 1.2;
-            console.log(
-              expectedX,
-              items[i].itemName,
-              x1,
-              locations[u].itemName,
-              this.getPos(locations[u].item).x,
-              Math.abs(x1 - expectedX)
-            );
 
             if (Math.abs(x1 - expectedX) < 20) {
-              console.log("same x", locations[u].itemName, items[i].itemName);
               x2 = x1;
               y2 = this.getPos(locations[u].item).y + this.cell.height / 2;
-              console.log("here");
+
               let line = this.linedraw(x1, y1, x2, y2);
               line.classList.add(from + "-" + to);
               line.classList.add("line-outer");
               line.style.display = "none";
               lines.push(line);
-            } else if (this.checkSameCorridor(x1, x2, locations[u]).item) {
-              console.log("here");
-              //handle same corridor logic
+            } else if (this.checkSameSector(items[i], locations[u].item)) {
+              //handle same sector logic
+               y2 = y1
+                 x2 =
+                locations[u].location === "articles-left"
+                  ? this.getPos(locations[u].item).x - this.cell.width / 2.2
+                  : this.getPos(locations[u].item).x + this.cell.width * 1.2;
+              let line2 = this.linedraw(x1, y1, x2, y2);
+             
+              line2.classList.add(from + "-" + to);
+              line2.classList.add("line-outer");
+              line2.style.display = "none";
+              lines.push(line2);
+              //from corridor to item pos y
+
+              x1 = x2;
+              y1 = y2;
+              y2 = this.getPos(locations[u].item).y + this.cell.height / 2;
+              let line3 = this.linedraw(x1, y1, x2, y2);
+
+              line3.classList.add(from + "-" + to);
+              line3.classList.add("line-outer");
+              line3.style.display = "none";
+              lines.push(line3);
+
+
             } else {
-              console.log("here");
               //need to get out of corridor
               //get nearest horizontal corridor
-              y2 = this.getNearestCorridorHeight(locations[u].item);
+              y2 = this.getNearestCorridorHeight(items[i], locations[u].item);
               x2 = x1;
               let line1 = this.linedraw(x1, y1, x2, y2);
-              console.log("test line1", line1);
+
               line1.classList.add(from + "-" + to);
               line1.classList.add("line-outer");
               line1.style.display = "none";
               lines.push(line1);
               //line from corridor to item x pos
-              console.log("here", locations[u].location);
+
               x1 = x2;
               y1 = y2;
               x2 =
@@ -976,18 +978,18 @@ export default {
                   ? this.getPos(locations[u].item).x - this.cell.width / 2.2
                   : this.getPos(locations[u].item).x + this.cell.width * 1.2;
               let line2 = this.linedraw(x1, y1, x2, y2);
-              console.log("test line2", line2);
+             
               line2.classList.add(from + "-" + to);
               line2.classList.add("line-outer");
               line2.style.display = "none";
               lines.push(line2);
               //from corridor to item pos y
-              console.log("here");
+
               x1 = x2;
               y1 = y2;
               y2 = this.getPos(locations[u].item).y + this.cell.height / 2;
               let line3 = this.linedraw(x1, y1, x2, y2);
-              console.log("test line3", line3);
+
               line3.classList.add(from + "-" + to);
               line3.classList.add("line-outer");
               line3.style.display = "none";
@@ -1013,10 +1015,10 @@ export default {
         }
 
         allPaths.sort((a, b) => a.length - b.length);
-        console.log(allPaths);
+        console.log(allPaths)
         if (allPaths.length > 0) {
           this.shortestPathGreedy.push(...allPaths[0].path);
-          console.log(this.shortestPathGreedy);
+
           shortestFound.push(allPaths[0].to);
           this.addShowItemLineAnimation(allPaths);
         }
@@ -1032,7 +1034,7 @@ export default {
       startPointLast.style.position = "absolute";
       startPointLast.style.left = x2 + "px";
       startPointLast.style.top = y2 + "px";
-      console.log(startPointLast);
+
       //path from last item to register
       y1 = y2;
       x1 = x2;
@@ -1042,10 +1044,10 @@ export default {
       from = shortestFound[shortestFound.length - 1];
       to = "checkout";
       //get nearest horizontal corridor
-      y2 = this.getNearestCorridorHeight(this.checkout);
+      y2 = this.getNearestCorridorHeight(null, this.checkout);
       x2 = x1;
       let line1 = this.linedraw(x1, y1, x2, y2);
-      console.log("test line1", line1);
+
       line1.classList.add(from + "-" + to);
       line1.classList.add("line-outer");
       line1.style.display = "none";
@@ -1055,18 +1057,18 @@ export default {
       y1 = y2;
       x2 = this.getPos(this.checkout).x + this.checkout.clientWidth / 2;
       let line2 = this.linedraw(x1, y1, x2, y2);
-      console.log("test line2", line2);
+
       line2.classList.add(from + "-" + to);
       line2.classList.add("line-outer");
       line2.style.display = "none";
       lines.push(line2);
       //from corridor to item pos y
-      console.log("here");
+
       x1 = x2;
       y1 = y2;
       y2 = this.getPos(this.checkout).y + this.cell.height / 2;
       let line3 = this.linedraw(x1, y1, x2, y2);
-      console.log("test line3", line3);
+
       line3.classList.add(from + "-" + to);
       line3.classList.add("line-outer");
       line3.style.display = "none";
@@ -1083,58 +1085,72 @@ export default {
       //from checkout to door
       x1 = x2;
       y1 = y2;
-       lines = []
-       allPaths = []
-       let line4, line5;
-      if (this.size === 'small') {
-        x2 = this.getPos(this.exit).x + this.cell.width*0.5
-          line4 = this.linedraw(x1, y1, x2, y1);
-          line5 = this.linedraw(x2, y1, x2, y1);
-        }    else {
-          y2 =  this.getPos(this.exit).y
-            line4 = this.linedraw(x1, y1, x1, y2);
-            line5 = this.linedraw(x1, y2, x1, y2);
-        }
+      lines = [];
+      allPaths = [];
+      let line4, line5;
+      if (this.size === 'SMALL') {
+        x2 = this.getPos(this.exit).x + this.cell.width * 0.5;
+        line4 = this.linedraw(x1, y1, x2, y1);
+        line5 = this.linedraw(x2, y1, x2, y1);
+      } else {
+        y2 = this.getPos(this.exit).y;
+        line4 = this.linedraw(x1, y1, x1, y2);
+        line5 = this.linedraw(x1, y2, x1, y2);
+      }
 
-
-       
-      console.log("test line4", line4);
-      line4.classList.add('checkout' + "-" + 'exit-last');
+      line4.classList.add("checkout" + "-" + "exit-last");
       line4.classList.add("line-outer");
       line4.style.display = "none";
-      lines.push(line4)
-      
-      console.log("test line4", line4);
-      line5.classList.add('checkout' + "-" + 'exit-last');
+      lines.push(line4);
+
+      line5.classList.add("checkout" + "-" + "exit-last");
       line5.classList.add("line-outer");
       line5.style.display = "none";
-      lines.push(line5)
+      lines.push(line5);
 
-      allPaths.push({'from':'checkout', 'to':'exit', 'path':lines, 'length':this.totalWidth(lines)})
-      this.shortestPathGreedy.push(...allPaths[0].path)
-      this.addShowItemLineAnimation(allPaths)
-    
-
+      allPaths.push({
+        from: "checkout",
+        to: "exit",
+        path: lines,
+        length: this.totalWidth(lines),
+      });
+      this.shortestPathGreedy.push(...allPaths[0].path);
+      this.addShowItemLineAnimation(allPaths);
 
       //start walking
-      
-      for (let i = 0; i < (this.shortestPathGreedy.length-1); i++) {
-        let line = this.shortestPathGreedy[i+1].children[0];
-        let x = parseInt(line.style.left.substring(0, line.style.left.length - 2)) - this.cell.width/2;
-        let y = parseInt(line.style.top.substring(0, line.style.top.length - 2))  - this.cell.height/2;
-        console.log(x,y)
-       
-        let walk_y = y - (this.robotPosPlanned.y + this.robot.clientHeight/2);
-        let walk_x = x - (this.robotPosPlanned.x + this.robot.clientWidth/2);
+
+      for (let i = 0; i < this.shortestPathGreedy.length - 1; i++) {
+        let line = this.shortestPathGreedy[i + 1].children[0];
+        let x =
+          parseInt(line.style.left.substring(0, line.style.left.length - 2)) -
+          this.cell.width / 2;
+        let y =
+          parseInt(line.style.top.substring(0, line.style.top.length - 2)) -
+          this.cell.height / 2;
+
+        let walk_y = y - (this.robotPosPlanned.y + this.robot.clientHeight / 2);
+        let walk_x = x - (this.robotPosPlanned.x + this.robot.clientWidth / 2);
+        if (Math.abs(walk_y) < Math.abs(walk_x)) {
+          walk_y = 0;
+        } else {
+          walk_x = 0;
+        }
         console.log(walk_y, walk_x)
-        this.addWalkingAnimation(300,walk_x,walk_y);
+        this.addWalkingAnimation(300, walk_x, walk_y);
       }
-      console.log(this.animations)
-
-
     },
-    checkSameCorridor() {
+    checkSameSector(from, to) {
       //check if 2 items are both below the middle or both above the middle and their x distance is below 2 cell widths
+      console.log(from, to)
+     let to_x = this.getPos(to).x;
+      let distanceRight = (to_x - from.xCoord)
+      let distanceLeft = (from.xCoord -to_x)
+     let minDistance = this.size === 'LARGE' ? this.cell.width*2.03  : this.cell.width*2.03  
+     let maxDistance = this.size === 'LARGE' ?  this.cell.width*2.97 : this.cell.width*3.5
+      if ((from.location === 'articles-left' && distanceLeft > minDistance && distanceLeft < maxDistance) ||
+          (from.location === 'articles-right' && distanceRight > minDistance && distanceRight < maxDistance)) {
+            return true;
+          } 
       return false;
     },
     addShowItemLineAnimation(allPaths, isShortest) {
@@ -1148,43 +1164,49 @@ export default {
       });
       this.plannedCoordinates.push(null);
     },
-    getNearestCorridorHeight(location) {
-      let y = location.yCoord ? location.yCoord : this.getPos(location).y;
-
+    getNearestCorridorHeight(from, to) {
       const allCorridors = document.getElementsByClassName("corridor");
+      if (to === this.checkout || this.size !== 'LARGE') {
+        return this.getPos(allCorridors[0]).y + this.cell.height / 2;
+      }
+      let y_to = to.yCoord ? to.yCoord : this.getPos(to).y;
+      let y_from = from.yCoord ? from.yCoord : this.getPos(from).y;
+      console.log(from, to, y_to, y_from)
+      
+      
+      
       let smallest = 10000;
       let nearest;
       for (let i = 0; i < allCorridors.length; i++) {
-        let distance = Math.abs(
-          y - (this.getPos(allCorridors[i]).y + this.cell.height / 2)
+        let distanceTo = Math.abs(
+          y_to - this.getPos(allCorridors[i]).y
         );
-        console.log(
-          distance,
-          this.getPos(allCorridors[i]).y - this.cell.height / 2
+        let distanceFrom = Math.abs(
+          y_from - this.getPos(allCorridors[i]).y
         );
-        if (distance < smallest) {
-          smallest = distance;
+
+        if ((distanceTo + distanceFrom) < smallest) {
+          smallest = (distanceTo + distanceFrom);
           nearest = allCorridors[i];
         }
       }
-      console.log(nearest);
+
       return this.getPos(nearest).y + this.cell.height / 2;
     },
     linedraw(x1, y1, x2, y2) {
+      var degree; var m; var lineLength;
       if (x2 < x1) {
-        var tmp;
-        tmp = x2;
-        x2 = x1;
-        x1 = tmp;
-        tmp = y2;
-        y2 = y1;
-        y1 = tmp;
+      
+        lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        m = (y2 - y1) / (x2 - x1);
+       degree = 180
+      } else {
+        lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        m = (y2 - y1) / (x2 - x1);
+        degree = (Math.atan(m) * 180) / Math.PI;
       }
 
-      var lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-      var m = (y2 - y1) / (x2 - x1);
-
-      var degree = (Math.atan(m) * 180) / Math.PI;
+     
 
       let line = document
         .getElementsByClassName("supermarket-container")[0]
@@ -1203,7 +1225,6 @@ export default {
       return line;
     },
     showItems() {
-      console.log(this.shelfData);
       let res = [];
       for (let i = 0; i < this.shoppingList.length; i++) {
         let category;
@@ -1221,37 +1242,29 @@ export default {
           }
           prevcategory = this.shelfData[u].name;
         }
-        console.log(this.shelfs);
 
-        let shelf = document.getElementsByClassName(category)[index];
-
+        let shelf = document.getElementsByClassName(category.toLowerCase())[index];
+        
         let item = document.createElement("img");
         item.classList.add(this.shoppingList[i]);
-        item.classList.add("algorithm-five-item");
+        item.classList.add("algorithm-six-item");
         item.src = this.getItemUrl(this.shoppingList[i]);
         item.style.position = "absolute";
         item.style.zIndex = 4;
         item.width = this.cell.width * 0.7;
         item.height = this.cell.width * 0.7;
         let padding =
-          this.size === "small" ? 0.13 : this.size === "medium" ? 0.2 : 0.07;
+          this.size === 'SMALL' ? 0.13 : this.size === 'MEDIUM' ? 0.2 : 0.07;
         let yCoord =
           this.getPos(shelf).y +
           itemPosition *
-            (this.size === "large"
-              ? (this.cell.height / 3.3) * 2.5
-              : this.cell.height) +
+          (this.size === 'LARGE'
+            ? (this.cell.height / 3.3) * 2.5
+            : this.cell.height) +
           this.cell.height * 0.07;
         let xCoord = this.getPos(shelf).x + this.cell.width * padding;
         item.style.top = yCoord + "px";
-        console.log(
-          item.style.top,
-          this.getPos(shelf).y +
-            itemPosition *
-              (this.size === "large"
-                ? (this.cell.height / 3.3) * 2.5
-                : this.cell.height)
-        );
+
         item.style.left = xCoord + "px";
         document
           .getElementsByClassName("supermarket-container")[0]
@@ -1270,17 +1283,17 @@ export default {
     goToNextShelf(nextShelf) {
       let walk_x = 0,
         walk_y = 0;
-      console.log(this.checkCorrectColumn(this.shelfs[nextShelf]));
       if (this.checkCorrectColumn(this.shelfs[nextShelf])) {
+        console.log('correct shelf')
         walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
-        console.log(walk_y);
+
         this.addWalkingAnimation(0, 0, walk_y);
       } else {
         walk_y =
           this.getPos(this.corridor).y -
           this.cell.height * 0.1 -
           this.robotPosPlanned.y +
-          (this.size == "large" ? this.cell.height * 0.3 : 0);
+          (this.size == 'LARGE' ? this.cell.height * 0.2 : 0);
         this.addWalkingAnimation(0, 0, walk_y);
         walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]);
         this.addWalkingAnimation(0, walk_x, 0);
@@ -1289,11 +1302,12 @@ export default {
       }
     },
     handleShelfSearch(currentShelf, foundTopItem, items, categoryItems) {
-      const shelfCells = this.size === "large" ? 4 : 3;
+      const shelfCells = this.size === 'LARGE' ? 4 : 3;
 
       switch (this.algorithm) {
         case 1:
         case 2:
+        case 3:
           this.addFinishedRoundAnimation(this.shoppingList[0]);
           for (let i = 0; i < shelfCells; i++) {
             if (items[i] === this.shoppingList[0]) {
@@ -1305,7 +1319,7 @@ export default {
               );
               this.rounds = 0;
               foundTopItem = true;
-              if (this.algorithm === 2) {
+              if (this.algorithm === 3) {
                 this.shoppingList.splice(0, 1);
                 this.addFinishedRoundAnimation(this.shoppingList[0]);
                 return [foundTopItem, true];
@@ -1334,15 +1348,12 @@ export default {
           }
           return [foundTopItem, false];
 
-        case 3:
-          this.addFinishedRoundAnimation(this.shoppingList[0]);
+        case 4:
+        this.addFinishedRoundAnimation(this.shoppingList[0]);
           for (let i = 0; i < shelfCells; i++) {
-            console.log("looking through shopping list");
             if (this.shoppingList.length === 0) break;
             for (let u = 0; u < this.shoppingList.length; u++) {
-              console.log("comparing ", items[i], this.shoppingList[u]);
               if (items[i] === this.shoppingList[u]) {
-                console.log("showing success", this.shoppingList[u]);
                 this.addSearchAnimation(
                   this.shoppingList[u % this.shoppingList.length],
                   true,
@@ -1356,10 +1367,9 @@ export default {
                   this.shoppingList[(u + 1) % this.shoppingList.length]
                 );
                 this.shoppingList.splice(u, 1);
-                console.log("breaking out");
+
                 break;
               } else {
-                console.log("showing", this.shoppingList[u]);
                 this.addSearchAnimation(
                   this.shoppingList[u % this.shoppingList.length],
                   false,
@@ -1383,21 +1393,17 @@ export default {
           return [foundTopItem, false];
 
           break;
-        case 4:
+        case 5:
           let shoppingListPartial = this.shoppingList.filter(
             (item) => categoryItems.indexOf(item) >= 0
           );
-          console.log(shoppingListPartial);
 
           this.addFinishedRoundAnimation(shoppingListPartial[0]);
 
           for (let i = 0; i < shelfCells; i++) {
-            console.log("looking through shopping list");
             if (shoppingListPartial.length === 0) break;
             for (let u = 0; u < shoppingListPartial.length; u++) {
-              console.log("comparing ", items[i], shoppingListPartial[u]);
               if (items[i] === shoppingListPartial[u]) {
-                console.log("showing success", shoppingListPartial[u]);
                 this.addSearchAnimation(
                   shoppingListPartial[u % shoppingListPartial.length],
                   true,
@@ -1413,17 +1419,14 @@ export default {
                 } else {
                 }
 
-                console.log(this.shoppingListPartial, this.shoppingList);
                 this.shoppingList.splice(
                   this.shoppingList.indexOf(shoppingListPartial[u]),
                   1
                 );
                 shoppingListPartial.splice(u, 1);
-                console.log(this.shoppingListPartial, this.shoppingList);
-                console.log("breaking out");
+
                 break;
               } else {
-                console.log("showing", shoppingListPartial[u]);
                 this.addSearchAnimation(
                   shoppingListPartial[u % shoppingListPartial.length],
                   false,
@@ -1446,8 +1449,8 @@ export default {
           }
           return [foundTopItem, false];
           break;
-        case 5:
-         break;
+        case 6:
+          break;
       }
     },
     addSearchAnimation(itemName, successful, shelf, cell) {
@@ -1463,46 +1466,7 @@ export default {
       });
       this.plannedCoordinates.push(null);
     },
-    checkItem(items, index) {
-      switch (this.algorithm) {
-        case 1:
-          console.log("algo 1 checking item", this.shoppingList);
-          if (
-            items[index] === this.shoppingList[this.shoppingList.length - 1]
-          ) {
-            return true;
-          }
-          return false;
-          break;
-        case 2:
-          console.log("algo 2 checking item");
-          if (
-            items[index] === this.shoppingList[this.shoppingList.length - 1]
-          ) {
-            return true;
-          }
-          return false;
-          break;
 
-        case 3:
-          console.log("algo 3 checking item");
-          for (let i = 0; i < shoppingList.length; i++)
-            if (items[index] === this.shoppingList[i]) {
-              return true;
-            }
-          return false;
-
-          break;
-        case 4:
-          console.log("algo 4 checking item");
-
-          break;
-        case 5:
-          console.log("algo 5 checking item");
-
-          break;
-      }
-    },
     changeRobotPos(x, y) {
       // console.log(this.robot.style.top, this.robot.style.left, x, y);
       this.robot.style.top = y + "px";
@@ -1510,9 +1474,7 @@ export default {
       //   console.log(this.robot.style.top, this.robot.style.left);
     },
     startSearch() {
-      console.log(this.animations);
       this.animations[0].animation.play();
-      console.log(this.animations);
     },
     repeatAnimations() {
       this.animations.push({
@@ -1532,6 +1494,9 @@ export default {
   text-align: left;
   opacity: 0;
 }
+
+
+
 
 .supermarket-container {
   display: block;
@@ -1558,7 +1523,7 @@ export default {
 
 .vegetables:after,
 .vegetables2:after {
-  content: "Gemüse";
+  content: var(--vegetables);
 }
 
 .vegetables2 {
@@ -1573,7 +1538,7 @@ export default {
 
 .fruits:after,
 .fruits2:after {
-  content: "Obst";
+  content: var(--fruits);
 }
 
 .fruits2 {
@@ -1590,7 +1555,7 @@ export default {
 }
 .freezer:after,
 .freezer2:after {
-  content: "Gefrierschrank";
+  content: var(--freezer);
 }
 
 .cooler {
@@ -1603,7 +1568,7 @@ export default {
 }
 .cooler:after,
 .cooler2:after {
-  content: "Kühltruhe";
+  content: var(--cooler);
 }
 .meat {
   background-color: #ff6666;
@@ -1615,7 +1580,7 @@ export default {
 }
 .meat:after,
 .meat2:after {
-  content: "Fleisch";
+  content: var(--meat);
 }
 .sweets {
   background-color: #b35900;
@@ -1627,7 +1592,7 @@ export default {
 }
 .sweets:after,
 .sweets2:after {
-  content: "Süßigkeiten";
+  content: var(--sweets);
 }
 .cleaning {
   background-color: pink;
@@ -1639,7 +1604,7 @@ export default {
 }
 .cleaning:after,
 .cleaning2:after {
-  content: "Reinungsmittel";
+  content: var(--cleaning);
 }
 .drinks {
   background-color: violet;
@@ -1651,7 +1616,7 @@ export default {
 }
 .drinks:after,
 .drinks2:after {
-  content: "Getränke";
+  content: var(--drinks);
 }
 .checkout {
   background-color: gold;
@@ -1708,13 +1673,93 @@ export default {
 
 .supermarket {
   background-color: grey;
-  width: 960px;
-  height: 620px;
   text-align: left;
   grid-template-rows: auto;
   display: grid;
   grid-auto-rows: 1fr;
+  width: 960px;
+  height: 620px;
 }
+@media (min-width: 1700px) {
+  .supermarket{
+    width: 1056px;
+     height: 650px;
+  }   
+  .text-small {
+  padding-left: 0.8rem;
+  font-size: 1.8rem;
+}
+.text-medium {
+  padding-left: 0.8rem;
+  font-size: 1.5rem;
+}
+.text-large {
+  padding-left: 0.5rem;
+  font-size: 1.2rem;
+}
+};
+@media (max-width: 1500px) {
+  .supermarket{
+    width: 768px;
+     height: 496px;
+  }   
+  .text-small {
+  padding-left: 0.8rem;
+  font-size: 1.8rem;
+}
+.text-medium {
+  padding-left: 0.8rem;
+  font-size: 1.5rem;
+}
+.text-large {
+  padding-left: 0.5rem;
+  font-size: 1.2rem;
+}
+};
+@media (max-width: 1200px) {
+  .supermarket{
+    width: 640px;
+     height: 410px;
+  }   
+  .text-small {
+  padding-left: 0.8rem;
+  font-size: 1.7rem;
+}
+.text-medium {
+  padding-left: 0.8rem;
+  font-size: 1.4rem;
+}
+.text-large {
+  padding-left: 0.5rem;
+  font-size: 1.1rem;
+}
+};
+@media (max-width: 1100px) {
+  .supermarket{
+    width: 570px;
+     height: 390px;
+  }   
+};
+
+@media (max-width: 1000px) {
+  .supermarket{
+    width: 528px;
+     height: 341px;
+  }   
+  .text-small {
+  padding-left: 0.8rem;
+  font-size: 1.35rem;
+}
+.text-medium {
+  padding-left: 0.6rem;
+  font-size: 1.2rem;
+}
+.text-large {
+  padding-left: 0.2rem;
+  font-size: 0.9rem;
+}
+
+};
 
 .current-item {
   display: none;
@@ -1738,6 +1783,7 @@ export default {
 #itemImage {
   position: absolute;
 }
+
 
 .small {
   grid-template-columns: repeat(48, 1fr);

@@ -8,31 +8,32 @@
     >
       <div class="line-number">{{ index + 1 }}</div>
       <div v-for="i in line['indent']" :key="i" class="indent"></div>
-      {{ line["text"] }}
+      {{ line[store.language] }}
     </div>
   </div>
 </template>
 
 <script>
-
+import { store } from '../store.js';
 export default {
     props: ["algorithm"],
     name: 'CodeBox',
-    setup() {
-  
+   data() {
+    return {
+      store
     }
+  }
 };
 </script>
 
 <style>
 .code-box {
-  width: 100%;
   background-color: #0e0e0e;
-  margin-bottom: 45px;
-  margin-left: 25px;
+  margin-bottom: 0;
+  margin-left: 0;
   border-radius: 12px;
   overflow: scroll;
-  margin-right: 12px;
+  margin-right: 0;
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -56,10 +57,17 @@ export default {
     color: #f0f0f0;
     font-size: 1.2rem;
     text-align: left;
-    padding-left: 12px;
+    padding-left: 0.1rem;
     padding-top: 5px;
     font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
+
+@media (max-width: 1200px) {
+  .code-line {
+    font-size: 0.8rem;  
+  }   
+};
+
 
 .highlight {
   color: 	orange;

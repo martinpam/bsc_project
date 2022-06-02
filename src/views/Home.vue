@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1> wähle ein Modul </h1>
+        <h1> {{t('HOME_HEADING')}} </h1>
         <div class="button-group"
         :class="{'less-than-three': modules.length < 3}"
         >
-            <ModuleButton v-for="mdl in modules" :key="mdl" :name="mdl.name_de" :goTo="mdl.name_en"/>
+            <ModuleButton v-for="mdl in modules" :key="mdl" :name="t(mdl.name)" :goTo="mdl.link"/>
         </div>
     </div>
 </template>
@@ -13,13 +13,14 @@
 
 import ModuleButton from '../components/ModuleButton.vue'
 import getModules from '../composables/getModules.js'
+import {t} from '../helpers/helperFunctions.js'
 export default {
     name: 'Home',
     components : { ModuleButton },
     setup() {
         const { modules, error, load } = getModules()
         load()
-        return {modules, error}
+        return {modules, error, t}
     }
 }
 </script>

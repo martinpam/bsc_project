@@ -7,14 +7,14 @@
       </router-link>
         
         <div class="header-text">
-          <h1>{{t('MODULE_SUPERMARKET')}} </h1>
+          <h1>{{t('MODULE_SOCKS')}} </h1>
         </div>
       </div>
       <h2> {{t('CHAPTER') +' '+ chapterId}}</h2>
       <div class="filler"></div>
     </div>
     <div v-else class="story-board-outer">
-      <StoryBoard moduleName="supermarket" :chapterId="chapterId"/>
+      <StoryBoard moduleName="socks" :chapterId="chapterId"/>
     </div>
   </div>
 </template>

@@ -1,19 +1,19 @@
 <template>
 
-  <div v-if="chapterData && !chapterData.conversation[currentIndex]['showSimulation']">
+  <div v-if="mdl[0].chapters[chapterId-1] && !mdl[0].chapters[chapterId-1].conversation[currentIndex]['showSimulation']">
       
     <div class="story-board">
         <div class="button-navigation top"><img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> </div>
       <div class="dialog-field" @click="goForward">
         <div class="text">
           <div v-if="isSpeaking('Narrator')">
-            {{ chapterData.conversation[currentIndex]["text"] }}
+            {{ mdl[0].chapters[chapterId-1].conversation[currentIndex][store.language] }}
           </div>
         </div>
 
         <div class="characters">
           <img
-            v-if="!chapterData.conversation[currentIndex]['showCode']"
+            v-if="!mdl[0].chapters[chapterId-1].conversation[currentIndex]['showCode']"
             class="karin"
             src="../assets/images/karin.png"
             alt="Karin"
@@ -21,7 +21,7 @@
           <div
             v-if="isSpeaking('Robot')"
             :class="{
-              'filler-right': chapterData.conversation[currentIndex]['text'].length < 100,
+              'filler-right': mdl[0].chapters[chapterId-1].conversation[currentIndex][store.language].length < 100,
             }"
           ></div>
 
@@ -35,14 +35,14 @@
                 isSpeaking('Robot'),
             }"
           >
-            {{ chapterData.conversation[currentIndex]["text"] }}
+            {{ mdl[0].chapters[chapterId-1].conversation[currentIndex][store.language] }}
           </div>
           <div
             v-if="isSpeaking('Karin')"
             :class="{
-              'filler-right': chapterData.conversation[currentIndex]['text'].length < 150,
+              'filler-right': mdl[0].chapters[chapterId-1].conversation[currentIndex][store.language].length < 150,
               'filler-right-small':
-                chapterData.conversation[currentIndex]['text'].length < 250,
+                mdl[0].chapters[chapterId-1].conversation[currentIndex][store.language].length < 250,
             }"
           ></div>
           <img class="robot" src="../assets/images/robot-2.png" alt="Robot" />
@@ -59,9 +59,9 @@
   </div>
   <div v-else> 
     <AlgorithmOverview 
-    moduleName="supermarket" 
-    :isStory="true" 
-    :chapterId="chapterData.conversation[currentIndex].showSimulation"
+    :moduleName="moduleName" 
+    :isStory="true"
+    :chapterId=" mdl[0].chapters[chapterId-1].conversation[currentIndex].showSimulation"
     @handleClickContinueStory="currentIndex++"
     />
   </div>
@@ -74,24 +74,26 @@ import getModule from "../composables/getModule.js";
 import CodeBox from "../components/CodeBox.vue";
 import AlgorithmOverview from "../views/AlgorithmOverview.vue";
 import router from "../router/index.js"
+import {store} from '../store.js'
 export default {
   props: ["moduleName", "chapterId"],
   name: "StoryBoard",
   components: { ButtonNavigation,CodeBox, AlgorithmOverview},
   setup(props) {
     console.log(props.moduleName, props.chapterId);
-    const chapterId = ref(props.chapterId);
+    const chapterIdInitial = ref(props.chapterId);
+    const chapterId = chapterIdInitial;
     const { mdl, error, load } = getModule(props.moduleName);
     load();
-    const chapterData = mdl.value[0].chapters[chapterId.value-1]
+    console.log(mdl.value[0])
     const currentIndex = ref(0);
 
     const goForward = () => {
-      if (currentIndex.value < chapterData.conversation.length - 1) {
+      if (currentIndex.value <  mdl.value[0].chapters[chapterId.value-1].conversation.length - 1) {
         currentIndex.value++;
       } else {
         chapterId.value++
-        router.push('/supermarket/chapters/' + chapterId.value)
+        router.push('/'+mdl.value[0].link+'/chapters/' + chapterId.value)
         
        
       }
@@ -104,16 +106,16 @@ export default {
     };
 
     const isSpeaking = (name) => {
-        return chapterData.conversation[currentIndex.value]['speaker'] === name
+        return mdl.value[0].chapters[chapterId.value-1].conversation[currentIndex.value]['speaker'] === name
     }
-    return { chapterData, chapterId, currentIndex, goForward, goBack,isSpeaking ,mdl};
+    return {  chapterId, currentIndex, goForward, goBack,isSpeaking ,mdl, store};
   },
   watch: {
     chapterId() {
-      this.chapterData = this.mdl[0].chapters[this.chapterId-1]
+
       this.currentIndex = 0;
     }
-  }
+  },
 };
 </script>
 
@@ -176,7 +178,7 @@ export default {
   background: #778899;
   margin-top: 0px;
   max-height: 700px;
-  max-width: 1600px;
+  max-width: 2000px;
   border-radius: 12px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -188,11 +190,67 @@ export default {
   margin: 0 auto;
   background: tan;
   max-height: 700px;
-  max-width: 1600px;
+  max-width: 2000px;
   border-radius: 12px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+@media (max-width: 1200px) {
+  .dialog-field {
+    height: 300px;
+    font-size: 22px;
+  }
+  .lower-part {
+    height: 100px;
+  }
+  .robot {
+  bottom: 15px;
+  height: 80%
+}
+.karin {
+  bottom: 0px;
+  height: 80%;
+}
+.text-style-karin {
+  font-size: 22px;
+}
+
+.text-style-robot {
+  font-size: 22px;
+}
+};
+@media (max-width: 700px) {
+  .dialog-field {
+    height: 200px;
+    font-size: 16px;
+  }
+  .lower-part {
+    height: 67px;
+  }
+    .robot {
+  bottom: -32px;
+  height: 70%
+}
+.karin {
+  bottom: -38px;
+  height: 70%;
+}
+.text-style-karin {
+  font-size: 16px;
+  margin-bottom: 22rem;
+}
+.dialogText {
+  margin-bottom: 22rem;
+}
+
+.text-style-robot {
+  font-size: 16px;
+}
+.characters {
+  margin-top: -5rem;
+}
+};
 
 
 
@@ -224,7 +282,9 @@ export default {
 
 .smaller {
         width: 40px;
-        margin-left: 0;
+        margin-left: -2.4rem;
+        margin-top: 0.5rem;
+
         margin-right: auto;
         display: block; 
     }

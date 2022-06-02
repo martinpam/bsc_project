@@ -1,0 +1,284 @@
+{
+
+    "HOME_HEADING": {
+        "en": "choose a module",
+        "de": "wähle ein Modul"
+    },
+    "MODULE_SUPERMARKET": {
+        "en": "Supermarket",
+        "de": "Supermarkt"
+    },
+    "MODULE_SOCKS": {
+        "en": "Socks",
+        "de": "Socken"
+    },
+    "SECTION_STORY": {
+        "en": "Story",
+        "de": "Story"
+    },
+    "SECTION_PRESENT": {
+        "en": "Present",
+        "de": "Präsentieren"
+    },
+    "SECTION_LABORATORY": {
+        "en": "Laboratory",
+        "de": "Labor"
+    },
+    "SECTION_CHOOSE": {
+        "en": "choose a mode",
+        "de": "Wähle einen Modus"
+    },
+    "LOADING": {
+        "en": "Loading...",
+        "de": "Lade..."
+    },
+    "CHAPTER_SELECTION": {
+        "en": "chapter selection",
+        "de": "Kapitelauswahl"
+    },
+    "CHAPTER": {
+        "en": "chapter",
+        "de": "Kapitel"
+    },
+    "LABORATORY": {
+        "en": "laboratory",
+        "de": "Labor"
+    },
+    "ALGORITHM": {
+        "en": "algorithm",
+        "de": "Algorithmus"
+    },
+    "COLLECTION": {
+        "en": "collection",
+        "de": "Kollektion"
+    },
+    "SMALL": {
+        "en": "small",
+        "de": "klein"
+    },
+    "MEDIUM": {
+        "en": "medium",
+        "de": "mittel"
+    },
+    "LARGE": {
+        "en": "large",
+        "de": "groß"
+    },
+    "CUSTOM": {
+        "en": "custom",
+        "de": "Custom"
+    },
+    "SUPERMARKET": {
+        "en": "supermarket",
+        "de": "Supermarket"
+    },
+    "ALL_ARTICLES": {
+        "en": "all articles",
+        "de": "Alle Artikel"
+    },
+    "SOCK_CUSTOMIZER": {
+        "en": "sock customizer",
+        "de": "Socken Customizer"
+    },
+    "SOCK": {
+        "en": "sock",
+        "de": "Socke"
+    },
+    "PATTERN": {
+        "en": "pattern",
+        "de": "Muster"
+    },
+    "STRIPES": {
+        "en": "stripes",
+        "de": "Streifen"
+    },
+    "SORTING": {
+        "en": "sorting",
+        "de": "Sortierung"
+    },
+    "FRUITS": {
+        "en": "fruits",
+        "de": "Obst"
+    },
+    "VEGETABLES": {
+        "en": "vegetables",
+        "de": "Gemüse"
+    },
+    "FREEZER": {
+        "en": "freezer",
+        "de": "Gefriertruhe"
+    },
+    "COOLER": {
+        "en": "cooler",
+        "de": "Kühlwaren"
+    },
+    "DRINKS": {
+        "en": "drinks",
+        "de": "Getränke"
+    },
+    "SWEETS": {
+        "en": "sweets",
+        "de": "Süßigkeiten"
+    },
+    "CLEANING": {
+        "en": "cleaning",
+        "de": "Reinungsmittel"
+    },
+    "MEAT": {
+        "en": "meat",
+        "de": "Fleisch"
+    },
+    "TOMATO": {
+        "en": "tomato",
+        "de": "Tomate"
+    },
+    "SALAD": {
+        "en": "salad",
+        "de": "Salat"
+    },
+    "CUCUMBER": {
+        "en": "cucumber",
+        "de": "Gurke"
+    },
+    "AUBERGINE": {
+        "en": "aubergine",
+        "de": "Aubergine"
+    },
+    "APPLE": {
+        "en": "apple",
+        "de": "Apfel"
+    },
+    "BANANA": {
+        "en": "banana",
+        "de": "Banane"
+    },
+    "TANGERINE": {
+        "en": "tangerine",
+        "de": "Mandarine"
+    },
+    "MELON": {
+        "en": "melon",
+        "de": "Melone"
+    },
+    "YOGURT": {
+        "en": "yogurt",
+        "de": "Joghurt"
+    },
+    "CHEESE": {
+        "en": "cheese",
+        "de": "Käse"
+    },
+    "MILK": {
+        "en": "milk",
+        "de": "Milch"
+    },
+    "SPINACH": {
+        "en": "spinach",
+        "de": "Spinat"
+    },
+    "PIZZA": {
+        "en": "pizza",
+        "de": "Pizza"
+    },
+    "ICE-CREAM": {
+        "en": "ice cream",
+        "de": "Eis"
+    },
+    "FISH": {
+        "en": "fish",
+        "de": "Fisch"
+    },
+    "WATER": {
+        "en": "water",
+        "de": "Wasser"
+    },
+    "COLA": {
+        "en": "cola",
+        "de": "cola"
+    },
+    "COFFEE": {
+        "en": "coffee",
+        "de": "Kaffee"
+    },
+    "SOY-MILK": {
+        "en": "soy milk",
+        "de": "Sojamilch"
+    },
+    "LEMONADE": {
+        "en": "lemonade",
+        "de": "Limonade"
+    },
+    "SAUSAGE": {
+        "en": "sausage",
+        "de": "Wurst"
+    },
+    "STEAK": {
+        "en": "steak",
+        "de": "Steak"
+    },
+    "CHICKEN": {
+        "en": "chicken",
+        "de": "Huhn"
+    },
+    "MINCED-MEAT": {
+        "en": "minced meat",
+        "de": "Hackfleisch"
+    },
+    "CHOCOLATE": {
+        "en": "chocolate",
+        "de": "Schokolade"
+    },
+    "PRALINE": {
+        "en": "praline",
+        "de": "Pralinen"
+    },
+    "POPCORN": {
+        "en": "popcorn",
+        "de": "Popcorn"
+    },
+    "CHIPS": {
+        "en": "chips",
+        "de": "Chips"
+    },
+    "TOILET-PAPER": {
+        "en": "toilet paper",
+        "de": "Toilettenpapier"
+    },
+    "BROOM": {
+        "en": "broom",
+        "de": "Besen"
+    },
+    "SOAP": {
+        "en": "soap",
+        "de": "Seife"
+    },
+    "TOOTH-BRUSH": {
+        "en": "tooth brush",
+        "de": "Zahnbürste"
+    },
+    "CONTINUE": {
+        "en": "CONTINUE",
+        "de": "WEITER"
+    },
+    "MOVES": {
+        "en": "nr of moves",
+        "de": "Anzahl Bewegungen"
+    },
+    "COMPARISONS": {
+        "en": "nr of comparisons",
+        "de": "Anzahl Vergleiche"
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
