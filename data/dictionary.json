@@ -267,6 +267,10 @@
     "COMPARISONS": {
         "en": "nr of comparisons",
         "de": "Anzahl Vergleiche"
+    },
+    "CHECKOUT": {
+        "en": "checkout",
+        "de": "Kasse"
     }
 
 
