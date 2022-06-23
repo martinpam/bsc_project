@@ -790,7 +790,13 @@
                             "speaker": "Robot",
                             "en": "Thank you very much!",
                             "de": "Vielen Dank!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "You have reached the end of the supermarket story. Make your way to the laboratory and try your hand at customized shopping lists and combine them with the algorithm and supermarket of your choice!",
+                            "de": "Du bist am Ende der Supermarkt Story angelangt. Mach dich auf den Weg ins Labor und versuche dich an individuell angepassten Shoppinglisten und kombiniere mit Algorithmus und Supermarkt deiner Wahl!"
                         }
+
 
                     ],
                     "simulations": [{
@@ -1017,71 +1023,465 @@
             "link": "socks",
             "chapters": [{
                     "chapterId": 1,
-                    "conversation": [
-                        { "speaker": "Robot", "en": "", "de": "Hallo, ich bin Dev0" },
-                        { "speaker": "Robot", "en": "", "de": "Lasst uns Socken sortieren!" },
-                        { "speaker": "Robot", "en": "", "de": "", "showSimulation": "1" },
-                        { "speaker": "Robot", "en": "", "de": "bye, chapter 1" }
+                    "conversation": [{
+                            "speaker": "Narrator",
+                            "en": "Due to Karin's great success in the library, she has less and less time for the daily housework. She therefore decides to ask Dev0 to do some of her housework.",
+                            "de": "Aufgrund Karins großen Erfolg in der Bücherei, hat sie immer weniger Zeit für die tägliche Hausarbeit. Sie beschließt daher, Dev0 darum zu bitten, einen Teil ihrer Hausarbeit zu übernehmen."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Hi Dev0, could you please sort my socks?",
+                            "de": "Hi Dev0, könntest du bitte meine Socken sortieren?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Hello Karin, of course! But how exactly does socks sorting work?",
+                            "de": "Hallo Karin, na klar! Aber wie genau funktioniert Socken sortieren?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "You take a sock out of the laundry basket and then look for its counterpart.",
+                            "de": "Du nimmst aus dem Wäschekorb einen Socken raus und suchst dann nach dessen Gegenstück."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Once you find it, make a pair out of the two socks and set them aside",
+                            "de": "Wenn du es gefunden hast, machst du ein Paar aus den zwei Socken und legst es beiseite"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "When there are no more socks in the basket, you're done!",
+                            "de": "Wenn keine Socken mehr im Korb sind, bist du fertig!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Roger that! I'll get to work.",
+                            "de": "Verstanden! Ich mache mich ans Werk."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 launches its first attempt as a sock sorter",
+                            "de": "Dev0 startet seinen ersten Versuch als Sockensortierer"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 has finished sorting and shows Karin the result",
+                            "de": "Dev0 ist fertig mit dem Sortieren und zeigt Karin das Ergebnis"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "That was quite quick, but only a first test, please try this slightly larger pile of socks now",
+                            "de": "Das war ja ganz flott, aber nur ein erster Test, probier jetzt bitte diesen etwas größeren Sockenhaufen"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Roger!",
+                            "de": "Alles klar!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1b"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "You were a lot slower this time, can you explain to me what exactly you're doing?",
+                            "de": "Diesmal warst du deutlich langsamer, kannst du mir erklären, was du genau machst?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Of course, I..",
+                            "de": "Natürlich, und zwar.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "..take the first sock out of the basket. Now I pull a second sock out of the basket and compare the two socks.",
+                            "de": "Nehme ich die erste Socke aus dem Korb. Jetzt ziehe ich eine zweite Socke aus dem Korb und vergleiche die beiden Socken.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "If they match, I make a pair and set it aside.",
+                            "de": "Wenn sie übereinstimmen, mache ich ein Paar und lege es zur Seite.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "If not, I put the second sock back in the basket and pull out a new one",
+                            "de": "Wenn nicht, lege ich die zweite Socke zurück in den Korb und ziehe eine neue"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "And here's the problem! You can't put back a sock that's already been compared.",
+                            "de": "Und hier ist das Problem! Du kannst doch nicht eine bereits verglichene Socke zurücklegen.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Otherwise you may pull the same sock again.",
+                            "de": "Sonst kann es sein, dass du die selbe Socke wieder ziehst."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Ok what should I do with the compared sock instead?",
+                            "de": "Ok was soll ich sonst machen mit der verglichenen Socke?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Just put them in a separate basket!",
+                            "de": "Leg sie einfach in einen separaten Korb!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "All right, that's how I will do it.",
+                            "de": "Alles klar, so mach ich es."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Very good, then could you try again on these socks right here.",
+                            "de": "Sehr gut, dann versuch dich doch gleich an diesen Socken hier."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "With pleasure!",
+                            "de": "Mit Vergnügen!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 starts next round with improved sorting algorithm.",
+                            "de": "Dev0 startet mit verbessertem Sortieralgorithmus in die nächste Runde."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1c"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 shows Karin the result..",
+                            "de": "Dev0 zeigt Karin das Ergebnis.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "What happened here? They aren't sorted at all.",
+                            "de": "Was ist denn hier passiert? Die sind ja gar nicht sortiert.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Oh, did you put the socks that didn't match in the second basket but always left them there?",
+                            "de": "Ach, hast du etwa die Socken, die nicht übereinstimmen in den zweiten Korb gegeben aber dann immer dort gelassen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Yes, I did everything as you said",
+                            "de": "Ja, ich habe alles so gemacht, wie du es gesagt hast"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "You have to put the socks from the second basket back into the first once you've found a pair!",
+                            "de": "Du musst die Socken aus dem zweiten Korb wieder zurückgeben in den ersten, sobald du ein Paar gefunden hast!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I didn't know that, but I'm happy to accept this requirement.",
+                            "de": "Das habe ich nicht gewusst, aber ich nehme dieses Anforderung gerne auf."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Alright, one more try?",
+                            "de": "Also gut, noch ein Versuch?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Certainly!",
+                            "de": "Sicherlich!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "1d"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 shows Karin the result.",
+                            "de": "Dev0 zeigt Karin das Ergebnis."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Nicely done Dev0, everything sorted and all in reasonable time, thank you!",
+                            "de": "Super Dev0, alles sortiert und das ganze in akzeptabler Zeit, danke dir!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "You are welcome!",
+                            "de": "Bitte gerne!"
+                        }
 
                     ],
                     "simulations": [{
-                        "name": "1",
-                        "algorithm": 1,
-                        "collection": "SMALL",
-                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
-                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
-                    }]
+                            "name": "1a",
+                            "algorithm": 1,
+                            "collection": "SMALL",
+                            "question": { "en": "How many sock comparisons are needed in average", "de": "Wie viele Sockenvergleiche braucht es im Durchschnitt?", "type": "text" },
+                            "choices": ["2", "3", "4", "5"],
+                            "answer": "3"
+                        },
+                        {
+                            "name": "1b",
+                            "algorithm": 1,
+                            "collection": "MEDIUM",
+                            "question": { "en": "How many sock movements are needed in average", "de": "Wie viele Socken müssen im Durchschnitt bewegt werden?", "type": "text" },
+                            "choices": ["4", "5", "6", "7"],
+                            "answer": "5"
+                        },
+                        {
+                            "name": "1c",
+                            "algorithm": 2,
+                            "collection": "MEDIUM",
+                            "question": { "en": "How how is the chance of the socks ending up sorted?", "de": "Wie hoch ist die Chance auf korrekte Sortierung", "type": "text" },
+                            "choices": ["1/105", "1/4", "1/2", "100%"],
+                            "answer": "1/105"
+                        },
+                        {
+                            "name": "1d",
+                            "algorithm": 3,
+                            "collection": "MEDIUM",
+                            "question": { "en": "How how is the chance of the socks ending up sorted?", "de": "Wie hoch ist die Chance auf korrekte Sortierung", "type": "text" },
+                            "choices": ["1/105", "1/4", "1/2", "100%"],
+                            "answer": "100%"
+                        }
+
+                    ]
                 },
                 {
                     "chapterId": 2,
                     "conversation": [
 
-                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 2" },
-                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "2" },
-                        { "speaker": "Robot", "en": "", "de": "bye, chapter 2" }
+                        {
+                            "speaker": "Narrator",
+                            "en": "A new day is dawning and Karin asks Dev0 for its support again.",
+                            "de": "Ein neuer Tag bricht an und Karin bitten Dev0 wieder um seine Unterstützung."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Hi Dev0, can you help me with my socks again?",
+                            "de": "Hi Dev0, kannst du mir wieder mit meinen Socken helfen?"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Sure, I'll get to work.",
+                            "de": "Klar! Ich machen mich an die Arbeit."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 applies its usual algorithm to a slightly larger set of socks.",
+                            "de": "Dev0 wendet seinen üblichen Algorithmus an, an einer etwas größeren Menge an Socken."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "2a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "After successful sorting, Dev0 returns to Karin..",
+                            "de": "Nach erfolgreichem Sortieren kehrt Dev0 zu Karin zurück.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Thanks Dev0, but that took a little longer than I had hoped for.",
+                            "de": "Danke Dev0, aber das hat jetzt doch etwas länger gedauert als erhofft."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Do you still see potential for improvement?",
+                            "de": "Siehst du noch Verbesserungspotenzial?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Yes, how about, for example, if instead of putting the sorted socks in the second basket, you..",
+                            "de": "Ja, wie wäre es zum Beispiel, wenn du anstatt die aussortierten Socken in den zweiten Korb zu geben,.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "..put them all next to each other. Then you take a sock from the basket and compare it with all the ones you took out.",
+                            "de": "..sie alle nebeneinander aufzulegen. Dann nimmst du dir einen Socken aus dem Korb und vergleichst mit allen aufgelegten."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Sounds good! I would like to try that right now, do you still have socks to sort?",
+                            "de": "Klingt gut! Ich würde das gerne gleich versuchen, hast du noch Socken zu sortieren?"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Try the same socks again!",
+                            "de": "Probier doch die gleichen Socken noch einmal!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Gladly, I'll get to work.",
+                            "de": "Gerne, ich mache mich ans Werk."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 starts the next round of sock sorting",
+                            "de": "Dev0 startet in die nächste Runde Socken-Sortieren"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "2b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Karin is pleased with the significantly faster sorting.",
+                            "de": "Karin ist erfreut von der deutlich schnelleren Sortierung.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Wow, that was really fast, thanks Dev0!",
+                            "de": "Wow, das ging ja schon richtig flott, danke Dev0!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "You're welcome!",
+                            "de": "Sehr gerne!"
+                        }
 
                     ],
                     "simulations": [{
-                        "name": "2",
-                        "algorithm": 2,
-                        "collection": "MEDIUM",
-                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
-                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
-                    }]
+                            "name": "2a",
+                            "algorithm": 3,
+                            "collection": "LARGE",
+                            "question": { "en": "How many sock comparisons are needed in average", "de": "Wie viele Sockenvergleiche braucht es im Durchschnitt?", "type": "text" },
+                            "choices": ["10", "13", "17", "22"],
+                            "answer": "17"
+                        },
+                        {
+                            "name": "2b",
+                            "algorithm": 4,
+                            "collection": "LARGE",
+                            "question": { "en": "How many sock movements will there be if the socks are drawn in this order?", "de": "Wie viele Sockenbewegungen wird es geben, wenn die Socken in dieser Reihenfolge gezogen werden?", "type": "movements" },
+                            "choices": [{ "lessThan": 10 }, { "from": 10, "until": 30 }, { "from": 31, "until": 50 }, { "moreThan": 50 }]
+                        }
+                    ]
                 },
                 {
                     "chapterId": 3,
                     "conversation": [
 
-                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 3" },
-                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "3" },
-                        { "speaker": "Robot", "en": "", "de": "bye, chapter 3" }
+                        {
+                            "speaker": "Narrator",
+                            "en": "Karin needs Dev0's sorting services once again and asks him to sort a huge amount of socks..",
+                            "de": "Karin benötigt wieder Dev0's Sortierdienste und bittet ihn, eine rießige Menge an Socken zu sortieren.."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "",
+                            "de": "..",
+                            "showSimulation": "3a"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 presents its result..",
+                            "de": "Dev0 präsentiert sein Ergebnis.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Thanks for sorting, Dev0! But it seems the more socks you have to sort, the slower this approach will be.",
+                            "de": "Danke für das Sortieren, Dev0! Aber es scheint so, dass dieser Ansatz immer langsamer wird bei steigender Anzahl an Socken."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Look, if the socks have different criteria such as colors and patterns, you could pre-sort them accordingly...",
+                            "de": "Schau mal, wenn die Socken verschiedene Kriterien wie Farben und Muster haben, könntest du doch nach diesen vorsortieren,.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "That should make things a lot easier with huge sock amounts.",
+                            "de": "Das sollte das ganze bei vielen Socken deutlich leichter machen."
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "I understand, can you tell me the priority of the criteria you want me to sort by!",
+                            "de": "Ich verstehe, bitte nenne mir die Priorität der Kriterien, nach denen ich sortieren soll!"
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "How about sorting by color first, then if the pre-sorted socks aren't the same yet,..",
+                            "de": "Wie wär's, wenn du zuerst nach Farbe sortierst, wenn dann die vorsortierten Socken noch nicht gleich sind,.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "..you sort by pattern next, then by pattern color and finally by number of stripes!",
+                            "de": "..sortierst du als nächstes nach Muster, dann nach Musterfarbe und schließlich nach Streifenanzahl!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "All right, I'll try it again right away.",
+                            "de": "Alles klar, ich probier's gleich noch mal."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "OK good luck!",
+                            "de": "Ok, viel Erfolg!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 applies its new algorithm..",
+                            "de": "Dev0 wendet seinen neuen Algorithmus an.."
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "",
+                            "de": "",
+                            "showSimulation": "3b"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "Dev0 proudly presents its result..",
+                            "de": "Dev0 präsentiert stolz sein Ergebnis.."
+                        },
+                        {
+                            "speaker": "Karin",
+                            "en": "Wow, that was really quick, thank you!",
+                            "de": "Wow, das war ja wirklich schnell, dankeschön!"
+                        },
+                        {
+                            "speaker": "Robot",
+                            "en": "Always at your service!",
+                            "de": "Stets zu Diensten!"
+                        },
+                        {
+                            "speaker": "Narrator",
+                            "en": "You have reached the end of the socks story. Make your way to the laboratory and try your hand at customized socks and combine them with the algorithm and supermarket of your choice!",
+                            "de": "Du bist am Ende der Socken Story angelangt. Mach dich auf den Weg ins Labor und versuche dich an individuell angepassten Socken und kombiniere mit Algorithmus und Supermarkt deiner Wahl!"
+                        }
 
                     ],
                     "simulations": [{
-                        "name": "3",
-                        "algorithm": 3,
-                        "collection": "LARGE",
-                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
-                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
-                    }]
-                },
-                {
-                    "chapterId": 4,
-                    "conversation": [
-
-                        { "speaker": "Robot", "en": "", "de": "Hallo, chapter 4 random algo" },
-                        { "speaker": "Robot", "en": "", "de": "..", "showSimulation": "4" },
-                        { "speaker": "Robot", "en": "", "de": "Schau ins Labor, bye" }
-
-                    ],
-                    "simulations": [{
-                        "name": "4",
-                        "algorithm": 4,
-                        "collection": "MEDIUM",
-                        "question": { "en": "How many sock comparisons will there be", "de": "Wie viele Sockenvergleiche wird es geben?" },
-                        "choices": [{ "lessThan": 4 }, { "from": 4, "until": 8 }, { "from": 9, "until": 15 }, { "moreThan": 15 }]
-                    }]
+                            "name": "3a",
+                            "algorithm": 4,
+                            "collection": "HUGE",
+                            "question": { "en": "How many sock comparisons will there be if the socks are drawn in this order?", "de": "Wie viele Sockenvergleiche wird es geben, wenn die Socken in dieser Reihenfolge gezogen werden?", "type": "comparisons" },
+                            "choices": [{ "lessThan": 30 }, { "from": 30, "until": 49 }, { "from": 50, "until": 70 }, { "moreThan": 70 }]
+                        },
+                        {
+                            "name": "3b",
+                            "algorithm": 5,
+                            "collection": "HUGE",
+                            "question": { "en": "How many sock movements will there be if the socks are drawn in this order?", "de": "Wie viele Sockenbewegungen wird es geben, wenn die Socken in dieser Reihenfolge gezogen werden?", "type": "movements" },
+                            "choices": [{ "lessThan": 30 }, { "from": 30, "until": 49 }, { "from": 50, "until": 70 }, { "moreThan": 70 }]
+                        }
+                    ]
                 }
             ],
             "algorithms": [{
@@ -1096,43 +1496,55 @@
                 },
                 {
                     "algorithmNr": 2,
+                    "name": "SortOut",
+                    "lines": [
+                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
+                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
+                        { "en": "Take another sock and compare", "de": "Nimm noch einen Socken und vergleiche", "indent": 1, "highlight": true },
+                        { "en": "If they are the same:", "de": "Wenn sie gleich sind:", "indent": 1, "highlight": true },
+                        { "en": "Put the pair aside", "de": "Lege das Sockenpaar zur Seite", "indent": 2 },
+                        { "en": "Else:", "de": "Ansonsten:", "indent": 1, "highlight": true },
+                        { "en": "Put the second sock into basket2", "de": "Lege den zweiten Sock in Korb2", "indent": 2, "highlight": true }
+                    ]
+                },
+                {
+                    "algorithmNr": 3,
+                    "name": "SortOutFixed",
+                    "lines": [
+                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
+                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
+                        { "en": "Take another sock and compare", "de": "Nimm noch einen Socken und vergleiche", "indent": 1 },
+                        { "en": "If they are the same:", "de": "Wenn sie gleich sind:", "indent": 1 },
+                        { "en": "Put the pair aside", "de": "Lege das Sockenpaar zur Seite", "indent": 2 },
+                        { "en": "Merge the baskets", "de": "Vereine die Korbinhalte", "indent": 2, "highlight": true },
+                        { "en": "Else:", "de": "Ansonsten:", "indent": 1 },
+                        { "en": "Put the second sock into basket2", "de": "Lege den zweiten Sock in Korb2", "indent": 2 }
+                    ]
+                },
+                {
+                    "algorithmNr": 4,
                     "name": "SimpleDivideAndSweep",
                     "lines": [
                         { "en": "Pick a sock and put it in a box", "de": "Wähle einen Socken und gib ihn in eine Box", "indent": 0 },
-                        { "en": "Repeat for all other socks:", "de": "Wiederhole für alle anderen Sockne:", "indent": 0 },
+                        { "en": "Repeat for all other socks:", "de": "Wiederhole für alle anderen Socken:", "indent": 0 },
                         { "en": "Pick a sock", "de": "Wähle einen Socken", "indent": 1 },
                         { "en": "If it matches a sock in one of the boxes:", "de": "Wenn er ident ist mit einem Socken aus einer Box", "indent": 1 },
                         { "en": "Match it and put it in the final pile", "de": "Gib sie zusammen und lege das Paar zur Seite", "indent": 2 }
                     ]
                 },
                 {
-                    "algorithmNr": 3,
+                    "algorithmNr": 5,
                     "name": "DivideAndSweep",
                     "lines": [
-                        { "en": "Repeat for each criteria (color, pattern..):", "de": "Wiederhole für jede Sockenkriterium (Farbe, Muster..):", "indent": 0 },
+                        { "en": "Repeat for each criteria (color, pattern..):", "de": "Wiederhole für jedes Sockenkriterium (Farbe, Muster..):", "indent": 0 },
                         { "en": "Divide all socks by criteria into boxes", "de": "Teile alle Socken nach dem Kriterium in Boxen", "indent": 1 },
                         { "en": "If all socks in a box are identical:", "de": "Wenn alle Socken in einer Box ident sind", "indent": 1 },
-                        { "en": "Make pairs from that box to the final pile", "de": "Mache Sockenpaare aus ihnen und lege es zur Seite", "indent": 2 },
+                        { "en": "Make pairs from that box to the final pile", "de": "Mache Sockenpaare aus ihnen und lege sie zur Seite", "indent": 2 },
                         { "en": "If all boxes are empty", "de": "Wenn alle Boxen leer sind", "indent": 1 },
                         { "en": "Stop the algorithm", "de": "stoppe den Algorithmus", "indent": 2 }
 
                     ]
-                },
-                {
-                    "algorithmNr": 4,
-                    "name": "Random",
-                    "lines": [
-                        { "en": "Repeat until all socks are matched", "de": "Wiederhole bis alle Socken sortiert sind", "indent": 0 },
-                        { "en": "Pick 2 socks", "de": "Wähle zwei Socken zufällig", "indent": 1 },
-                        { "en": "If it's a pair:", "de": "Wenn sie ident sind", "indent": 1 },
-                        { "en": "Add it to the final pile", "de": "Mache ein Sockenpaar aus ihnen und lege es zur Seite", "indent": 2 },
-                        { "en": "Otherwise:", "de": "Andernfalls:", "indent": 1 },
-                        { "en": "Put them back in the original pile", "de": "Gib sie zurück in den Anfangshaufen", "indent": 2 }
-
-                    ]
                 }
-
-
             ],
             "sockCollections": [{
                     "name": "SMALL",
@@ -1154,24 +1566,36 @@
                 {
                     "name": "LARGE",
                     "socks": [
-                        { "color": "yellow", "pattern": "None", "type": "double" },
-                        { "color": "yellow", "lineAmount": 3, "pattern": "heart", "patternColor": "magenta", "type": "double" },
-                        { "color": "blue", "patternColor": "orange", "lineAmount": 0, "pattern": "dots", "type": "double" },
-                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "blue", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "green", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "green", "type": "double" },
-                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "orange", "lineAmount": 0, "pattern": "None", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 3, "pattern": "heart", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 0, "pattern": "heart", "type": "double" }
+
+                        { "color": "purple", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "heart", "patternColor": "green", "type": "double" },
+                        { "color": "purple", "lineAmount": 3, "pattern": "JKU", "patternColor": "purple", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "JKU", "patternColor": "green", "type": "double" },
+                        { "color": "purple", "lineAmount": 3, "pattern": "dots", "patternColor": "purple", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "green", "type": "double" }
+
+                    ]
+                },
+                {
+                    "name": "HUGE",
+                    "socks": [
+
+                        { "color": "magenta", "lineAmount": 2, "pattern": "heart", "patternColor": "magenta", "type": "double" },
+                        { "color": "blue", "patternColor": "magenta", "lineAmount": 1, "pattern": "dots", "type": "double" },
+                        { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "green", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "dots", "patternColor": "green", "type": "double" },
+                        { "color": "orange", "lineAmount": 3, "pattern": "JKU", "patternColor": "red", "type": "double" },
+                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "red", "type": "double" },
+                        { "color": "darkgrey", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
+                        { "color": "darkgrey", "lineAmount": 3, "pattern": "JKU", "patternColor": "red", "type": "double" }
                     ]
                 },
                 {
                     "name": "CUSTOM",
                     "socks": [
-                        { "color": "red", "lineAmount": 3, "pattern": "JKU", "patternColor": "green", "type": "double" },
-                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "single" }
+                        { "color": "lime", "lineAmount": 2, "pattern": "JKU", "patternColor": "navy", "type": "double" },
+                        { "color": "maroon", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" },
+                        { "color": "navy", "lineAmount": 0, "pattern": "dots", "patternColor": "red", "type": "double" }
                     ]
                 }
             ],

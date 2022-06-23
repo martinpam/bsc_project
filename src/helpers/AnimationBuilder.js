@@ -1,23 +1,32 @@
 import { getPos } from "./helperFunctions";
-export function getAnimations(playBook, counters) {
+export function getAnimations(playBook, counters, updates) {
     const animations = [];
     for (let i = 0; i < playBook.length; i++) {
         switch (playBook[i].type) {
             case 'move':
-                addMoveAnimation(playBook[i], animations, counters)
+                addMoveAnimation(playBook[i], animations, counters, updates)
                 console.log(animations)
                 break;
             case 'select':
-                addSelectAnimation(playBook[i], animations, true, counters)
+                addSelectAnimation(playBook[i], animations, true, counters, updates)
                 break;
             case 'selectAll':
-                addSelectAllAnimation(playBook[i], animations, true, counters)
+                addSelectAllAnimation(playBook[i], animations, true, counters, updates)
                 break;
             case 'moveAll':
-                addMoveAllAnimation(playBook[i], animations, counters)
+                addMoveAllAnimation(playBook[i], animations, counters, updates)
                 break;
             case 'finish':
                 addFinishedAnimation(playBook[i], animations)
+                break;
+            case 'appear':
+                addAppearAnimation(playBook[i], animations, true)
+                break;
+            case 'disappear':
+                addAppearAnimation(playBook[i], animations, false)
+                break;
+            case 'transferSocks':
+                addTransferSocksAnimation(playBook[i], animations, updates)
                 break;
             default:
                 break;
@@ -26,19 +35,25 @@ export function getAnimations(playBook, counters) {
     return animations;
 }
 
-function addMoveAnimation(step, animations, counters) {
+function addMoveAnimation(step, animations, counters, updates) {
     console.log(step)
     const sock = document.getElementById(step.sock.identifier)
+
     const toElem = document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0];
     const fadeOut = sock.animate([{ opacity: 0 }], { duration: 500, fill: 'forwards' });
     const fadeIn = sock.animate([{ opacity: 1 }], { duration: 300, fill: 'forwards' });
     const fillerEnd = sock.animate([{}], { duration: 0 });
+    const filler = sock.animate([{}], { duration: 0 });
 
+    filler.onfinish = () => {
+        sock.style.display = 'block';
+        fadeOut.play()
+    }
     console.log(toElem, sock)
     fadeOut.onfinish = () => {
         const oldElement = sock.parentElement;
-        toElem.appendChild(sock)
-        adjustWidth(oldElement, step.from, step.divideAndSweep)
+        document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0].appendChild(sock)
+        adjustWidth(oldElement, step.from, step.divideAndSweep, updates)
         fadeIn.play();
         if (step.to === 'sorted') {
             sock.style.marginRight = '-3.2rem';
@@ -47,11 +62,12 @@ function addMoveAnimation(step, animations, counters) {
             sock.style.marginRight = '-1.4rem';
         }
 
-        adjustWidth(toElem, step.to, step.divideAndSweep)
+        adjustWidth(toElem, step.to, step.divideAndSweep, updates)
         counters.moves++;
+        if (step.to === 'start') sock.style.display = 'none'
         fillerEnd.play()
     }
-    animations.push({ animation: fadeOut, last: false }, { animation: fadeIn, last: false }, { animation: fillerEnd, last: true });
+    animations.push({ animation: filler, last: false }, { animation: fadeOut, last: false }, { animation: fadeIn, last: false }, { animation: fillerEnd, last: true });
 
 
     return animations
@@ -64,8 +80,10 @@ function addSelectAnimation(step, animations) {
     const filler = sock.animate([{}], { duration: 0 });
     const fillerEnd = sock.animate([{}], { duration: 0 });
     let fakeSock;
-    filler.onfinish = () => {
 
+    filler.onfinish = () => {
+        console.log(sock.parentElement.classList)
+        sock.style.display = 'block';
         fakeSock = document.createElement('div');
         fakeSock.style.minWidth = '100px'
         fakeSock.style.marginRight = '-2.3rem';
@@ -90,12 +108,10 @@ function addSelectAnimation(step, animations) {
         sock.style.position = 'relative';
         sock.style.top = 0 + 'px';
         sock.style.left = 0 + 'px';
+        if (sock.parentElement.classList[1] === 'start') sock.style.display = 'none';
         fillerEnd.play()
     }
     animations.push({ animation: filler, last: false }, { animation: selection, last: false }, { animation: deselection, last: false }, { animation: fillerEnd, last: true })
-
-    return animations
-
 }
 
 function addSelectAllAnimation(step, animations, select, counters) {
@@ -117,6 +133,7 @@ function addSelectAllAnimation(step, animations, select, counters) {
     }
     filler.onfinish = () => {
         for (let u = 0; u < selections.length; u++) {
+            socks[u].style.display = 'block';
             selections[u].play()
             const fakeSock = document.createElement('div');
             fakeSock.style.minWidth = '100px'
@@ -143,6 +160,7 @@ function addSelectAllAnimation(step, animations, select, counters) {
             socks[x].style.position = 'relative';
             socks[x].style.top = 0 + 'px';
             socks[x].style.left = 0 + 'px';
+            if (socks[x].parentElement.classList[1] === 'start') socks[x].style.display = 'none';
             if (x === (deselections.length - 1)) {
                 counters.comparisons++;
                 fillerEnd.play()
@@ -159,7 +177,40 @@ function addSelectAllAnimation(step, animations, select, counters) {
 
 }
 
-function addMoveAllAnimation(step, animations, counters) {
+function addTransferSocksAnimation(step, animations, updates) {
+    console.log(step)
+    let fromElem = document.getElementsByClassName('basket-sorted-out')[0];
+    let prepSock = document.getElementById(step.socks[0].identifier)
+    let fillerEnd = prepSock.animate([{}], { duration: 0 });
+    const toElem = document.getElementsByClassName(step.to)[0]
+    const animationElem = document.getElementById('filler')
+    let basketAnimation = animationElem.animate([{ width: '0px' }], { duration: 600, fill: 'forwards' })
+    let basketAnimationRevert = animationElem.animate([{ width: '150px' }], { duration: 600, fill: 'forwards' })
+
+
+
+    basketAnimation.onfinish = () => {
+        for (let i = 0; i < step.socks.length; i++) {
+            const sock = document.getElementById(step.socks[i].identifier)
+            sock.parentElement.removeChild(sock);
+            toElem.appendChild(sock);
+        }
+        console.log('test', updates)
+        updates.basket = !updates.basket;
+        console.log('test', updates)
+
+        basketAnimationRevert.play();
+
+    }
+    basketAnimationRevert.onfinish = () => {
+        fillerEnd.play()
+    }
+
+    animations.push({ animation: basketAnimation, last: false }, { animation: basketAnimationRevert, last: false }, { animation: fillerEnd, last: true })
+}
+
+
+function addMoveAllAnimation(step, animations, counters, updates) {
     const toElem = document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0];
     let prepSock = document.getElementById(step.socks[0].identifier)
     let filler = prepSock.animate([{}], { duration: 0 });
@@ -182,7 +233,7 @@ function addMoveAllAnimation(step, animations, counters) {
             let socktemp = document.getElementById(step.socks[u].identifier)
             const oldElement = socktemp.parentElement;
             toElem.appendChild(socktemp);
-            adjustWidth(oldElement, step.from, step.divideAndSweep)
+            adjustWidth(oldElement, step.from, step.divideAndSweep, updates)
             fadeIns[u].play()
             console.log(step.to)
             if (step.to === 'sorted') {
@@ -191,7 +242,7 @@ function addMoveAllAnimation(step, animations, counters) {
             if (step.to === 'sorted' && u === (fadeOuts.length - 1)) {
                 socktemp.style.marginRight = '-1.4rem';
             }
-            adjustWidth(toElem, step.to, step.divideAndSweep)
+            adjustWidth(toElem, step.to, step.divideAndSweep, updates)
             counters.moves++;
         }
     }
@@ -205,17 +256,46 @@ function addMoveAllAnimation(step, animations, counters) {
 
 }
 
+function addAppearAnimation(step, animations, appear) {
+    const sock = document.getElementById(step.sock.identifier)
+    const animation = appear ?
+        sock.animate([{ opacity: 1 }], { duration: 600, fill: 'forwards' }) :
+        sock.animate([{ opacity: 0 }], { duration: 500, fill: 'forwards' });
+    const filler = sock.animate([{}], { duration: 0 });
+    const fillerEnd = sock.animate([{}], { duration: 0 });
+    filler.onfinish = () => {
+        sock.style.display = 'block'
+        if (appear) {
 
-function adjustWidth(element, clazz, divideAndSweep) {
+            sock.style.opacity = 0;
+        } else {
+            sock.style.opacity = 1;
+        }
+
+        animation.play()
+    }
+    animation.onfinish = () => {
+        fillerEnd.play()
+        if (!appear) {
+            sock.style.display = 'none'
+        }
+    }
+    animations.push({ animation: filler, last: false }, { animation: animation, last: false }, { animation: fillerEnd, last: true })
+}
+
+
+function adjustWidth(element, clazz, divideAndSweep, updates) {
     if (clazz === 'compare-pattern' || clazz === 'compare-lineAmount' || clazz === 'compare-patternColor' || clazz === 'compare') {
         const sockAmount = element.children.length
         element.style.width = (divideAndSweep && sockAmount === 1) ? '90px' : sockAmount <= 2 ? '150px' : sockAmount <= 10 ? (10 + sockAmount * 70) + 'px' : '760px'
     } else if (clazz === 'start' || clazz === 'sorted') {
         const sockAmount = element.children.length
-        element.style.height = sockAmount > 12 ? '230px' : '120px';
-        element.style.width = '800px';
-        if (clazz === 'start' && sockAmount === 0 && document.getElementsByClassName('start-box-sock').length > 14) element.style.height = '0px';
+        element.style.height = clazz === 'sorted' && sockAmount > 12 ? '240px' : '120px';
+        element.style.width = clazz === 'sorted' ? '800px' : '100px';
+
     }
+    updates.basket = !updates.basket;
+
 
 }
 

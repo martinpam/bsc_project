@@ -64,6 +64,10 @@
         "en": "large",
         "de": "groß"
     },
+    "HUGE": {
+        "en": "huge",
+        "de": "rießig"
+    },
     "CUSTOM": {
         "en": "custom",
         "de": "Custom"
@@ -271,6 +275,26 @@
     "CHECKOUT": {
         "en": "checkout",
         "de": "Kasse"
+    },
+    "YOUR_ANSWER": {
+        "en": "your answer",
+        "de": "Deine Antwort"
+    },
+    "CORRECT_ANSWER": {
+        "en": "correct answer",
+        "de": "Richtige Antwort"
+    },
+    "HINT_INCORRECT": {
+        "en": "Nice try, but not quite right!",
+        "de": "Guter Versuch, aber leider nicht ganz richtig"
+    },
+    "HINT_CORRECT": {
+        "en": "you got the right answer, good job!",
+        "de": "Deine Antwort ist korrekt, gut gemacht!"
+    },
+    "ADD_PAIR": {
+        "en": "add pair",
+        "de": "hinzufügen"
     }
 
 

@@ -7,6 +7,7 @@ export default function runSimpleDivideAndSweetAlgo(socksInput) {
     let i = 0;
     for (i; i < socks.length; i++) {
         let sockOne = socks[i];
+        playBook.push({ type: 'appear', sock: sockOne })
         for (let u = 0; u < pendingSocks.length; u++) {
             if (!pendingSocks[u].used) {
                 const sockTwo = pendingSocks[u].sock

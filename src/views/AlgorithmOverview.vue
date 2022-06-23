@@ -48,7 +48,7 @@
             </h3>
             <h3 v-else>{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
             <h3
-              v-show="currentChosenAlgorithm != 6 && !(currentChosenAlgorithm === 4 && mdl[0].link ==='socks') && isLaboratory"
+              v-show="currentChosenAlgorithm != 6 && !(currentChosenAlgorithm === 5 && mdl[0].link ==='socks') && isLaboratory"
               @click="currentChosenAlgorithm++"
               class="next-chapter"
             >
@@ -139,7 +139,9 @@
                     ? 'SMALL'
                     : currentChosenSockCollection === 'LARGE'
                     ? 'MEDIUM'
-                    : 'LARGE'
+                    : currentChosenSockCollection === 'HUGE'
+                    ? 'LARGE'
+                    : 'HUGE'
               "
               class="previous-chapter"
             >
@@ -158,6 +160,8 @@
                     ? 'MEDIUM'
                     : currentChosenSockCollection === 'MEDIUM'
                     ? 'LARGE'
+                    : currentChosenSockCollection === 'LARGE'
+                    ? 'HUGE'
                     : 'CUSTOM'
               "
               class="next-chapter"
@@ -351,8 +355,8 @@
                   :patternColor="currentChosenSockPatternColor"
                 />
                 <div class="add-sock-box">
-                  <div @click="addSocks('single')" class="add-sock-button customizer-button"><p>Add Single</p> </div>
-                  <div @click="addSocks('double')" class="add-sock-button customizer-button"><p>Add Pair</p> </div>
+            
+                  <div @click="addSocks('double')" class="add-sock-button customizer-button"><p>{{t('ADD_PAIR')}}</p> </div>
                 </div>
                 </div>
                 <div class="customizer-right">

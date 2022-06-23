@@ -54,6 +54,7 @@
         @handleClickForward="goForward"
         @handleClickBack="goBack"
         class="button-navigation"
+        :last="chapterId == mdl[0].chapters.length && mdl[0].chapters[mdl[0].chapters.length-1].conversation.length == (currentIndex+1)"
       />
     </div>
   </div>
@@ -91,7 +92,9 @@ export default {
     const goForward = () => {
       if (currentIndex.value <  mdl.value[0].chapters[chapterId.value-1].conversation.length - 1) {
         currentIndex.value++;
+        console.log(currentIndex, mdl.value[0].chapters[chapterId.value-1].conversation.length)
       } else {
+        console.log('going to next chapter')
         chapterId.value++
         router.push('/'+mdl.value[0].link+'/chapters/' + chapterId.value)
         

@@ -6,9 +6,10 @@ export default function runDivideAndSweepAlgo(socksInput) {
     const socksByColor = [];
     for (let i = 0; i < socks.length; i++) {
         let sockOne = socks[i];
+        playBook.push({ type: 'appear', sock: sockOne })
         for (let u = 0; u < socksByColor.length; u++) {
             const sockTwo = socksByColor[u].socks[0];
-            playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo], fromm: 13 })
+            playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
             if (sockOne.color === sockTwo.color) {
                 playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockOne, toBoxIndex: u, divideAndSweep: true })
                 socksByColor[u].socks.push(sockOne);
@@ -25,7 +26,7 @@ export default function runDivideAndSweepAlgo(socksInput) {
     }
     //check for same socks
     for (let i = 0; i < socksByColor.length; i++) {
-        playBook.push({ type: 'selectAll', socks: [...socksByColor[i].socks], fromm: 29 })
+        playBook.push({ type: 'selectAll', socks: [...socksByColor[i].socks] })
         if (socksByColor[i].socks.length === 1) {
             playBook.push({ type: 'move', from: 'compare', to: 'start', sock: socksByColor[i].socks[0], divideAndSweep: true })
             socksByColor.splice(i, 1);
@@ -53,10 +54,15 @@ export default function runDivideAndSweepAlgo(socksInput) {
         for (let u = 0; u < socksByColor[i].socks.length; u++) {
             let sockOne = socksByColor[i].socks[u];
             for (let z = 0; z < socksByColorAndPattern.length; z++) {
+
                 let sockTwo = socksByColorAndPattern[z].socks[0];
+                if (sockTwo.color !== sockOne.color) {
+                    continue;
+                }
                 playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
                 if (sockOne.color === sockTwo.color && sockOne.pattern === sockTwo.pattern) {
                     playBook.push({ type: 'move', from: 'compare', to: 'compare-pattern', sock: sockOne, toBoxIndex: z, divideAndSweep: true })
+
                     socksByColorAndPattern[z].socks.push(sockOne);
                     sockOne = null;
                     break;
@@ -97,11 +103,16 @@ export default function runDivideAndSweepAlgo(socksInput) {
     for (let i = 0; i < socksByColorAndPattern.length; i++) {
         for (let u = 0; u < socksByColorAndPattern[i].socks.length; u++) {
             let sockOne = socksByColorAndPattern[i].socks[u];
+
             for (let z = 0; z < socksByColorPatternPatternColor.length; z++) {
                 let sockTwo = socksByColorPatternPatternColor[z].socks[0];
+                if (sockTwo.color !== sockOne.color || sockTwo.pattern !== sockOne.pattern) {
+                    continue;
+                }
                 playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
                 if (sockOne.color === sockTwo.color && sockOne.pattern === sockTwo.pattern && sockOne.patternColor === sockTwo.patternColor) {
                     playBook.push({ type: 'move', from: 'compare-pattern', to: 'compare-patternColor', sock: sockOne, toBoxIndex: z, divideAndSweep: true })
+
                     socksByColorPatternPatternColor[z].socks.push(sockOne);
                     sockOne = null;
                     break;
@@ -142,11 +153,16 @@ export default function runDivideAndSweepAlgo(socksInput) {
     for (let i = 0; i < socksByColorPatternPatternColor.length; i++) {
         for (let u = 0; u < socksByColorPatternPatternColor[i].socks.length; u++) {
             let sockOne = socksByColorPatternPatternColor[i].socks[u];
+
             for (let z = 0; z < socksByAll.length; z++) {
                 let sockTwo = socksByAll[z].socks[0];
+                if (sockTwo.color !== sockOne.color || sockTwo.pattern !== sockOne.pattern || (sockTwo.patternColor !== sockOne.patternColor && sockOne.pattern !== 'None' && sockTwo.pattern !== 'None')) {
+                    continue;
+                }
                 playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
                 if (sockOne.color === sockTwo.color && sockOne.pattern === sockTwo.pattern && sockOne.patternColor === sockTwo.patternColor && sockOne.lineAmount === sockTwo.lineAmount) {
                     playBook.push({ type: 'move', from: 'compare-patternColor', to: 'compare-lineAmount', sock: sockOne, toBoxIndex: z, divideAndSweep: true })
+
                     socksByAll[z].socks.push(sockOne);
                     sockOne = null;
                     break;

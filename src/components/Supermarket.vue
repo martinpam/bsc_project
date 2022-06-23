@@ -99,10 +99,12 @@
       <div class="corridor corridor3"></div>
     </div>
     <ButtonNavigation
-      :story="false"
+      :storySegment="isStory"
       :playing="playing"
+      :gameStarted="gameStarted"
+      :finished="finished"
       :fastForwarding="fastForwarding"
-      :showContinue="showContinue && isStory"
+      :showContinue="showContinue"
       @handleClickPlayPause="playPause()"
       @handleClickRestart="startSimulation()"
       @handleClickFastForward="fastForward()"
@@ -165,6 +167,7 @@ export default {
     };
     const animations = ref([]);
     const walkingSpeed = ref(200);
+    const finished = ref(false)
     const MAX_ROUNDS = 1;
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
@@ -188,6 +191,7 @@ export default {
       door,
       robot,
       shelfs,
+      finished,
       cell,
       corridor,
       animations,
@@ -231,7 +235,8 @@ export default {
 
   methods: {
     resetSimulation() {
-      console.log('asdf')
+      this.finished = false;
+      this.showContinue = false;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
@@ -632,8 +637,10 @@ export default {
           if (this.animations[u + 1].exit === true) {
             this.gameStarted = false;
             this.playing = false;
+            this.finished = true;
+            console.log('last')
             this.showContinue = true;
-            this.resetSimulation();
+           //this.resetSimulation();
           }
 
            console.log(this.animations)
@@ -1717,6 +1724,21 @@ export default {
   padding-left: 0.5rem;
   font-size: 1.2rem;
 }
+.text-small-checkout {
+  padding-left: 2.75rem;
+  font-size: 1.9rem;
+}
+.text-medium-checkout {
+  padding-left: 1.1rem;
+  padding-top: 1.5rem;
+  font-size: 1.7rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.3rem;
+  padding-top: 0.85rem;
+  font-size: 1.3rem;
+}
 };
 @media (max-width: 1500px) {
   .supermarket{
@@ -1734,6 +1756,21 @@ export default {
 .text-large {
   padding-left: 0.5rem;
   font-size: 1.2rem;
+}
+.text-small-checkout {
+  padding-left: 2.15rem;
+  font-size: 1.7rem;
+}
+.text-medium-checkout {
+  padding-left: 0.7rem;
+  padding-top: 1.1rem;
+  font-size: 1.7rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.2rem;
+  padding-top: 0.65rem;
+  font-size: 1.3rem;
 }
 };
 @media (max-width: 1200px) {
@@ -1753,19 +1790,64 @@ export default {
   padding-left: 0.5rem;
   font-size: 1.1rem;
 }
+.text-small-checkout {
+  padding-left: 1.65rem;
+  font-size: 1.55rem;
+}
+.text-medium-checkout {
+  padding-left: 0.5rem;
+  padding-top: 0.8rem;
+  font-size: 1.7rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.13rem;
+  padding-top: 0.45rem;
+  font-size: 1.3rem;
+}
 };
 @media (max-width: 1100px) {
   .supermarket{
     width: 570px;
      height: 390px;
   }   
+  .text-small-checkout {
+  padding-left: 1.45rem;
+  font-size: 1.35rem;
+}
+.text-medium-checkout {
+  padding-left: 0.4rem;
+  padding-top: 0.7rem;
+  font-size: 1.7rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.13rem;
+  padding-top: 0.45rem;
+  font-size: 1.3rem;
+}
 };
 
 @media (max-width: 1000px) {
   .supermarket{
     width: 528px;
      height: 341px;
-  }   
+  }  
+    .text-small-checkout {
+  padding-left: 1.35rem;
+  font-size: 1.25rem;
+}
+.text-medium-checkout {
+  padding-left: 0.4rem;
+  padding-top: 0.7rem;
+  font-size: 1.5rem;
+  
+}
+.text-large-checkout {
+  padding-left: 0.05rem;
+  padding-top: 0.35rem;
+  font-size: 1.0rem;
+} 
   .text-small {
   padding-left: 0.8rem;
   font-size: 1.35rem;

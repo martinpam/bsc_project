@@ -1,28 +1,57 @@
 <template>
   <div class="sorting">
       <div style="display: flex; justify-content: right; padding-right: 6rem" ><h3>{{t('MOVES') + ': ' + counters.moves}}</h3> <div style="minWidth: 40px"></div> <h3>{{ t('COMPARISONS') + ': ' + counters.comparisons}}</h3></div>
-      <div class="box start" :class="{'two-rows' : socks.length > 12}">
-          <Sock v-for="(sock,index) in socks" 
-          :key="sock" :color="sock.color" 
-          :lineAmount="sock.lineAmount" 
-          :pattern="sock.pattern" 
-          :patternColor="sock.patternColor"
-          :id = "'sock-'+index"
-          class="start-box-sock"
-          />
-      </div>
+      
+      
+          
+         
+            <div style="'display':'flex'" class="baskets" :class="{'double-basket' : (algorithm===2 || algorithm===3)}" >
+              <div id="basket-outer" >
+                 <img v-if="startNotEmpty"  :class="'basket'" src="../assets/images/laundry-basket.png"/> 
+                <img v-else :class="'basket'" src="../assets/images/laundry-basket-empty.png"/>
+                <div class="box start" ref="start">
+                        <Sock v-for="(sock,index) in socks" 
+                        :key="sock" :color="sock.color" 
+                        :lineAmount="sock.lineAmount" 
+                        :pattern="sock.pattern" 
+                        :patternColor="sock.patternColor"
+                        :id = "'sock-'+index"
+                        class="start-box-sock"
+                        />
+                        
+          
+               
+                </div>
+         
+                
+                
+              </div>
+              <div v-if="(algorithm===2 || algorithm===3)" id="filler"></div>
+               <div v-if="(algorithm===2 || algorithm===3)" id="basket-sorted-out-outer" class="sorted-out">
+                <img v-if="sortedOutNotEmpty" :class="'basket-sorted-out'" src="../assets/images/laundry-basket-green.png"/>
+                <img v-else :class="'basket-sorted-out'" src="../assets/images/laundry-basket-empty-green.png"/>
+
+              </div>
+
+            </div>
+    
+
+      
+      
+
+
       <div class="outer-outer">
         <div class="compare-boxes-outer">
-          <div v-for="sock in (algorithm !== 3 ? socks: algo3Classes.colors)" :key="sock" class="box compare extras"></div>
+          <div v-for="sock in (algorithm !== 5 ? socks: algo3Classes.colors)" :key="sock" class="box compare extras"></div>
         </div>
-        <div v-if="algorithm === 3" class="compare-boxes-outer hidden-outer">
+        <div v-if="algorithm === 5" class="compare-boxes-outer hidden-outer">
           <div v-for="sock in algo3Classes.patterns" :key="sock" class="box compare compare-pattern extras"></div>
         </div>
         
-        <div v-if="algorithm === 3" class="compare-boxes-outer hidden-outer">
+        <div v-if="algorithm === 5" class="compare-boxes-outer hidden-outer">
           <div  v-for="sock in  algo3Classes.patternColors" :key="sock" class="box compare compare-patternColor extras"></div>
         </div>
-        <div v-if="algorithm === 3" class="compare-boxes-outer hidden-outer">
+        <div v-if="algorithm === 5" class="compare-boxes-outer hidden-outer">
           <div v-for="sock in algo3Classes.lineAmounts" :key="sock" class="box compare compare-lineAmount extras"></div>
         </div>
       </div>
@@ -30,17 +59,18 @@
       
       <div class="box sorted"></div>
       <ButtonNavigation
-      v-if="questionAnswered || !isStory"
-      :story="false"
+      v-show="(questionAnswered&&!gameStarted) || (questionAnswered&&!showContinue) || (questionAnswered&&showContinue&&modalClosed)  || !isStory"
+      :storySegment="isStory"
       ref="buttonnavi"
       :playing="playing"
-      :fastForwarding="false"
+      :gameStarted="gameStarted"
       :showContinue="showContinue"
+      :finished="finished"
       @handleClickPlayPause="playPause()"
       @handleClickRestart="resetSimulation(true)"
       @handleClickContinueStory="$emit('handleClickContinueStory')"
       />
-      <QuestionModal :question="simulation.question" :choices="simulation.choices" v-else @answer="a => submitAnswer(a)"/>
+      <QuestionModal :simulation="simulation" :showContinue="showContinue" :counters="counters" v-show="(!questionAnswered || showContinue )&&isStory&&!modalClosed" @closeModal="modalClosed=true" @answer="submitAnswer()"/>
       
   </div>
 </template>
@@ -54,7 +84,8 @@ import ButtonNavigation from "../components/ButtonNavigation.vue";
 import runSimpleAlgo from "../helpers/SimpleAlgorithm.js";
 import runSimpleDivideAndSweepAlgo from "../helpers/SimpleDivideAndSweepAlgorithm.js";
 import runDivideAndSweepAlgo from "../helpers/DivideAndSweepAlgorithm.js";
-import runRandomAlgo from "../helpers/RandomAlgorithm.js";
+import runSortOutAlgo from "../helpers/SortOutAlgorithm.js";
+import runSortOutFixedAlgo from "../helpers/SortOutFixedAlgorithm.js";
 import {getAnimations} from "../helpers/AnimationBuilder.js";
 import QuestionModal from './QuestionModal.vue';
 
@@ -83,13 +114,18 @@ export default {
     let socks = fillAndShuffleSocks();
     const gameStarted = ref(false);
     const playing = ref(false);
+    const finished = ref(false)
     const isStory = ref(props.isStory)
     const questionAnswered = ref(false)
-    const answer = ref(0);
+    const start = ref(null)
+    const startNotEmpty = ref(null)
+    const sortedOutNotEmpty = ref(null)
+    const modalClosed = ref(false)
     const currentAnimations = ref(null);
     const animations = ref([])
     const showContinue = ref(false)
     const counters = ref({moves: 0, comparisons: 0});
+    const updates = ref({basket: false});
     const algo3Classes = [{
       colors: 0,
       patterns: 0,
@@ -97,8 +133,9 @@ export default {
       lineAmounts: 0
     }]
 
-    return {socks, t,gameStarted, playing, answer, questionAnswered, fillAndShuffleSocks,  counters, animations, currentAnimations, algo3Classes, showContinue, isStory};
+    return {socks,finished, start,updates, modalClosed, t,gameStarted,startNotEmpty,sortedOutNotEmpty,  playing, questionAnswered, fillAndShuffleSocks,  counters, animations, currentAnimations, algo3Classes, showContinue, isStory};
   },
+
 
   watch: {
     algorithm(){
@@ -111,14 +148,25 @@ export default {
 
     trigger() {
       this.resetSimulation(true)
+    },
+    updates: {  
+      handler(newValue, oldValue) {
+        console.log('updating.')
+      this.startNotEmpty = this.getStartNotEmpty()
+      this.sortedOutNotEmpty = this.getSortedOutNotEmpty()
+      },
+      deep: true
     }
   },
-  computed: {
-    
-  },
-
+ 
 
   methods: {
+    getStartNotEmpty() {
+      return (document.getElementsByClassName('start')[0] !== undefined &&  document.getElementsByClassName('start')[0].children.length > 0)
+    },
+    getSortedOutNotEmpty() {
+      return (document.getElementsByClassName('sorted-out')[0] !== undefined &&  document.getElementsByClassName('sorted-out')[0].lastChild.classList[0] === 'start-box-sock')
+    },
     playPause() {
       this.playing = !this.playing;
       if (!this.gameStarted) this.startSimulation(false);
@@ -135,13 +183,15 @@ export default {
         this.resetSimulation(full);
         this.gameStarted = true;
         this.playing = true;
-
-
+        console.log(this.algorithm)
         this.fillAnimations();
         this.currentAnimations.push(this.animations[0].animation);
+        console.log(this.start)
     },
     resetSimulation(full) {
       console.log(this.socksProp)
+      this.showContinue = false;
+      this.finished = false;
         const copy = copySockArray(this.socksProp)
         this.$refs.buttonnavi.updatePlay(copy.find(s => s.type === 'single') !== undefined && this.algorithm===4)
         this.gameStarted = false;
@@ -165,12 +215,13 @@ export default {
       
         this.animations = [];
         if (full) this.socks = this.fillAndShuffleSocks();
-        document.getElementsByClassName('start')[0].style.height = this.socks.length > 12 ? '230px' : '120px'
-        document.getElementsByClassName('start')[0].style.width = '800px'
+        document.getElementsByClassName('start')[0].style.height = '120px'
+        document.getElementsByClassName('start')[0].style.width = '100px'
       document.getElementsByClassName('sorted')[0].style.height =  '120px'
- 
+      this.startNotEmpty = this.getStartNotEmpty()
+    this.sortedOutNotEmpty = this.getSortedOutNotEmpty() 
 
-      if (this.algorithm === 3) {
+      if (this.algorithm === 5) {
         this.algo3Classes.colors = this.getUniqueColors();
         this.algo3Classes.patterns = this.getUniquePatterns()*this.getUniqueColors();
         this.algo3Classes.patternColors = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors();
@@ -179,7 +230,6 @@ export default {
     },
     submitAnswer(answer) {
       this.questionAnswered = true;
-      this.answer = answer;
     },
     
     getUniqueColors() {
@@ -210,17 +260,23 @@ export default {
                 playBook = runSimpleAlgo(this.socks)
                 break;
             case 2:
-                playBook = runSimpleDivideAndSweepAlgo(this.socks)
+                playBook = runSortOutAlgo(this.socks)
                 break;
             case 3:
-                playBook = runDivideAndSweepAlgo(this.socks)
+                playBook = runSortOutFixedAlgo(this.socks)
                 break;
             case 4:
+                playBook = runSimpleDivideAndSweepAlgo(this.socks)
+                break;
+            case 5:
+                playBook = runDivideAndSweepAlgo(this.socks)
+                break;
+            case 6:
                 playBook = runRandomAlgo(this.socks)
                 break;            
         }
         console.log(playBook);
-        this.animations = getAnimations(playBook, this.counters);
+        this.animations = getAnimations(playBook, this.counters, this.updates);
         
         for (let i = 0; i < this.animations.length; i++) {
             this.animations[i].animation.pause()
@@ -230,24 +286,29 @@ export default {
                 if (this.animations.length !== (i+1)) {
                    this.animations[i+1].animation.play()
                 if (this.animations[i].select || this.animations[i].unselect) {
-                  console.log(this.animations[i])
                   this.socks[this.animations[i].index].highlighted = this.animations[i].select;
-                  console.log(this.socks)
                 }
                 } else {
-                  console.log(this.showContinue, this.isStory)
-                  if (this.isStory) this.showContinue = true;
-                  console.log('did it', this.showContinue)
+                  if (this.isStory) {
+                    this.showContinue = true;
+                    this.finished = true;
+                  }
                 }
                
               }
           }
         }
-        
-        console.log(this.animations)
         this.animations[0].animation.play();
     }
-  }
+  },
+   mounted() {
+    if (this.algorithm === 5) {
+        this.algo3Classes.colors = this.getUniqueColors();
+        this.algo3Classes.patterns = this.getUniquePatterns()*this.getUniqueColors();
+        this.algo3Classes.patternColors = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors();
+        this.algo3Classes.lineAmounts = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors()*this.getUniqueLineAmounts();
+      }
+  },
 }
 </script>
 
@@ -262,6 +323,7 @@ export default {
         margin-bottom: 0.5rem;
         flex-wrap: wrap;
     }
+    
 
     .two-rows {
       height: 230px;
@@ -295,12 +357,14 @@ export default {
         width: 1000px;
     
     }
+  
     .sorted {
       min-height: 120px;
     }
     .start-box-sock {
         padding-top: 0.6rem;
         margin-right: -2.3rem;
+        display: none;
     }
     .compare-boxes-outer {
       display: flex;
@@ -313,6 +377,62 @@ export default {
       justify-content: center;
     }
    
+    .basket, .basket-sorted-out {
+      height: 170px;
+      position: absolute;
+      top: 6rem;
+      z-index: -1;
+      margin-left: -6rem;
+    }
+    
+ 
+
+    .double-basket {
+      margin-left: -1rem;
+    }
+    
+
+    .basket-outer, .basket-sorted-out-outer { 
+      top: 2rem;
+       min-width: 300px;
+       min-height: 120px;
+       margin: 0 auto;
+    }
+
+  
+
+
+    .baskets {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    #filler {
+      width: 150px;
+    }
+   
+    .start, .sorted-out {
+      background-color: transparent;
+      min-width: 169px;
+      overflow: hidden;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem; 
+    }
+    .start .start-box-sock {
+      margin-left: 1.7rem;
+    }
+    .sorted-out .start-box-sock {
+      margin-right: 1.7rem;
+      margin-top: 0.3rem;
+    }
+
+     .start-box-sock {
+    
+      margin-top: 0.3rem;
+    }
 
     .outer-outer  {
       min-height: 130px;
