@@ -37,8 +37,12 @@
         "de": "Lade..."
     },
     "CHAPTER_SELECTION": {
-        "en": "chapter selection",
-        "de": "Kapitelauswahl"
+        "en": "choose a chapter",
+        "de": "Wähle ein Kapitel"
+    },
+    "CHALLENGE_SELECTION": {
+        "en": "choose a challenge",
+        "de": "Wähle eine Challenge"
     },
     "CHAPTER": {
         "en": "chapter",

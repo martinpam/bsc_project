@@ -9,7 +9,7 @@
                 </div>
                 </div>
             
-            <h2> {{t('CHAPTER_SELECTION')}} </h2>
+            <h2 v-if="type=='chapters'"> {{t('CHAPTER_SELECTION')}} </h2><h2 v-else> {{t('CHALLENGE_SELECTION')}} </h2>
                 <div v-if="type==='chapters'"  class="button-group"
                 :class="{'less-than-three': mdl[0].chapters.length < 3}"
                 >
