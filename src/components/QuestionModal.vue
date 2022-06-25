@@ -1,25 +1,41 @@
 <template>
-  <div v-if="!showContinue" class="modal" >
-      <h3 class="question">{{ simulation.question[store.language]}}</h3>
+  <div v-if="!isAnswered" class="modal" >
+      <h3 class="question">{{ question[store.language]}}</h3>
       <div class="choices">
-          <div  class="modal-button" @click="submitAnswer(choice)" v-for="choice in simulation.choices" :key="choice" style="display:float"> <div class="inner-text">{{getChoice(choice)}}</div></div>
+          <div  class="modal-button" @click="submitAnswer(choice)" v-for="choice in choices" 
+          :key="choice" style="display:float"> 
+          <div class="inner-text">{{choice[store.language]}}
+            </div>
+        </div>
       </div>
   </div>
-  <div v-else class="modal clickable" @click="handleClick()">
-      <div class="remove">&#10006;</div>
-
-       <div class="answer-part">
-           <div class="left-side">
-               <div class="your-answer"><h2 >{{t('YOUR_ANSWER')}}</h2></div> <div class="answer-text" :class="{'correct': correct, 'incorrect': !correct}">{{answerText}}</div>
-           </div>
-           <div class="right-side">
-               <div class="correct-answer"><h2>{{t('CORRECT_ANSWER')}}</h2></div> <div class="answer-text">{{correctAnswerText}}</div>
-           </div>
+  <div v-else class="modal">
+      
+       
+            <div class="result-outer">
+                <div class="answer-text result">
+                    {{t('YOUR_ANSWER')}}
+                    <div class="answer-text" :class="{'correct': correct, 'incorrect': !correct}">
+                        {{answeredByUser[store.language]}}
+                    </div>
+                    <div v-if="correct">{{t('IS_CORRECT')}}</div>
+                    <div v-else>{{t('IS_WRONG')}}</div>
+                    !
+                </div>
+            </div>
            
-       </div>
-        <div v-if="simulation.hint&&!correct" class="hint">{{simulation.hint[store.language]}}</div>
-        <div v-else-if="!correct" class="hint"><h3>{{t('HINT_INCORRECT')}}</h3> </div>
-        <div v-else class="hint"><h3>{{t('HINT_CORRECT')}}</h3> </div>
+
+   
+        <div v-if="correct" class="endMessage">{{endMessage.messageCorrect[store.language]}}</div>
+        <div v-else class="endMessage">{{endMessage.messageWrong[store.language]}} </div>
+         <div class="action-outer">
+            <div class="filler"></div>
+                <div class="action">
+                        <div  @click="$emit('continue')" v-if="correct">{{t('CONTINUE')}}</div>
+                        <div @click="retry()" v-else>{{t('RETRY')}}</div>
+                      </div>
+            </div>
+
        
   </div>
 </template>
@@ -29,37 +45,34 @@ import {store} from "../store.js"
 import {  ref } from "vue";
 import  { t }  from "../helpers/helperFunctions.js";
 export default {
-    props: ["simulation","counters","showContinue"],
+    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions"],
     setup(props) {
         const answeredByUser = ref(null);
-        const answerText = ref(null)
-        const correctAnswerText = ref(null)
+        const isAnswered = ref(false)
         const correct = ref(null)
-        return {store,answeredByUser,answerText,correctAnswerText,correct,t};
+        console.log(props)
+        return {store,answeredByUser,correct,t,isAnswered};
     },
     watch: {
-        showContinue(newValue, oldValue) {
-            if (newValue === true) {
-                this.correctAnswerText = this.simulation.question.type === 'movements' ?  this.counters.moves :
-                                         this.simulation.question.type === 'comparisons' ?  this.counters.comparisons :
-                                         this.simulation.answer;
-            console.log(this.correctAnswerText)
-            if (this.simulation.question.type === 'text') {
-                 this.correct = this.answerText === this.correctAnswerText;
-            } else {
-                const temp = this.simulation.question.type === 'movements' ? this.counters.moves :  this.counters.comparisons
-                if (this.answeredByUser.lessThan) this.correct = this.answeredByUser.lessThan > temp;
-                if (this.answeredByUser.moreThan) this.correct = this.answeredByUser.lessThan < temp;
-                else (this.correct = (temp >= this.answeredByUser.from && temp <= this.answeredByUser.until))
+        animationFinished(newValue, oldValue) {
+                if (newValue)
+                 this.correct = this.answeredByUser.en === this.correctAnswer;
+            },
+            updateQuestions(newValue,oldValue) {
+                if (newValue)
+                 this.isAnswered = false;
             }
-            }
-        }
     },
     methods: {
+        retry() {
+            this.$emit('retry');
+            this.isAnswered = false;
+        },
         submitAnswer(answer) {       
             this.answeredByUser = answer;
-            this.answerText = this.getChoice(this.answeredByUser)
-            this.$emit('answer', 1)
+            this.$emit('answer')
+            this.isAnswered = true;
+            console.log(answer, this.answeredByUser)
         },
         handleClick() {
             console.log('clicking')
@@ -68,19 +81,7 @@ export default {
             }
             
         },
-        getChoice(choice) {
-            if (choice.lessThan) {
-                return '<' + choice.lessThan
-            }
-            if (choice.moreThan) {
-                return '>' + choice.moreThan
-            }
-            if (choice.from) {
-                return choice.from + '-' + choice.until
-            }
-            console.log(choice)
-            return choice
-        }
+    
     }
 }
 </script>
@@ -88,15 +89,18 @@ export default {
 <style  scoped>
 
     .modal {
-        width: 80%;
-        background-color: darkgrey;
-        height: 200px;
+        width: 100%;
+        background-color: lightyellow;
+        height: 125px;
         margin: 0 auto;
-        margin-top: 1rem;
+        margin-top: 0.4rem;
         border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     .modal-button {
-        width: 110px;
+        width: 20%;
         height: 60px;
         background-color: red;
         margin: 0 auto;
@@ -112,41 +116,69 @@ export default {
     .inner-text {
     text-decoration: none;
     color: white;
-    font-size: 20px; 
+    font-size: 23px; 
     position: relative;
-    top: 35%;
+    top: 30%;
+    text-align: center;
   }
     .choices {
         display: flex;
+        margin-top: -0.7rem;
     }
     .question {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-    .answer-part {
-        display: flex;
         padding-top: 0.5rem;
-        
+        padding-bottom: 0.5rem;
+        text-align: center;
     }
+    
     .clickable {
         cursor: pointer;
     }
     .answer-text {
-        font-size: 6rem;
-        margin-top: -0.7rem ;
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+        font-weight: 600;
+        font-size: 1.6rem;
 
     }
+    .result {
+        margin-top: 0.4rem;
+        display: inline-flex;
+       
+    }
+    .result-outer{
+        margin: 0 auto;
+    }
+    .endMessage {
+        margin-top: 0.4rem;
+        font-size: 1.2rem;
+    }
+
     .correct {
         color: green;
     }
     .incorrect {
         color: red;
     }
-    .remove {
-        position: absolute;
+    .action {
+   
        
-        padding-left: 7px;
         font-size: 1.5rem;
-        color: grey;
+        color: #3f3f3f;
+        margin-top: 1.5rem;
+        padding-right: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: right;
+        width: 20%;
+        
+    }
+    .filler {
+        width: 80%;
+    }
+    .action-outer {
+width: 100%;
+
+display: flex;
     }
 </style>

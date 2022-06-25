@@ -5,11 +5,11 @@
         "de": "wähle ein Modul"
     },
     "MODULE_SUPERMARKET": {
-        "en": "Supermarket",
+        "en": "supermarket",
         "de": "Supermarkt"
     },
     "MODULE_SOCKS": {
-        "en": "Socks",
+        "en": "socks",
         "de": "Socken"
     },
     "SECTION_STORY": {
@@ -23,6 +23,10 @@
     "SECTION_LABORATORY": {
         "en": "Laboratory",
         "de": "Labor"
+    },
+    "SECTION_CHALLENGES": {
+        "en": "challenges",
+        "de": "Challenges"
     },
     "SECTION_CHOOSE": {
         "en": "choose a mode",
@@ -74,7 +78,7 @@
     },
     "SUPERMARKET": {
         "en": "supermarket",
-        "de": "Supermarket"
+        "de": "Supermarkt"
     },
     "ALL_ARTICLES": {
         "en": "all articles",
@@ -284,17 +288,33 @@
         "en": "correct answer",
         "de": "Richtige Antwort"
     },
-    "HINT_INCORRECT": {
+    "IS_WRONG": {
+        "en": "is wrong",
+        "de": "ist falsch"
+    },
+    "IS_CORRECT": {
+        "en": "is correct",
+        "de": "ist richtig"
+    },
+    "RETRY": {
+        "en": "RETRY",
+        "de": "WIEDERHOLEN"
+    },
+    "END_MESSAGE_INCORRECT": {
         "en": "Nice try, but not quite right!",
         "de": "Guter Versuch, aber leider nicht ganz richtig"
     },
-    "HINT_CORRECT": {
+    "END_MESSAGE_CORRECT": {
         "en": "you got the right answer, good job!",
         "de": "Deine Antwort ist korrekt, gut gemacht!"
     },
     "ADD_PAIR": {
         "en": "add pair",
         "de": "hinzufügen"
+    },
+    "CHALLENGE": {
+        "en": "challenge",
+        "de": "Challenge"
     }
 
 

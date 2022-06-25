@@ -98,7 +98,7 @@
       <div class="corridor corridor2"></div>
       <div class="corridor corridor3"></div>
     </div>
-    <ButtonNavigation
+    <ButtonNavigation v-if="!challenge || (!finished && playing && !showQuestionModal)"
       :storySegment="isStory"
       :playing="playing"
       :gameStarted="gameStarted"
@@ -110,12 +110,25 @@
       @handleClickFastForward="fastForward()"
       @handleClickContinueStory="$emit('handleClickContinueStory')"
     />
+    <QuestionModal v-if="challenge" v-show="finished || showQuestionModal"
+    :question="challenge.question"
+    :choices="challenge.choices"
+    :endMessage="challenge.endMessage"
+    :animationFinished="finished"
+    :correctAnswer="challenge.answer"
+    :updateQuestions="updateQuestions"
+    @retry="retryChallenge()"
+    @answer="questionAnswered()"
+    @continue="nextChallenge()"
+    
+    />
   </div>
 </template>
 
 <script>
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
+import QuestionModal from "../components/QuestionModal.vue";
 import {t} from '../helpers/helperFunctions.js'
 
 import { onMounted } from "@vue/runtime-core";
@@ -128,14 +141,17 @@ export default {
     "allShelfs",
     "isStory",
     "boughtItems",
+    "challenge"
   ],
-  components: { ButtonNavigation },
+  components: { ButtonNavigation, QuestionModal },
   setup(props) {
     console.log(props);
+  
     const shoppingList = ref([]);
     shoppingList.value.push(...props.shoppingListProp);
     const supermarket = ref(null);
     const showContinue = ref(false);
+    const showQuestionModal = ref(true);
     const corridor = ref(null);
     const playing = ref(false);
     const fastForwarding = ref(false);
@@ -151,6 +167,7 @@ export default {
     const plannedCoordinates = [];
     const exit = ref(null);
     const currentItem = ref(null);
+    const updateQuestions = ref(false);
     const itemImage = ref(null);
     const shortestPathGreedy = ref([]);
     const currentAnimation = ref(0);
@@ -194,6 +211,7 @@ export default {
       finished,
       cell,
       corridor,
+      updateQuestions,
       animations,
       robotPosPlanned,
       showContinue,
@@ -202,6 +220,7 @@ export default {
       checkout,
       t,
       exit,
+      showQuestionModal,
       currentItem,
       currentItemName,
       shoppingListLive,
@@ -221,13 +240,26 @@ export default {
     },
     algorithm() {
       this.resetSimulation();
+      
     },
     size() {
       this.resetSimulation();
     },
+    challenge() {
+      this.resetSimulation();
+       if (this.challenge) {
+     this.startSimulation()
+     this.showQuestionModal = true;
+    }
+    }
   },
   mounted() {
     window.addEventListener('resize', this.resetSimulation);
+    if (this.challenge) {
+     this.startSimulation()
+     this.showQuestionModal = true;
+    }
+
   },
   unmounted() {
     window.removeEventListener('resize', this.resetSimulation);
@@ -235,7 +267,9 @@ export default {
 
   methods: {
     resetSimulation() {
+      this.robot.style.opacity =0
       this.finished = false;
+      this.showQuestionModal = this.challenge? true: false;
       this.showContinue = false;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
@@ -261,6 +295,7 @@ export default {
       this.currentItemName =
         this.shoppingListLive[this.shoppingListLive.length - 1];
       this.currentAnimation = 0;
+
       this.playing = false;
       this.rounds = 0;
       this.gameStarted = false;
@@ -271,6 +306,9 @@ export default {
       });
       this.animations = [];
       this.MAX_ROUNDS = 2;
+      if (this.challenge) {
+        
+      }
     },
     playPause() {
       this.playing = !this.playing;
@@ -280,6 +318,21 @@ export default {
       } else {
         this.animations[this.currentAnimation].animation.play();
       }
+    },
+    questionAnswered(){
+      this.playPause();
+      this.showQuestionModal = false;
+    },
+    retryChallenge(){
+      
+      this.resetSimulation()
+      this.startSimulation()
+      
+    },
+    nextChallenge() {
+      this.resetSimulation()
+      this.$router.push({path:'/supermarket/challenges/'+(parseInt(this.challenge.challengeId)+1)})
+      this.updateQuestions = !this.updateQuestions;
     },
     continueStory() {
       this.$emit("handleClickContinueStory");
@@ -305,7 +358,14 @@ export default {
       document.getElementById("itemImage").height = this.cell.width * 0.7;
       this.setRobotStartPosition();
       this.fillAnimations();
-      console.log(this.animations)
+      console.log('animations pre' ,this.animations, this.challenge.stopAtAnimation)
+      if (this.challenge) {
+        this.currentAnimation = this.challenge.stopAtAnimation;
+
+
+        
+      }
+      console.log('animations post' ,this.animations)
       this.startSearch();
     },
     robotPos() {
@@ -398,7 +458,7 @@ export default {
         animation: this.robot.animate(
           [fadeIn ? { opacity: 1 } : { opacity: 0 }],
           {
-            duration: 1000,
+            duration:  1000,
             fill: "forwards",
           }
         ),
@@ -575,8 +635,25 @@ export default {
               this.plannedCoordinates[u].y
             );
           }
-          if (u != this.animations.length - 1)
+          if (u != this.animations.length - 1 && (!this.challenge || u !== this.challenge.stopAtAnimation)) {
             this.animations[u + 1].animation.play();
+        
+          }
+          if (this.challenge && u === this.challenge.stopAtAnimation) {
+            this.robot.style.opacity =1
+            this.playPause()
+            for (let i = 0; i < this.challenge.stopAtAnimation; i++) {
+              if (this.animations[i].successful) {
+                this.boughtItems.push(this.animations[i].itemName);
+              }
+              if (this.animations[i].finishedRound) {
+                 this.currentItemName = this.animations[i].nextItem;
+              }
+            }
+            
+            
+          }
+            
           if (this.animations[u].type === "search") {
             this.currentItem.style.display = "none";
           }
@@ -1166,7 +1243,7 @@ export default {
         isShortest: isShortest,
 
         animation: this.exit.animate([{}], {
-          duration: 800,
+          duration:  800,
         }),
       });
       this.plannedCoordinates.push(null);
@@ -1468,7 +1545,7 @@ export default {
         shelf: shelf,
         cell: cell,
         animation: this.currentItem.animate([{}], {
-          duration: successful ? 1000 : 500,
+          duration:  successful ? 1000 : 500,
         }),
       });
       this.plannedCoordinates.push(null);
@@ -1481,7 +1558,7 @@ export default {
       //   console.log(this.robot.style.top, this.robot.style.left);
     },
     startSearch() {
-      this.animations[0].animation.play();
+      this.animations[this.currentAnimation].animation.play();
     },
     repeatAnimations() {
       this.animations.push({

@@ -14,17 +14,17 @@
           &lt;&lt;
         </h2>
       </div>
-      <h2 v-if="!isLaboratory">
+      <h2 v-if="!isLaboratory && !challengeId">
         {{ t(mdl[0].name) +' '+ t('CHAPTER') }}
         {{ allSimulations[currentSimulation].name }}
       </h2>
-      <h2 v-else>{{t('LABORATORY') + ' - ' + t(mdl[0].name) }}</h2>
+      <h2 v-else-if="isLaboratory">{{t('LABORATORY') + ' - ' + t(mdl[0].name) }}</h2>
+      <h2 v-else class="challenge-header">{{t('CHALLENGE') + ' - ' + mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).name[store.language] }}</h2>
       <div class="next-chapter" @click="currentSimulation++">
         <h2
           v-show="
             currentSimulation != allSimulations.length - 1 &&
-            !isLaboratory &&
-            !isStory
+            lva
           "
         >
           &gt;&gt;
@@ -43,10 +43,10 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory">
+            <h3 v-if="!isLaboratory&&!challengeId">
               {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === allSimulations[currentSimulation].algorithm).name }}
             </h3>
-            <h3 v-else>{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
+            <h3 v-else-if="!challengeId">{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
             <h3
               v-show="currentChosenAlgorithm != 6 && !(currentChosenAlgorithm === 5 && mdl[0].link ==='socks') && isLaboratory"
               @click="currentChosenAlgorithm++"
@@ -56,11 +56,18 @@
             </h3>
           </div>
           <CodeBox
-            v-if="!isLaboratory"
+            v-if="!isLaboratory&&!challengeId"
             class="code-box"
             :algorithm="
               mdl[0].algorithms[allSimulations[currentSimulation].algorithm - 1]
                 .lines
+            "
+          />
+          <CodeBox
+            v-else-if="challengeId"
+            class="code-box"
+            :algorithm="
+              mdl[0].algorithms[mdl[0].challenges[parseInt(challengeId)-1].algorithm-1].lines
             "
           />
           <CodeBox
@@ -88,15 +95,33 @@
               :class="{
                 twoCols:
                   (isLaboratory && currentChosenShoppingList.length > 5) ||
-                  allSimulations[currentSimulation].shoppingList.length > 5,
+                  (allSimulations[currentSimulation].shoppingList.length > 5) || 
+                  (challenge && challenge.shoppingList.length>5),
                 'shopping-outer-story': isStory,
               }"
             >
-              <div v-if="!isLaboratory">
+              <div v-if="!isLaboratory && !challengeId">
                 <div
                   class="shopping-list-text"
                   :class="{ bought: boughtItems.indexOf(item) >= 0 }"
                   v-for="(item, index) in allSimulations[currentSimulation]
+                    .shoppingList"
+                  :key="item"
+                >
+                  {{ t(item) }}
+                  {{
+                    allSimulations[currentSimulation].algorithm === 5 ||
+                    currentChosenAlgorithm === 5
+                      ? "( " + t(currentCategories[index]) + " )"
+                      : ""
+                  }}
+                </div>
+              </div>
+              <div v-else-if="challengeId">
+                <div
+                  class="shopping-list-text"
+                  :class="{ bought: boughtItems.indexOf(item) >= 0 }"
+                  v-for="(item, index) in mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)
                     .shoppingList"
                   :key="item"
                 >
@@ -148,10 +173,10 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory">
+            <h3 v-if="!isLaboratory&&!challengeId">
               {{t('COLLECTION')+': '+ t(allSimulations[currentSimulation].collection) }}
             </h3>
-            <h3 v-else>{{t('COLLECTION')+': '+ t(currentChosenSockCollection) }}</h3>
+            <h3 v-else-if="!challengeId">{{t('COLLECTION')+': '+ t(currentChosenSockCollection) }}</h3>
             <h3
               v-show="currentChosenSockCollection !== 'CUSTOM' && isLaboratory"
               @click="
@@ -231,10 +256,10 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory">
+            <h3 v-if="!isLaboratory&&!challengeId">
               {{t('SUPERMARKET')+': '+ t(allSimulations[currentSimulation].supermarket) }}
             </h3>
-            <h3 v-else>{{t('SUPERMARKET')+': '+ t(currentChosenSupermarket) }}</h3>
+            <h3 v-else-if="!challengeId">{{t('SUPERMARKET')+': '+ t(currentChosenSupermarket) }}</h3>
             <h3
               v-show="currentChosenSupermarket != 'LARGE' && isLaboratory"
               @click="
@@ -248,7 +273,7 @@
           </div>
           <div>
             <Supermarket
-              v-if="!isLaboratory"
+              v-if="!isLaboratory &&!challengeId"
               :shelfData="
                 mdl[0].supermarketLayouts.filter(
                   (l) =>
@@ -266,6 +291,28 @@
               @handleClickContinueStory="$emit('handleClickContinueStory')"
               @resetBoughtItems="boughtItems = []"
               :boughtItems="boughtItems"
+            />
+            <Supermarket
+              v-else-if="challengeId"
+              :shelfData="
+                mdl[0].supermarketLayouts.filter(
+                  (l) =>
+                    l.name === mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).supermarket
+                )[0].shelfs
+              "
+              :isStory="isStory"
+              :size="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).supermarket"
+              :algorithm="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm"
+              :shoppingListProp="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).shoppingList"
+              :allShelfs="
+                mdl[0].supermarketLayouts.filter((l) => l.name === 'LARGE')[0]
+                  .shelfs
+              "
+              @handleClickContinueStory="$emit('handleClickContinueStory')"
+              @resetBoughtItems="boughtItems = []"
+              @nextChallenge="challengeId = (parseInt(challengeId)+1).toString()"
+              :boughtItems="boughtItems"
+              :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)"
             />
 
             <Supermarket
@@ -397,10 +444,11 @@ import SockSorting from "../components/SockSorting.vue";
 import Supermarket from "../components/Supermarket.vue";
 import Sock from "../components/Sock.vue";
 import { onMounted } from "@vue/runtime-core";
+import { store } from '../store.js'
 import {t} from "../helpers/helperFunctions.js"
 import  {isSameSock}  from "../helpers/helperFunctions.js"
 export default {
-  props: ["moduleName", "laboratory", "isStory", "chapterId"],
+  props: ["moduleName", "laboratory", "isStory", "chapterId","lva", "challengeId"],
   name: "AlgorithmOverview",
   components: { CodeBox, Supermarket, Sock, SockSorting },
   setup(props) {
@@ -413,7 +461,7 @@ export default {
     const showModal = ref(false);
     const showSockCustomizer = ref(false);
     const socksColorToChoose = ref('color');
-    
+    const challenge = ref(mdl.value[0].challenges[parseInt(props.challengeId)-1])
     const currentChosenAlgorithm = ref(1);
 
     const currentChosenSockCollection = ref("SMALL");
@@ -601,6 +649,7 @@ export default {
       showSockCustomizer,
       trigger,
       boughtItems,
+      challenge,
       getCurrentCategories,
       currentCategories,
       allCategories,
@@ -619,6 +668,7 @@ export default {
       allSimulations,
       isLaboratory,
       onMounted,
+      store,
       currentChosenAlgorithm,
       currentChosenSupermarket,
       currentChosenShoppingList,
@@ -650,6 +700,7 @@ export default {
     customSocks() {
       this.trigger= !this.trigger
     },
+  
   },
 };
 </script>
@@ -1031,6 +1082,9 @@ h3 {
 
 .outer-picker {
   margin-top: -5rem;
+}
+.challenge-header {
+  margin-bottom: -0.3rem;
 }
 .color-chooser {
   width: 96px;

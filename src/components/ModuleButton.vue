@@ -9,9 +9,6 @@
 export default {
   props: ['name', 'goTo'],
   name: "ModuleButton",
-  setup(props) {
-    console.log(props.name);
-  },
 };
 </script>
 

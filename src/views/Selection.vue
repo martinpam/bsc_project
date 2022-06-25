@@ -3,18 +3,22 @@
         
         <div v-if="mdl">
             <div class="header">
- <router-link  class="" to="/"> 
-        <img src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/>
-      </router-link>                <div class="header-text">
+               <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> 
+                <div class="header-text">
                     <h1>{{t(mdl[0].name)}}</h1>
                 </div>
                 </div>
             
-            <h2> {{t('SECTION_CHOOSE')}} </h2>
-                <div  class="button-group" >
-                    <ModuleButton :name="t('SECTION_STORY')" :goTo="'/'+moduleName+'/chapters/'"/>
-                    <ModuleButton :name="t('SECTION_CHALLENGES')" :goTo="'/'+moduleName+'/challenges/'"/>
-                    <ModuleButton :name="t('SECTION_LABORATORY')" :goTo="'/'+moduleName+'/laboratory/'"/>
+            <h2> {{t('CHAPTER_SELECTION')}} </h2>
+                <div v-if="type==='chapters'"  class="button-group"
+                :class="{'less-than-three': mdl[0].chapters.length < 3}"
+                >
+                        <ModuleButton  v-for="ch in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
+                </div>
+                <div v-else-if="type==='challenges'"  class="button-group"
+                :class="{'less-than-three': mdl[0].chapters.length < 3}"
+                >
+                        <ModuleButton  v-for="ch in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
                 </div>
                 <div class="filler"></div>
         </div>
@@ -23,25 +27,25 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import { computed } from '@vue/runtime-core'
 import ModuleButton from '../components/ModuleButton.vue'
 import getModule from '../composables/getModule.js'
 import {t} from '../helpers/helperFunctions.js'
+import { store } from '../store.js'
 
 export default {
-    props: ['moduleName'],
+    props: ['moduleName','type'],
     components: { ModuleButton },
     setup(props) {
+        console.log(props)
         const moduleName = props.moduleName
-        console.log(moduleName.value)
         const { mdl, error, load } = getModule(moduleName)
         load()
-
+        console.log(mdl.value[0])
         const append = computed((text,index) => {
             return text +''+ index
         })
-        return {mdl, error, append,t }
+        return {mdl, error, append, t, store}
     }
 }
 </script>

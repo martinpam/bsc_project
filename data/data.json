@@ -900,7 +900,7 @@
                         },
                         {
                             "name": "FRUITS",
-                            "items": ["APPLE", "BANANA", "WATER-MELON"]
+                            "items": ["APPLE", "BANANA", "MELON"]
                         },
                         {
                             "name": "COOLER",
@@ -1015,6 +1015,111 @@
                             "items": ["", "SOAP", "TOOTH-BRUSH", ""]
                         }
                     ]
+                }
+            ],
+            "challenges": [{
+                    "challengeId": "1",
+                    "name": { "en": "first steps", "de": "Erste Schritte" },
+                    "algorithm": 1,
+                    "shoppingList": ["MELON", "SALAD"],
+                    "supermarket": "SMALL",
+                    "stopAtAnimation": 17,
+                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
+                    "choices": [
+                        { "en": "vegetables", "de": "Gemüse" },
+                        { "en": "checkout", "de": "Kasse" },
+                        { "en": "cooler", "de": "Kühlwaren" },
+                        { "en": "fruits", "de": "Obst" }
+                    ],
+                    "answer": "cooler",
+                    "endMessage": {
+                        "messageCorrect": {
+                            "en": "Well done!",
+                            "de": "Gut gemacht!"
+                        },
+                        "messageWrong": {
+                            "en": "At this point, Dev0 still doesn't know he should search for the next article once he found one",
+                            "de": "Dev0 weiß aktuell noch nicht, dass er nach dem nächsten Artikel suchen soll, sobald er einen gefunden hat."
+                        }
+                    }
+                },
+                {
+                    "challengeId": "2",
+                    "name": { "en": "payday?", "de": "Zahltag?" },
+                    "algorithm": 1,
+                    "shoppingList": ["APPLE", "YOGURT", "BANANA", "MILK", "SPINACH", "PIZZA"],
+                    "supermarket": "SMALL",
+                    "stopAtAnimation": 220,
+                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
+                    "choices": [
+                        { "en": "vegetables", "de": "Gemüse" },
+                        { "en": "checkout", "de": "Kasse" },
+                        { "en": "exit", "de": "Ausgang" },
+                        { "en": "fruits", "de": "Obst" }
+                    ],
+                    "answer": "exit",
+                    "endMessage": {
+                        "messageCorrect": {
+                            "en": "Well done! Indeed Dev0 has not yet learned he needs to pay for his articles",
+                            "de": "Gut gemacht! Tatsächlich hat Dev0 noch nicht gelernt, dass er die Artikel auch bezahlen muss"
+                        },
+                        "messageWrong": {
+                            "en": "Take a look at the algorithm to see if something might be missing",
+                            "de": "Schau dir den Algorithmus an, fehlt hier vielleicht etwas?"
+                        }
+                    }
+                },
+                {
+                    "challengeId": "3",
+                    "name": { "en": "payday!", "de": "Zahltag!" },
+                    "algorithm": 2,
+                    "shoppingList": ["APPLE", "YOGURT", "BANANA", "MILK", "SPINACH", "PIZZA", "SALAD"],
+                    "supermarket": "SMALL",
+                    "stopAtAnimation": 220,
+                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
+                    "choices": [
+                        { "en": "vegetables", "de": "Gemüse" },
+                        { "en": "checkout", "de": "Kasse" },
+                        { "en": "exit", "de": "Ausgang" },
+                        { "en": "fruits", "de": "Obst" }
+                    ],
+                    "answer": "vegetables",
+                    "endMessage": {
+                        "messageCorrect": {
+                            "en": "Nicely spotted, Dev0 was not yet finished shopping",
+                            "de": "Gut erkannt, Dev0 war noch nicht fertig mit seinem Einkauf"
+                        },
+                        "messageWrong": {
+                            "en": "It's a trap! Dev0 was not yet finished shopping",
+                            "de": "Es ist eine Falle! Dev0 war noch nicht fertig mit seinem Einkauf"
+                        }
+                    }
+                },
+                {
+                    "challengeId": "4",
+                    "name": { "en": "I'm done", "de": "Bin fertig" },
+                    "algorithm": 2,
+                    "shoppingList": ["ICE-CREAM", "SPINACH", "MELON", "CHEESE"],
+                    "supermarket": "SMALL",
+                    "stopAtAnimation": 137,
+                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
+                    "choices": [
+                        { "en": "vegetables", "de": "Gemüse" },
+                        { "en": "checkout", "de": "Kasse" },
+                        { "en": "exit", "de": "Ausgang" },
+                        { "en": "freezer", "de": "Gefriertruhe" }
+                    ],
+                    "answer": "freezer",
+                    "endMessage": {
+                        "messageCorrect": {
+                            "en": "Well done!",
+                            "de": "Gut gemacht!"
+                        },
+                        "messageWrong": {
+                            "en": "Dev0 does not yet know he can stop searching once he found all items",
+                            "de": "Dev0 weiß noch nicht, dass er zu suchen aufhören kann, sobald er alle Artikel gefunden hat"
+                        }
+                    }
                 }
             ]
         },
