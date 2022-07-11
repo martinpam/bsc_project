@@ -61,7 +61,7 @@ export default {
     .smaller {
         height: 40px;
         position: absolute;
-        top: 0.9rem;
+       
         left: 0.5rem;
     }
 

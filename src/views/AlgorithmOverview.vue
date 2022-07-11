@@ -19,7 +19,7 @@
         {{ allSimulations[currentSimulation].name }}
       </h2>
       <h2 v-else-if="isLaboratory">{{t('LABORATORY') + ' - ' + t(mdl[0].name) }}</h2>
-      <h2 v-else class="challenge-header">{{t('CHALLENGE') + ' - ' + mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).name[store.language] }}</h2>
+      <h2 v-else :class="{'challenge-header':moduleName!=='socks'}">{{t('CHALLENGE') + ' - ' + mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).name[store.language] }}</h2>
       <div class="next-chapter" @click="currentSimulation++">
         <h2
           v-show="
@@ -43,8 +43,8 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory&&!challengeId">
-              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === allSimulations[currentSimulation].algorithm).name }}
+            <h3 v-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
+              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === challenge.algorithm).name }}
             </h3>
             <h3 v-else-if="!challengeId">{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
             <h3
@@ -127,9 +127,9 @@
                 >
                   {{ t(item) }}
                   {{
-                    allSimulations[currentSimulation].algorithm === 5 ||
-                    currentChosenAlgorithm === 5
-                      ? "( " + t(currentCategories[index]) + " )"
+                    (challenge && 
+                    challenge.algorithm === 5 )
+                      ? "( " + t(getCurrentCategories()[index]) + " )"
                       : ""
                   }}
                 </div>
@@ -378,7 +378,14 @@
         </div>
         <div v-if="moduleName === 'socks'">
           <div v-show="!showSockCustomizer">
-            <SockSorting :trigger="trigger" :isStory="isStory" @handleClickContinueStory="$emit('handleClickContinueStory')" :simulation="allSimulations[currentSimulation]"  :socksProp="socks" :algorithm="isStory? allSimulations[currentSimulation].algorithm : currentChosenAlgorithm"/>
+            <SockSorting 
+            :trigger="trigger" 
+            :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)" 
+            :isStory="isStory" @handleClickContinueStory="$emit('handleClickContinueStory')" 
+            :simulation="allSimulations[currentSimulation]"  
+              :socksProp="socks" 
+              :algorithm="challengeId? mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm : isStory ? allSimulations[currentSimulation].algorithm : currentChosenAlgorithm"
+              />
           </div>
           <div v-show="showSockCustomizer">
             <h2 class="customizer-text">{{t('SOCK_CUSTOMIZER')}}</h2>
@@ -560,11 +567,10 @@ export default {
       console.log(isLaboratory.value, customSocks,currentChosenSockCollection.value, mdl.value[0].sockCollections, currentSimulation.value, props)
       let socks;
        if (props.moduleName === "socks") {
-      socks =  (currentChosenSockCollection.value !== 'CUSTOM' ?  mdl.value[0].sockCollections.find(
+      socks =  (props.challengeId ? mdl.value[0].challenges.find(challenge => challenge.challengeId === props.challengeId).socks :currentChosenSockCollection.value !== 'CUSTOM' ?  mdl.value[0].sockCollections.find(
                       (c) => c.name === currentChosenSockCollection.value
                     ).socks : customSocks)
     }
-    console.log(socks)
     return socks;
     }
     const socks = ref(getSocks());
@@ -600,7 +606,9 @@ export default {
 
     const getCurrentCategories = () => {
       if (props.moduleName === 'socks') return;
-      let shoppingListCurrent = isLaboratory.value
+     
+      let shoppingListCurrent = challenge.value? challenge.value.shoppingList
+        :  isLaboratory.value
         ? currentChosenShoppingList.value
         : allSimulations.value[currentSimulation.value].shoppingList;
       let res = [];
@@ -611,6 +619,7 @@ export default {
           }
         }
       }
+      console.log(res)
       return res;
     };
     const removeSock = (sock) => {
@@ -760,7 +769,7 @@ export default {
 .smaller {
   height: 40px;
   position: absolute;
-  top: 0.4rem;
+  
   padding-left: 0.5rem;
 }
 .nav-outer {
@@ -1085,6 +1094,7 @@ h3 {
 }
 .challenge-header {
   margin-bottom: -0.3rem;
+  min-width: 400px;
 }
 .color-chooser {
   width: 96px;

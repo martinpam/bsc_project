@@ -13,15 +13,15 @@
         "de": "Socken"
     },
     "SECTION_STORY": {
-        "en": "Story",
+        "en": "story",
         "de": "Story"
     },
     "SECTION_PRESENT": {
-        "en": "Present",
+        "en": "present",
         "de": "Präsentieren"
     },
     "SECTION_LABORATORY": {
-        "en": "Laboratory",
+        "en": "laboratory",
         "de": "Labor"
     },
     "SECTION_CHALLENGES": {
@@ -206,7 +206,7 @@
     },
     "COLA": {
         "en": "cola",
-        "de": "cola"
+        "de": "Cola"
     },
     "COFFEE": {
         "en": "coffee",

@@ -1,12 +1,21 @@
 import { isSameSock } from "./helperFunctions.js"
 import { copySockArray } from "./helperFunctions.js"
-export default function runSimpleDivideAndSweetAlgo(socksInput) {
+export default function runSimpleDivideAndSweetAlgo(socksInput, order) {
+
     const socks = copySockArray(socksInput)
     const playBook = [];
     const pendingSocks = [];
     let i = 0;
+    const challengePulledSocks = new Array(socksInput.length / 2).fill(0)
     for (i; i < socks.length; i++) {
-        let sockOne = socks[i];
+        let sockOne;
+        if (!order) {
+            sockOne = socks[i];
+        } else {
+            const fittingSocks = socks.filter(s => isSameSock(s, socksInput[2 * order[i]]));
+            console.log(fittingSocks)
+            sockOne = fittingSocks[challengePulledSocks[order[i]]++]
+        }
         playBook.push({ type: 'appear', sock: sockOne })
         for (let u = 0; u < pendingSocks.length; u++) {
             if (!pendingSocks[u].used) {
@@ -24,6 +33,7 @@ export default function runSimpleDivideAndSweetAlgo(socksInput) {
         if (sockOne !== null) {
             playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockOne, toBoxIndex: pendingSocks.length })
             pendingSocks.push({ sock: sockOne, used: false })
+
         }
     }
     for (let i = 0; i < pendingSocks.length; i++) {

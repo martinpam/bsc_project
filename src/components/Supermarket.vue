@@ -306,9 +306,6 @@ export default {
       });
       this.animations = [];
       this.MAX_ROUNDS = 2;
-      if (this.challenge) {
-        
-      }
     },
     playPause() {
       this.playing = !this.playing;
@@ -358,7 +355,7 @@ export default {
       document.getElementById("itemImage").height = this.cell.width * 0.7;
       this.setRobotStartPosition();
       this.fillAnimations();
-      console.log('animations pre' ,this.animations, this.challenge.stopAtAnimation)
+ 
       if (this.challenge) {
         this.currentAnimation = this.challenge.stopAtAnimation;
 
@@ -387,7 +384,7 @@ export default {
       this.robot.style.left =
         document.getElementsByClassName("door-entry")[0].getBoundingClientRect()
           .left +
-        (this.size === 'MEDIUM' ? this.cell.width / 4 : 0) +
+        (this.size === 'MEDIUM' ? this.cell.width / 4 : this.size === 'SMALL' ? this.cell.width / 6 : 0 ) +
         2 +
         "px";
     },
@@ -414,7 +411,7 @@ export default {
             this.robotPosPlanned.x +
             this.cell.width * 0.825 -
             this.getPos(shelf).x
-          ) <   (this.size === 'LARGE' ? this.cell.width * 0.33 : this.cell.width * 0.1)
+          ) <   (this.size === 'LARGE' ? this.cell.width * 0.33 : this.cell.width * 0.2)
         );
       }
       if (shelf.classList.contains("articles-right")) {
@@ -1326,7 +1323,7 @@ export default {
           }
           prevcategory = this.shelfData[u].name;
         }
-
+        if (!category) continue
         let shelf = document.getElementsByClassName(category.toLowerCase())[index];
         
         let item = document.createElement("img");

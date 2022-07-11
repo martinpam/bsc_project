@@ -1,6 +1,7 @@
 import { isSameSock } from "./helperFunctions.js"
 import { copySockArray, shuffle } from "./helperFunctions.js"
-export default function runSortOutFixedAlgo(socksInput) {
+export default function runSortOutFixedAlgo(socksInput, order) {
+    let orderCounter = 0;
     const socks = copySockArray(socksInput)
     let sortedOutSocks = [];
     const playBook = [];
@@ -12,7 +13,14 @@ export default function runSortOutFixedAlgo(socksInput) {
 
         if (sockOne === null) {
             random = getRandomInt(socks.length)
-            sockOne = socks[random];
+            if (order) {
+                const sockToFind = socksInput[2 * order[orderCounter++]]
+                console.log(sockToFind, order[(orderCounter - 1)], orderCounter, socksInput, socksInput[order[(orderCounter - 1)]])
+                sockOne = socks.find(a => isSameSock(a, sockToFind))
+            } else {
+                sockOne = socks[random]
+            }
+
             console.log(sockOne)
             playBook.push({ type: 'appear', sock: sockOne })
             playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockOne })
@@ -26,16 +34,40 @@ export default function runSortOutFixedAlgo(socksInput) {
             random2 = getRandomInt(socks.length)
         }
         console.log(...socks, random, random2)
-        let sockTwo = socks[random2];
+        let sockTwo;
+        if (order) {
+            const sockToFind = socksInput[2 * order[orderCounter++]]
+            let skippedFirst = socks.filter(a => isSameSock(a, sockToFind)).length > 1 ? false : true;
+            sockTwo = socks.find(a => {
+                if (isSameSock(a, sockToFind)) {
+                    if (!skippedFirst) {
+                        skippedFirst = true;
+                        return false;
+                    }
+                    return true;
+                }
+
+            })
+        } else {
+            sockTwo = socks[random2]
+        }
         playBook.push({ type: 'appear', sock: sockTwo })
         console.log(sockOne, sockTwo)
         playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
         console.log(sockOne, sockTwo)
+
+        if (order) {
+            random = socks.indexOf(sockOne)
+            random2 = socks.indexOf(sockTwo)
+        }
+
         if (isSameSock(sockOne, sockTwo)) {
             playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockTwo })
             playBook.push({ type: 'moveAll', from: 'compare', to: 'sorted', socks: [sockOne, sockTwo] })
+
             socks.splice(random > random2 ? random : random2, 1)
             socks.splice(random > random2 ? random2 : random, 1)
+
 
             sockOne = null;
             random = null;

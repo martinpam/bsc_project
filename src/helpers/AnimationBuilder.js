@@ -38,8 +38,8 @@ export function getAnimations(playBook, counters, updates) {
 function addMoveAnimation(step, animations, counters, updates) {
     console.log(step)
     const sock = document.getElementById(step.sock.identifier)
-
-    const toElem = document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0];
+    console.log(sock)
+    let toElem = document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0];
     const fadeOut = sock.animate([{ opacity: 0 }], { duration: 500, fill: 'forwards' });
     const fadeIn = sock.animate([{ opacity: 1 }], { duration: 300, fill: 'forwards' });
     const fillerEnd = sock.animate([{}], { duration: 0 });
@@ -52,7 +52,10 @@ function addMoveAnimation(step, animations, counters, updates) {
     console.log(toElem, sock)
     fadeOut.onfinish = () => {
         const oldElement = sock.parentElement;
+        if (!toElem) toElem = document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0];
+        console.log(oldElement)
         document.getElementsByClassName(step.to)[step.toBoxIndex ? step.toBoxIndex : 0].appendChild(sock)
+        console.log('test', oldElement, toElem, document.getElementsByClassName(step.to), step.toBoxIndex, document.getElementsByClassName(step.to)[step.toBoxIndex])
         adjustWidth(oldElement, step.from, step.divideAndSweep, updates)
         fadeIn.play();
         if (step.to === 'sorted') {
@@ -61,7 +64,7 @@ function addMoveAnimation(step, animations, counters, updates) {
         if (step.to === 'sorted' && step.pairRight) {
             sock.style.marginRight = '-1.4rem';
         }
-
+        console.log('test')
         adjustWidth(toElem, step.to, step.divideAndSweep, updates)
         counters.moves++;
         if (step.to === 'start') sock.style.display = 'none'
@@ -233,6 +236,7 @@ function addMoveAllAnimation(step, animations, counters, updates) {
             let socktemp = document.getElementById(step.socks[u].identifier)
             const oldElement = socktemp.parentElement;
             toElem.appendChild(socktemp);
+            console.log('test')
             adjustWidth(oldElement, step.from, step.divideAndSweep, updates)
             fadeIns[u].play()
             console.log(step.to)
@@ -242,6 +246,7 @@ function addMoveAllAnimation(step, animations, counters, updates) {
             if (step.to === 'sorted' && u === (fadeOuts.length - 1)) {
                 socktemp.style.marginRight = '-1.4rem';
             }
+            console.log('test')
             adjustWidth(toElem, step.to, step.divideAndSweep, updates)
             counters.moves++;
         }
@@ -285,6 +290,7 @@ function addAppearAnimation(step, animations, appear) {
 
 
 function adjustWidth(element, clazz, divideAndSweep, updates) {
+    console.log('test', element, clazz, divideAndSweep, updates)
     if (clazz === 'compare-pattern' || clazz === 'compare-lineAmount' || clazz === 'compare-patternColor' || clazz === 'compare') {
         const sockAmount = element.children.length
         element.style.width = (divideAndSweep && sockAmount === 1) ? '90px' : sockAmount <= 2 ? '150px' : sockAmount <= 10 ? (10 + sockAmount * 70) + 'px' : '760px'

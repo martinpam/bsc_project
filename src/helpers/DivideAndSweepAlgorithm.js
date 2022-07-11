@@ -1,11 +1,21 @@
 import { isSameSock, areSameSocks } from "./helperFunctions.js"
 import { copySockArray } from "./helperFunctions.js"
-export default function runDivideAndSweepAlgo(socksInput) {
+export default function runDivideAndSweepAlgo(socksInput, order) {
+    console.log('testtest')
     const socks = copySockArray(socksInput)
     const playBook = [];
     const socksByColor = [];
+    const challengePulledSocks = new Array(socksInput.length / 2).fill(0)
     for (let i = 0; i < socks.length; i++) {
-        let sockOne = socks[i];
+        let sockOne;
+        if (!order) {
+            sockOne = socks[i];
+        } else {
+            const fittingSocks = socks.filter(s => isSameSock(s, socksInput[2 * order[i]]));
+            console.log(fittingSocks)
+            sockOne = fittingSocks[challengePulledSocks[order[i]]++]
+            console.log(sockOne)
+        }
         playBook.push({ type: 'appear', sock: sockOne })
         for (let u = 0; u < socksByColor.length; u++) {
             const sockTwo = socksByColor[u].socks[0];

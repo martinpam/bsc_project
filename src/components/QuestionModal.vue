@@ -1,6 +1,7 @@
 <template>
   <div v-if="!isAnswered" class="modal" >
       <h3 class="question">{{ question[store.language]}}</h3>
+      <slot></slot>
       <div class="choices">
           <div  class="modal-button" @click="submitAnswer(choice)" v-for="choice in choices" 
           :key="choice" style="display:float"> 
@@ -45,7 +46,7 @@ import {store} from "../store.js"
 import {  ref } from "vue";
 import  { t }  from "../helpers/helperFunctions.js";
 export default {
-    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions"],
+    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions" ],
     setup(props) {
         const answeredByUser = ref(null);
         const isAnswered = ref(false)
@@ -91,13 +92,14 @@ export default {
     .modal {
         width: 100%;
         background-color: lightyellow;
-        height: 125px;
+        
         margin: 0 auto;
         margin-top: 0.4rem;
         border-radius: 8px;
         justify-content: center;
         align-items: center;
         text-align: center;
+        padding-bottom: 20px;
     }
     .modal-button {
         width: 20%;
@@ -116,7 +118,7 @@ export default {
     .inner-text {
     text-decoration: none;
     color: white;
-    font-size: 23px; 
+    font-size: 20px; 
     position: relative;
     top: 30%;
     text-align: center;
@@ -140,6 +142,7 @@ export default {
         font-weight: 600;
         font-size: 1.6rem;
 
+
     }
     .result {
         margin-top: 0.4rem;
@@ -152,6 +155,7 @@ export default {
     .endMessage {
         margin-top: 0.4rem;
         font-size: 1.2rem;
+        min-height: 46px;
     }
 
     .correct {
@@ -165,7 +169,7 @@ export default {
        
         font-size: 1.5rem;
         color: #3f3f3f;
-        margin-top: 1.5rem;
+        margin-top: 0.2rem;
         padding-right: 1rem;
         font-weight: 700;
         cursor: pointer;

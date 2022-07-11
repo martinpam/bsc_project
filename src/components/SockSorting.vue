@@ -59,7 +59,7 @@
       
       <div class="box sorted"></div>
       <ButtonNavigation
-      v-show="(questionAnswered&&!gameStarted) || (questionAnswered&&!showContinue) || (questionAnswered&&showContinue&&modalClosed)  || !isStory"
+      v-show="!challenge || (!finished && playing && !showQuestionModal)"
       :storySegment="isStory"
       ref="buttonnavi"
       :playing="playing"
@@ -70,8 +70,28 @@
       @handleClickRestart="resetSimulation(true)"
       @handleClickContinueStory="$emit('handleClickContinueStory')"
       />
-      <QuestionModal :simulation="simulation" :showContinue="showContinue" :counters="counters" v-show="(!questionAnswered || showContinue )&&isStory&&!modalClosed" @closeModal="modalClosed=true" @answer="submitAnswer()"/>
-      
+      <QuestionModal v-if="challenge" v-show="finished || showQuestionModal"
+    :question="challenge.question"
+    :choices="challenge.choices"
+    :endMessage="challenge.endMessage"
+    :animationFinished="finished"
+    :correctAnswer="challenge.answer"
+    :updateQuestions="updateQuestions"
+    @retry="retryChallenge()"
+    @answer="questionAnswered()"
+    @continue="nextChallenge()"
+    
+    >
+     <div class="question-socks">
+       <Sock v-for="sock in orderedSocks"
+                          :key="sock" :color="sock.color"
+                          :lineAmount="sock.lineAmount"
+                          :pattern="sock.pattern"
+                          :patternColor="sock.patternColor"
+                          class="question-sock"
+                          />
+     </div>
+      </QuestionModal>
   </div>
 </template>
 
@@ -92,7 +112,7 @@ import QuestionModal from './QuestionModal.vue';
 
 export default {
     props: [
-    "socksProp", "algorithm", "trigger", "isStory", "simulation"
+    "socksProp", "algorithm", "trigger", "isStory", "simulation", "challenge"
   ],
   components: { Sock, ButtonNavigation, QuestionModal},
   setup(props) {
@@ -100,24 +120,36 @@ export default {
     console.log(props)
     const fillAndShuffleSocks = () =>{
         let socks = copySockArray(props.socksProp)
-      
+        console.log(socks)
       socks = socks.slice().map(s => {
         return s.type === 'single' ? s : [s, s]
         }).flat()
       for (let i = 0; i < socks.length; i++) {
         socks[i].type = 'single'
       }
-      socks = shuffle(socks) 
+      socks = props.challenge ? socks: shuffle(socks) 
       return socks;    
     } 
-
+    const getOrderedSocks = () => {
+      if (!props.challenge) return null;
+      const res = [];
+      for (let i = 0; i < props.challenge.sockOrder.length; i++) {
+        res.push(socks[2*props.challenge.sockOrder[i]])
+      }
+      return res;
+    
+    }
     let socks = fillAndShuffleSocks();
+    let orderedSocks = getOrderedSocks();
+    console.log(orderedSocks)
     const gameStarted = ref(false);
     const playing = ref(false);
     const finished = ref(false)
     const isStory = ref(props.isStory)
     const questionAnswered = ref(false)
+    const showQuestionModal = ref(true);
     const start = ref(null)
+    const updateQuestions = ref(false);
     const startNotEmpty = ref(null)
     const sortedOutNotEmpty = ref(null)
     const modalClosed = ref(false)
@@ -132,8 +164,9 @@ export default {
       patternColors: 0,
       lineAmounts: 0
     }]
-
-    return {socks,finished, start,updates, modalClosed, t,gameStarted,startNotEmpty,sortedOutNotEmpty,  playing, questionAnswered, fillAndShuffleSocks,  counters, animations, currentAnimations, algo3Classes, showContinue, isStory};
+    const order = props.challenge? props.challenge.sockOrder : null;
+    console.log(order)
+    return {socks,finished, orderedSocks, getOrderedSocks, updateQuestions,showQuestionModal, order, start,updates, modalClosed, t,gameStarted,startNotEmpty,sortedOutNotEmpty,  playing, questionAnswered, fillAndShuffleSocks,  counters, animations, currentAnimations, algo3Classes, showContinue, isStory};
   },
 
 
@@ -145,7 +178,13 @@ export default {
       console.log('sock prop changed')
         this.resetSimulation(true)
     },
-
+    challenge() {
+      this.resetSimulation();
+       if (this.challenge) {
+     this.startSimulation()
+     this.showQuestionModal = true;
+    }
+    },
     trigger() {
       this.resetSimulation(true)
     },
@@ -178,6 +217,21 @@ export default {
        this.currentAnimations.forEach((e,i) => e.play())
       }
     },
+     questionAnswered(){
+      this.playPause();
+      this.showQuestionModal = false;
+    },
+    retryChallenge(){
+      
+      this.resetSimulation()
+      this.startSimulation()
+      
+    },
+    nextChallenge() {
+      this.resetSimulation()
+      this.$router.push({path:'/socks/challenges/'+(parseInt(this.challenge.challengeId)+1)})
+      this.updateQuestions = !this.updateQuestions;
+    },
     startSimulation(full) {
         console.log('starting');
         this.resetSimulation(full);
@@ -185,7 +239,8 @@ export default {
         this.playing = true;
         console.log(this.algorithm)
         this.fillAnimations();
-        this.currentAnimations.push(this.animations[0].animation);
+        this.currentAnimations.push(this.animations[0].animation); 
+        console.log(this.currentAnimations, this.animations)
         console.log(this.start)
     },
     resetSimulation(full) {
@@ -227,11 +282,7 @@ export default {
         this.algo3Classes.patternColors = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors();
         this.algo3Classes.lineAmounts = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors()*this.getUniqueLineAmounts();
       }
-    },
-    submitAnswer(answer) {
-      this.questionAnswered = true;
-    },
-    
+    }, 
     getUniqueColors() {
       const allColors = this.socks.map(s => s.color)
       const uniqueSet = new Set(allColors);
@@ -257,23 +308,20 @@ export default {
         let playBook = [];
         switch (this.algorithm) {
             case 1:
-                playBook = runSimpleAlgo(this.socks)
+                playBook = runSimpleAlgo(this.socks, this.order)
                 break;
             case 2:
-                playBook = runSortOutAlgo(this.socks)
+                playBook = runSortOutAlgo(this.socks, this.order)
                 break;
             case 3:
-                playBook = runSortOutFixedAlgo(this.socks)
+                playBook = runSortOutFixedAlgo(this.socks, this.order)
                 break;
             case 4:
-                playBook = runSimpleDivideAndSweepAlgo(this.socks)
+                playBook = runSimpleDivideAndSweepAlgo(this.socks, this.order)
                 break;
             case 5:
-                playBook = runDivideAndSweepAlgo(this.socks)
-                break;
-            case 6:
-                playBook = runRandomAlgo(this.socks)
-                break;            
+                playBook = runDivideAndSweepAlgo(this.socks, this.order)
+                break;          
         }
         console.log(playBook);
         this.animations = getAnimations(playBook, this.counters, this.updates);
@@ -283,7 +331,7 @@ export default {
 
           if (this.animations[i].last) {
               this.animations[i].animation.onfinish = () => {
-                if (this.animations.length !== (i+1)) {
+                if (this.animations.length !== (i+1) ) {
                    this.animations[i+1].animation.play()
                 if (this.animations[i].select || this.animations[i].unselect) {
                   this.socks[this.animations[i].index].highlighted = this.animations[i].select;
@@ -291,12 +339,15 @@ export default {
                 } else {
                   if (this.isStory) {
                     this.showContinue = true;
-                    this.finished = true;
-                  }
+                    
+                  
+                  } 
+                  this.finished = true;
                 }
-               
+                 
               }
           }
+
         }
         this.animations[0].animation.play();
     }
@@ -308,6 +359,17 @@ export default {
         this.algo3Classes.patternColors = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors();
         this.algo3Classes.lineAmounts = this.getUniquePatterns()*this.getUniqueColors()*this.getUniquePatternColors()*this.getUniqueLineAmounts();
       }
+      if (this.challenge) {
+     
+     this.showQuestionModal = true;
+
+     const scrollContainer = document.querySelector(".question-socks");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+    });
+    }
   },
 }
 </script>
@@ -399,6 +461,22 @@ export default {
        margin: 0 auto;
     }
 
+    .question-socks {
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      margin-top: -0.8rem;
+      margin-bottom: 0.8rem;
+      overflow-x: hidden;
+
+    }
+
+
+
+    .question-sock {
+      margin-right: -2.5rem;
+      
+    }
   
 
 
