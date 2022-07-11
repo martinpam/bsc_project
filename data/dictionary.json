@@ -5,12 +5,12 @@
         "de": "wähle ein Modul"
     },
     "MODULE_SUPERMARKET": {
-        "en": "supermarket",
-        "de": "Supermarkt"
+        "en": "article search",
+        "de": "Artikelsuche"
     },
     "MODULE_SOCKS": {
-        "en": "socks",
-        "de": "Socken"
+        "en": "sock sorting",
+        "de": "Sockensortieren"
     },
     "SECTION_STORY": {
         "en": "story",
@@ -333,8 +333,8 @@
         "de": "Lerne gemeinsam mit dem Roboter Dev0 und Karin, der Bibliothekarin, worauf es bei Algorithmen ankommt"
     },
     "MODULE_SUPERMARKET_SUBTEXT": {
-        "en": "Learn about search algorithms, that are used in daily shopping",
-        "de": "Lerne Suchalgorithmen kennen, die beim täglichen Einkauf Verwendung finden"
+        "en": "Learn about search algorithms, that are used in daily grocery shopping",
+        "de": "Lerne Suchalgorithmen kennen, die beim täglichen Lebensmitteleinkauf Verwendung finden"
     },
     "MODULE_SOCKS_SUBTEXT": {
         "en": "Learn about sorting algorithms that make sorting socks fun",

@@ -2,5 +2,5 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
-    language: 'de'
+    language: 'en'
 })
