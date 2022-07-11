@@ -43,7 +43,10 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
+            <h3 v-if="isStory || (!isLaboratory && !challengeId)">
+              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === allSimulations[currentSimulation].algorithm).name }}
+            </h3>
+            <h3 v-else-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
               {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === challenge.algorithm).name }}
             </h3>
             <h3 v-else-if="!challengeId">{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
@@ -217,7 +220,6 @@
                 :pattern="sock.pattern"
                 :class="{'second-sock-custom' : currentChosenSockCollection ==='CUSTOM', 'second-sock':currentChosenSockCollection !=='CUSTOM' }"
               />
-               <div class="sock-minus"><img  @click="removeSock(sock)" v-if="sock.type==='double' && currentChosenSockCollection ==='CUSTOM'" src="../assets/icons/remove.png" class="sock-minus-icon"></div>
                
             </div>
             
@@ -313,6 +315,7 @@
               @nextChallenge="challengeId = (parseInt(challengeId)+1).toString()"
               :boughtItems="boughtItems"
               :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)"
+              :isLastChallenge="mdl[0].challenges.length ===parseInt(challengeId)"
             />
 
             <Supermarket
@@ -383,6 +386,7 @@
             :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)" 
             :isStory="isStory" @handleClickContinueStory="$emit('handleClickContinueStory')" 
             :simulation="allSimulations[currentSimulation]"  
+            :isLastChallenge="mdl[0].challenges.length === parseInt(challengeId)"
               :socksProp="socks" 
               :algorithm="challengeId? mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm : isStory ? allSimulations[currentSimulation].algorithm : currentChosenAlgorithm"
               />
@@ -418,11 +422,12 @@
           
                 <div class="outer-picker">
                   <h3>{{t('PATTERN')}}</h3>
-                  <div class="selection-box">
+                  <div class="selection-box selection-five">
                     <div @click="currentChosenSockPattern='None'" class="customizer-button"><p>None</p></div>
                     <div @click="currentChosenSockPattern='heart'" class="customizer-button pattern-icon"><p>&#10084;</p></div>
                     <div @click="currentChosenSockPattern='dots'" class="customizer-button pattern-icon"><p>&#11044;</p></div>
                     <div @click="currentChosenSockPattern='JKU'" class="customizer-button"><img id='jku-icon' src="../assets/icons/jku.png"/></div>
+                    <div @click="currentChosenSockPattern='TU'" class="customizer-button"><img id='tu-icon' src="../assets/icons/TU.png"/></div>
                   </div>
                   <h3>{{t('STRIPES')}}</h3>
                   <div class="selection-box">
@@ -469,8 +474,8 @@ export default {
     const showSockCustomizer = ref(false);
     const socksColorToChoose = ref('color');
     const challenge = ref(mdl.value[0].challenges[parseInt(props.challengeId)-1])
+    console.log(challenge)
     const currentChosenAlgorithm = ref(1);
-
     const currentChosenSockCollection = ref("SMALL");
     const currentChosenSupermarket = ref("SMALL");
     const currentChosenShoppingList = ref(["MILK", "APPLE", "BANANA", "SALAD"]);
@@ -497,6 +502,7 @@ export default {
       let res = [];
       let added = [];
       let i = 0;
+
       console.log(allShelfs,mdl.value[0].supermarketLayouts)
       allShelfs.forEach((element) => {
         if (added.indexOf(element.name) === -1) {
@@ -507,9 +513,11 @@ export default {
           res[added[added.indexOf(element.name) + 1]].items.push(
             ...element.items
           );
+          res[added[added.indexOf(element.name) + 1]].items = Array.from(new Set(res[added[added.indexOf(element.name) + 1]].items))
         }
       });
-      return res;
+     
+      return res
     };
     const allCategories = getAllCategories();
 
@@ -624,28 +632,10 @@ export default {
     };
     const removeSock = (sock) => {
       const index = customSocks.indexOf(sock);
-      if (sock.type === 'single') {
+
         customSocks.splice(index,1)
-      } else {
-        const anotherSock = customSocks.find(s => {
-          return (
-            s.color === sock.color &&
-            s.pattern === sock.pattern &&
-            s.patternColor === sock.patternColor &&
-            s.lineAmount === sock.lineAmount &&
-            s.type === 'single'
-          )
-        }
-       
-        );
-        if (anotherSock) {
-          anotherSock.type = 'double'
-          customSocks.splice(index,1)
-        } else {
-          customSocks[index].type = 'single'
-        }
-        
-      }
+      
+    
       trigger.value = !trigger.value
     }
     const currentCategories = getCurrentCategories();
@@ -697,6 +687,8 @@ export default {
       this.currentChosenSockCollection = this.allSimulations[this.currentSimulation].collection
       this.currentChosenAlgorithm = this.allSimulations[this.currentSimulation].algorithm
       this.socks = this.getSocks();
+      
+
 
     },
     currentChosenShoppingList() {
@@ -709,6 +701,10 @@ export default {
     customSocks() {
       this.trigger= !this.trigger
     },
+    challengeId(newV, oldV) {
+      console.log(newV,oldV)
+      this.challenge = this.mdl[0].challenges[parseInt(newV)-1]
+    }
   
   },
 };
@@ -767,10 +763,15 @@ export default {
   border-radius: 12px;
 }
 
-#jku-icon {
+#jku-icon  {
   width: 30px;
   margin-top: 15px;
   filter: invert(99%) sepia(0%) saturate(4380%) hue-rotate(89deg) brightness(127%) contrast(98%);
+}
+#tu-icon {
+  width: 30px;
+  padding-top: 5px;
+ 
 }
 .item {
   display: flex;
@@ -1139,7 +1140,11 @@ h3 {
   justify-content: space-between;
   width: 180px;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
+}
+.selection-five {
+  width: 225px;
 }
 
 .second-sock-custom {

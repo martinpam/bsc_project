@@ -319,6 +319,26 @@
     "CHALLENGE": {
         "en": "challenge",
         "de": "Challenge"
+    },
+    "CHALLENGES_SUBTEXT": {
+        "en": "Solve various challenges with increasing complexity",
+        "de": "Löse unterschiedliche Challenges mit steigender Komplexität"
+    },
+    "LAB_SUBTEXT": {
+        "en": "Create your own test environment and have fun analyzing algorithms",
+        "de": "Erstelle deine eigene Testumgebung und habe Spaß beim Algorithmen Testen"
+    },
+    "STORY_SUBTEXT": {
+        "en": "Learn what algorithms are all about, by accompaning Karin and Dev0, the robot on their journey",
+        "de": "Lerne gemeinsam mit dem Roboter Dev0 und Karin, der Bibliothekarin, worauf es bei Algorithmen ankommt"
+    },
+    "MODULE_SUPERMARKET_SUBTEXT": {
+        "en": "Learn about search algorithms, that are used in daily shopping",
+        "de": "Lerne Suchalgorithmen kennen, die beim täglichen Einkauf Verwendung finden"
+    },
+    "MODULE_SOCKS_SUBTEXT": {
+        "en": "Learn about sorting algorithms that make sorting socks fun",
+        "de": "Lerne Sortieralgorithmen kennen, mit denen das Sockensortieren zum Vergnügen wird"
     }
 
 

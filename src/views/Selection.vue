@@ -10,15 +10,15 @@
                 </div>
             
             <h2 v-if="type=='chapters'"> {{t('CHAPTER_SELECTION')}} </h2><h2 v-else> {{t('CHALLENGE_SELECTION')}} </h2>
-                <div v-if="type==='chapters'"  class="button-group"
+                <div v-if="type==='chapters'"  class="button-group-selection"
                 :class="{'less-than-three': mdl[0].chapters.length < 3}"
                 >
-                        <ModuleButton  v-for="ch in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
+                        <BasicButton class='basic-button' v-for="ch in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
                 </div>
-                <div v-else-if="type==='challenges'"  class="button-group"
+                <div v-else-if="type==='challenges'"  class="button-group-selection"
                 :class="{'less-than-three': mdl[0].chapters.length < 3}"
                 >
-                        <ModuleButton  v-for="ch in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
+                        <BasicButton class='basic-button' v-for="ch in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
                 </div>
                 <div class="filler"></div>
         </div>
@@ -28,14 +28,14 @@
 
 <script>
 import { computed } from '@vue/runtime-core'
-import ModuleButton from '../components/ModuleButton.vue'
+import BasicButton from '../components/BasicButton.vue'
 import getModule from '../composables/getModule.js'
 import {t} from '../helpers/helperFunctions.js'
 import { store } from '../store.js'
 
 export default {
     props: ['moduleName','type'],
-    components: { ModuleButton },
+    components: { BasicButton },
     setup(props) {
         console.log(props)
         const moduleName = props.moduleName
@@ -72,6 +72,16 @@ export default {
     .header-text {
        position: relative ;
        margin: 0 auto;
+    }
+
+    .button-group-selection {
+         display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
+        gap: 30px;
+        align-content: center;
+        width: 100%;
+        max-width: 1100px;
+        margin: 50px auto;  
     }
 </style>
 

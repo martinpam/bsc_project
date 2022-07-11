@@ -1869,10 +1869,10 @@
                     "name": "LARGE",
                     "socks": [
 
+                        { "color": "purple", "lineAmount": 3, "pattern": "None", "patternColor": "purple", "type": "double" },
+                        { "color": "green", "lineAmount": 3, "pattern": "None", "patternColor": "green", "type": "double" },
                         { "color": "purple", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
                         { "color": "green", "lineAmount": 3, "pattern": "heart", "patternColor": "green", "type": "double" },
-                        { "color": "purple", "lineAmount": 3, "pattern": "JKU", "patternColor": "purple", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "JKU", "patternColor": "green", "type": "double" },
                         { "color": "purple", "lineAmount": 3, "pattern": "dots", "patternColor": "purple", "type": "double" },
                         { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "green", "type": "double" }
 
@@ -1884,32 +1884,32 @@
 
                         { "color": "magenta", "lineAmount": 2, "pattern": "heart", "patternColor": "magenta", "type": "double" },
                         { "color": "blue", "patternColor": "magenta", "lineAmount": 1, "pattern": "dots", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "green", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "dots", "patternColor": "green", "type": "double" },
-                        { "color": "orange", "lineAmount": 3, "pattern": "JKU", "patternColor": "red", "type": "double" },
+                        { "color": "blue", "lineAmount": 1, "pattern": "TU", "patternColor": "#006699", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "#006699", "type": "double" },
+                        { "color": "orange", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" },
                         { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "red", "type": "double" },
                         { "color": "darkgrey", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 3, "pattern": "JKU", "patternColor": "red", "type": "double" }
+                        { "color": "darkgrey", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" }
                     ]
                 },
                 {
                     "name": "CUSTOM",
                     "socks": [
-                        { "color": "lime", "lineAmount": 2, "pattern": "JKU", "patternColor": "navy", "type": "double" },
+                        { "color": "lime", "lineAmount": 2, "pattern": "JKU", "patternColor": "black", "type": "double" },
                         { "color": "maroon", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" },
-                        { "color": "navy", "lineAmount": 0, "pattern": "dots", "patternColor": "red", "type": "double" }
+                        { "color": "navy", "lineAmount": 0, "pattern": "TU", "patternColor": "#006699", "type": "double" }
                     ]
                 }
             ],
             "colors": [
-                "black", "#343434", "darkgrey", "orange", "#E30B5C", "red", "maroon", "yellow", "#FFBF00", "olive", "lime", "green", "aqua", "#89CFF0", "teal", "blue", "navy", "fuchsia", "#AA336A", "purple"
+                "black", "#343434", "darkgrey", "orange", "#E30B5C", "red", "maroon", "yellow", "#FFBF00", "olive", "lime", "green", "aqua", "#006699", "teal", "blue", "navy", "fuchsia", "#AA336A", "purple"
             ],
             "challenges": [{
                     "challengeId": "1",
                     "name": { "en": "first steps", "de": "Erste Schritte" },
                     "algorithm": 1,
                     "socks": [
-                        { "color": "lime", "lineAmount": 2, "pattern": "JKU", "patternColor": "navy", "type": "double" },
+                        { "color": "lime", "lineAmount": 2, "pattern": "dots", "patternColor": "navy", "type": "double" },
                         { "color": "maroon", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" }
                     ],
                     "sockOrder": [0, 1, 0, 1, 1],
@@ -1965,10 +1965,10 @@
                     "name": { "en": "another basket 1", "de": "Noch ein Korb 1" },
                     "algorithm": 2,
                     "socks": [
-                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "darkgrey", "type": "double" },
+                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "teal", "type": "double" },
                         { "color": "fuchsia", "lineAmount": 2, "pattern": "heart", "patternColor": "red", "type": "double" },
                         { "color": "orange", "lineAmount": 1, "pattern": "dots", "patternColor": "blue", "type": "double" },
-                        { "color": "black", "lineAmount": 0, "pattern": "None", "patternColor": "blue", "type": "double" }
+                        { "color": "black", "lineAmount": 0, "pattern": "TU", "patternColor": "black", "type": "double" }
                     ],
                     "sockOrder": [0, 1, 2, 3, 0, 1, 2, 3],
                     "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
@@ -1995,10 +1995,10 @@
                     "name": { "en": "another basket 2", "de": "Noch ein Korb 2" },
                     "algorithm": 2,
                     "socks": [
-                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "darkgrey", "type": "double" },
+                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" },
                         { "color": "fuchsia", "lineAmount": 2, "pattern": "heart", "patternColor": "red", "type": "double" },
                         { "color": "orange", "lineAmount": 1, "pattern": "dots", "patternColor": "blue", "type": "double" },
-                        { "color": "black", "lineAmount": 0, "pattern": "None", "patternColor": "blue", "type": "double" }
+                        { "color": "black", "lineAmount": 0, "pattern": "TU", "patternColor": "#006699", "type": "double" }
                     ],
                     "sockOrder": [0, 0, 3, 1, 2, 2, 1, 3],
                     "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
@@ -2056,7 +2056,7 @@
                     "algorithm": 3,
                     "socks": [
                         { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "green", "type": "double" },
-                        { "color": "purple", "lineAmount": 3, "pattern": "None", "patternColor": "purple", "type": "double" },
+                        { "color": "purple", "lineAmount": 3, "pattern": "TU", "patternColor": "purple", "type": "double" },
                         { "color": "brown", "lineAmount": 1, "pattern": "dots", "patternColor": "brown", "type": "double" },
                         { "color": "orange", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" }
 
@@ -2117,12 +2117,12 @@
                     "name": { "en": "more dividing", "de": "teile mehr" },
                     "algorithm": 4,
                     "socks": [
-                        { "color": "darkgrey", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "fuchsia", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "black", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" }
+                        { "color": "darkgrey", "lineAmount": 1, "pattern": "JKU", "patternColor": "darkgrey", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "green", "type": "double" },
+                        { "color": "fuchsia", "lineAmount": 1, "pattern": "JKU", "patternColor": "fuchsia", "type": "double" },
+                        { "color": "black", "lineAmount": 1, "pattern": "TU", "patternColor": "black", "type": "double" },
+                        { "color": "orange", "lineAmount": 1, "pattern": "JKU", "patternColor": "orange", "type": "double" },
+                        { "color": "blue", "lineAmount": 1, "pattern": "TU", "patternColor": "blue", "type": "double" }
 
                     ],
                     "sockOrder": [0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 0],
@@ -2183,8 +2183,8 @@
                     "name": { "en": "categories 2", "de": "Kategorien 2" },
                     "algorithm": 5,
                     "socks": [
-                        { "color": "green", "lineAmount": 1, "pattern": "JKU", "patternColor": "red", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "red", "type": "double" },
+                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "black", "type": "double" },
                         { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "red", "type": "double" },
                         { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "black", "type": "double" },
                         { "color": "red", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },

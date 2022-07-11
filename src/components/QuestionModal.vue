@@ -32,8 +32,8 @@
          <div class="action-outer">
             <div class="filler"></div>
                 <div class="action">
-                        <div  @click="$emit('continue')" v-if="correct">{{t('CONTINUE')}}</div>
-                        <div @click="retry()" v-else>{{t('RETRY')}}</div>
+                        <div  @click="$emit('continue')" v-if="correct && !isLastChallenge">{{t('CONTINUE')}}</div>
+                        <div @click="retry()" v-else-if="!correct">{{t('RETRY')}}</div>
                       </div>
             </div>
 
@@ -46,7 +46,7 @@ import {store} from "../store.js"
 import {  ref } from "vue";
 import  { t }  from "../helpers/helperFunctions.js";
 export default {
-    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions" ],
+    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions", "isLastChallenge" ],
     setup(props) {
         const answeredByUser = ref(null);
         const isAnswered = ref(false)

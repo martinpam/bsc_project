@@ -11,10 +11,32 @@
                 </div>
             
             <h2> {{t('SECTION_CHOOSE')}} </h2>
-                <div  class="button-group" >
-                    <ModuleButton :name="t('SECTION_STORY')" :goTo="'/'+moduleName+'/chapters/'"/>
-                    <ModuleButton :name="t('SECTION_CHALLENGES')" :goTo="'/'+moduleName+'/challenges/'"/>
-                    <ModuleButton :name="t('SECTION_LABORATORY')" :goTo="'/'+moduleName+'/laboratory/'"/>
+                <div  class="button-group module" >
+                    <ModuleButton 
+                        :name="t('SECTION_STORY')" 
+                        :goTo="'/'+moduleName+'/chapters/'"
+                        :subText="t('STORY_SUBTEXT')" 
+                    >
+                    <img class="module-icon" src="../assets/icons/dialog.png" alt="" srcset=""> 
+                    </ModuleButton>
+              
+                        
+                    <ModuleButton 
+                        :name="t('SECTION_CHALLENGES')" 
+                        :goTo="'/'+moduleName+'/challenges/'"
+                        :subText="t('CHALLENGES_SUBTEXT')" 
+                    >
+                     <img class="module-icon" src="../assets/icons/challenge.png" alt="" srcset=""> 
+                    </ModuleButton>
+                    
+                    <ModuleButton 
+                        :name="t('SECTION_LABORATORY')" 
+                        :goTo="'/'+moduleName+'/laboratory/'"
+                        :subText="t('LAB_SUBTEXT')" 
+                    >
+                    <img  class="module-icon" src="../assets/icons/lab.png" alt="" srcset=""> 
+                    </ModuleButton>
+
                 </div>
                 <div class="filler"></div>
         </div>
@@ -53,6 +75,7 @@ export default {
     .linebreak {
         width: 100%;
     }
+   
 
     .header {
         display: flex;
@@ -64,6 +87,7 @@ export default {
        
         left: 0.5rem;
     }
+    
 
     .header-text {
        position: relative ;
