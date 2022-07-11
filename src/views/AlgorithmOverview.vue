@@ -57,7 +57,7 @@
           </div>
           <CodeBox
             v-if="!isLaboratory&&!challengeId"
-            class="code"
+            class="code-box"
             :algorithm="
               mdl[0].algorithms[allSimulations[currentSimulation].algorithm - 1]
                 .lines
@@ -65,14 +65,14 @@
           />
           <CodeBox
             v-else-if="challengeId"
-            class="code"
+            class="code-box"
             :algorithm="
               mdl[0].algorithms[mdl[0].challenges[parseInt(challengeId)-1].algorithm-1].lines
             "
           />
           <CodeBox
             v-else
-            class="code"
+            class="code-box"
             :algorithm="mdl[0].algorithms[currentChosenAlgorithm - 1].lines"
           />
         </div>
@@ -734,7 +734,7 @@ export default {
   display: flex;
 }
 
-.code {
+.code-box {
   width: 655px;
 
 }
@@ -816,7 +816,7 @@ export default {
   .shopping-outer {
     padding-top: 5.2rem;
   }
-  .code {
+  .code-box {
     width: 500px;
   }
   
@@ -829,7 +829,7 @@ export default {
   .shopping-outer {
     padding-top: 5.4rem;
   }
-  .code {
+  .code-box {
     width: 400px;
   }
   
