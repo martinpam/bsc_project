@@ -151,7 +151,7 @@ export default {
   width: 100%;
 }
 
-.code-box {
+.code {
   width: 70%;
 }
 
