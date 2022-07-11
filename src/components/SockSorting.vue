@@ -77,6 +77,7 @@
     :animationFinished="finished"
     :correctAnswer="challenge.answer"
     :updateQuestions="updateQuestions"
+    :isLastChallenge="isLastChallenge"
     @retry="retryChallenge()"
     @answer="questionAnswered()"
     @continue="nextChallenge()"
@@ -112,7 +113,7 @@ import QuestionModal from './QuestionModal.vue';
 
 export default {
     props: [
-    "socksProp", "algorithm", "trigger", "isStory", "simulation", "challenge"
+    "socksProp", "algorithm", "trigger", "isStory", "simulation", "challenge", "isLastChallenge"
   ],
   components: { Sock, ButtonNavigation, QuestionModal},
   setup(props) {
