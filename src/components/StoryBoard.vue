@@ -76,6 +76,7 @@ import CodeBox from "../components/CodeBox.vue";
 import AlgorithmOverview from "../views/AlgorithmOverview.vue";
 import router from "../router/index.js"
 import {store} from '../store.js'
+import {setCookie, getCookie} from '../helpers/helperFunctions.js'
 export default {
   props: ["moduleName", "chapterId"],
   name: "StoryBoard",
@@ -97,7 +98,8 @@ export default {
         console.log('going to next chapter')
         chapterId.value++
         router.push('/'+mdl.value[0].link+'/chapters/' + chapterId.value)
-        
+        setCookie(props.moduleName === 'supermarket'? 'supermarket-story' : 'socks-story',(chapterId.value-1))
+        console.log(getCookie(props.moduleName === 'supermarket'? 'supermarket-story' : 'socks-story'))
        
       }
     };

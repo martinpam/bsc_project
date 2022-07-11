@@ -130,7 +130,7 @@
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import QuestionModal from "../components/QuestionModal.vue";
-import {t} from '../helpers/helperFunctions.js'
+import {t, setCookie} from '../helpers/helperFunctions.js'
 
 import { onMounted } from "@vue/runtime-core";
 export default {
@@ -330,6 +330,7 @@ export default {
     },
     nextChallenge() {
       this.resetSimulation()
+      setCookie('supermarket-challenges', this.challenge.challengeId)
       this.$router.push({path:'/supermarket/challenges/'+(parseInt(this.challenge.challengeId)+1)})
       this.updateQuestions = !this.updateQuestions;
     },

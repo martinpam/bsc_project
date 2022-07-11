@@ -28,13 +28,34 @@
 
 import ModuleButton from '../components/ModuleButton.vue'
 import getModules from '../composables/getModules.js'
-import {t} from '../helpers/helperFunctions.js'
+import {t, getCookie, setCookie} from '../helpers/helperFunctions.js'
 export default {
     name: 'Home',
     components : { ModuleButton },
     setup() {
         const { modules, error, load } = getModules()
         load()
+        
+        const dev = true;
+
+
+        if (dev) {
+            setCookie('supermarket-story',4);
+            setCookie('socks-story',2);
+            setCookie('supermarket-challenges',11);
+            setCookie('socks-challenges',9);
+        } else if (getCookie('supermarket-story') === "") {
+            setCookie('supermarket-story',0);
+            setCookie('socks-story',0);
+            setCookie('supermarket-challenges',0);
+            setCookie('socks-challenges',0);
+        }
+        let supermarketStoryProgress = getCookie('supermarket-story');
+        let supermarketChallengesProgress = getCookie('supermarket-challenges');
+        let socksStoryProgress = getCookie('socks-story');
+        let socksChallengesProgress = getCookie('socks-challenges');
+
+        console.log(supermarketStoryProgress,supermarketChallengesProgress, socksStoryProgress,socksChallengesProgress)
         return {modules, error, t}
     }
 }

@@ -1,15 +1,20 @@
 <template>
-      <router-link  class="container" :to=goTo> 
+      <router-link v-if="!disabled" :disabled="disabled" class="container" :to="goTo"> 
      
         <div class="inner-text">{{ name }}</div> 
-       
+        <img class="finished" v-if="finished" src="../assets/icons/check-mark.png"/>
       </router-link>
+      <div v-else class="container disabled"> 
+     
+        <div class="inner-text">{{ name }} </div> 
+        
+      </div>
       
 </template>
 
 <script>
 export default {
-  props: ['name', 'goTo'],
+  props: ['name', 'goTo', 'disabled', "finished"],
   name: "BasicButton",
 };
 </script>
@@ -34,5 +39,17 @@ export default {
     margin: 0 auto;
     text-decoration: none;
     cursor:pointer;
+  }
+
+  .disabled {
+    cursor: default;
+    background: #626161c1;
+  }
+
+  .finished {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    width: 50px;
   }
 </style>

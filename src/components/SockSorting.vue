@@ -99,7 +99,7 @@
 <script>
 import Sock from "../components/Sock.vue";
 import  { shuffle }  from "../helpers/helperFunctions.js";
-import  { copySockArray, t }  from "../helpers/helperFunctions.js";
+import  { copySockArray, t, setCookie }  from "../helpers/helperFunctions.js";
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import runSimpleAlgo from "../helpers/SimpleAlgorithm.js";
@@ -182,7 +182,6 @@ export default {
     challenge() {
       this.resetSimulation();
        if (this.challenge) {
-     this.startSimulation()
      this.showQuestionModal = true;
     }
     },
@@ -230,6 +229,7 @@ export default {
     },
     nextChallenge() {
       this.resetSimulation()
+      setCookie('socks-challenges', this.challenge.challengeId)
       this.$router.push({path:'/socks/challenges/'+(parseInt(this.challenge.challengeId)+1)})
       this.updateQuestions = !this.updateQuestions;
     },
@@ -247,6 +247,7 @@ export default {
     resetSimulation(full) {
       console.log(this.socksProp)
       this.showContinue = false;
+      
       this.finished = false;
         const copy = copySockArray(this.socksProp)
         this.$refs.buttonnavi.updatePlay(copy.find(s => s.type === 'single') !== undefined && this.algorithm===4)

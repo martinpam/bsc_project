@@ -13,12 +13,12 @@
                 <div v-if="type==='chapters'"  class="button-group-selection"
                 :class="{'less-than-four': true}"
                 >
-                        <BasicButton class='basic-button' v-for="ch in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
+                        <BasicButton :finished="index < getProgress('chapter')" :disabled=" index > getProgress('chapter')"  class='basic-button' v-for="(ch,index) in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
                 </div>
                 <div v-else-if="type==='challenges'"  class="button-group-selection"
                 :class="{'less-than-four': mdl[0].challenges.length < 4}"
                 >
-                        <BasicButton class='basic-button' v-for="ch in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
+                        <BasicButton :finished="index < getProgress('challenges')" :disabled=" index > getProgress('challenges')" class='basic-button' v-for="(ch,index) in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
                 </div>
                 <div class="filler"></div>
         </div>
@@ -30,7 +30,7 @@
 import { computed } from '@vue/runtime-core'
 import BasicButton from '../components/BasicButton.vue'
 import getModule from '../composables/getModule.js'
-import {t} from '../helpers/helperFunctions.js'
+import {t,getCookie} from '../helpers/helperFunctions.js'
 import { store } from '../store.js'
 
 export default {
@@ -46,6 +46,18 @@ export default {
             return text +''+ index
         })
         return {mdl, error, append, t, store}
+    },
+    methods: {
+        getProgress(type) {
+            let res;
+            if (type === 'challenges') {
+                res =  getCookie(this.moduleName === 'supermarket' ? 'supermarket-challenges' : 'socks-challenges');
+            } else {
+                res =  getCookie(this.moduleName === 'supermarket' ? 'supermarket-story' : 'socks-story');
+            }
+            console.log(res)
+            return res
+        }
     }
 }
 </script>
@@ -56,6 +68,9 @@ export default {
     }
     .linebreak {
         width: 100%;
+    }
+    .inactive {
+        
     }
 
     .header {
