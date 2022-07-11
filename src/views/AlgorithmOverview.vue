@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav-outer">
-      <router-link class="container" :to="'/' + mdl[0].link">
+      <router-link class="container" :to="'/' + mdl[0].link + (challengeId?'/challenges':'')">
         <img
           src="../assets/icons/arrow-left-long-solid.svg"
           class="navigation-button smaller"

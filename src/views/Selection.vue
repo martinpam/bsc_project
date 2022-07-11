@@ -3,7 +3,7 @@
         
         <div v-if="mdl">
             <div class="header">
-               <img @click="$router.go(-1)" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> 
+               <img @click="$router.push({path:'/' + mdl[0].link})" src="../assets/icons/arrow-left-long-solid.svg" class="navigation-button smaller"/> 
                 <div class="header-text">
                     <h1>{{t(mdl[0].name)}}</h1>
                 </div>
@@ -11,12 +11,12 @@
             
             <h2 v-if="type=='chapters'"> {{t('CHAPTER_SELECTION')}} </h2><h2 v-else> {{t('CHALLENGE_SELECTION')}} </h2>
                 <div v-if="type==='chapters'"  class="button-group-selection"
-                :class="{'less-than-three': mdl[0].chapters.length < 3}"
+                :class="{'less-than-four': true}"
                 >
                         <BasicButton class='basic-button' v-for="ch in mdl[0].chapters" :key="ch" :name="t('CHAPTER') +' ' + ch.chapterId" :goTo="'/'+moduleName+'/chapters/'+ch.chapterId"/>
                 </div>
                 <div v-else-if="type==='challenges'"  class="button-group-selection"
-                :class="{'less-than-three': mdl[0].chapters.length < 3}"
+                :class="{'less-than-four': mdl[0].challenges.length < 4}"
                 >
                         <BasicButton class='basic-button' v-for="ch in mdl[0].challenges" :key="ch" :name="ch.name[store.language]" :goTo="'/'+moduleName+'/challenges/'+ch.challengeId"/>
                 </div>
@@ -82,6 +82,10 @@ export default {
         width: 100%;
         max-width: 1100px;
         margin: 50px auto;  
+    }
+
+    .less-than-four {
+        max-width: 850px;
     }
 </style>
 
