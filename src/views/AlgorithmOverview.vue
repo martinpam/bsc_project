@@ -220,7 +220,6 @@
                 :pattern="sock.pattern"
                 :class="{'second-sock-custom' : currentChosenSockCollection ==='CUSTOM', 'second-sock':currentChosenSockCollection !=='CUSTOM' }"
               />
-               <div class="sock-minus"><img  @click="removeSock(sock)" v-if="sock.type==='double' && currentChosenSockCollection ==='CUSTOM'" src="../assets/icons/remove.png" class="sock-minus-icon"></div>
                
             </div>
             
@@ -316,6 +315,7 @@
               @nextChallenge="challengeId = (parseInt(challengeId)+1).toString()"
               :boughtItems="boughtItems"
               :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)"
+              :isLastChallenge="mdl[0].challenges.length ===parseInt(challengeId)"
             />
 
             <Supermarket
@@ -386,6 +386,7 @@
             :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)" 
             :isStory="isStory" @handleClickContinueStory="$emit('handleClickContinueStory')" 
             :simulation="allSimulations[currentSimulation]"  
+            :isLastChallenge="mdl[0].challenges.length === parseInt(challengeId)"
               :socksProp="socks" 
               :algorithm="challengeId? mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm : isStory ? allSimulations[currentSimulation].algorithm : currentChosenAlgorithm"
               />
@@ -472,8 +473,8 @@ export default {
     const showSockCustomizer = ref(false);
     const socksColorToChoose = ref('color');
     const challenge = ref(mdl.value[0].challenges[parseInt(props.challengeId)-1])
+    console.log(challenge)
     const currentChosenAlgorithm = ref(1);
-
     const currentChosenSockCollection = ref("SMALL");
     const currentChosenSupermarket = ref("SMALL");
     const currentChosenShoppingList = ref(["MILK", "APPLE", "BANANA", "SALAD"]);
@@ -500,6 +501,7 @@ export default {
       let res = [];
       let added = [];
       let i = 0;
+
       console.log(allShelfs,mdl.value[0].supermarketLayouts)
       allShelfs.forEach((element) => {
         if (added.indexOf(element.name) === -1) {
@@ -510,9 +512,11 @@ export default {
           res[added[added.indexOf(element.name) + 1]].items.push(
             ...element.items
           );
+          res[added[added.indexOf(element.name) + 1]].items = Array.from(new Set(res[added[added.indexOf(element.name) + 1]].items))
         }
       });
-      return res;
+     
+      return res
     };
     const allCategories = getAllCategories();
 
@@ -627,28 +631,10 @@ export default {
     };
     const removeSock = (sock) => {
       const index = customSocks.indexOf(sock);
-      if (sock.type === 'single') {
+
         customSocks.splice(index,1)
-      } else {
-        const anotherSock = customSocks.find(s => {
-          return (
-            s.color === sock.color &&
-            s.pattern === sock.pattern &&
-            s.patternColor === sock.patternColor &&
-            s.lineAmount === sock.lineAmount &&
-            s.type === 'single'
-          )
-        }
-       
-        );
-        if (anotherSock) {
-          anotherSock.type = 'double'
-          customSocks.splice(index,1)
-        } else {
-          customSocks[index].type = 'single'
-        }
-        
-      }
+      
+    
       trigger.value = !trigger.value
     }
     const currentCategories = getCurrentCategories();
@@ -700,6 +686,8 @@ export default {
       this.currentChosenSockCollection = this.allSimulations[this.currentSimulation].collection
       this.currentChosenAlgorithm = this.allSimulations[this.currentSimulation].algorithm
       this.socks = this.getSocks();
+      
+
 
     },
     currentChosenShoppingList() {
@@ -712,6 +700,10 @@ export default {
     customSocks() {
       this.trigger= !this.trigger
     },
+    challengeId(newV, oldV) {
+      console.log(newV,oldV)
+      this.challenge = this.mdl[0].challenges[parseInt(newV)-1]
+    }
   
   },
 };

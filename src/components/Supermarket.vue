@@ -117,6 +117,7 @@
     :animationFinished="finished"
     :correctAnswer="challenge.answer"
     :updateQuestions="updateQuestions"
+    :isLastChallenge="isLastChallenge"
     @retry="retryChallenge()"
     @answer="questionAnswered()"
     @continue="nextChallenge()"
@@ -141,7 +142,8 @@ export default {
     "allShelfs",
     "isStory",
     "boughtItems",
-    "challenge"
+    "challenge",
+    "isLastChallenge"
   ],
   components: { ButtonNavigation, QuestionModal },
   setup(props) {
