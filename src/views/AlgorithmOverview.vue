@@ -422,11 +422,12 @@
           
                 <div class="outer-picker">
                   <h3>{{t('PATTERN')}}</h3>
-                  <div class="selection-box">
+                  <div class="selection-box selection-five">
                     <div @click="currentChosenSockPattern='None'" class="customizer-button"><p>None</p></div>
                     <div @click="currentChosenSockPattern='heart'" class="customizer-button pattern-icon"><p>&#10084;</p></div>
                     <div @click="currentChosenSockPattern='dots'" class="customizer-button pattern-icon"><p>&#11044;</p></div>
                     <div @click="currentChosenSockPattern='JKU'" class="customizer-button"><img id='jku-icon' src="../assets/icons/jku.png"/></div>
+                    <div @click="currentChosenSockPattern='TU'" class="customizer-button"><img id='tu-icon' src="../assets/icons/TU.png"/></div>
                   </div>
                   <h3>{{t('STRIPES')}}</h3>
                   <div class="selection-box">
@@ -762,10 +763,15 @@ export default {
   border-radius: 12px;
 }
 
-#jku-icon {
+#jku-icon  {
   width: 30px;
   margin-top: 15px;
   filter: invert(99%) sepia(0%) saturate(4380%) hue-rotate(89deg) brightness(127%) contrast(98%);
+}
+#tu-icon {
+  width: 30px;
+  padding-top: 5px;
+ 
 }
 .item {
   display: flex;
@@ -1134,7 +1140,11 @@ h3 {
   justify-content: space-between;
   width: 180px;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
+}
+.selection-five {
+  width: 225px;
 }
 
 .second-sock-custom {
