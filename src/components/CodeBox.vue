@@ -28,6 +28,9 @@ export default {
 
 <style>
 
+.filler {
+  
+}
 
 .line-number {
     text-align: right;
