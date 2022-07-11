@@ -43,7 +43,10 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
+            <h3 v-if="isStory || (!isLaboratory && !challengeId)">
+              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === allSimulations[currentSimulation].algorithm).name }}
+            </h3>
+            <h3 v-else-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
               {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === challenge.algorithm).name }}
             </h3>
             <h3 v-else-if="!challengeId">{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
