@@ -27,30 +27,13 @@ export default {
 </script>
 
 <style>
-.code-box{
-  background-color: #0e0e0e;
-  margin-bottom: 0;
-  margin-left: 0;
-  border-radius: 12px;
-  overflow: scroll;
-  margin-right: 0;
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.code-box::-webkit-scrollbar {
-  display: none;
-}
 
 .line-number {
     text-align: right;
     margin-right: 1rem;
     min-width: 2rem;
 }
-
-
 
 .code-line {
     display: flex;
