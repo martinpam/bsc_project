@@ -1,5 +1,5 @@
 <template>
-  <div class="code-box">
+  <div class="code-bg">
     <div
       v-for="(line, index) in algorithm"
       :key="line"
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style>
-.code-box {
+.code-bg{
   background-color: #0e0e0e;
   margin-bottom: 0;
   margin-left: 0;
