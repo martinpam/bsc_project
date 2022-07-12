@@ -78,6 +78,7 @@
     :correctAnswer="challenge.answer"
     :updateQuestions="updateQuestions"
     :isLastChallenge="isLastChallenge"
+    :isSmaller="true"
     @retry="retryChallenge()"
     @answer="questionAnswered()"
     @continue="nextChallenge()"

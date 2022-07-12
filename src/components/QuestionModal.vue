@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isAnswered" class="modal" >
+  <div v-if="!isAnswered" class="modal" :class="{'smaller-modal': isSmaller}" >
       <h3 class="question">{{ question[store.language]}}</h3>
       <slot></slot>
       <div class="choices">
@@ -10,7 +10,7 @@
         </div>
       </div>
   </div>
-  <div v-else class="modal">
+  <div v-else class="modal" :class="{'smaller-modal': isSmaller}">
       
        
             <div class="result-outer">
@@ -46,7 +46,7 @@ import {store} from "../store.js"
 import {  ref } from "vue";
 import  { t }  from "../helpers/helperFunctions.js";
 export default {
-    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions", "isLastChallenge" ],
+    props: ["question", "choices", "endMessage","counters","animationFinished", "correctAnswer", "updateQuestions", "isLastChallenge", "isSmaller" ],
     setup(props) {
         const answeredByUser = ref(null);
         const isAnswered = ref(false)
@@ -88,9 +88,9 @@ export default {
 </script>
 
 <style  scoped>
-
+   
     .modal {
-        width:800px;
+        width:100%;
         background-color: lightyellow;
         
         margin: 0 auto;
@@ -101,6 +101,10 @@ export default {
         text-align: center;
         padding-bottom: 20px;
     }
+
+    .smaller-modal {
+    width: 800px;
+   }
     .modal-button {
         width: 20%;
         height: 60px;
@@ -188,28 +192,28 @@ display: flex;
 
      @media (max-width: 1600px) {
   
-  .modal {
+  .smaller-modal {
     width: 720px;
  
   }
      }
        @media (max-width: 1500px) {
   
-  .modal {
+  .smaller-modal {
     width: 620px;
  
   }
      }
        @media (max-width: 1275px) {
   
-  .modal {
+  .smaller-modal {
     width: 520px;
  
   }
      }
     @media (max-width: 1200px) {
   
-  .modal {
+  .smaller-modal {
     width: 550px;
     margin-left: 3rem;
   }
