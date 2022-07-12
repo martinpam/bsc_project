@@ -106,7 +106,8 @@ export default {
     .module-icon {
         width: 70px;
         padding-top: 10px;
-        filter: invert(0.7)
+        filter: invert(0.7);
+        min-height: 50px;
     }
 </style>
 
