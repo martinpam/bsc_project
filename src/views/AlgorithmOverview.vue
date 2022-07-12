@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="nav-outer">
-      <router-link class="container" :to="'/' + mdl[0].link + (challengeId?'/challenges':'')">
+      <router-link
+        class="container"
+        :to="'/' + mdl[0].link + (challengeId ? '/challenges' : '')"
+      >
         <img
           src="../assets/icons/arrow-left-long-solid.svg"
           class="navigation-button smaller"
@@ -15,18 +18,23 @@
         </h2>
       </div>
       <h2 v-if="!isLaboratory && !challengeId">
-        {{ t(mdl[0].name) +' '+ t('CHAPTER') }}
+        {{ t(mdl[0].name) + " " + t("CHAPTER") }}
         {{ allSimulations[currentSimulation].name }}
       </h2>
-      <h2 v-else-if="isLaboratory">{{t('LABORATORY') + ' - ' + t(mdl[0].name) }}</h2>
-      <h2 v-else :class="{'challenge-header':moduleName!=='socks'}">{{t('CHALLENGE') + ' - ' + mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).name[store.language] }}</h2>
+      <h2 v-else-if="isLaboratory">
+        {{ t("LABORATORY") + " - " + t(mdl[0].name) }}
+      </h2>
+      <h2 v-else :class="{ 'challenge-header': moduleName !== 'socks' }">
+        {{
+          t("CHALLENGE") +
+          " - " +
+          mdl[0].challenges.find(
+            (challenge) => challenge.challengeId === challengeId
+          ).name[store.language]
+        }}
+      </h2>
       <div class="next-chapter" @click="currentSimulation++">
-        <h2
-          v-show="
-            currentSimulation != allSimulations.length - 1 &&
-            lva
-          "
-        >
+        <h2 v-show="currentSimulation != allSimulations.length - 1 && lva">
           &gt;&gt;
         </h2>
       </div>
@@ -44,14 +52,44 @@
             </h3>
             <h3 v-else class="previous-chapter"></h3>
             <h3 v-if="isStory || (!isLaboratory && !challengeId)">
-              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === allSimulations[currentSimulation].algorithm).name }}
+              {{
+                t("ALGORITHM") +
+                ": " +
+                mdl[0].algorithms.find(
+                  (a) =>
+                    a.algorithmNr ===
+                    allSimulations[currentSimulation].algorithm
+                ).name
+              }}
             </h3>
-            <h3 v-else-if="!isLaboratory&&(!challengeId ||moduleName==='socks')">
-              {{t('ALGORITHM') + ': ' + mdl[0].algorithms.find(a=> a.algorithmNr === challenge.algorithm).name }}
-            </h3>
-            <h3 v-else-if="!challengeId">{{t('ALGORITHM') + ': ' +mdl[0].algorithms.find(a=> a.algorithmNr === currentChosenAlgorithm).name   }}</h3>
             <h3
-              v-show="currentChosenAlgorithm != 6 && !(currentChosenAlgorithm === 5 && mdl[0].link ==='socks') && isLaboratory"
+              v-else-if="
+                !isLaboratory && (!challengeId || moduleName === 'socks')
+              "
+            >
+              {{
+                t("ALGORITHM") +
+                ": " +
+                mdl[0].algorithms.find(
+                  (a) => a.algorithmNr === challenge.algorithm
+                ).name
+              }}
+            </h3>
+            <h3 v-else-if="!challengeId">
+              {{
+                t("ALGORITHM") +
+                ": " +
+                mdl[0].algorithms.find(
+                  (a) => a.algorithmNr === currentChosenAlgorithm
+                ).name
+              }}
+            </h3>
+            <h3
+              v-show="
+                currentChosenAlgorithm != 6 &&
+                !(currentChosenAlgorithm === 5 && mdl[0].link === 'socks') &&
+                isLaboratory
+              "
               @click="currentChosenAlgorithm++"
               class="next-chapter"
             >
@@ -59,9 +97,9 @@
             </h3>
           </div>
           <CodeBox
-            v-if="!isLaboratory&&!challengeId"
+            v-if="!isLaboratory && !challengeId"
             class="code"
-            :class="{'code-socks': mdl[0].link === 'socks'}"
+            :class="{ 'code-socks': mdl[0].link === 'socks' }"
             :algorithm="
               mdl[0].algorithms[allSimulations[currentSimulation].algorithm - 1]
                 .lines
@@ -70,15 +108,17 @@
           <CodeBox
             v-else-if="challengeId"
             class="code"
-             :class="{'code-socks': mdl[0].link === 'socks'}"
+            :class="{ 'code-socks': mdl[0].link === 'socks' }"
             :algorithm="
-              mdl[0].algorithms[mdl[0].challenges[parseInt(challengeId)-1].algorithm-1].lines
+              mdl[0].algorithms[
+                mdl[0].challenges[parseInt(challengeId) - 1].algorithm - 1
+              ].lines
             "
           />
           <CodeBox
             v-else
             class="code"
-             :class="{'code-socks': mdl[0].link === 'socks'}"
+            :class="{ 'code-socks': mdl[0].link === 'socks' }"
             :algorithm="mdl[0].algorithms[currentChosenAlgorithm - 1].lines"
           />
         </div>
@@ -101,8 +141,8 @@
               :class="{
                 twoCols:
                   (isLaboratory && currentChosenShoppingList.length > 5) ||
-                  (allSimulations[currentSimulation].shoppingList.length > 5) || 
-                  (challenge && challenge.shoppingList.length>5),
+                  allSimulations[currentSimulation].shoppingList.length > 5 ||
+                  (challenge && challenge.shoppingList.length > 5),
                 'shopping-outer-story': isStory,
               }"
             >
@@ -127,14 +167,14 @@
                 <div
                   class="shopping-list-text"
                   :class="{ bought: boughtItems.indexOf(item) >= 0 }"
-                  v-for="(item, index) in mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)
-                    .shoppingList"
+                  v-for="(item, index) in mdl[0].challenges.find(
+                    (challenge) => challenge.challengeId === challengeId
+                  ).shoppingList"
                   :key="item"
                 >
                   {{ t(item) }}
                   {{
-                    (challenge && 
-                    challenge.algorithm === 5 )
+                    challenge && challenge.algorithm === 5
                       ? "( " + t(getCurrentCategories()[index]) + " )"
                       : ""
                   }}
@@ -160,7 +200,6 @@
         </div>
 
         <div class="sock-selection" v-else>
-          
           <div class="chooser">
             <h3
               v-if="currentChosenSockCollection !== 'SMALL' && isLaboratory"
@@ -179,10 +218,16 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory&&!challengeId">
-              {{t('COLLECTION')+': '+ t(allSimulations[currentSimulation].collection) }}
+            <h3 v-if="!isLaboratory && !challengeId">
+              {{
+                t("COLLECTION") +
+                ": " +
+                t(allSimulations[currentSimulation].collection)
+              }}
             </h3>
-            <h3 v-else-if="!challengeId">{{t('COLLECTION')+': '+ t(currentChosenSockCollection) }}</h3>
+            <h3 v-else-if="!challengeId">
+              {{ t("COLLECTION") + ": " + t(currentChosenSockCollection) }}
+            </h3>
             <h3
               v-show="currentChosenSockCollection !== 'CUSTOM' && isLaboratory"
               @click="
@@ -206,7 +251,10 @@
               v-for="sock in socks"
               :key="sock"
               class="two-socks-box"
-              :class="{'two-socks-box-custom':currentChosenSockCollection ==='CUSTOM'}"
+              :class="{
+                'two-socks-box-custom':
+                  currentChosenSockCollection === 'CUSTOM',
+              }"
             >
               <Sock
                 :color="sock.color"
@@ -214,19 +262,27 @@
                 :patternColor="sock.patternColor"
                 :pattern="sock.pattern"
               />
-              <div class="sock-minus"><img @click="removeSock(sock)"   v-if="currentChosenSockCollection ==='CUSTOM'" src="../assets/icons/remove.png" class="sock-minus-icon"></div>
+              <div class="sock-minus">
+                <img
+                  @click="removeSock(sock)"
+                  v-if="currentChosenSockCollection === 'CUSTOM'"
+                  src="../assets/icons/remove.png"
+                  class="sock-minus-icon"
+                />
+              </div>
               <Sock
                 v-if="sock.type === 'double'"
                 :color="sock.color"
                 :lineAmount="sock.lineAmount"
                 :patternColor="sock.patternColor"
                 :pattern="sock.pattern"
-                :class="{'second-sock-custom' : currentChosenSockCollection ==='CUSTOM', 'second-sock':currentChosenSockCollection !=='CUSTOM' }"
+                :class="{
+                  'second-sock-custom':
+                    currentChosenSockCollection === 'CUSTOM',
+                  'second-sock': currentChosenSockCollection !== 'CUSTOM',
+                }"
               />
-               
             </div>
-            
-            
           </div>
           <div class="add-button-outer">
             <div
@@ -261,10 +317,16 @@
               &lt;&lt;
             </h3>
             <h3 v-else class="previous-chapter"></h3>
-            <h3 v-if="!isLaboratory&&!challengeId">
-              {{t('SUPERMARKET')+': '+ t(allSimulations[currentSimulation].supermarket) }}
+            <h3 v-if="!isLaboratory && !challengeId">
+              {{
+                t("SUPERMARKET") +
+                ": " +
+                t(allSimulations[currentSimulation].supermarket)
+              }}
             </h3>
-            <h3 v-else-if="!challengeId">{{t('SUPERMARKET')+': '+ t(currentChosenSupermarket) }}</h3>
+            <h3 v-else-if="!challengeId">
+              {{ t("SUPERMARKET") + ": " + t(currentChosenSupermarket) }}
+            </h3>
             <h3
               v-show="currentChosenSupermarket != 'LARGE' && isLaboratory"
               @click="
@@ -278,7 +340,7 @@
           </div>
           <div>
             <Supermarket
-              v-if="!isLaboratory &&!challengeId"
+              v-if="!isLaboratory && !challengeId"
               :shelfData="
                 mdl[0].supermarketLayouts.filter(
                   (l) =>
@@ -302,23 +364,46 @@
               :shelfData="
                 mdl[0].supermarketLayouts.filter(
                   (l) =>
-                    l.name === mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).supermarket
+                    l.name ===
+                    mdl[0].challenges.find(
+                      (challenge) => challenge.challengeId === challengeId
+                    ).supermarket
                 )[0].shelfs
               "
               :isStory="isStory"
-              :size="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).supermarket"
-              :algorithm="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm"
-              :shoppingListProp="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).shoppingList"
+              :size="
+                mdl[0].challenges.find(
+                  (challenge) => challenge.challengeId === challengeId
+                ).supermarket
+              "
+              :algorithm="
+                mdl[0].challenges.find(
+                  (challenge) => challenge.challengeId === challengeId
+                ).algorithm
+              "
+              :shoppingListProp="
+                mdl[0].challenges.find(
+                  (challenge) => challenge.challengeId === challengeId
+                ).shoppingList
+              "
               :allShelfs="
                 mdl[0].supermarketLayouts.filter((l) => l.name === 'LARGE')[0]
                   .shelfs
               "
               @handleClickContinueStory="$emit('handleClickContinueStory')"
               @resetBoughtItems="boughtItems = []"
-              @nextChallenge="challengeId = (parseInt(challengeId)+1).toString()"
+              @nextChallenge="
+                challengeId = (parseInt(challengeId) + 1).toString()
+              "
               :boughtItems="boughtItems"
-              :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)"
-              :isLastChallenge="mdl[0].challenges.length ===parseInt(challengeId)"
+              :challenge="
+                mdl[0].challenges.find(
+                  (challenge) => challenge.challengeId === challengeId
+                )
+              "
+              :isLastChallenge="
+                mdl[0].challenges.length === parseInt(challengeId)
+              "
             />
 
             <Supermarket
@@ -341,7 +426,7 @@
           </div>
         </div>
         <div v-else-if="showModal && moduleName === 'supermarket'">
-          <h2>{{t('ALL_ARTICLES')}}</h2>
+          <h2>{{ t("ALL_ARTICLES") }}</h2>
           <div class="all-items-outer">
             <div class="all-items">
               <div
@@ -384,27 +469,71 @@
         </div>
         <div v-if="moduleName === 'socks'">
           <div v-show="!showSockCustomizer">
-            <SockSorting 
-            :trigger="trigger" 
-            :challenge="mdl[0].challenges.find(challenge => challenge.challengeId === challengeId)" 
-            :isStory="isStory" @handleClickContinueStory="$emit('handleClickContinueStory')" 
-            :simulation="allSimulations[currentSimulation]"  
-            :isLastChallenge="mdl[0].challenges.length === parseInt(challengeId)"
-              :socksProp="socks" 
-              :algorithm="challengeId? mdl[0].challenges.find(challenge => challenge.challengeId === challengeId).algorithm : isStory ? allSimulations[currentSimulation].algorithm : currentChosenAlgorithm"
-              />
+            <SockSorting
+              :trigger="trigger"
+              :challenge="
+                mdl[0].challenges.find(
+                  (challenge) => challenge.challengeId === challengeId
+                )
+              "
+              :isStory="isStory"
+              @handleClickContinueStory="$emit('handleClickContinueStory')"
+              :simulation="allSimulations[currentSimulation]"
+              :isLastChallenge="
+                mdl[0].challenges.length === parseInt(challengeId)
+              "
+              :socksProp="socks"
+              :algorithm="
+                challengeId
+                  ? mdl[0].challenges.find(
+                      (challenge) => challenge.challengeId === challengeId
+                    ).algorithm
+                  : isStory
+                  ? allSimulations[currentSimulation].algorithm
+                  : currentChosenAlgorithm
+              "
+            />
           </div>
           <div v-show="showSockCustomizer">
-            <h2 class="customizer-text">{{t('SOCK_CUSTOMIZER')}}</h2>
+            <h2 class="customizer-text">{{ t("SOCK_CUSTOMIZER") }}</h2>
             <div class="customizer">
               <div class="customizer-left">
                 <div class="color-picker">
                   <div class="color-flex">
-                  <div class="color-chooser" :class="{'color-chooser-chosen' : socksColorToChoose === 'color'}"  @click="socksColorToChoose='color'"><h3>{{t('SOCK')}}</h3></div>
-                  <div class="color-chooser" :class="{'color-chooser-chosen' : socksColorToChoose === 'patternColor'}" @click="socksColorToChoose='patternColor'"><h3>{{t('PATTERN')}}</h3></div>
+                    <div
+                      class="color-chooser"
+                      :class="{
+                        'color-chooser-chosen': socksColorToChoose === 'color',
+                      }"
+                      @click="socksColorToChoose = 'color'"
+                    >
+                      <h3>{{ t("SOCK") }}</h3>
+                    </div>
+                    <div
+                      class="color-chooser"
+                      :class="{
+                        'color-chooser-chosen':
+                          socksColorToChoose === 'patternColor',
+                      }"
+                      @click="socksColorToChoose = 'patternColor'"
+                    >
+                      <h3>{{ t("PATTERN") }}</h3>
+                    </div>
                   </div>
-                  <div class="customizer-button color-button" @click="chooseColor(color)" :style="{'background-color' : color}" :class="{'choosen-color' : currentChosenSockColor === color && socksColorToChoose === 'color' || currentChosenSockPatternColor === color && socksColorToChoose === 'patternColor'}" v-for="color in mdl[0].colors" :key="color">
-                  </div>
+                  <div
+                    class="customizer-button color-button"
+                    @click="chooseColor(color)"
+                    :style="{ 'background-color': color }"
+                    :class="{
+                      'choosen-color':
+                        (currentChosenSockColor === color &&
+                          socksColorToChoose === 'color') ||
+                        (currentChosenSockPatternColor === color &&
+                          socksColorToChoose === 'patternColor'),
+                    }"
+                    v-for="color in mdl[0].colors"
+                    :key="color"
+                  ></div>
                 </div>
               </div>
               <div class="customizer-sock-container">
@@ -416,34 +545,79 @@
                   :patternColor="currentChosenSockPatternColor"
                 />
                 <div class="add-sock-box">
-            
-                  <div @click="addSocks('double')" class="add-sock-button customizer-button"><p>{{t('ADD_PAIR')}}</p> </div>
-                </div>
-                </div>
-                <div class="customizer-right">
-          
-          
-                <div class="outer-picker">
-                  <h3>{{t('PATTERN')}}</h3>
-                  <div class="selection-box selection-five">
-                    <div @click="currentChosenSockPattern='None'" class="customizer-button"><p>None</p></div>
-                    <div @click="currentChosenSockPattern='heart'" class="customizer-button pattern-icon"><p>&#10084;</p></div>
-                    <div @click="currentChosenSockPattern='dots'" class="customizer-button pattern-icon"><p>&#11044;</p></div>
-                    <div @click="currentChosenSockPattern='JKU'" class="customizer-button"><img id='jku-icon' src="../assets/icons/jku.png"/></div>
-                    <div @click="currentChosenSockPattern='TU'" class="customizer-button"><img id='tu-icon' src="../assets/icons/TU.png"/></div>
+                  <div
+                    @click="addSocks('double')"
+                    class="add-sock-button customizer-button"
+                  >
+                    <p>{{ t("ADD_PAIR") }}</p>
                   </div>
-                  <h3>{{t('STRIPES')}}</h3>
+                </div>
+              </div>
+              <div class="customizer-right">
+                <div class="outer-picker">
+                  <h3>{{ t("PATTERN") }}</h3>
+                  <div class="selection-box selection-five">
+                    <div
+                      @click="currentChosenSockPattern = 'None'"
+                      class="customizer-button"
+                    >
+                      <p>None</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockPattern = 'heart'"
+                      class="customizer-button pattern-icon"
+                    >
+                      <p>&#10084;</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockPattern = 'dots'"
+                      class="customizer-button pattern-icon"
+                    >
+                      <p>&#11044;</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockPattern = 'JKU'"
+                      class="customizer-button"
+                    >
+                      <img id="jku-icon" src="../assets/icons/jku.png" />
+                    </div>
+                    <div
+                      @click="currentChosenSockPattern = 'TU'"
+                      class="customizer-button"
+                    >
+                      <img id="tu-icon" src="../assets/icons/TU.png" />
+                    </div>
+                  </div>
+                  <h3>{{ t("STRIPES") }}</h3>
                   <div class="selection-box">
-                    <div @click="currentChosenSockLineAmount=0" class="customizer-button"><p>0</p></div>
-                    <div @click="currentChosenSockLineAmount=1" class="customizer-button"><p>1</p></div>
-                    <div @click="currentChosenSockLineAmount=2" class="customizer-button"><p>2</p></div>
-                    <div @click="currentChosenSockLineAmount=3" class="customizer-button"><p>3</p></div>
+                    <div
+                      @click="currentChosenSockLineAmount = 0"
+                      class="customizer-button"
+                    >
+                      <p>0</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockLineAmount = 1"
+                      class="customizer-button"
+                    >
+                      <p>1</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockLineAmount = 2"
+                      class="customizer-button"
+                    >
+                      <p>2</p>
+                    </div>
+                    <div
+                      @click="currentChosenSockLineAmount = 3"
+                      class="customizer-button"
+                    >
+                      <p>3</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          
-          
           </div>
         </div>
       </div>
@@ -459,15 +633,21 @@ import SockSorting from "../components/SockSorting.vue";
 import Supermarket from "../components/Supermarket.vue";
 import Sock from "../components/Sock.vue";
 import { onMounted } from "@vue/runtime-core";
-import { store } from '../store.js'
-import {t} from "../helpers/helperFunctions.js"
-import  {isSameSock}  from "../helpers/helperFunctions.js"
+import { store } from "../store.js";
+import { t } from "../helpers/helperFunctions.js";
+import { isSameSock } from "../helpers/helperFunctions.js";
 export default {
-  props: ["moduleName", "laboratory", "isStory", "chapterId","lva", "challengeId"],
+  props: [
+    "moduleName",
+    "laboratory",
+    "isStory",
+    "chapterId",
+    "lva",
+    "challengeId",
+  ],
   name: "AlgorithmOverview",
   components: { CodeBox, Supermarket, Sock, SockSorting },
   setup(props) {
-    console.log(props)
     const { mdl, error, load } = getModule(props.moduleName);
     load();
     const isLaboratory = ref(false);
@@ -475,30 +655,31 @@ export default {
     const allSimulations = ref([]);
     const showModal = ref(false);
     const showSockCustomizer = ref(false);
-    const socksColorToChoose = ref('color');
-    const challenge = ref(mdl.value[0].challenges[parseInt(props.challengeId)-1])
-    console.log(challenge)
+    const socksColorToChoose = ref("color");
+    const challenge = ref(
+      mdl.value[0].challenges[parseInt(props.challengeId) - 1]
+    );
+
     const currentChosenAlgorithm = ref(1);
     const currentChosenSockCollection = ref("SMALL");
     const currentChosenSupermarket = ref("SMALL");
     const currentChosenShoppingList = ref(["MILK", "APPLE", "BANANA", "SALAD"]);
     const boughtItems = ref([]);
-    const currentChosenSockColor = ref('green');
-    const currentChosenSockPatternColor = ref('blue');
-    const currentChosenSockPattern = ref('JKU');
+    const currentChosenSockColor = ref("green");
+    const currentChosenSockPatternColor = ref("blue");
+    const currentChosenSockPattern = ref("JKU");
     const currentChosenSockLineAmount = ref(0);
     const chooseColor = (color) => {
-      if (socksColorToChoose.value === 'color') {
+      if (socksColorToChoose.value === "color") {
         currentChosenSockColor.value = color;
       } else {
         currentChosenSockPatternColor.value = color;
       }
+    };
 
-    }
-   
     const getAllCategories = () => {
       if (props.moduleName !== "supermarket") return [];
-      console.log("called");
+
       let allShelfs = mdl.value[0].supermarketLayouts.filter(
         (l) => l.name === "LARGE"
       )[0].shelfs;
@@ -506,7 +687,6 @@ export default {
       let added = [];
       let i = 0;
 
-      console.log(allShelfs,mdl.value[0].supermarketLayouts)
       allShelfs.forEach((element) => {
         if (added.indexOf(element.name) === -1) {
           res.push(element);
@@ -516,11 +696,13 @@ export default {
           res[added[added.indexOf(element.name) + 1]].items.push(
             ...element.items
           );
-          res[added[added.indexOf(element.name) + 1]].items = Array.from(new Set(res[added[added.indexOf(element.name) + 1]].items))
+          res[added[added.indexOf(element.name) + 1]].items = Array.from(
+            new Set(res[added[added.indexOf(element.name) + 1]].items)
+          );
         }
       });
-     
-      return res
+
+      return res;
     };
     const allCategories = getAllCategories();
 
@@ -551,7 +733,6 @@ export default {
       );
     };
 
-    
     const getCurrentSimulation = () => {
       for (let chapter in mdl.value[0].chapters) {
         allSimulations.value.push(
@@ -559,67 +740,80 @@ export default {
         );
       }
       let index = 0;
-      console.log(allSimulations.value)
+
       for (let i = 0; i < allSimulations.value.length; i++) {
         if (allSimulations.value[i].name === props.chapterId) {
           index = i;
         }
       }
-      
+
       return index;
-    }
-    const currentSimulation = ref(getCurrentSimulation())
-    currentChosenSockCollection.value = allSimulations.value[currentSimulation.value].collection
-    console.log(currentSimulation.value, allSimulations.value, allSimulations.value[currentSimulation.value])
-      
-       const customSocks =(props.moduleName == "socks") ?   mdl.value[0].sockCollections.find(c => c.name === 'CUSTOM').socks : []
-    
+    };
+    const currentSimulation = ref(getCurrentSimulation());
+    currentChosenSockCollection.value =
+      allSimulations.value[currentSimulation.value].collection;
+
+    const customSocks =
+      props.moduleName == "socks"
+        ? mdl.value[0].sockCollections.find((c) => c.name === "CUSTOM").socks
+        : [];
+
     const getSocks = () => {
-      console.log(isLaboratory.value, customSocks,currentChosenSockCollection.value, mdl.value[0].sockCollections, currentSimulation.value, props)
       let socks;
-       if (props.moduleName === "socks") {
-      socks =  (props.challengeId ? mdl.value[0].challenges.find(challenge => challenge.challengeId === props.challengeId).socks :currentChosenSockCollection.value !== 'CUSTOM' ?  mdl.value[0].sockCollections.find(
-                      (c) => c.name === currentChosenSockCollection.value
-                    ).socks : customSocks)
-    }
-    return socks;
-    }
+      if (props.moduleName === "socks") {
+        socks = props.challengeId
+          ? mdl.value[0].challenges.find(
+              (challenge) => challenge.challengeId === props.challengeId
+            ).socks
+          : currentChosenSockCollection.value !== "CUSTOM"
+          ? mdl.value[0].sockCollections.find(
+              (c) => c.name === currentChosenSockCollection.value
+            ).socks
+          : customSocks;
+      }
+      return socks;
+    };
     const socks = ref(getSocks());
 
     const calcPotentialSockAmount = (typeNext) => {
       let res = 0;
       for (let i = 0; i < socks.value.length; i++) {
-        res = res + (socks.value[i].type === 'single' ? 1 : 2)
+        res = res + (socks.value[i].type === "single" ? 1 : 2);
       }
-      res = res + (typeNext === 'single' ? 1 : 2);
-      return res; 
-
-    }
+      res = res + (typeNext === "single" ? 1 : 2);
+      return res;
+    };
 
     const addSocks = (type) => {
       if (calcPotentialSockAmount(type) > 24) return;
-      console.log(type)
-      const sock = {color: currentChosenSockColor.value, lineAmount: currentChosenSockLineAmount.value, pattern: currentChosenSockPattern.value, patternColor: currentChosenSockPatternColor.value, type: type}
-      if (type === 'double') {
-        customSocks.push(sock)
+
+      const sock = {
+        color: currentChosenSockColor.value,
+        lineAmount: currentChosenSockLineAmount.value,
+        pattern: currentChosenSockPattern.value,
+        patternColor: currentChosenSockPatternColor.value,
+        type: type,
+      };
+      if (type === "double") {
+        customSocks.push(sock);
       } else {
-        const singleSock = customSocks.find(s => {
-          return (isSameSock(sock, s) && s.type === 'single')
-          })
-        console.log(singleSock)
-        if (!singleSock) {customSocks.push(sock)}
-        else singleSock.type = 'double'
+        const singleSock = customSocks.find((s) => {
+          return isSameSock(sock, s) && s.type === "single";
+        });
+
+        if (!singleSock) {
+          customSocks.push(sock);
+        } else singleSock.type = "double";
       }
-      trigger.value = !trigger.value
-    }
-
-
+      trigger.value = !trigger.value;
+    };
 
     const getCurrentCategories = () => {
-      if (props.moduleName === 'socks') return;
-     
-      let shoppingListCurrent = challenge.value? challenge.value.shoppingList
-        :  isLaboratory.value
+      if (props.moduleName === "socks") return;
+
+      let shoppingListCurrent = challenge.value
+        ? challenge.value.shoppingList
+        : isLaboratory.value
         ? currentChosenShoppingList.value
         : allSimulations.value[currentSimulation.value].shoppingList;
       let res = [];
@@ -630,17 +824,16 @@ export default {
           }
         }
       }
-      console.log(res)
+
       return res;
     };
     const removeSock = (sock) => {
       const index = customSocks.indexOf(sock);
 
-        customSocks.splice(index,1)
-      
-    
-      trigger.value = !trigger.value
-    }
+      customSocks.splice(index, 1);
+
+      trigger.value = !trigger.value;
+    };
     const currentCategories = getCurrentCategories();
     const trigger = ref(false);
     return {
@@ -680,35 +873,31 @@ export default {
       currentChosenSockPattern,
       socksColorToChoose,
       chooseColor,
-      t
+      t,
     };
   },
   watch: {
     currentSimulation() {
       this.currentCategories = this.getCurrentCategories();
-      console.log('simulation changed')
-      this.currentChosenSockCollection = this.allSimulations[this.currentSimulation].collection
-      this.currentChosenAlgorithm = this.allSimulations[this.currentSimulation].algorithm
+
+      this.currentChosenSockCollection =
+        this.allSimulations[this.currentSimulation].collection;
+      this.currentChosenAlgorithm =
+        this.allSimulations[this.currentSimulation].algorithm;
       this.socks = this.getSocks();
-      
-
-
     },
     currentChosenShoppingList() {
       this.currentCategories = this.getCurrentCategories();
     },
     currentChosenSockCollection() {
- 
       this.socks = this.getSocks();
     },
     customSocks() {
-      this.trigger= !this.trigger
+      this.trigger = !this.trigger;
     },
     challengeId(newV, oldV) {
-      console.log(newV,oldV)
-      this.challenge = this.mdl[0].challenges[parseInt(newV)-1]
-    }
-  
+      this.challenge = this.mdl[0].challenges[parseInt(newV) - 1];
+    },
   },
 };
 </script>
@@ -733,7 +922,7 @@ export default {
   display: flex;
 }
 
-.code{
+.code {
   width: 655px;
   background-color: #0e0e0e;
   margin-bottom: 0;
@@ -742,8 +931,8 @@ export default {
   overflow: scroll;
   margin-right: 0;
   /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -766,15 +955,15 @@ export default {
   border-radius: 12px;
 }
 
-#jku-icon  {
+#jku-icon {
   width: 30px;
   margin-top: 15px;
-  filter: invert(99%) sepia(0%) saturate(4380%) hue-rotate(89deg) brightness(127%) contrast(98%);
+  filter: invert(99%) sepia(0%) saturate(4380%) hue-rotate(89deg)
+    brightness(127%) contrast(98%);
 }
 #tu-icon {
   width: 30px;
   padding-top: 5px;
- 
 }
 .item {
   display: flex;
@@ -786,7 +975,7 @@ export default {
 .smaller {
   height: 40px;
   position: absolute;
-  
+
   padding-left: 0.5rem;
 }
 .nav-outer {
@@ -807,7 +996,6 @@ export default {
   height: 1.5rem;
   color: beige;
   margin-left: 1rem;
-
 }
 
 .shopping-list-text {
@@ -839,10 +1027,6 @@ export default {
   .code-socks {
     width: 655px;
   }
-  
-  
-
-
 }
 @media (max-width: 1540px) {
   .customizer-sock-container {
@@ -850,8 +1034,6 @@ export default {
     margin-left: -6rem;
   }
 }
-
-
 
 @media (max-width: 1200px) {
   .shopping-list-text {
@@ -866,58 +1048,49 @@ export default {
   }
   .sorting {
     max-width: 560px;
-   
   }
-  .sorted, .baskets, .navigation-board{
+  .sorted,
+  .baskets,
+  .navigation-board {
     width: 100%;
     width: 500px;
     margin-left: 5rem;
   }
   .code-socks {
     max-width: 440px;
-    
   }
-  .sock-collection, .add-button-outer {
+  .sock-collection,
+  .add-button-outer {
     max-width: 450px;
-  
   }
   .sock-collection {
     max-width: 400px;
     margin-left: 1rem;
   }
 
-
   .sock-selection {
     margin-left: 0rem;
   }
-} 
+}
 
-
-
-
-  @media (max-width: 1353px) {
-  
+@media (max-width: 1353px) {
   .sorting {
     width: 550px;
     margin-left: -5rem;
   }
-
 }
- @media (max-width: 1274px) {
-  
+@media (max-width: 1274px) {
   .sorting {
     width: 500px;
     margin-left: -9rem;
   }
-  .sorted, .baskets {
-    
+  .sorted,
+  .baskets {
     width: 500px;
   }
   .code-socks {
     width: 560px;
-    
   }
-
 }
 @media (max-width: 1000px) {
   .shopping-list-text {
@@ -944,23 +1117,20 @@ h3 {
 }
 
 .sock-minus {
- 
-       right: 5.3rem;
-    position:relative;
- 
-     cursor: pointer;
+  right: 5.3rem;
+  position: relative;
+
+  cursor: pointer;
 }
 
-
-
 .sock-minus-icon {
- width:30px;
-   height:30px;
-   z-index: 10;
+  width: 30px;
+  height: 30px;
+  z-index: 10;
 }
 
 .sock-minus-icon:hover {
-   filter: brightness(50%);
+  filter: brightness(50%);
 }
 .category-header {
   font-size: 1.3rem;
@@ -970,7 +1140,6 @@ h3 {
   padding-top: 0.3rem;
 }
 .right-side {
-
 }
 
 .action {
@@ -989,7 +1158,7 @@ h3 {
 .socks-all-collections {
   display: flex;
 }
-.sock-collection{
+.sock-collection {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1021,7 +1190,6 @@ h3 {
   margin-left: 1rem;
 }
 
-
 .bought {
   text-decoration: line-through 2px red;
 }
@@ -1043,7 +1211,7 @@ h3 {
   z-index: 1;
 }
 .second-sock {
- margin-left: -50px;
+  margin-left: -50px;
 }
 .supermarket:after {
   content: "";
@@ -1063,7 +1231,8 @@ h3 {
   text-align: center;
 }
 
-#edit-icon, #plus-icon {
+#edit-icon,
+#plus-icon {
   height: 50px;
 }
 
@@ -1073,7 +1242,6 @@ h3 {
 }
 
 @media (min-width: 1700px) {
-  
   .customizer {
     width: 1000px;
   }
@@ -1082,8 +1250,8 @@ h3 {
   }
 }
 @media (max-width: 1600px) {
-  
-  .customizer, .sorting {
+  .customizer,
+  .sorting {
     width: 900px;
   }
   .all-items {
@@ -1091,14 +1259,14 @@ h3 {
   }
 }
 @media (max-width: 1500px) {
- 
-  .customizer,.sorting {
+  .customizer,
+  .sorting {
     width: 768px;
   }
   .all-items {
     width: 650px;
   }
-  .category-container{
+  .category-container {
     width: 15rem;
     font-size: 0.95rem;
   }
@@ -1115,19 +1283,17 @@ h3 {
   }
 }
 
-
 .customizer-button {
- 
   height: 40px;
   min-width: 40px;
   cursor: pointer;
   text-align: center;
   background-color: #3f3f3f;
   box-shadow: 1px 1px 1px #3f3f3f;
-    border-radius: 3px;
-    margin: 0 auto;
-    margin-top: -10px;
-    text-decoration: none;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: -10px;
+  text-decoration: none;
 }
 
 .color-flex {
@@ -1193,8 +1359,8 @@ h3 {
   margin: 4px;
   width: 30px;
   box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 .choosen-color {
   border: solid white;
@@ -1215,7 +1381,6 @@ h3 {
 .second-sock-custom {
   margin-left: -80px;
 }
-
 
 #shopping-list {
   width: 98%;
@@ -1251,8 +1416,8 @@ h3 {
   justify-content: center;
 }
 
-
-.right-side, .left-side{
+.right-side,
+.left-side {
   margin: 0 auto;
 }
 </style>

@@ -1,13 +1,16 @@
-import { isSameSock } from "./helperFunctions.js"
-import { copySockArray } from "./helperFunctions.js"
+import {
+    isSameSock
+} from "./helperFunctions.js"
+import {
+    copySockArray
+} from "./helperFunctions.js"
 export default function runSimpleAlgo(socksInput, order) {
     let orderCounter = 0;
     const socks = copySockArray(socksInput)
     const playBook = [];
     let random;
     let sockOne = null;
-    console.log(socksInput, order)
-        //Does not support single socks
+
     while (socks.length > 0) {
 
         if (sockOne === null) {
@@ -18,9 +21,17 @@ export default function runSimpleAlgo(socksInput, order) {
             } else {
                 sockOne = socks[random]
             }
-            console.log(sockOne)
-            playBook.push({ type: 'appear', sock: sockOne })
-            playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockOne })
+
+            playBook.push({
+                type: 'appear',
+                sock: sockOne
+            })
+            playBook.push({
+                type: 'move',
+                from: 'start',
+                to: 'compare',
+                sock: sockOne
+            })
         }
 
         let random2 = getRandomInt(socks.length);
@@ -44,13 +55,29 @@ export default function runSimpleAlgo(socksInput, order) {
         } else {
             sockTwo = socks[random2]
         }
-        playBook.push({ type: 'appear', sock: sockTwo })
-        console.log(sockOne, sockTwo)
-        playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
-        console.log(sockOne, sockTwo)
+        playBook.push({
+            type: 'appear',
+            sock: sockTwo
+        })
+
+        playBook.push({
+            type: 'selectAll',
+            socks: [sockOne, sockTwo]
+        })
+
         if (isSameSock(sockOne, sockTwo)) {
-            playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockTwo })
-            playBook.push({ type: 'moveAll', from: 'compare', to: 'sorted', socks: [sockOne, sockTwo] })
+            playBook.push({
+                type: 'move',
+                from: 'start',
+                to: 'compare',
+                sock: sockTwo
+            })
+            playBook.push({
+                type: 'moveAll',
+                from: 'compare',
+                to: 'sorted',
+                socks: [sockOne, sockTwo]
+            })
             if (!order) {
                 socks.splice(random > random2 ? random : random2, 1)
                 socks.splice(random > random2 ? random2 : random, 1)
@@ -63,14 +90,19 @@ export default function runSimpleAlgo(socksInput, order) {
             sockOne = null;
             random = null;
         } else {
-            playBook.push({ type: 'disappear', sock: sockTwo })
+            playBook.push({
+                type: 'disappear',
+                sock: sockTwo
+            })
         }
     }
 
 
 
 
-    playBook.push({ type: 'finish' })
+    playBook.push({
+        type: 'finish'
+    })
     return playBook;
 }
 

@@ -817,78 +817,247 @@
             "algorithms": [{
                     "algorithmNr": 1,
                     "name": "1",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
-                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
-                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betritt den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the shopping list and search for all these articles",
+                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "indent": 0
+                        },
+                        {
+                            "en": "by going through the aisles from start to finish",
+                            "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 2,
                     "name": "2",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
-                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
-                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
-                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0, "highlight": true },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betritt den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the shopping list and search for all these articles",
+                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "indent": 0
+                        },
+                        {
+                            "en": "by going through the aisles from start to finish",
+                            "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Pay at the checkout",
+                            "de": "Bezahle an der Kassa",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 3,
                     "name": "3",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
-                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
-                        { "en": "until you found all", "de": "bis du alle gefunden hast", "indent": 0, "highlight": true },
-                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
-                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0, "highlight": true },
-                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1, "highlight": true },
-                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betritt den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the shopping list and search for all these articles",
+                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "indent": 0
+                        },
+                        {
+                            "en": "until you found all",
+                            "de": "bis du alle gefunden hast",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "by going through the aisles from start to finish",
+                            "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst",
+                            "indent": 0
+                        },
+                        {
+                            "en": "If you find an article",
+                            "de": "Wenn du einen Artikel gefunden hast",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "search for the next one",
+                            "de": "suche nach dem nächsten",
+                            "indent": 1,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Pay at the checkout",
+                            "de": "Bezahle an der Kassa",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 4,
                     "name": "4",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
-                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
-                        { "en": "until you found all or an article is not available", "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent": 0, "highlight": true },
-                        { "en": "by going through the aisles from start to finish", "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst", "indent": 0 },
-                        { "en": "while comparing with all articles on the shopping list", "de": "und mit allen Artikeln auf der Einkaufsliste vergleichst", "indent": 0, "highlight": true },
-                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0 },
-                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1 },
-                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betritt den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the shopping list and search for all these articles",
+                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "indent": 0
+                        },
+                        {
+                            "en": "until you found all or an article is not available",
+                            "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "by going through the aisles from start to finish",
+                            "de": "Indem du durch die Gänge von Anfang bis Ende durchgehst",
+                            "indent": 0
+                        },
+                        {
+                            "en": "while comparing with all articles on the shopping list",
+                            "de": "und mit allen Artikeln auf der Einkaufsliste vergleichst",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "If you find an article",
+                            "de": "Wenn du einen Artikel gefunden hast",
+                            "indent": 0
+                        },
+                        {
+                            "en": "search for the next one",
+                            "de": "suche nach dem nächsten",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Pay at the checkout",
+                            "de": "Bezahle an der Kassa",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 5,
                     "name": "5",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betritt den Supermarkt", "indent": 0 },
-                        { "en": "Take the shopping list and search for all these articles", "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln", "indent": 0 },
-                        { "en": "until you found all or an article is not available", "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt", "indent": 0 },
-                        { "en": "by going to the relevant aisles", "de": "Indem du durch relevante Gänge gehst", "indent": 0, "highlight": true },
-                        { "en": "and comparing with the articles on the shopping list from the aisle", "de": "und mit den Artikeln auf der Einkaufsliste aus diesem Gang vergleichst", "indent": 0, "highlight": true },
-                        { "en": "If you find an article", "de": "Wenn du einen Artikel gefunden hast", "indent": 0 },
-                        { "en": "search for the next one", "de": "suche nach dem nächsten", "indent": 1 },
-                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betritt den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the shopping list and search for all these articles",
+                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "indent": 0
+                        },
+                        {
+                            "en": "until you found all or an article is not available",
+                            "de": "bis du alle gefunden hast oder es einen Artikel nicht gibt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "by going to the relevant aisles",
+                            "de": "Indem du durch relevante Gänge gehst",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "and comparing with the articles on the shopping list from the aisle",
+                            "de": "und mit den Artikeln auf der Einkaufsliste aus diesem Gang vergleichst",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "If you find an article",
+                            "de": "Wenn du einen Artikel gefunden hast",
+                            "indent": 0
+                        },
+                        {
+                            "en": "search for the next one",
+                            "de": "suche nach dem nächsten",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Pay at the checkout",
+                            "de": "Bezahle an der Kassa",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 6,
                     "name": "6",
-                    "lines": [
-                        { "en": "Enter the supermarket", "de": "Betrete den Supermarkt", "indent": 0 },
-                        { "en": "Take the map of item coordinates and calculate the shortes distances", "de": "Nimm die Karte mit Koordinaten und berechne die Distanzen der Artikel", "indent": 0, "highlight": true },
-                        { "en": "Apply the algorithm from Markus based on the distances", "de": "Wende anhand der Distanzen den Algorithmus von Markus an", "indent": 0, "highlight": true },
-                        { "en": "Go along the calculated shortest path and pick up the articles", "de": "Gehe den Pfad ab, den du erhalten hast und nimm alle Artikel mit", "indent": 0, "highlight": true },
-                        { "en": "Pay at the checkout", "de": "Bezahle an der Kassa", "indent": 0 },
-                        { "en": "Exit the supermarket", "de": "Verlasse den Supermarkt", "indent": 0 }
+                    "lines": [{
+                            "en": "Enter the supermarket",
+                            "de": "Betrete den Supermarkt",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Take the map of item coordinates and calculate the shortes distances",
+                            "de": "Nimm die Karte mit Koordinaten und berechne die Distanzen der Artikel",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Apply the algorithm from Markus based on the distances",
+                            "de": "Wende anhand der Distanzen den Algorithmus von Markus an",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Go along the calculated shortest path and pick up the articles",
+                            "de": "Gehe den Pfad ab, den du erhalten hast und nimm alle Artikel mit",
+                            "indent": 0,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Pay at the checkout",
+                            "de": "Bezahle an der Kassa",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Exit the supermarket",
+                            "de": "Verlasse den Supermarkt",
+                            "indent": 0
+                        }
                     ]
                 }
             ],
@@ -1019,17 +1188,35 @@
             ],
             "challenges": [{
                     "challengeId": "1",
-                    "name": { "en": "first steps", "de": "Erste Schritte" },
+                    "name": {
+                        "en": "first steps",
+                        "de": "Erste Schritte"
+                    },
                     "algorithm": 1,
                     "shoppingList": ["MELON", "SALAD"],
                     "supermarket": "SMALL",
                     "stopAtAnimation": 15,
-                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
-                    "choices": [
-                        { "en": "vegetables", "de": "Gemüse" },
-                        { "en": "checkout", "de": "Kasse" },
-                        { "en": "cooler", "de": "Kühlwaren" },
-                        { "en": "fruits", "de": "Obst" }
+                    "question": {
+                        "en": "Where will Dev0 go next?",
+                        "de": "Wohin wird Dev0 als nächstes gehen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "vegetables",
+                            "de": "Gemüse"
+                        },
+                        {
+                            "en": "checkout",
+                            "de": "Kasse"
+                        },
+                        {
+                            "en": "cooler",
+                            "de": "Kühlwaren"
+                        },
+                        {
+                            "en": "fruits",
+                            "de": "Obst"
+                        }
                     ],
                     "answer": "cooler",
                     "endMessage": {
@@ -1045,17 +1232,35 @@
                 },
                 {
                     "challengeId": "2",
-                    "name": { "en": "payday?", "de": "Zahltag?" },
+                    "name": {
+                        "en": "payday?",
+                        "de": "Zahltag?"
+                    },
                     "algorithm": 1,
                     "shoppingList": ["APPLE", "YOGURT", "BANANA", "MILK", "SPINACH", "PIZZA"],
                     "supermarket": "SMALL",
                     "stopAtAnimation": 218,
-                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
-                    "choices": [
-                        { "en": "vegetables", "de": "Gemüse" },
-                        { "en": "checkout", "de": "Kasse" },
-                        { "en": "exit", "de": "Ausgang" },
-                        { "en": "fruits", "de": "Obst" }
+                    "question": {
+                        "en": "Where will Dev0 go next?",
+                        "de": "Wohin wird Dev0 als nächstes gehen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "vegetables",
+                            "de": "Gemüse"
+                        },
+                        {
+                            "en": "checkout",
+                            "de": "Kasse"
+                        },
+                        {
+                            "en": "exit",
+                            "de": "Ausgang"
+                        },
+                        {
+                            "en": "fruits",
+                            "de": "Obst"
+                        }
                     ],
                     "answer": "exit",
                     "endMessage": {
@@ -1071,17 +1276,35 @@
                 },
                 {
                     "challengeId": "3",
-                    "name": { "en": "payday!", "de": "Zahltag!" },
+                    "name": {
+                        "en": "payday!",
+                        "de": "Zahltag!"
+                    },
                     "algorithm": 2,
                     "shoppingList": ["APPLE", "YOGURT", "BANANA", "MILK", "SPINACH", "PIZZA", "SALAD"],
                     "supermarket": "SMALL",
                     "stopAtAnimation": 218,
-                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
-                    "choices": [
-                        { "en": "vegetables", "de": "Gemüse" },
-                        { "en": "checkout", "de": "Kasse" },
-                        { "en": "exit", "de": "Ausgang" },
-                        { "en": "fruits", "de": "Obst" }
+                    "question": {
+                        "en": "Where will Dev0 go next?",
+                        "de": "Wohin wird Dev0 als nächstes gehen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "vegetables",
+                            "de": "Gemüse"
+                        },
+                        {
+                            "en": "checkout",
+                            "de": "Kasse"
+                        },
+                        {
+                            "en": "exit",
+                            "de": "Ausgang"
+                        },
+                        {
+                            "en": "fruits",
+                            "de": "Obst"
+                        }
                     ],
                     "answer": "vegetables",
                     "endMessage": {
@@ -1097,17 +1320,35 @@
                 },
                 {
                     "challengeId": "4",
-                    "name": { "en": "I'm done", "de": "Bin fertig" },
+                    "name": {
+                        "en": "I'm done",
+                        "de": "Bin fertig"
+                    },
                     "algorithm": 2,
                     "shoppingList": ["ICE-CREAM", "SPINACH", "MELON", "CHEESE"],
                     "supermarket": "SMALL",
                     "stopAtAnimation": 135,
-                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
-                    "choices": [
-                        { "en": "vegetables", "de": "Gemüse" },
-                        { "en": "checkout", "de": "Kasse" },
-                        { "en": "exit", "de": "Ausgang" },
-                        { "en": "freezer", "de": "Gefriertruhe" }
+                    "question": {
+                        "en": "Where will Dev0 go next?",
+                        "de": "Wohin wird Dev0 als nächstes gehen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "vegetables",
+                            "de": "Gemüse"
+                        },
+                        {
+                            "en": "checkout",
+                            "de": "Kasse"
+                        },
+                        {
+                            "en": "exit",
+                            "de": "Ausgang"
+                        },
+                        {
+                            "en": "freezer",
+                            "de": "Gefriertruhe"
+                        }
                     ],
                     "answer": "freezer",
                     "endMessage": {
@@ -1123,17 +1364,35 @@
                 },
                 {
                     "challengeId": "5",
-                    "name": { "en": "restart", "de": "Neuanfang" },
+                    "name": {
+                        "en": "restart",
+                        "de": "Neuanfang"
+                    },
                     "algorithm": 3,
                     "shoppingList": ["MINCED-MEAT", "BANANA", "SOAP"],
                     "supermarket": "MEDIUM",
                     "stopAtAnimation": 38,
-                    "question": { "en": "Where will Dev0 go next?", "de": "Wohin wird Dev0 als nächstes gehen?", "type": "text" },
-                    "choices": [
-                        { "en": "cleaning", "de": "Reinigungsmittel" },
-                        { "en": "fruits", "de": "Obst" },
-                        { "en": "cooler", "de": "Kühlwaren" },
-                        { "en": "checkout", "de": "Kasse" }
+                    "question": {
+                        "en": "Where will Dev0 go next?",
+                        "de": "Wohin wird Dev0 als nächstes gehen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "cleaning",
+                            "de": "Reinigungsmittel"
+                        },
+                        {
+                            "en": "fruits",
+                            "de": "Obst"
+                        },
+                        {
+                            "en": "cooler",
+                            "de": "Kühlwaren"
+                        },
+                        {
+                            "en": "checkout",
+                            "de": "Kasse"
+                        }
                     ],
                     "answer": "cooler",
                     "endMessage": {
@@ -1149,15 +1408,27 @@
                 },
                 {
                     "challengeId": "6",
-                    "name": { "en": "am I done?", "de": "Bin ich fertig?" },
+                    "name": {
+                        "en": "am I done?",
+                        "de": "Bin ich fertig?"
+                    },
                     "algorithm": 3,
                     "shoppingList": ["CHEESE", "TOMATO", "SOAP"],
                     "supermarket": "MEDIUM",
                     "stopAtAnimation": 1,
-                    "question": { "en": "Will Dev0 search the sweets section?", "de": "Wird Dev0 die Süßigkeiten Abteilung durchsuchen?", "type": "text" },
-                    "choices": [
-                        { "en": "no", "de": "Nein" },
-                        { "en": "yes", "de": "Ja" }
+                    "question": {
+                        "en": "Will Dev0 search the sweets section?",
+                        "de": "Wird Dev0 die Süßigkeiten Abteilung durchsuchen?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "no",
+                            "de": "Nein"
+                        },
+                        {
+                            "en": "yes",
+                            "de": "Ja"
+                        }
                     ],
                     "answer": "no",
                     "endMessage": {
@@ -1173,17 +1444,35 @@
                 },
                 {
                     "challengeId": "7",
-                    "name": { "en": "+ efficiency", "de": "+ Effizienz" },
+                    "name": {
+                        "en": "+ efficiency",
+                        "de": "+ Effizienz"
+                    },
                     "algorithm": 4,
                     "shoppingList": ["CHIPS", "TOMATO", "CHEESE"],
                     "supermarket": "MEDIUM",
                     "stopAtAnimation": 16,
-                    "question": { "en": "What will Dev0 do next?", "de": "Was wird Dev0 als nächstes tun?", "type": "text" },
-                    "choices": [
-                        { "en": "go vegetables", "de": "Gehe Gemüse" },
-                        { "en": "go sweets", "de": "Gehe Süßigkeiten" },
-                        { "en": "compare tomato", "de": "Vergleiche Tomate" },
-                        { "en": "compare cheese", "de": "Vergleiche Käse" }
+                    "question": {
+                        "en": "What will Dev0 do next?",
+                        "de": "Was wird Dev0 als nächstes tun?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "go vegetables",
+                            "de": "Gehe Gemüse"
+                        },
+                        {
+                            "en": "go sweets",
+                            "de": "Gehe Süßigkeiten"
+                        },
+                        {
+                            "en": "compare tomato",
+                            "de": "Vergleiche Tomate"
+                        },
+                        {
+                            "en": "compare cheese",
+                            "de": "Vergleiche Käse"
+                        }
                     ],
                     "answer": "compare tomato",
                     "endMessage": {
@@ -1199,17 +1488,33 @@
                 },
                 {
                     "challengeId": "8",
-                    "name": { "en": "Wait what?", "de": "Warte was?" },
+                    "name": {
+                        "en": "Wait what?",
+                        "de": "Warte was?"
+                    },
                     "algorithm": 4,
                     "shoppingList": [],
                     "supermarket": "MEDIUM",
                     "stopAtAnimation": 0,
-                    "question": { "en": "What will Dev0 do next?", "de": "Was wird Dev0 als nächstes tun?", "type": "text" },
+                    "question": {
+                        "en": "What will Dev0 do next?",
+                        "de": "Was wird Dev0 als nächstes tun?",
+                        "type": "text"
+                    },
                     "choices": [
 
-                        { "en": "go exit", "de": "Gehe Ausgang" },
-                        { "en": "go checkout", "de": "Gehe Kasse" },
-                        { "en": "bug", "de": "Fehler" }
+                        {
+                            "en": "go exit",
+                            "de": "Gehe Ausgang"
+                        },
+                        {
+                            "en": "go checkout",
+                            "de": "Gehe Kasse"
+                        },
+                        {
+                            "en": "bug",
+                            "de": "Fehler"
+                        }
                     ],
                     "answer": "go checkout",
                     "endMessage": {
@@ -1225,18 +1530,37 @@
                 },
                 {
                     "challengeId": "9",
-                    "name": { "en": "another upgrade", "de": "Noch ein Upgrade" },
+                    "name": {
+                        "en": "another upgrade",
+                        "de": "Noch ein Upgrade"
+                    },
                     "algorithm": 5,
                     "shoppingList": ["APPLE", "CUCUMBER", "COFFEE", "POPCORN", "ICE-CREAM", "SOAP", "WATER", "SALAD"],
                     "supermarket": "MEDIUM",
                     "stopAtAnimation": 0,
-                    "question": { "en": "Which sections will Dev0 noch search through", "de": "Welche Abteilungen wird Dev0 nicht durchsuchen?", "type": "text" },
+                    "question": {
+                        "en": "Which sections will Dev0 noch search through",
+                        "de": "Welche Abteilungen wird Dev0 nicht durchsuchen?",
+                        "type": "text"
+                    },
                     "choices": [
 
-                        { "en": "none", "de": "Keine" },
-                        { "en": "sweets+fruits", "de": "Süßigkeiten+Obst" },
-                        { "en": "meat+cooler", "de": "Fleisch+Kühlwaren" },
-                        { "en": "fruits+cooler", "de": "Obst+Kühlwaren" }
+                        {
+                            "en": "none",
+                            "de": "Keine"
+                        },
+                        {
+                            "en": "sweets+fruits",
+                            "de": "Süßigkeiten+Obst"
+                        },
+                        {
+                            "en": "meat+cooler",
+                            "de": "Fleisch+Kühlwaren"
+                        },
+                        {
+                            "en": "fruits+cooler",
+                            "de": "Obst+Kühlwaren"
+                        }
                     ],
                     "answer": "meat+cooler",
                     "endMessage": {
@@ -1252,18 +1576,37 @@
                 },
                 {
                     "challengeId": "10",
-                    "name": { "en": "sweet choice", "de": "Süße Wahl" },
+                    "name": {
+                        "en": "sweet choice",
+                        "de": "Süße Wahl"
+                    },
                     "algorithm": 5,
                     "shoppingList": ["POPCORN", "ICE-CREAM", "LEMONADE", "MELON"],
                     "supermarket": "LARGE",
                     "stopAtAnimation": 0,
-                    "question": { "en": "Which item will Dev0 find the last?", "de": "Welchen Artikel wird Dev0 als letztes finden?", "type": "text" },
+                    "question": {
+                        "en": "Which item will Dev0 find the last?",
+                        "de": "Welchen Artikel wird Dev0 als letztes finden?",
+                        "type": "text"
+                    },
                     "choices": [
 
-                        { "en": "popcorn", "de": "Popcorn" },
-                        { "en": "ice-cream", "de": "Eis" },
-                        { "en": "lemonade", "de": "Limonade" },
-                        { "en": "melon", "de": "Melone" }
+                        {
+                            "en": "popcorn",
+                            "de": "Popcorn"
+                        },
+                        {
+                            "en": "ice-cream",
+                            "de": "Eis"
+                        },
+                        {
+                            "en": "lemonade",
+                            "de": "Limonade"
+                        },
+                        {
+                            "en": "melon",
+                            "de": "Melone"
+                        }
                     ],
                     "answer": "popcorn",
                     "endMessage": {
@@ -1279,18 +1622,37 @@
                 },
                 {
                     "challengeId": "11",
-                    "name": { "en": "TSP 1", "de": "TSP 1" },
+                    "name": {
+                        "en": "TSP 1",
+                        "de": "TSP 1"
+                    },
                     "algorithm": 6,
                     "shoppingList": ["CHICKEN", "TOOTH-BRUSH", "SOY-MILK", "MILK", "SPINACH", "YOGURT", "MELON", "APPLE"],
                     "supermarket": "LARGE",
                     "stopAtAnimation": 0,
-                    "question": { "en": "Where will Dev0 go after reaching the yogurt", "de": "Wohin wird Dev0 gehen, sobald er das Joghurt erreicht hat?", "type": "text" },
+                    "question": {
+                        "en": "Where will Dev0 go after reaching the yogurt",
+                        "de": "Wohin wird Dev0 gehen, sobald er das Joghurt erreicht hat?",
+                        "type": "text"
+                    },
                     "choices": [
 
-                        { "en": "spinach", "de": "Spinat" },
-                        { "en": "apple", "de": "Apfel" },
-                        { "en": "chicken", "de": "Huhn" },
-                        { "en": "milk", "de": "Milch" }
+                        {
+                            "en": "spinach",
+                            "de": "Spinat"
+                        },
+                        {
+                            "en": "apple",
+                            "de": "Apfel"
+                        },
+                        {
+                            "en": "chicken",
+                            "de": "Huhn"
+                        },
+                        {
+                            "en": "milk",
+                            "de": "Milch"
+                        }
                     ],
                     "answer": "apple",
                     "endMessage": {
@@ -1306,18 +1668,37 @@
                 },
                 {
                     "challengeId": "12",
-                    "name": { "en": "TSP 2", "de": "TSP 2" },
+                    "name": {
+                        "en": "TSP 2",
+                        "de": "TSP 2"
+                    },
                     "algorithm": 6,
                     "shoppingList": ["STEAK", "CHIPS", "BROOM", "FISH", "CHEESE", "TANGERINE", "LEMONADE", "COLA", "WATER", "TOMATO"],
                     "supermarket": "LARGE",
                     "stopAtAnimation": 0,
-                    "question": { "en": "Where will Dev0 go after reaching the water", "de": "Wohin wird Dev0 gehen, sobald er das Wasser erreicht hat?", "type": "text" },
+                    "question": {
+                        "en": "Where will Dev0 go after reaching the water",
+                        "de": "Wohin wird Dev0 gehen, sobald er das Wasser erreicht hat?",
+                        "type": "text"
+                    },
                     "choices": [
 
-                        { "en": "cola", "de": "Cola" },
-                        { "en": "steak", "de": "Steak" },
-                        { "en": "lemonade", "de": "Limonade" },
-                        { "en": "broom", "de": "Besen" }
+                        {
+                            "en": "cola",
+                            "de": "Cola"
+                        },
+                        {
+                            "en": "steak",
+                            "de": "Steak"
+                        },
+                        {
+                            "en": "lemonade",
+                            "de": "Limonade"
+                        },
+                        {
+                            "en": "broom",
+                            "de": "Besen"
+                        }
                     ],
                     "answer": "steak",
                     "endMessage": {
@@ -1789,79 +2170,233 @@
             "algorithms": [{
                     "algorithmNr": 1,
                     "name": "Simple",
-                    "lines": [
-                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
-                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
-                        { "en": "Find its match in the pile", "de": "Finde das Gegenstück", "indent": 1 },
-                        { "en": "Put it aside", "de": "Lege das Sockenpaar zur Seite", "indent": 1 }
+                    "lines": [{
+                            "en": "Repeat until there is no more sock in the pile:",
+                            "de": "Wiederhole, bis keine Socken mehr im Haufen sind:",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Pick a sock from the pile",
+                            "de": "Wähle einen Socken aus dem Haufen",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Find its match in the pile",
+                            "de": "Finde das Gegenstück",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Put it aside",
+                            "de": "Lege das Sockenpaar zur Seite",
+                            "indent": 1
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 2,
                     "name": "SortOut",
-                    "lines": [
-                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
-                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
-                        { "en": "Take another sock and compare", "de": "Nimm noch einen Socken und vergleiche", "indent": 1, "highlight": true },
-                        { "en": "If they are the same:", "de": "Wenn sie gleich sind:", "indent": 1, "highlight": true },
-                        { "en": "Put the pair aside", "de": "Lege das Sockenpaar zur Seite", "indent": 2 },
-                        { "en": "Else:", "de": "Ansonsten:", "indent": 1, "highlight": true },
-                        { "en": "Put the second sock into basket2", "de": "Lege den zweiten Socken in Korb2", "indent": 2, "highlight": true }
+                    "lines": [{
+                            "en": "Repeat until there is no more sock in the pile:",
+                            "de": "Wiederhole, bis keine Socken mehr im Haufen sind:",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Pick a sock from the pile",
+                            "de": "Wähle einen Socken aus dem Haufen",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Take another sock and compare",
+                            "de": "Nimm noch einen Socken und vergleiche",
+                            "indent": 1,
+                            "highlight": true
+                        },
+                        {
+                            "en": "If they are the same:",
+                            "de": "Wenn sie gleich sind:",
+                            "indent": 1,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Put the pair aside",
+                            "de": "Lege das Sockenpaar zur Seite",
+                            "indent": 2
+                        },
+                        {
+                            "en": "Else:",
+                            "de": "Ansonsten:",
+                            "indent": 1,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Put the second sock into basket2",
+                            "de": "Lege den zweiten Socken in Korb2",
+                            "indent": 2,
+                            "highlight": true
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 3,
                     "name": "SortOutFixed",
-                    "lines": [
-                        { "en": "Repeat until there is no more sock in the pile:", "de": "Wiederhole, bis keine Socken mehr im Haufen sind:", "indent": 0 },
-                        { "en": "Pick a sock from the pile", "de": "Wähle einen Socken aus dem Haufen", "indent": 1 },
-                        { "en": "Take another sock and compare", "de": "Nimm noch einen Socken und vergleiche", "indent": 1 },
-                        { "en": "If they are the same:", "de": "Wenn sie gleich sind:", "indent": 1 },
-                        { "en": "Put the pair aside", "de": "Lege das Sockenpaar zur Seite", "indent": 2 },
-                        { "en": "Merge the baskets", "de": "Vereine die Korbinhalte", "indent": 2, "highlight": true },
-                        { "en": "Else:", "de": "Ansonsten:", "indent": 1 },
-                        { "en": "Put the second sock into basket2", "de": "Lege den zweiten Socken in Korb2", "indent": 2 }
+                    "lines": [{
+                            "en": "Repeat until there is no more sock in the pile:",
+                            "de": "Wiederhole, bis keine Socken mehr im Haufen sind:",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Pick a sock from the pile",
+                            "de": "Wähle einen Socken aus dem Haufen",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Take another sock and compare",
+                            "de": "Nimm noch einen Socken und vergleiche",
+                            "indent": 1
+                        },
+                        {
+                            "en": "If they are the same:",
+                            "de": "Wenn sie gleich sind:",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Put the pair aside",
+                            "de": "Lege das Sockenpaar zur Seite",
+                            "indent": 2
+                        },
+                        {
+                            "en": "Merge the baskets",
+                            "de": "Vereine die Korbinhalte",
+                            "indent": 2,
+                            "highlight": true
+                        },
+                        {
+                            "en": "Else:",
+                            "de": "Ansonsten:",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Put the second sock into basket2",
+                            "de": "Lege den zweiten Socken in Korb2",
+                            "indent": 2
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 4,
                     "name": "SimpleDivideAndSweep",
-                    "lines": [
-                        { "en": "Pick a sock and put it in a box", "de": "Wähle einen Socken und gib ihn in eine Box", "indent": 0 },
-                        { "en": "Repeat for all other socks:", "de": "Wiederhole für alle anderen Socken:", "indent": 0 },
-                        { "en": "Pick a sock", "de": "Wähle einen Socken", "indent": 1 },
-                        { "en": "If it matches a sock in one of the boxes:", "de": "Wenn er ident ist mit einem Socken aus einer Box", "indent": 1 },
-                        { "en": "Match it and put it in the final pile", "de": "Gib sie zusammen und lege das Paar zur Seite", "indent": 2 }
+                    "lines": [{
+                            "en": "Pick a sock and put it in a box",
+                            "de": "Wähle einen Socken und gib ihn in eine Box",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Repeat for all other socks:",
+                            "de": "Wiederhole für alle anderen Socken:",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Pick a sock",
+                            "de": "Wähle einen Socken",
+                            "indent": 1
+                        },
+                        {
+                            "en": "If it matches a sock in one of the boxes:",
+                            "de": "Wenn er ident ist mit einem Socken aus einer Box",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Match it and put it in the final pile",
+                            "de": "Gib sie zusammen und lege das Paar zur Seite",
+                            "indent": 2
+                        }
                     ]
                 },
                 {
                     "algorithmNr": 5,
                     "name": "DivideAndSweep",
-                    "lines": [
-                        { "en": "Repeat for each criteria (color, pattern..):", "de": "Wiederhole für jedes Sockenkriterium (Farbe, Muster..):", "indent": 0 },
-                        { "en": "Divide all socks by criteria into boxes", "de": "Teile alle Socken nach dem Kriterium in Boxen", "indent": 1 },
-                        { "en": "If all socks in a box are identical:", "de": "Wenn alle Socken in einer Box ident sind", "indent": 1 },
-                        { "en": "Make pairs from that box to the final pile", "de": "Mache Sockenpaare aus ihnen und lege sie zur Seite", "indent": 2 },
-                        { "en": "If all boxes are empty", "de": "Wenn alle Boxen leer sind", "indent": 1 },
-                        { "en": "Stop the algorithm", "de": "stoppe den Algorithmus", "indent": 2 }
+                    "lines": [{
+                            "en": "Repeat for each criteria (color, pattern..):",
+                            "de": "Wiederhole für jedes Sockenkriterium (Farbe, Muster..):",
+                            "indent": 0
+                        },
+                        {
+                            "en": "Divide all socks by criteria into boxes",
+                            "de": "Teile alle Socken nach dem Kriterium in Boxen",
+                            "indent": 1
+                        },
+                        {
+                            "en": "If all socks in a box are identical:",
+                            "de": "Wenn alle Socken in einer Box ident sind",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Make pairs from that box to the final pile",
+                            "de": "Mache Sockenpaare aus ihnen und lege sie zur Seite",
+                            "indent": 2
+                        },
+                        {
+                            "en": "If all boxes are empty",
+                            "de": "Wenn alle Boxen leer sind",
+                            "indent": 1
+                        },
+                        {
+                            "en": "Stop the algorithm",
+                            "de": "stoppe den Algorithmus",
+                            "indent": 2
+                        }
 
                     ]
                 }
             ],
             "sockCollections": [{
                     "name": "SMALL",
-                    "socks": [
-                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" }
+                    "socks": [{
+                            "color": "red",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
                     ]
                 },
                 {
                     "name": "MEDIUM",
-                    "socks": [
-                        { "color": "red", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "blue", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "black", "type": "double" }
+                    "socks": [{
+                            "color": "red",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
 
                     ]
                 },
@@ -1869,12 +2404,48 @@
                     "name": "LARGE",
                     "socks": [
 
-                        { "color": "purple", "lineAmount": 3, "pattern": "None", "patternColor": "purple", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "None", "patternColor": "green", "type": "double" },
-                        { "color": "purple", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "heart", "patternColor": "green", "type": "double" },
-                        { "color": "purple", "lineAmount": 3, "pattern": "dots", "patternColor": "purple", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "dots", "patternColor": "green", "type": "double" }
+                        {
+                            "color": "purple",
+                            "lineAmount": 3,
+                            "pattern": "None",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 3,
+                            "pattern": "None",
+                            "patternColor": "green",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 3,
+                            "pattern": "heart",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 3,
+                            "pattern": "heart",
+                            "patternColor": "green",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "green",
+                            "type": "double"
+                        }
 
                     ]
                 },
@@ -1882,22 +2453,87 @@
                     "name": "HUGE",
                     "socks": [
 
-                        { "color": "magenta", "lineAmount": 2, "pattern": "heart", "patternColor": "magenta", "type": "double" },
-                        { "color": "blue", "patternColor": "magenta", "lineAmount": 1, "pattern": "dots", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "TU", "patternColor": "#006699", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "#006699", "type": "double" },
-                        { "color": "orange", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "orange", "lineAmount": 3, "pattern": "dots", "patternColor": "red", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 3, "pattern": "heart", "patternColor": "purple", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" }
+                        {
+                            "color": "magenta",
+                            "lineAmount": 2,
+                            "pattern": "heart",
+                            "patternColor": "magenta",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "patternColor": "magenta",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "#006699",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "#006699",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 3,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "darkgrey",
+                            "lineAmount": 3,
+                            "pattern": "heart",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "darkgrey",
+                            "lineAmount": 3,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
                     ]
                 },
                 {
                     "name": "CUSTOM",
-                    "socks": [
-                        { "color": "lime", "lineAmount": 2, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "maroon", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" },
-                        { "color": "navy", "lineAmount": 0, "pattern": "TU", "patternColor": "#006699", "type": "double" }
+                    "socks": [{
+                            "color": "lime",
+                            "lineAmount": 2,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "maroon",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "orange",
+                            "type": "double"
+                        },
+                        {
+                            "color": "navy",
+                            "lineAmount": 0,
+                            "pattern": "TU",
+                            "patternColor": "#006699",
+                            "type": "double"
+                        }
                     ]
                 }
             ],
@@ -1906,19 +2542,48 @@
             ],
             "challenges": [{
                     "challengeId": "1",
-                    "name": { "en": "first steps", "de": "Erste Schritte" },
+                    "name": {
+                        "en": "first steps",
+                        "de": "Erste Schritte"
+                    },
                     "algorithm": 1,
-                    "socks": [
-                        { "color": "lime", "lineAmount": 2, "pattern": "dots", "patternColor": "navy", "type": "double" },
-                        { "color": "maroon", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" }
+                    "socks": [{
+                            "color": "lime",
+                            "lineAmount": 2,
+                            "pattern": "dots",
+                            "patternColor": "navy",
+                            "type": "double"
+                        },
+                        {
+                            "color": "maroon",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "orange",
+                            "type": "double"
+                        }
                     ],
                     "sockOrder": [0, 1, 0, 1, 1],
-                    "question": { "en": "How many comparisons will there be if the socks are drawn in the following order?", "de": "Wieviele Vergleiche wird es geben, wenn die Socken in folgender Reihenfolge gezogen werden?", "type": "text" },
-                    "choices": [
-                        { "en": "2", "de": "2" },
-                        { "en": "3", "de": "3" },
-                        { "en": "4", "de": "4" },
-                        { "en": "5", "de": "5" }
+                    "question": {
+                        "en": "How many comparisons will there be if the socks are drawn in the following order?",
+                        "de": "Wieviele Vergleiche wird es geben, wenn die Socken in folgender Reihenfolge gezogen werden?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "2",
+                            "de": "2"
+                        },
+                        {
+                            "en": "3",
+                            "de": "3"
+                        },
+                        {
+                            "en": "4",
+                            "de": "4"
+                        },
+                        {
+                            "en": "5",
+                            "de": "5"
+                        }
                     ],
                     "answer": "3",
                     "endMessage": {
@@ -1934,19 +2599,48 @@
                 },
                 {
                     "challengeId": "2",
-                    "name": { "en": "this is fine", "de": "..in Ordnung" },
+                    "name": {
+                        "en": "this is fine",
+                        "de": "..in Ordnung"
+                    },
                     "algorithm": 1,
-                    "socks": [
-                        { "color": "purple", "lineAmount": 3, "pattern": "dots", "patternColor": "purple", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "magenta", "type": "double" }
+                    "socks": [{
+                            "color": "purple",
+                            "lineAmount": 3,
+                            "pattern": "dots",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "magenta",
+                            "type": "double"
+                        }
                     ],
                     "sockOrder": [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-                    "question": { "en": "How many sock movements will there be if the socks are drawn in the following order?", "de": "Wieviele Sockenbewegungen wird es geben, wenn die Socken in folgender Reihenfolge gezogen werden?", "type": "text" },
-                    "choices": [
-                        { "en": "6", "de": "6" },
-                        { "en": "8", "de": "8" },
-                        { "en": "10", "de": "10" },
-                        { "en": "12", "de": "12" }
+                    "question": {
+                        "en": "How many sock movements will there be if the socks are drawn in the following order?",
+                        "de": "Wieviele Sockenbewegungen wird es geben, wenn die Socken in folgender Reihenfolge gezogen werden?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "6",
+                            "de": "6"
+                        },
+                        {
+                            "en": "8",
+                            "de": "8"
+                        },
+                        {
+                            "en": "10",
+                            "de": "10"
+                        },
+                        {
+                            "en": "12",
+                            "de": "12"
+                        }
                     ],
                     "answer": "8",
                     "endMessage": {
@@ -1962,21 +2656,62 @@
                 },
                 {
                     "challengeId": "3",
-                    "name": { "en": "another basket 1", "de": "Noch ein Korb 1" },
+                    "name": {
+                        "en": "another basket 1",
+                        "de": "Noch ein Korb 1"
+                    },
                     "algorithm": 2,
-                    "socks": [
-                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "teal", "type": "double" },
-                        { "color": "fuchsia", "lineAmount": 2, "pattern": "heart", "patternColor": "red", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "dots", "patternColor": "blue", "type": "double" },
-                        { "color": "black", "lineAmount": 0, "pattern": "TU", "patternColor": "black", "type": "double" }
+                    "socks": [{
+                            "color": "teal",
+                            "lineAmount": 3,
+                            "pattern": "JKU",
+                            "patternColor": "teal",
+                            "type": "double"
+                        },
+                        {
+                            "color": "fuchsia",
+                            "lineAmount": 2,
+                            "pattern": "heart",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "blue",
+                            "type": "double"
+                        },
+                        {
+                            "color": "black",
+                            "lineAmount": 0,
+                            "pattern": "TU",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
                     ],
                     "sockOrder": [0, 1, 2, 3, 0, 1, 2, 3],
-                    "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
-                    "choices": [
-                        { "en": "4", "de": "4" },
-                        { "en": "1", "de": "1" },
-                        { "en": "3", "de": "3" },
-                        { "en": "0", "de": "0" }
+                    "question": {
+                        "en": "How many sock pairs will end up sorted?",
+                        "de": "Wieviele Sockenpaare werden geordnet sein?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "4",
+                            "de": "4"
+                        },
+                        {
+                            "en": "1",
+                            "de": "1"
+                        },
+                        {
+                            "en": "3",
+                            "de": "3"
+                        },
+                        {
+                            "en": "0",
+                            "de": "0"
+                        }
                     ],
                     "answer": "1",
                     "endMessage": {
@@ -1992,21 +2727,62 @@
                 },
                 {
                     "challengeId": "4",
-                    "name": { "en": "another basket 2", "de": "Noch ein Korb 2" },
+                    "name": {
+                        "en": "another basket 2",
+                        "de": "Noch ein Korb 2"
+                    },
                     "algorithm": 2,
-                    "socks": [
-                        { "color": "teal", "lineAmount": 3, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "fuchsia", "lineAmount": 2, "pattern": "heart", "patternColor": "red", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "dots", "patternColor": "blue", "type": "double" },
-                        { "color": "black", "lineAmount": 0, "pattern": "TU", "patternColor": "#006699", "type": "double" }
+                    "socks": [{
+                            "color": "teal",
+                            "lineAmount": 3,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "fuchsia",
+                            "lineAmount": 2,
+                            "pattern": "heart",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "blue",
+                            "type": "double"
+                        },
+                        {
+                            "color": "black",
+                            "lineAmount": 0,
+                            "pattern": "TU",
+                            "patternColor": "#006699",
+                            "type": "double"
+                        }
                     ],
                     "sockOrder": [0, 0, 3, 1, 2, 2, 1, 3],
-                    "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
-                    "choices": [
-                        { "en": "2", "de": "2" },
-                        { "en": "1", "de": "1" },
-                        { "en": "3", "de": "3" },
-                        { "en": "4", "de": "4" }
+                    "question": {
+                        "en": "How many sock pairs will end up sorted?",
+                        "de": "Wieviele Sockenpaare werden geordnet sein?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "2",
+                            "de": "2"
+                        },
+                        {
+                            "en": "1",
+                            "de": "1"
+                        },
+                        {
+                            "en": "3",
+                            "de": "3"
+                        },
+                        {
+                            "en": "4",
+                            "de": "4"
+                        }
                     ],
                     "answer": "2",
                     "endMessage": {
@@ -2022,21 +2798,56 @@
                 },
                 {
                     "challengeId": "5",
-                    "name": { "en": "merge it", "de": "zusammenfügen" },
+                    "name": {
+                        "en": "merge it",
+                        "de": "zusammenfügen"
+                    },
                     "algorithm": 3,
-                    "socks": [
-                        { "color": "fuchsia", "lineAmount": 1, "pattern": "heart", "patternColor": "red", "type": "double" },
-                        { "color": "green", "lineAmount": 3, "pattern": "JKU", "patternColor": "green", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "dots", "patternColor": "orange", "type": "double" }
+                    "socks": [{
+                            "color": "fuchsia",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 3,
+                            "pattern": "JKU",
+                            "patternColor": "green",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "orange",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [0, 0, 1, 2, 2, 1, 2, 2],
-                    "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
-                    "choices": [
-                        { "en": "1", "de": "1" },
-                        { "en": "0", "de": "0" },
-                        { "en": "3", "de": "3" },
-                        { "en": "2", "de": "2" }
+                    "question": {
+                        "en": "How many sock pairs will end up sorted?",
+                        "de": "Wieviele Sockenpaare werden geordnet sein?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "1",
+                            "de": "1"
+                        },
+                        {
+                            "en": "0",
+                            "de": "0"
+                        },
+                        {
+                            "en": "3",
+                            "de": "3"
+                        },
+                        {
+                            "en": "2",
+                            "de": "2"
+                        }
                     ],
                     "answer": "3",
                     "endMessage": {
@@ -2052,22 +2863,63 @@
                 },
                 {
                     "challengeId": "6",
-                    "name": { "en": "count it!", "de": "zähl mit!" },
+                    "name": {
+                        "en": "count it!",
+                        "de": "zähl mit!"
+                    },
                     "algorithm": 3,
-                    "socks": [
-                        { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "green", "type": "double" },
-                        { "color": "purple", "lineAmount": 3, "pattern": "TU", "patternColor": "purple", "type": "double" },
-                        { "color": "brown", "lineAmount": 1, "pattern": "dots", "patternColor": "brown", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "heart", "patternColor": "orange", "type": "double" }
+                    "socks": [{
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "green",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 3,
+                            "pattern": "TU",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "brown",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "brown",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "orange",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [3, 1, 2, 3, 2, 0, 2, 1, 0, 1, 0, 0],
-                    "question": { "en": "How many sock pairs will end up sorted?", "de": "Wieviele Sockenpaare werden geordnet sein?", "type": "text" },
-                    "choices": [
-                        { "en": "4", "de": "4" },
-                        { "en": "6", "de": "6" },
-                        { "en": "8", "de": "8" },
-                        { "en": "10", "de": "10" }
+                    "question": {
+                        "en": "How many sock pairs will end up sorted?",
+                        "de": "Wieviele Sockenpaare werden geordnet sein?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "4",
+                            "de": "4"
+                        },
+                        {
+                            "en": "6",
+                            "de": "6"
+                        },
+                        {
+                            "en": "8",
+                            "de": "8"
+                        },
+                        {
+                            "en": "10",
+                            "de": "10"
+                        }
                     ],
                     "answer": "8",
                     "endMessage": {
@@ -2083,22 +2935,63 @@
                 },
                 {
                     "challengeId": "7",
-                    "name": { "en": "divide it up", "de": "teil es auf" },
+                    "name": {
+                        "en": "divide it up",
+                        "de": "teil es auf"
+                    },
                     "algorithm": 4,
-                    "socks": [
-                        { "color": "red", "lineAmount": 1, "pattern": "heart", "patternColor": "red", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "heart", "patternColor": "blue", "type": "double" },
-                        { "color": "purple", "lineAmount": 1, "pattern": "heart", "patternColor": "purple", "type": "double" },
-                        { "color": "darkgrey", "lineAmount": 1, "pattern": "heart", "patternColor": "darkgrey", "type": "double" }
+                    "socks": [{
+                            "color": "red",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "blue",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "purple",
+                            "type": "double"
+                        },
+                        {
+                            "color": "darkgrey",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "darkgrey",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [3, 2, 0, 1, 2, 1, 0, 3],
-                    "question": { "en": "How many sock movements will there be?", "de": "Wieviele Sockenbewegungen wird es geben?", "type": "text" },
-                    "choices": [
-                        { "en": "8", "de": "8" },
-                        { "en": "12", "de": "12" },
-                        { "en": "16", "de": "16" },
-                        { "en": "24", "de": "24" }
+                    "question": {
+                        "en": "How many sock movements will there be?",
+                        "de": "Wieviele Sockenbewegungen wird es geben?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "8",
+                            "de": "8"
+                        },
+                        {
+                            "en": "12",
+                            "de": "12"
+                        },
+                        {
+                            "en": "16",
+                            "de": "16"
+                        },
+                        {
+                            "en": "24",
+                            "de": "24"
+                        }
                     ],
                     "answer": "16",
                     "endMessage": {
@@ -2114,24 +3007,77 @@
                 },
                 {
                     "challengeId": "8",
-                    "name": { "en": "more dividing", "de": "teile mehr" },
+                    "name": {
+                        "en": "more dividing",
+                        "de": "teile mehr"
+                    },
                     "algorithm": 4,
-                    "socks": [
-                        { "color": "darkgrey", "lineAmount": 1, "pattern": "JKU", "patternColor": "darkgrey", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "green", "type": "double" },
-                        { "color": "fuchsia", "lineAmount": 1, "pattern": "JKU", "patternColor": "fuchsia", "type": "double" },
-                        { "color": "black", "lineAmount": 1, "pattern": "TU", "patternColor": "black", "type": "double" },
-                        { "color": "orange", "lineAmount": 1, "pattern": "JKU", "patternColor": "orange", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "TU", "patternColor": "blue", "type": "double" }
+                    "socks": [{
+                            "color": "darkgrey",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "darkgrey",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "green",
+                            "type": "double"
+                        },
+                        {
+                            "color": "fuchsia",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "fuchsia",
+                            "type": "double"
+                        },
+                        {
+                            "color": "black",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "orange",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "orange",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "blue",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 0],
-                    "question": { "en": "How many sock comparisons will there be?", "de": "Wieviele Sockenvergleiche wird es geben?", "type": "text" },
-                    "choices": [
-                        { "en": "24", "de": "24" },
-                        { "en": "30", "de": "30" },
-                        { "en": "36", "de": "36" },
-                        { "en": "64", "de": "64" }
+                    "question": {
+                        "en": "How many sock comparisons will there be?",
+                        "de": "Wieviele Sockenvergleiche wird es geben?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "24",
+                            "de": "24"
+                        },
+                        {
+                            "en": "30",
+                            "de": "30"
+                        },
+                        {
+                            "en": "36",
+                            "de": "36"
+                        },
+                        {
+                            "en": "64",
+                            "de": "64"
+                        }
                     ],
                     "answer": "36",
                     "endMessage": {
@@ -2147,24 +3093,77 @@
                 },
                 {
                     "challengeId": "9",
-                    "name": { "en": "categories 1", "de": "Kategorien 1" },
+                    "name": {
+                        "en": "categories 1",
+                        "de": "Kategorien 1"
+                    },
                     "algorithm": 5,
-                    "socks": [
-                        { "color": "green", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "heart", "patternColor": "black", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "purple", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "purple", "lineAmount": 1, "pattern": "heart", "patternColor": "black", "type": "double" },
-                        { "color": "purple", "lineAmount": 1, "pattern": "dots", "patternColor": "black", "type": "double" }
+                    "socks": [{
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 1,
+                            "pattern": "heart",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "purple",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [1, 4, 0, 3, 2, 5, 1, 4, 0, 3, 2, 5],
-                    "question": { "en": "How many sock movements will there be?", "de": "Wieviele Sockenbewegungen wird es geben?", "type": "text" },
-                    "choices": [
-                        { "en": "24", "de": "24" },
-                        { "en": "36", "de": "36" },
-                        { "en": "48", "de": "48" },
-                        { "en": "64", "de": "64" }
+                    "question": {
+                        "en": "How many sock movements will there be?",
+                        "de": "Wieviele Sockenbewegungen wird es geben?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "24",
+                            "de": "24"
+                        },
+                        {
+                            "en": "36",
+                            "de": "36"
+                        },
+                        {
+                            "en": "48",
+                            "de": "48"
+                        },
+                        {
+                            "en": "64",
+                            "de": "64"
+                        }
                     ],
                     "answer": "36",
                     "endMessage": {
@@ -2180,24 +3179,77 @@
                 },
                 {
                     "challengeId": "10",
-                    "name": { "en": "categories 2", "de": "Kategorien 2" },
+                    "name": {
+                        "en": "categories 2",
+                        "de": "Kategorien 2"
+                    },
                     "algorithm": 5,
-                    "socks": [
-                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "red", "type": "double" },
-                        { "color": "green", "lineAmount": 1, "pattern": "TU", "patternColor": "black", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "red", "type": "double" },
-                        { "color": "blue", "lineAmount": 1, "pattern": "dots", "patternColor": "black", "type": "double" },
-                        { "color": "red", "lineAmount": 1, "pattern": "JKU", "patternColor": "black", "type": "double" },
-                        { "color": "red", "lineAmount": 1, "pattern": "dots", "patternColor": "black", "type": "double" }
+                    "socks": [{
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "green",
+                            "lineAmount": 1,
+                            "pattern": "TU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "red",
+                            "type": "double"
+                        },
+                        {
+                            "color": "blue",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "red",
+                            "lineAmount": 1,
+                            "pattern": "JKU",
+                            "patternColor": "black",
+                            "type": "double"
+                        },
+                        {
+                            "color": "red",
+                            "lineAmount": 1,
+                            "pattern": "dots",
+                            "patternColor": "black",
+                            "type": "double"
+                        }
 
                     ],
                     "sockOrder": [1, 4, 0, 3, 2, 5, 1, 4, 0, 3, 2, 5],
-                    "question": { "en": "How many sock movements will there be?", "de": "Wieviele Sockenbewegungen wird es geben?", "type": "text" },
-                    "choices": [
-                        { "en": "36", "de": "36" },
-                        { "en": "44", "de": "44" },
-                        { "en": "52", "de": "52" },
-                        { "en": "64", "de": "64" }
+                    "question": {
+                        "en": "How many sock movements will there be?",
+                        "de": "Wieviele Sockenbewegungen wird es geben?",
+                        "type": "text"
+                    },
+                    "choices": [{
+                            "en": "36",
+                            "de": "36"
+                        },
+                        {
+                            "en": "44",
+                            "de": "44"
+                        },
+                        {
+                            "en": "52",
+                            "de": "52"
+                        },
+                        {
+                            "en": "64",
+                            "de": "64"
+                        }
                     ],
                     "answer": "44",
                     "endMessage": {

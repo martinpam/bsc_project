@@ -1,4 +1,6 @@
-import { ref } from 'vue'
+import {
+    ref
+} from 'vue'
 
 const getShelfData = (size) => {
 
@@ -16,7 +18,11 @@ const getShelfData = (size) => {
         }
     }
 
-    return { shelfData, error, load }
+    return {
+        shelfData,
+        error,
+        load
+    }
 }
 
 export default getShelfData

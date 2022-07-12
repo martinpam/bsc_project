@@ -31,12 +31,28 @@
         ref="exit"
         style="transform: rotate(0deg) scaleX(-1)"
       ></div>
-      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}"  class="shelf vegetables articles-left text-small"></div>
-      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-right text-small"></div>
-      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-small"></div>
-      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-small"></div>
-      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}"  class="checkout text-small-checkout" ref="checkout"></div>
-      <div  class="corridor corridor1" ref="corridor"></div>
+      <div
+        :style="{ '--vegetables': '\'' + t('VEGETABLES') + '\'' }"
+        class="shelf vegetables articles-left text-small"
+      ></div>
+      <div
+        :style="{ '--fruits': '\'' + t('FRUITS') + '\'' }"
+        class="shelf fruits articles-right text-small"
+      ></div>
+      <div
+        :style="{ '--cooler': '\'' + t('COOLER') + '\'' }"
+        class="shelf cooler articles-left text-small"
+      ></div>
+      <div
+        :style="{ '--freezer': '\'' + t('FREEZER') + '\'' }"
+        class="shelf freezer articles-right text-small"
+      ></div>
+      <div
+        :style="{ '--checkout': '\'' + t('CHECKOUT') + '\'' }"
+        class="checkout text-small-checkout"
+        ref="checkout"
+      ></div>
+      <div class="corridor corridor1" ref="corridor"></div>
     </div>
 
     <div
@@ -54,51 +70,137 @@
         ref="exit"
         style="transform: rotate(180deg) scaleX(-1)"
       ></div>
-      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-medium" style="{'content':'asdf'}"></div>
-      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables articles-left text-medium"></div>
+      <div
+        :style="{ '--cooler': '\'' + t('COOLER') + '\'' }"
+        class="shelf cooler articles-left text-medium"
+        style="{'content':'asdf'}"
+      ></div>
+      <div
+        :style="{ '--vegetables': '\'' + t('VEGETABLES') + '\'' }"
+        class="shelf vegetables articles-left text-medium"
+      ></div>
 
-      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-medium"></div>
-      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-right text-medium"></div>
-      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat articles-left text-medium"></div>
-      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning articles-left text-medium"></div>
+      <div
+        :style="{ '--freezer': '\'' + t('FREEZER') + '\'' }"
+        class="shelf freezer articles-right text-medium"
+      ></div>
+      <div
+        :style="{ '--fruits': '\'' + t('FRUITS') + '\'' }"
+        class="shelf fruits articles-right text-medium"
+      ></div>
+      <div
+        :style="{ '--meat': '\'' + t('MEAT') + '\'' }"
+        class="shelf meat articles-left text-medium"
+      ></div>
+      <div
+        :style="{ '--cleaning': '\'' + t('CLEANING') + '\'' }"
+        class="shelf cleaning articles-left text-medium"
+      ></div>
 
-      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-medium"></div>
-      <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks articles-right text-medium"></div>
-      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}" class="checkout text-medium-checkout" ref="checkout"></div>
+      <div
+        :style="{ '--sweets': '\'' + t('SWEETS') + '\'' }"
+        class="shelf sweets articles-right text-medium"
+      ></div>
+      <div
+        :style="{ '--drinks': '\'' + t('DRINKS') + '\'' }"
+        class="shelf drinks articles-right text-medium"
+      ></div>
+      <div
+        :style="{ '--checkout': '\'' + t('CHECKOUT') + '\'' }"
+        class="checkout text-medium-checkout"
+        ref="checkout"
+      ></div>
       <div class="corridor corridor1" ref="corridor"></div>
     </div>
-    <div v-else-if="size==='LARGE'" class="supermarket large" ref="supermarket">
+    <div
+      v-else-if="size === 'LARGE'"
+      class="supermarket large"
+      ref="supermarket"
+    >
       <div class="door-entry" ref="door"></div>
       <div
         class="door-exit"
         ref="exit"
         style="transform: rotate(180deg) scaleX(-1)"
       ></div>
-      <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler articles-left text-large"></div>
-      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits articles-left text-large"></div>
-      <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer articles-right text-large"></div>
-    
-      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables articles-right text-large"></div>
-       <div :style="{'--freezer':  '\''+ t('FREEZER')+ '\''}" class="shelf freezer freezer2 articles-left text-large"></div>
-      <div :style="{'--vegetables':  '\''+ t('VEGETABLES')+ '\''}" class="shelf vegetables vegetables2 articles-left text-large"></div>
-     <div :style="{'--cooler':  '\''+ t('COOLER')+ '\''}" class="shelf cooler cooler2 articles-right text-large"></div>
-      
-      <div :style="{'--fruits':  '\''+ t('FRUITS')+ '\''}" class="shelf fruits fruits2 articles-right text-large"></div>
-       <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks articles-left text-large"></div>
-      <div :style="{'--drinks':  '\''+ t('DRINKS')+ '\''}" class="shelf drinks drinks2 articles-left text-large"></div>
-     
-      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat articles-right text-large"></div>
-      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning articles-right text-large"></div>
-      <div :style="{'--meat':  '\''+ t('MEAT')+ '\''}" class="shelf meat meat2 articles-left text-large"></div>
-      <div :style="{'--cleaning':  '\''+ t('CLEANING')+ '\''}" class="shelf cleaning cleaning2 articles-left text-large"></div>
-      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets articles-right text-large"></div>
-      <div :style="{'--sweets':  '\''+ t('SWEETS')+ '\''}" class="shelf sweets sweets2 articles-right text-large"></div>
-      <div :style="{'--checkout':  '\''+ t('CHECKOUT')+ '\''}" class="checkout text-large-checkout" ref="checkout"></div>
+      <div
+        :style="{ '--cooler': '\'' + t('COOLER') + '\'' }"
+        class="shelf cooler articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--fruits': '\'' + t('FRUITS') + '\'' }"
+        class="shelf fruits articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--freezer': '\'' + t('FREEZER') + '\'' }"
+        class="shelf freezer articles-right text-large"
+      ></div>
+
+      <div
+        :style="{ '--vegetables': '\'' + t('VEGETABLES') + '\'' }"
+        class="shelf vegetables articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--freezer': '\'' + t('FREEZER') + '\'' }"
+        class="shelf freezer freezer2 articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--vegetables': '\'' + t('VEGETABLES') + '\'' }"
+        class="shelf vegetables vegetables2 articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--cooler': '\'' + t('COOLER') + '\'' }"
+        class="shelf cooler cooler2 articles-right text-large"
+      ></div>
+
+      <div
+        :style="{ '--fruits': '\'' + t('FRUITS') + '\'' }"
+        class="shelf fruits fruits2 articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--drinks': '\'' + t('DRINKS') + '\'' }"
+        class="shelf drinks articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--drinks': '\'' + t('DRINKS') + '\'' }"
+        class="shelf drinks drinks2 articles-left text-large"
+      ></div>
+
+      <div
+        :style="{ '--meat': '\'' + t('MEAT') + '\'' }"
+        class="shelf meat articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--cleaning': '\'' + t('CLEANING') + '\'' }"
+        class="shelf cleaning articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--meat': '\'' + t('MEAT') + '\'' }"
+        class="shelf meat meat2 articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--cleaning': '\'' + t('CLEANING') + '\'' }"
+        class="shelf cleaning cleaning2 articles-left text-large"
+      ></div>
+      <div
+        :style="{ '--sweets': '\'' + t('SWEETS') + '\'' }"
+        class="shelf sweets articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--sweets': '\'' + t('SWEETS') + '\'' }"
+        class="shelf sweets sweets2 articles-right text-large"
+      ></div>
+      <div
+        :style="{ '--checkout': '\'' + t('CHECKOUT') + '\'' }"
+        class="checkout text-large-checkout"
+        ref="checkout"
+      ></div>
       <div class="corridor corridor1" ref="corridor"></div>
       <div class="corridor corridor2"></div>
       <div class="corridor corridor3"></div>
     </div>
-    <ButtonNavigation v-if="!challenge || (!finished && playing && !showQuestionModal)"
+    <ButtonNavigation
+      v-if="!challenge || (!finished && playing && !showQuestionModal)"
       :storySegment="isStory"
       :playing="playing"
       :gameStarted="gameStarted"
@@ -110,18 +212,19 @@
       @handleClickFastForward="fastForward()"
       @handleClickContinueStory="$emit('handleClickContinueStory')"
     />
-    <QuestionModal v-if="challenge" v-show="finished || showQuestionModal"
-    :question="challenge.question"
-    :choices="challenge.choices"
-    :endMessage="challenge.endMessage"
-    :animationFinished="finished"
-    :correctAnswer="challenge.answer"
-    :updateQuestions="updateQuestions"
-    :isLastChallenge="isLastChallenge"
-    @retry="retryChallenge()"
-    @answer="questionAnswered()"
-    @continue="nextChallenge()"
-    
+    <QuestionModal
+      v-if="challenge"
+      v-show="finished || showQuestionModal"
+      :question="challenge.question"
+      :choices="challenge.choices"
+      :endMessage="challenge.endMessage"
+      :animationFinished="finished"
+      :correctAnswer="challenge.answer"
+      :updateQuestions="updateQuestions"
+      :isLastChallenge="isLastChallenge"
+      @retry="retryChallenge()"
+      @answer="questionAnswered()"
+      @continue="nextChallenge()"
     />
   </div>
 </template>
@@ -130,7 +233,7 @@
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import QuestionModal from "../components/QuestionModal.vue";
-import {t, setCookie} from '../helpers/helperFunctions.js'
+import { t, setCookie } from "../helpers/helperFunctions.js";
 
 import { onMounted } from "@vue/runtime-core";
 export default {
@@ -143,12 +246,10 @@ export default {
     "isStory",
     "boughtItems",
     "challenge",
-    "isLastChallenge"
+    "isLastChallenge",
   ],
   components: { ButtonNavigation, QuestionModal },
   setup(props) {
-    console.log(props);
-  
     const shoppingList = ref([]);
     shoppingList.value.push(...props.shoppingListProp);
     const supermarket = ref(null);
@@ -164,7 +265,7 @@ export default {
     const shelfs = [];
     const shoppingListLive = ref([]);
     shoppingListLive.value.push(...props.shoppingListProp);
-    console.log(shoppingListLive.value);
+
     const checkout = ref(null);
     const plannedCoordinates = [];
     const exit = ref(null);
@@ -186,17 +287,15 @@ export default {
     };
     const animations = ref([]);
     const walkingSpeed = ref(200);
-    const finished = ref(false)
+    const finished = ref(false);
     const MAX_ROUNDS = 1;
     const rounds = ref(0);
     const endlessRoundStarter = ref(0);
     onMounted(() => {
-      console.log(currentItemName.value, shoppingList.value, props.shoppingListProp, props.size)
-      console.log(document.children, "mounted", robotWidth.value, props.algorithm, props.size, document.getElementsByClassName("shelf")[0]);
       cell.width =
         Math.max(door.value.clientWidth, door.value.clientHeight) * 2;
       cell.height =
-        props.size === 'LARGE'
+        props.size === "LARGE"
           ? document.getElementsByClassName("shelf")[0].clientHeight / 3.3
           : document.getElementsByClassName("shelf")[0].clientHeight / 3;
     });
@@ -242,41 +341,39 @@ export default {
     },
     algorithm() {
       this.resetSimulation();
-      
     },
     size() {
       this.resetSimulation();
     },
     challenge() {
       this.resetSimulation();
-       if (this.challenge) {
-     this.startSimulation()
-     this.showQuestionModal = true;
-    }
-    }
+      if (this.challenge) {
+        this.startSimulation();
+        this.showQuestionModal = true;
+      }
+    },
   },
   mounted() {
-    window.addEventListener('resize', this.resetSimulation);
+    window.addEventListener("resize", this.resetSimulation);
     if (this.challenge) {
-     this.startSimulation()
-     this.showQuestionModal = true;
+      this.startSimulation();
+      this.showQuestionModal = true;
     }
-
   },
   unmounted() {
-    window.removeEventListener('resize', this.resetSimulation);
+    window.removeEventListener("resize", this.resetSimulation);
   },
 
   methods: {
     resetSimulation() {
-      this.robot.style.opacity =0
+      this.robot.style.opacity = 0;
       this.finished = false;
-      this.showQuestionModal = this.challenge? true: false;
+      this.showQuestionModal = this.challenge ? true : false;
       this.showContinue = false;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
-        this.size === 'LARGE'
+        this.size === "LARGE"
           ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
       this.shoppingListLive = [];
@@ -318,20 +415,22 @@ export default {
         this.animations[this.currentAnimation].animation.play();
       }
     },
-    questionAnswered(){
+    questionAnswered() {
       this.playPause();
       this.showQuestionModal = false;
     },
-    retryChallenge(){
-      
-      this.resetSimulation()
-      this.startSimulation()
-      
+    retryChallenge() {
+      this.resetSimulation();
+      this.startSimulation();
     },
     nextChallenge() {
-      this.resetSimulation()
-      setCookie('supermarket-challenges', this.challenge.challengeId)
-      this.$router.push({path:'/supermarket/challenges/'+(parseInt(this.challenge.challengeId)+1)})
+      this.resetSimulation();
+      setCookie("supermarket-challenges", this.challenge.challengeId);
+      this.$router.push({
+        path:
+          "/supermarket/challenges/" +
+          (parseInt(this.challenge.challengeId) + 1),
+      });
       this.updateQuestions = !this.updateQuestions;
     },
     continueStory() {
@@ -344,28 +443,24 @@ export default {
       }
     },
     startSimulation() {
-      
       this.resetSimulation();
       this.gameStarted = true;
       this.playing = true;
       this.shelfs = document.getElementsByClassName("shelf");
       this.cell.width = Math.max(this.exit.clientWidth, this.exit.clientHeight);
       this.cell.height =
-        this.size === 'LARGE'
+        this.size === "LARGE"
           ? this.shelfs[0].clientHeight / 3.3
           : this.shelfs[0].clientHeight / 3;
       document.getElementById("itemImage").width = this.cell.width * 0.7;
       document.getElementById("itemImage").height = this.cell.width * 0.7;
       this.setRobotStartPosition();
       this.fillAnimations();
- 
+
       if (this.challenge) {
         this.currentAnimation = this.challenge.stopAtAnimation;
-
-
-        
       }
-      console.log('animations post' ,this.animations)
+
       this.startSearch();
     },
     robotPos() {
@@ -387,7 +482,11 @@ export default {
       this.robot.style.left =
         document.getElementsByClassName("door-entry")[0].getBoundingClientRect()
           .left +
-        (this.size === 'MEDIUM' ? this.cell.width / 4 : this.size === 'SMALL' ? this.cell.width / 6 : 0 ) +
+        (this.size === "MEDIUM"
+          ? this.cell.width / 4
+          : this.size === "SMALL"
+          ? this.cell.width / 6
+          : 0) +
         2 +
         "px";
     },
@@ -412,27 +511,31 @@ export default {
         return (
           Math.abs(
             this.robotPosPlanned.x +
-            this.cell.width * 0.825 -
-            this.getPos(shelf).x
-          ) <   (this.size === 'LARGE' ? this.cell.width * 0.33 : this.cell.width * 0.2)
+              this.cell.width * 0.825 -
+              this.getPos(shelf).x
+          ) <
+          (this.size === "LARGE"
+            ? this.cell.width * 0.33
+            : this.cell.width * 0.2)
         );
       }
       if (shelf.classList.contains("articles-right")) {
         return (
           Math.abs(
             this.robotPosPlanned.x -
-            this.cell.width * 1.175 -
-            this.getPos(shelf).x
-          ) <  this.cell.width * 0.33
+              this.cell.width * 1.175 -
+              this.getPos(shelf).x
+          ) <
+          this.cell.width * 0.33
         );
       }
     },
     addWalkingAnimation(delay, walk_x, walk_y) {
       const duration = walk_x
         ? ((Math.abs(walk_x) * 300) / this.walkingSpeed) *
-        (this.size === 'MEDIUM' ? 1.2 : this.size === 'LARGE' ? 1.5 : 1)
+          (this.size === "MEDIUM" ? 1.2 : this.size === "LARGE" ? 1.5 : 1)
         : ((Math.abs(walk_y) * 300) / this.walkingSpeed) *
-        (this.size === 'MEDIUM' ? 1.2 : this.size === 'LARGE' ? 1.5 : 1);
+          (this.size === "MEDIUM" ? 1.2 : this.size === "LARGE" ? 1.5 : 1);
       const step = walk_x
         ? "translateX(" + walk_x + "px)"
         : "translateY(" + walk_y + "px)";
@@ -440,11 +543,10 @@ export default {
         animation: this.robot.animate([{ transform: step }], {
           duration: duration,
           delay: delay,
-          
         }),
         walking: true,
-          x: walk_x,
-          y: walk_y,
+        x: walk_x,
+        y: walk_y,
       });
       this.robotPosPlanned.x += walk_x;
       this.robotPosPlanned.y += walk_y;
@@ -458,7 +560,7 @@ export default {
         animation: this.robot.animate(
           [fadeIn ? { opacity: 1 } : { opacity: 0 }],
           {
-            duration:  1000,
+            duration: 1000,
             fill: "forwards",
           }
         ),
@@ -481,7 +583,7 @@ export default {
           this.getPos(shelf).x -
           this.robotPosPlanned.x -
           this.cell.width +
-          (this.size !== 'LARGE'
+          (this.size !== "LARGE"
             ? this.cell.width * 0.15
             : this.cell.width * 0.15)
         );
@@ -491,7 +593,7 @@ export default {
           this.getPos(shelf).x -
           this.robotPosPlanned.x +
           this.cell.width +
-          (this.size !== 'LARGE'
+          (this.size !== "LARGE"
             ? this.cell.width * 0.25
             : -this.cell.width * 0.15)
         );
@@ -529,20 +631,20 @@ export default {
             (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
           )[index].items;
           let categoryItems = [];
-         
+
+          categoryItems.push(
+            ...this.allShelfs.filter(
+              (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
+            )[0].items
+          );
+          if (this.size === "LARGE") {
             categoryItems.push(
               ...this.allShelfs.filter(
                 (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
-              )[0].items
+              )[1].items
             );
-            if (this.size === 'LARGE') {
-              categoryItems.push(
-                ...this.allShelfs.filter(
-                  (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
-                )[1].items
-              );
-            }
-        
+          }
+
           if (
             this.algorithm !== 5 ||
             categoryItems.some((item) => this.shoppingList.indexOf(item) >= 0)
@@ -554,7 +656,7 @@ export default {
               currentItems,
               categoryItems
             );
-            console.log(foundTopItem, restart, )
+
             if (restart) break;
           }
         }
@@ -570,49 +672,48 @@ export default {
         this.repeatAnimations();
       }
       if (this.algorithm !== 6) {
-        
-          let walk_x, walk_y;
-          walk_y =
-            this.getPos(this.corridor).y -
-            this.cell.height * 0.1 -
-            this.robotPosPlanned.y;
-          this.addWalkingAnimation(0, 0, walk_y);
+        let walk_x, walk_y;
+        walk_y =
+          this.getPos(this.corridor).y -
+          this.cell.height * 0.1 -
+          this.robotPosPlanned.y;
+        this.addWalkingAnimation(0, 0, walk_y);
 
-          if (this.algorithm !== 1) {
-            walk_x =
+        if (this.algorithm !== 1) {
+          walk_x =
             this.getPos(this.checkout).x +
-            (this.size === 'SMALL' ? this.cell.width * 0.2 : (-this.cell.width * 0.8)) -
+            (this.size === "SMALL"
+              ? this.cell.width * 0.2
+              : -this.cell.width * 0.8) -
             this.robotPosPlanned.x;
-            this.addWalkingAnimation(0, walk_x, 0);
-            if (this.size === 'SMALL') {
-               walk_y =
-            this.getPos(this.checkout).y +
-            this.cell.height * 0.2 -
-            this.robotPosPlanned.y;
-          this.addWalkingAnimation(0, 0, walk_y);
-            }
-             walk_y =
+          this.addWalkingAnimation(0, walk_x, 0);
+          if (this.size === "SMALL") {
+            walk_y =
+              this.getPos(this.checkout).y +
+              this.cell.height * 0.2 -
+              this.robotPosPlanned.y;
+            this.addWalkingAnimation(0, 0, walk_y);
+          }
+          walk_y =
             this.getPos(this.exit).y +
             this.cell.height * 0.2 -
             this.robotPosPlanned.y;
           this.addWalkingAnimation(500, 0, walk_y);
-          } else {
-            walk_y =
+        } else {
+          walk_y =
             this.getPos(this.exit).y +
             this.cell.height * 0.2 -
             this.robotPosPlanned.y;
           this.addWalkingAnimation(0, 0, walk_y);
-          }
-          
+        }
 
-
-          
-          walk_x =
-            this.getPos(this.exit).x +
-            (this.size === 'SMALL' ? this.cell.width * 0.2 : this.cell.width * 0.05) -
-            this.robotPosPlanned.x;
-          this.addWalkingAnimation(0, walk_x, 0);
-        
+        walk_x =
+          this.getPos(this.exit).x +
+          (this.size === "SMALL"
+            ? this.cell.width * 0.2
+            : this.cell.width * 0.05) -
+          this.robotPosPlanned.x;
+        this.addWalkingAnimation(0, walk_x, 0);
       }
 
       this.addFadingAnimation(false);
@@ -622,38 +723,37 @@ export default {
           duration: 0,
         }),
       });
-     // this.plannedCoordinates.push(null);
+      // this.plannedCoordinates.push(null);
       for (let u = 0; u < this.animations.length; u++) {
         this.animations[u].animation.pause();
         this.animations[u].animation.onfinish = () => {
           this.currentAnimation++;
-          console.log(this.plannedCoordinates[u], u)
+
           if (this.plannedCoordinates[u]) {
-            
             this.changeRobotPos(
               this.plannedCoordinates[u].x,
               this.plannedCoordinates[u].y
             );
           }
-          if (u != this.animations.length - 1 && (!this.challenge || u !== this.challenge.stopAtAnimation)) {
+          if (
+            u != this.animations.length - 1 &&
+            (!this.challenge || u !== this.challenge.stopAtAnimation)
+          ) {
             this.animations[u + 1].animation.play();
-        
           }
           if (this.challenge && u === this.challenge.stopAtAnimation) {
-            this.robot.style.opacity =1
-            this.playPause()
+            this.robot.style.opacity = 1;
+            this.playPause();
             for (let i = 0; i < this.challenge.stopAtAnimation; i++) {
               if (this.animations[i].successful) {
                 this.boughtItems.push(this.animations[i].itemName);
               }
               if (this.animations[i].finishedRound) {
-                 this.currentItemName = this.animations[i].nextItem;
+                this.currentItemName = this.animations[i].nextItem;
               }
             }
-            
-            
           }
-            
+
           if (this.animations[u].type === "search") {
             this.currentItem.style.display = "none";
           }
@@ -663,17 +763,17 @@ export default {
           ) {
             this.currentItem.style.display = "block";
             let padding =
-              this.size === 'SMALL'
+              this.size === "SMALL"
                 ? 0.13
-                : this.size === 'MEDIUM'
-                  ? 0.2
-                  : 0.07;
+                : this.size === "MEDIUM"
+                ? 0.2
+                : 0.07;
             this.currentItem.style.top =
               this.getPos(this.animations[u + 1].shelf).y +
               this.animations[u + 1].cell *
-              (this.size === 'LARGE'
-                ? (this.cell.height / 3.3) * 2.5
-                : this.cell.height) +
+                (this.size === "LARGE"
+                  ? (this.cell.height / 3.3) * 2.5
+                  : this.cell.height) +
               this.cell.height * 0.07 +
               "px";
             this.currentItem.style.left =
@@ -685,19 +785,18 @@ export default {
             let width = document.body.clientWidth;
             width = width > comp ? comp : width;
 
-            
-            if (this.size === 'SMALL') {
-              itemText.style.top = 2.4/comp*width+"rem";
-              itemText.style.left = 2/comp*width+"rem";
-              itemText.style.fontSize = 3/comp*width+"rem";
-            } else if (this.size === 'MEDIUM') {
-              itemText.style.top = 2/comp*width+"rem";
-              itemText.style.left = 1.6/comp*width+"rem";
-              itemText.style.fontSize = 2.5/comp*width+"rem";
+            if (this.size === "SMALL") {
+              itemText.style.top = (2.4 / comp) * width + "rem";
+              itemText.style.left = (2 / comp) * width + "rem";
+              itemText.style.fontSize = (3 / comp) * width + "rem";
+            } else if (this.size === "MEDIUM") {
+              itemText.style.top = (2 / comp) * width + "rem";
+              itemText.style.left = (1.6 / comp) * width + "rem";
+              itemText.style.fontSize = (2.5 / comp) * width + "rem";
             } else {
-              itemText.style.top = 1.2/comp*width+"rem";
-              itemText.style.left = 1.1/comp*width+"rem";
-              itemText.style.fontSize = 2.0/comp*width+"rem";
+              itemText.style.top = (1.2 / comp) * width + "rem";
+              itemText.style.left = (1.1 / comp) * width + "rem";
+              itemText.style.fontSize = (2.0 / comp) * width + "rem";
             }
 
             if (this.animations[u + 1].successful === true) {
@@ -715,36 +814,48 @@ export default {
             this.gameStarted = false;
             this.playing = false;
             this.finished = true;
-            console.log('last')
+
             this.showContinue = true;
-           //this.resetSimulation();
+            //this.resetSimulation();
           }
 
-           console.log(this.animations)
-           let allStartPoints = document.getElementsByClassName('start-point');
-           console.log(allStartPoints)
-           if (this.animations[u+1].walking === true) {
+          let allStartPoints = document.getElementsByClassName("start-point");
+
+          if (this.animations[u + 1].walking === true) {
             for (let point = 0; point < allStartPoints.length; point++) {
               if (this.getPos(allStartPoints[point])) {
-                console.log((this.getPos(allStartPoints[point]).x - this.cell.width*0.5) , this.plannedCoordinates[u+1].x*0.91,this.plannedCoordinates[u+1].x*1.09)
-                console.log((this.getPos(allStartPoints[point]).y - this.cell.height*0.5) , this.plannedCoordinates[u+1].y*0.91,this.plannedCoordinates[u+1].y*1.09)
-                const minX = (this.getPos(allStartPoints[point]).x - this.cell.width*0.5) > this.plannedCoordinates[u+1].x*0.91
-                const maxX = (this.getPos(allStartPoints[point]).x - this.cell.width*0.5) < this.plannedCoordinates[u+1].x*1.09
-                const minY = (this.getPos(allStartPoints[point]).y - this.cell.height*0.5) > this.plannedCoordinates[u+1].y*0.91
-                const maxY = (this.getPos(allStartPoints[point]).y - this.cell.height*0.5) < this.plannedCoordinates[u+1].y*1.09
-                console.log(minX, maxX, minY, maxY)
+                const minX =
+                  this.getPos(allStartPoints[point]).x - this.cell.width * 0.5 >
+                  this.plannedCoordinates[u + 1].x * 0.91;
+                const maxX =
+                  this.getPos(allStartPoints[point]).x - this.cell.width * 0.5 <
+                  this.plannedCoordinates[u + 1].x * 1.09;
+                const minY =
+                  this.getPos(allStartPoints[point]).y -
+                    this.cell.height * 0.5 >
+                  this.plannedCoordinates[u + 1].y * 0.91;
+                const maxY =
+                  this.getPos(allStartPoints[point]).y -
+                    this.cell.height * 0.5 <
+                  this.plannedCoordinates[u + 1].y * 1.09;
+
                 if (minX && maxX && minY && maxY) {
-                  console.log('at start point')
-                  let itemName = allStartPoints[point].classList[0].slice(0,allStartPoints[point].classList[0].length-12)
-                  console.log(itemName)
-                  this.boughtItems.push(itemName)
+                  let itemName = allStartPoints[point].classList[0].slice(
+                    0,
+                    allStartPoints[point].classList[0].length - 12
+                  );
+
+                  this.boughtItems.push(itemName);
                 }
               }
-            
             }
           }
 
-          if (this.animations[u].allPaths !== null &&this.animations[u].allPaths !== undefined &&this.animations[u].allPaths.length > 0) {
+          if (
+            this.animations[u].allPaths !== null &&
+            this.animations[u].allPaths !== undefined &&
+            this.animations[u].allPaths.length > 0
+          ) {
             let targetPoints = document.getElementsByClassName("target-point");
             for (let t = 0; t < targetPoints.length; t++) {
               targetPoints[t].innerHTML = "";
@@ -772,7 +883,10 @@ export default {
             }
           }
 
-          if (this.animations[u + 1].allPaths && this.animations[u + 1].allPaths.length > 0) {
+          if (
+            this.animations[u + 1].allPaths &&
+            this.animations[u + 1].allPaths.length > 0
+          ) {
             for (let i = 0; i < this.animations[u + 1].allPaths.length; i++) {
               for (
                 let m = 0;
@@ -797,13 +911,12 @@ export default {
                     " target-point";
 
                   let point = document.getElementsByClassName(searchFor)[0];
-           
+
                   if (point) {
-                     point.style.zIndex = 13;
-                  point.innerHTML =
-                    "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem;'>&#9679;</div>";
+                    point.style.zIndex = 13;
+                    point.innerHTML =
+                      "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem;'>&#9679;</div>";
                   }
-                 
                 }
               }
               if (this.animations[u + 1].allPaths[i].from !== "robot") {
@@ -811,22 +924,19 @@ export default {
                   this.animations[u + 1].allPaths[i].from + "-start-point";
                 let point = document.getElementsByClassName(searchFor)[0];
                 if (point) {
-                   point.style.zIndex = 13;
-                point.innerHTML =
-                  "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem; color:blue'>&#9679;</div>";
+                  point.style.zIndex = 13;
+                  point.innerHTML =
+                    "<div style='font-size: 2.6rem; margin-top:-1.5rem; margin-left:-0.87rem; color:blue'>&#9679;</div>";
                 }
-               
               }
             }
           }
-         
-        
-           if (this.animations[u + 1].endlessLoop === true) {
+
+          if (this.animations[u + 1].endlessLoop === true) {
             this.animations[this.endlessRoundStarter].animation.play();
             this.showContinue = true;
             this.animations[u + 1].animation.pause();
           }
-          
         };
       }
     },
@@ -1018,13 +1128,13 @@ export default {
               lines.push(line);
             } else if (this.checkSameSector(items[i], locations[u].item)) {
               //handle same sector logic
-               y2 = y1
-                 x2 =
+              y2 = y1;
+              x2 =
                 locations[u].location === "articles-left"
                   ? this.getPos(locations[u].item).x - this.cell.width / 2.2
                   : this.getPos(locations[u].item).x + this.cell.width * 1.2;
               let line2 = this.linedraw(x1, y1, x2, y2);
-             
+
               line2.classList.add(from + "-" + to);
               line2.classList.add("line-outer");
               line2.style.display = "none";
@@ -1040,8 +1150,6 @@ export default {
               line3.classList.add("line-outer");
               line3.style.display = "none";
               lines.push(line3);
-
-
             } else {
               //need to get out of corridor
               //get nearest horizontal corridor
@@ -1062,7 +1170,7 @@ export default {
                   ? this.getPos(locations[u].item).x - this.cell.width / 2.2
                   : this.getPos(locations[u].item).x + this.cell.width * 1.2;
               let line2 = this.linedraw(x1, y1, x2, y2);
-             
+
               line2.classList.add(from + "-" + to);
               line2.classList.add("line-outer");
               line2.style.display = "none";
@@ -1099,7 +1207,7 @@ export default {
         }
 
         allPaths.sort((a, b) => a.length - b.length);
-        console.log(allPaths)
+
         if (allPaths.length > 0) {
           this.shortestPathGreedy.push(...allPaths[0].path);
 
@@ -1172,7 +1280,7 @@ export default {
       lines = [];
       allPaths = [];
       let line4, line5;
-      if (this.size === 'SMALL') {
+      if (this.size === "SMALL") {
         x2 = this.getPos(this.exit).x + this.cell.width * 0.5;
         line4 = this.linedraw(x1, y1, x2, y1);
         line5 = this.linedraw(x2, y1, x2, y1);
@@ -1219,22 +1327,28 @@ export default {
         } else {
           walk_x = 0;
         }
-        console.log(walk_y, walk_x)
         this.addWalkingAnimation(300, walk_x, walk_y);
       }
     },
     checkSameSector(from, to) {
       //check if 2 items are both below the middle or both above the middle and their x distance is below 2 cell widths
-      console.log(from, to)
-     let to_x = this.getPos(to).x;
-      let distanceRight = (to_x - from.xCoord)
-      let distanceLeft = (from.xCoord -to_x)
-     let minDistance = this.size === 'LARGE' ? this.cell.width*2.03  : this.cell.width*2.03  
-     let maxDistance = this.size === 'LARGE' ?  this.cell.width*2.97 : this.cell.width*3.5
-      if ((from.location === 'articles-left' && distanceLeft > minDistance && distanceLeft < maxDistance) ||
-          (from.location === 'articles-right' && distanceRight > minDistance && distanceRight < maxDistance)) {
-            return true;
-          } 
+      let to_x = this.getPos(to).x;
+      let distanceRight = to_x - from.xCoord;
+      let distanceLeft = from.xCoord - to_x;
+      let minDistance =
+        this.size === "LARGE" ? this.cell.width * 2.03 : this.cell.width * 2.03;
+      let maxDistance =
+        this.size === "LARGE" ? this.cell.width * 2.97 : this.cell.width * 3.5;
+      if (
+        (from.location === "articles-left" &&
+          distanceLeft > minDistance &&
+          distanceLeft < maxDistance) ||
+        (from.location === "articles-right" &&
+          distanceRight > minDistance &&
+          distanceRight < maxDistance)
+      ) {
+        return true;
+      }
       return false;
     },
     addShowItemLineAnimation(allPaths, isShortest) {
@@ -1243,34 +1357,27 @@ export default {
         isShortest: isShortest,
 
         animation: this.exit.animate([{}], {
-          duration:  800,
+          duration: 800,
         }),
       });
       this.plannedCoordinates.push(null);
     },
     getNearestCorridorHeight(from, to) {
       const allCorridors = document.getElementsByClassName("corridor");
-      if (to === this.checkout || this.size !== 'LARGE') {
+      if (to === this.checkout || this.size !== "LARGE") {
         return this.getPos(allCorridors[0]).y + this.cell.height / 2;
       }
       let y_to = to.yCoord ? to.yCoord : this.getPos(to).y;
       let y_from = from.yCoord ? from.yCoord : this.getPos(from).y;
-      console.log(from, to, y_to, y_from)
-      
-      
-      
+
       let smallest = 10000;
       let nearest;
       for (let i = 0; i < allCorridors.length; i++) {
-        let distanceTo = Math.abs(
-          y_to - this.getPos(allCorridors[i]).y
-        );
-        let distanceFrom = Math.abs(
-          y_from - this.getPos(allCorridors[i]).y
-        );
+        let distanceTo = Math.abs(y_to - this.getPos(allCorridors[i]).y);
+        let distanceFrom = Math.abs(y_from - this.getPos(allCorridors[i]).y);
 
-        if ((distanceTo + distanceFrom) < smallest) {
-          smallest = (distanceTo + distanceFrom);
+        if (distanceTo + distanceFrom < smallest) {
+          smallest = distanceTo + distanceFrom;
           nearest = allCorridors[i];
         }
       }
@@ -1278,19 +1385,18 @@ export default {
       return this.getPos(nearest).y + this.cell.height / 2;
     },
     linedraw(x1, y1, x2, y2) {
-      var degree; var m; var lineLength;
+      var degree;
+      var m;
+      var lineLength;
       if (x2 < x1) {
-      
         lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         m = (y2 - y1) / (x2 - x1);
-       degree = 180
+        degree = 180;
       } else {
         lineLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         m = (y2 - y1) / (x2 - x1);
         degree = (Math.atan(m) * 180) / Math.PI;
       }
-
-     
 
       let line = document
         .getElementsByClassName("supermarket-container")[0]
@@ -1326,9 +1432,11 @@ export default {
           }
           prevcategory = this.shelfData[u].name;
         }
-        if (!category) continue
-        let shelf = document.getElementsByClassName(category.toLowerCase())[index];
-        
+        if (!category) continue;
+        let shelf = document.getElementsByClassName(category.toLowerCase())[
+          index
+        ];
+
         let item = document.createElement("img");
         item.classList.add(this.shoppingList[i]);
         item.classList.add("algorithm-six-item");
@@ -1338,13 +1446,13 @@ export default {
         item.width = this.cell.width * 0.7;
         item.height = this.cell.width * 0.7;
         let padding =
-          this.size === 'SMALL' ? 0.13 : this.size === 'MEDIUM' ? 0.2 : 0.07;
+          this.size === "SMALL" ? 0.13 : this.size === "MEDIUM" ? 0.2 : 0.07;
         let yCoord =
           this.getPos(shelf).y +
           itemPosition *
-          (this.size === 'LARGE'
-            ? (this.cell.height / 3.3) * 2.5
-            : this.cell.height) +
+            (this.size === "LARGE"
+              ? (this.cell.height / 3.3) * 2.5
+              : this.cell.height) +
           this.cell.height * 0.07;
         let xCoord = this.getPos(shelf).x + this.cell.width * padding;
         item.style.top = yCoord + "px";
@@ -1368,7 +1476,6 @@ export default {
       let walk_x = 0,
         walk_y = 0;
       if (this.checkCorrectColumn(this.shelfs[nextShelf])) {
-        console.log('correct shelf')
         walk_y = this.getPos(this.shelfs[nextShelf]).y - this.robotPosPlanned.y;
 
         this.addWalkingAnimation(0, 0, walk_y);
@@ -1377,7 +1484,7 @@ export default {
           this.getPos(this.corridor).y -
           this.cell.height * 0.1 -
           this.robotPosPlanned.y +
-          (this.size == 'LARGE' ? this.cell.height * 0.2 : 0);
+          (this.size == "LARGE" ? this.cell.height * 0.2 : 0);
         this.addWalkingAnimation(0, 0, walk_y);
         walk_x = this.calculateWalkingDistance_x(this.shelfs[nextShelf]);
         this.addWalkingAnimation(0, walk_x, 0);
@@ -1386,7 +1493,7 @@ export default {
       }
     },
     handleShelfSearch(currentShelf, foundTopItem, items, categoryItems) {
-      const shelfCells = this.size === 'LARGE' ? 4 : 3;
+      const shelfCells = this.size === "LARGE" ? 4 : 3;
 
       switch (this.algorithm) {
         case 1:
@@ -1433,7 +1540,7 @@ export default {
           return [foundTopItem, false];
 
         case 4:
-        this.addFinishedRoundAnimation(this.shoppingList[0]);
+          this.addFinishedRoundAnimation(this.shoppingList[0]);
           for (let i = 0; i < shelfCells; i++) {
             if (this.shoppingList.length === 0) break;
             for (let u = 0; u < this.shoppingList.length; u++) {
@@ -1545,17 +1652,15 @@ export default {
         shelf: shelf,
         cell: cell,
         animation: this.currentItem.animate([{}], {
-          duration:  successful ? 1000 : 500,
+          duration: successful ? 1000 : 500,
         }),
       });
       this.plannedCoordinates.push(null);
     },
 
     changeRobotPos(x, y) {
-      // console.log(this.robot.style.top, this.robot.style.left, x, y);
       this.robot.style.top = y + "px";
       this.robot.style.left = x + "px";
-      //   console.log(this.robot.style.top, this.robot.style.left);
     },
     startSearch() {
       this.animations[this.currentAnimation].animation.play();
@@ -1578,9 +1683,6 @@ export default {
   text-align: left;
   opacity: 0;
 }
-
-
-
 
 .supermarket-container {
   display: block;
@@ -1703,14 +1805,13 @@ export default {
   content: var(--drinks);
 }
 
-
 .checkout {
   background-color: gold;
   grid-area: p;
   border-radius: 12px;
 }
 .checkout:after {
-  content: '$';
+  content: "$";
 }
 
 .start {
@@ -1738,7 +1839,6 @@ export default {
 .text-medium {
   padding-left: 0.8rem;
   font-size: 1.7rem;
-  
 }
 .text-large {
   padding-left: 0.5rem;
@@ -1749,10 +1849,9 @@ export default {
   font-size: 1.9rem;
 }
 .text-medium-checkout {
-  padding-left: 1.0rem;
+  padding-left: 1rem;
   padding-top: 1.5rem;
   font-size: 1.7rem;
-  
 }
 .text-large-checkout {
   padding-left: 0.3rem;
@@ -1785,160 +1884,154 @@ export default {
   height: 620px;
 }
 @media (min-width: 1700px) {
-  .supermarket{
+  .supermarket {
     width: 1056px;
-     height: 650px;
-  }   
+    height: 650px;
+  }
   .text-small {
-  padding-left: 0.8rem;
-  font-size: 1.8rem;
-}
-.text-medium {
-  padding-left: 0.8rem;
-  font-size: 1.5rem;
-}
-.text-large {
-  padding-left: 0.5rem;
-  font-size: 1.2rem;
-}
-.text-small-checkout {
-  padding-left: 2.75rem;
-  font-size: 1.9rem;
-}
-.text-medium-checkout {
-  padding-left: 1.1rem;
-  padding-top: 1.5rem;
-  font-size: 1.7rem;
-  
-}
-.text-large-checkout {
-  padding-left: 0.3rem;
-  padding-top: 0.85rem;
-  font-size: 1.3rem;
-}
-};
-@media (max-width: 1500px) {
-  .supermarket{
-    width: 768px;
-     height: 496px;
-  }   
-  .text-small {
-  padding-left: 0.8rem;
-  font-size: 1.8rem;
-}
-.text-medium {
-  padding-left: 0.8rem;
-  font-size: 1.5rem;
-}
-.text-large {
-  padding-left: 0.5rem;
-  font-size: 1.2rem;
-}
-.text-small-checkout {
-  padding-left: 2.15rem;
-  font-size: 1.7rem;
-}
-.text-medium-checkout {
-  padding-left: 0.7rem;
-  padding-top: 1.1rem;
-  font-size: 1.7rem;
-  
-}
-.text-large-checkout {
-  padding-left: 0.2rem;
-  padding-top: 0.65rem;
-  font-size: 1.3rem;
-}
-};
-@media (max-width: 1200px) {
-  .supermarket{
-    width: 640px;
-     height: 410px;
-  }   
-  .text-small {
-  padding-left: 0.8rem;
-  font-size: 1.7rem;
-}
-.text-medium {
-  padding-left: 0.8rem;
-  font-size: 1.4rem;
-}
-.text-large {
-  padding-left: 0.5rem;
-  font-size: 1.1rem;
-}
-.text-small-checkout {
-  padding-left: 1.65rem;
-  font-size: 1.55rem;
-}
-.text-medium-checkout {
-  padding-left: 0.5rem;
-  padding-top: 0.8rem;
-  font-size: 1.7rem;
-  
-}
-.text-large-checkout {
-  padding-left: 0.13rem;
-  padding-top: 0.45rem;
-  font-size: 1.3rem;
-}
-};
-@media (max-width: 1100px) {
-  .supermarket{
-    width: 570px;
-     height: 390px;
-  }   
+    padding-left: 0.8rem;
+    font-size: 1.8rem;
+  }
+  .text-medium {
+    padding-left: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .text-large {
+    padding-left: 0.5rem;
+    font-size: 1.2rem;
+  }
   .text-small-checkout {
-  padding-left: 1.45rem;
-  font-size: 1.35rem;
+    padding-left: 2.75rem;
+    font-size: 1.9rem;
+  }
+  .text-medium-checkout {
+    padding-left: 1.1rem;
+    padding-top: 1.5rem;
+    font-size: 1.7rem;
+  }
+  .text-large-checkout {
+    padding-left: 0.3rem;
+    padding-top: 0.85rem;
+    font-size: 1.3rem;
+  }
 }
-.text-medium-checkout {
-  padding-left: 0.4rem;
-  padding-top: 0.7rem;
-  font-size: 1.7rem;
-  
+@media (max-width: 1500px) {
+  .supermarket {
+    width: 768px;
+    height: 496px;
+  }
+  .text-small {
+    padding-left: 0.8rem;
+    font-size: 1.8rem;
+  }
+  .text-medium {
+    padding-left: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .text-large {
+    padding-left: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .text-small-checkout {
+    padding-left: 2.15rem;
+    font-size: 1.7rem;
+  }
+  .text-medium-checkout {
+    padding-left: 0.7rem;
+    padding-top: 1.1rem;
+    font-size: 1.7rem;
+  }
+  .text-large-checkout {
+    padding-left: 0.2rem;
+    padding-top: 0.65rem;
+    font-size: 1.3rem;
+  }
 }
-.text-large-checkout {
-  padding-left: 0.13rem;
-  padding-top: 0.45rem;
-  font-size: 1.3rem;
+@media (max-width: 1200px) {
+  .supermarket {
+    width: 640px;
+    height: 410px;
+  }
+  .text-small {
+    padding-left: 0.8rem;
+    font-size: 1.7rem;
+  }
+  .text-medium {
+    padding-left: 0.8rem;
+    font-size: 1.4rem;
+  }
+  .text-large {
+    padding-left: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .text-small-checkout {
+    padding-left: 1.65rem;
+    font-size: 1.55rem;
+  }
+  .text-medium-checkout {
+    padding-left: 0.5rem;
+    padding-top: 0.8rem;
+    font-size: 1.7rem;
+  }
+  .text-large-checkout {
+    padding-left: 0.13rem;
+    padding-top: 0.45rem;
+    font-size: 1.3rem;
+  }
 }
-};
+@media (max-width: 1100px) {
+  .supermarket {
+    width: 570px;
+    height: 390px;
+  }
+  .text-small-checkout {
+    padding-left: 1.45rem;
+    font-size: 1.35rem;
+  }
+  .text-medium-checkout {
+    padding-left: 0.4rem;
+    padding-top: 0.7rem;
+    font-size: 1.7rem;
+  }
+  .text-large-checkout {
+    padding-left: 0.13rem;
+    padding-top: 0.45rem;
+    font-size: 1.3rem;
+  }
+}
 
 @media (max-width: 1000px) {
-  .supermarket{
+  .supermarket {
     width: 528px;
-     height: 341px;
-  }  
-    .text-small-checkout {
-  padding-left: 1.35rem;
-  font-size: 1.25rem;
-}
-.text-medium-checkout {
-  padding-left: 0.4rem;
-  padding-top: 0.7rem;
-  font-size: 1.5rem;
-  
-}
-.text-large-checkout {
-  padding-left: 0.05rem;
-  padding-top: 0.35rem;
-  font-size: 1.0rem;
-} 
+    height: 341px;
+  }
+  .text-small-checkout {
+    padding-left: 1.35rem;
+    font-size: 1.25rem;
+  }
+  .text-medium-checkout {
+    padding-left: 0.4rem;
+    padding-top: 0.7rem;
+    font-size: 1.5rem;
+  }
+  .text-large-checkout {
+    padding-left: 0.05rem;
+    padding-top: 0.35rem;
+    font-size: 1rem;
+  }
   .text-small {
-  padding-left: 0.8rem;
-  font-size: 1.35rem;
+    padding-left: 0.8rem;
+    font-size: 1.35rem;
+  }
+  .text-medium {
+    padding-left: 0.6rem;
+    font-size: 1.2rem;
+  }
+  .text-large {
+    padding-left: 0.2rem;
+    font-size: 0.9rem;
+  }
 }
-.text-medium {
-  padding-left: 0.6rem;
-  font-size: 1.2rem;
-}
-.text-large {
-  padding-left: 0.2rem;
-  font-size: 0.9rem;
-}
-
-};
 
 .current-item {
   display: none;
@@ -1962,7 +2055,6 @@ export default {
 #itemImage {
   position: absolute;
 }
-
 
 .small {
   grid-template-columns: repeat(48, 1fr);

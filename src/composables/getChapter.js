@@ -1,10 +1,12 @@
-import { ref } from 'vue'
+import {
+    ref
+} from 'vue'
 
 const getChapter = (moduleName, chapterId) => {
 
     const chapterData = ref(null)
     const error = ref(null)
-    console.log('trying to fetch chapter data', moduleName, chapterId)
+
     const load = async() => {
         try {
             //remove comment to use for fetching data from db
@@ -24,8 +26,12 @@ const getChapter = (moduleName, chapterId) => {
             error.value = err.message
         }
     }
-    console.log(chapterData)
-    return { chapterData, error, load }
+
+    return {
+        chapterData,
+        error,
+        load
+    }
 }
 
 export default getChapter

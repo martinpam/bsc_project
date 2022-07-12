@@ -1,5 +1,10 @@
-import { isSameSock } from "./helperFunctions.js"
-import { copySockArray, shuffle } from "./helperFunctions.js"
+import {
+    isSameSock
+} from "./helperFunctions.js"
+import {
+    copySockArray,
+    shuffle
+} from "./helperFunctions.js"
 export default function runSortOutFixedAlgo(socksInput, order) {
     let orderCounter = 0;
     const socks = copySockArray(socksInput)
@@ -15,15 +20,22 @@ export default function runSortOutFixedAlgo(socksInput, order) {
             random = getRandomInt(socks.length)
             if (order) {
                 const sockToFind = socksInput[2 * order[orderCounter++]]
-                console.log(sockToFind, order[(orderCounter - 1)], orderCounter, socksInput, socksInput[order[(orderCounter - 1)]])
+
                 sockOne = socks.find(a => isSameSock(a, sockToFind))
             } else {
                 sockOne = socks[random]
             }
 
-            console.log(sockOne)
-            playBook.push({ type: 'appear', sock: sockOne })
-            playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockOne })
+            playBook.push({
+                type: 'appear',
+                sock: sockOne
+            })
+            playBook.push({
+                type: 'move',
+                from: 'start',
+                to: 'compare',
+                sock: sockOne
+            })
         }
         if (socks.length === 1) {
             socks.splice(0, 1)
@@ -33,7 +45,7 @@ export default function runSortOutFixedAlgo(socksInput, order) {
         while (random2 === random) {
             random2 = getRandomInt(socks.length)
         }
-        console.log(...socks, random, random2)
+
         let sockTwo;
         if (order) {
             const sockToFind = socksInput[2 * order[orderCounter++]]
@@ -51,10 +63,16 @@ export default function runSortOutFixedAlgo(socksInput, order) {
         } else {
             sockTwo = socks[random2]
         }
-        playBook.push({ type: 'appear', sock: sockTwo })
-        console.log(sockOne, sockTwo)
-        playBook.push({ type: 'selectAll', socks: [sockOne, sockTwo] })
-        console.log(sockOne, sockTwo)
+        playBook.push({
+            type: 'appear',
+            sock: sockTwo
+        })
+
+        playBook.push({
+            type: 'selectAll',
+            socks: [sockOne, sockTwo]
+        })
+
 
         if (order) {
             random = socks.indexOf(sockOne)
@@ -62,8 +80,18 @@ export default function runSortOutFixedAlgo(socksInput, order) {
         }
 
         if (isSameSock(sockOne, sockTwo)) {
-            playBook.push({ type: 'move', from: 'start', to: 'compare', sock: sockTwo })
-            playBook.push({ type: 'moveAll', from: 'compare', to: 'sorted', socks: [sockOne, sockTwo] })
+            playBook.push({
+                type: 'move',
+                from: 'start',
+                to: 'compare',
+                sock: sockTwo
+            })
+            playBook.push({
+                type: 'moveAll',
+                from: 'compare',
+                to: 'sorted',
+                socks: [sockOne, sockTwo]
+            })
 
             socks.splice(random > random2 ? random : random2, 1)
             socks.splice(random > random2 ? random2 : random, 1)
@@ -74,7 +102,12 @@ export default function runSortOutFixedAlgo(socksInput, order) {
             if (sortedOutSocks.length > 0) {
                 socks.push(...sortedOutSocks);
                 shuffle(socks)
-                playBook.push({ type: 'transferSocks', from: 'sorted-out', to: 'start', socks: sortedOutSocks })
+                playBook.push({
+                    type: 'transferSocks',
+                    from: 'sorted-out',
+                    to: 'start',
+                    socks: sortedOutSocks
+                })
                 sortedOutSocks = [];
 
 
@@ -92,7 +125,7 @@ export default function runSortOutFixedAlgo(socksInput, order) {
             })
             sortedOutSocks.push(sockTwo)
             socks.splice(random2, 1)
-            console.log(...socks)
+
             if (random > random2) random--;
             if (socks.length === 1) socks.splice(0, 1)
         }
@@ -102,7 +135,9 @@ export default function runSortOutFixedAlgo(socksInput, order) {
 
 
 
-    playBook.push({ type: 'finish' })
+    playBook.push({
+        type: 'finish'
+    })
     return playBook;
 }
 

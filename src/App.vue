@@ -1,24 +1,34 @@
 <template>
-   <div>
-    <div v-if="store" class="language-chooser"> 
-      <div @click="store.language='en'" class="en" :class="{'choosen': store.language==='en' }" >en</div> 
-      <div class="filler">|</div>    
-      <div @click="store.language='de'" class="de" :class="{'choosen': store.language==='de' }">de</div>
+  <div>
+    <div v-if="store" class="language-chooser">
+      <div
+        @click="store.language = 'en'"
+        class="en"
+        :class="{ choosen: store.language === 'en' }"
+      >
+        en
       </div>
+      <div class="filler">|</div>
+      <div
+        @click="store.language = 'de'"
+        class="de"
+        :class="{ choosen: store.language === 'de' }"
+      >
+        de
+      </div>
+    </div>
     <router-view />
-   </div>
+  </div>
 </template>
 <script>
- 
- import { store } from './store.js'
- console.log( store.language)
+import { store } from "./store.js";
 export default {
   data() {
     return {
-      store
-    }
-  }
-}
+      store,
+    };
+  },
+};
 </script>
 
 <style>
@@ -37,21 +47,21 @@ export default {
   top: 1rem;
 }
 
-.en, .de {
+.en,
+.de {
   cursor: pointer;
   font-size: 1.3rem;
   max-width: 18px;
   color: grey;
 }
 .filler {
-    font-size: 1.3rem;
-    
-    padding-left: 0.5rem;
-    padding-right: 0.3rem;
+  font-size: 1.3rem;
+
+  padding-left: 0.5rem;
+  padding-right: 0.3rem;
 }
 
 .choosen {
   color: black;
-  
 }
 </style>

@@ -1,4 +1,6 @@
-import { ref } from 'vue'
+import {
+    ref
+} from 'vue'
 
 const getChapters = (moduleName) => {
 
@@ -25,7 +27,11 @@ const getChapters = (moduleName) => {
         }
     }
 
-    return { chapters, error, load }
+    return {
+        chapters,
+        error,
+        load
+    }
 }
 
 export default getChapters

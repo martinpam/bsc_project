@@ -1,6 +1,8 @@
-import { store } from '../store.js'
+import {
+    store
+} from '../store.js'
 export function isSameSock(sock1, sock2) {
-    console.log(sock1, sock2)
+
     return (
         sock1.color === sock2.color &&
         sock1.lineAmount === sock2.lineAmount &&
@@ -10,7 +12,7 @@ export function isSameSock(sock1, sock2) {
 }
 
 export function areSameSocks(socks) {
-    console.log('asdf', socks)
+
     for (let i = 0; i < socks.length; i++) {
         for (let u = i + 1; u < socks.length; u++) {
             if (!isSameSock(socks[i], socks[u])) return false;
@@ -30,7 +32,7 @@ export function shuffle(array) {
             array[randomIndex], array[currentIndex]
         ];
     }
-    console.log(array)
+
     return array;
 }
 
@@ -57,7 +59,7 @@ export function getPos(obj) {
 }
 
 export function t(word) {
-    console.log(word)
+
     let dictionary = require('../../data/dictionary.json');
     return dictionary[word][store.language]
 

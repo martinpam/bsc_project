@@ -1,4 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+    createRouter,
+    createWebHistory
+} from 'vue-router'
 import Home from '../views/Home.vue'
 import Module from '../views/Module.vue'
 import SupermarketChapter from '../views/SupermarketChapter.vue'
@@ -16,13 +19,17 @@ const routes = [{
         path: '/socks',
         name: 'socks',
         component: Module,
-        props: { moduleName: 'socks' }
+        props: {
+            moduleName: 'socks'
+        }
     },
     {
         path: '/supermarket',
         name: 'supermarket',
         component: Module,
-        props: { moduleName: 'supermarket' }
+        props: {
+            moduleName: 'supermarket'
+        }
     },
     {
         path: '/supermarket/chapters/:chapterId',
@@ -42,14 +49,20 @@ const routes = [{
         path: '/supermarket/chapters/',
         name: 'supermarket_chapters',
         component: Selection,
-        props: { moduleName: 'supermarket', type: 'chapters' }
+        props: {
+            moduleName: 'supermarket',
+            type: 'chapters'
+        }
 
     },
     {
         path: '/supermarket/challenges/',
         name: 'supermarket_challenges',
         component: Selection,
-        props: { moduleName: 'supermarket', type: 'challenges' }
+        props: {
+            moduleName: 'supermarket',
+            type: 'challenges'
+        }
 
     },
 
@@ -57,28 +70,40 @@ const routes = [{
         path: '/socks/chapters/',
         name: 'socks_chapters',
         component: Selection,
-        props: { moduleName: 'socks', type: 'chapters' }
+        props: {
+            moduleName: 'socks',
+            type: 'chapters'
+        }
 
     },
     {
         path: '/socks/challenges/',
         name: 'socks_challenges',
         component: Selection,
-        props: { moduleName: 'socks', type: 'challenges' }
+        props: {
+            moduleName: 'socks',
+            type: 'challenges'
+        }
 
     },
     {
         path: '/supermarket/lva/',
         name: 'supermarket_lva',
         component: AlgorithmOverview,
-        props: { moduleName: 'supermarket', lva: true }
+        props: {
+            moduleName: 'supermarket',
+            lva: true
+        }
 
     },
     {
         path: '/socks/lva/',
         name: 'socks_lva',
         component: AlgorithmOverview,
-        props: { moduleName: 'socks', lva: true }
+        props: {
+            moduleName: 'socks',
+            lva: true
+        }
 
     },
     {
@@ -92,14 +117,20 @@ const routes = [{
         path: '/supermarket/laboratory/',
         name: 'supermarket_laboratory',
         component: AlgorithmOverview,
-        props: { laboratory: 'laboratory', moduleName: 'supermarket' }
+        props: {
+            laboratory: 'laboratory',
+            moduleName: 'supermarket'
+        }
 
     },
     {
         path: '/socks/laboratory/',
         name: 'socks_laboratory',
         component: AlgorithmOverview,
-        props: { laboratory: 'laboratory', moduleName: 'socks' }
+        props: {
+            laboratory: 'laboratory',
+            moduleName: 'socks'
+        }
 
     }
 ]

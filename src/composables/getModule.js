@@ -1,4 +1,6 @@
-import { ref } from 'vue'
+import {
+    ref
+} from 'vue'
 
 const getModule = (moduleName) => {
 
@@ -22,8 +24,12 @@ const getModule = (moduleName) => {
             error.value = err.message
         }
     }
-    console.log(mdl)
-    return { mdl, error, load }
+
+    return {
+        mdl,
+        error,
+        load
+    }
 }
 
 export default getModule
