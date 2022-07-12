@@ -29,7 +29,7 @@ export default {
 }
 .sub-text {
     font-size: 15px; 
-    top: 20%;
+    top: 16%;
     margin: 0 15px;
     color: lightgray;
 }
