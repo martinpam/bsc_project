@@ -297,7 +297,7 @@ function adjustWidth(element, clazz, divideAndSweep, updates) {
     } else if (clazz === 'start' || clazz === 'sorted') {
         const sockAmount = element.children.length
         element.style.height = clazz === 'sorted' && sockAmount > 12 ? '240px' : '120px';
-        element.style.width = clazz === 'sorted' ? '800px' : '100px';
+
 
     }
     updates.basket = !updates.basket;

@@ -1,6 +1,6 @@
 <template>
   <div class="sorting">
-      <div style="display: flex; justify-content: right; padding-right: 6rem" ><h3>{{t('MOVES') + ': ' + counters.moves}}</h3> <div style="minWidth: 40px"></div> <h3>{{ t('COMPARISONS') + ': ' + counters.comparisons}}</h3></div>
+      <div style="display: flex; justify-content: right; padding-right: 6rem" ><h3 v-show="!challenge">{{t('MOVES') + ': ' + counters.moves}}</h3> <div style="minWidth: 40px;minHeight: 45.52px"></div> <h3 v-show="!challenge">{{ t('COMPARISONS') + ': ' + counters.comparisons}}</h3></div>
       
       
           

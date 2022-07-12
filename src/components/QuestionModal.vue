@@ -90,7 +90,7 @@ export default {
 <style  scoped>
 
     .modal {
-        width: 100%;
+        width:800px;
         background-color: lightyellow;
         
         margin: 0 auto;
@@ -185,4 +185,34 @@ width: 100%;
 
 display: flex;
     }
+
+     @media (max-width: 1600px) {
+  
+  .modal {
+    width: 720px;
+ 
+  }
+     }
+       @media (max-width: 1500px) {
+  
+  .modal {
+    width: 620px;
+ 
+  }
+     }
+       @media (max-width: 1275px) {
+  
+  .modal {
+    width: 520px;
+ 
+  }
+     }
+    @media (max-width: 1200px) {
+  
+  .modal {
+    width: 550px;
+    margin-left: 3rem;
+  }
+
+}
 </style>

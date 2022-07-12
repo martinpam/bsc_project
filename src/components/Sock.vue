@@ -2,7 +2,7 @@
 <template>
   <div>
         <svg class="rounded sock" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 512 512" :height="isCustomizer ? 500 : 100" :width="isCustomizer ? 430 : 100">
+             viewBox="0 0 512 512" :height="isCustomizer ? getHeight() : 100" :width="isCustomizer ? getWidth() : 100">
             <g data-name="filled outline">
                 <rect width="128" height="300" x="197" y="74" fill="white" rx="4"/>
                 <rect transform="rotate(225 220 230)" width="128" height="130" x="55" y="40" fill="white" rx="4"/>
@@ -74,6 +74,17 @@
 export default {
     props: ["color", "pattern", "patternColor", "lineAmount", "isCustomizer", "identifier"],
     name: 'CodeBox',
+    methods: {
+      getHeight() {
+     
+        return 300
+      },
+      getWidth() {
+       
+        
+        return 430
+      }
+    }
 }
 </script>
 

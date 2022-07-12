@@ -61,6 +61,7 @@
           <CodeBox
             v-if="!isLaboratory&&!challengeId"
             class="code"
+            :class="{'code-socks': mdl[0].link === 'socks'}"
             :algorithm="
               mdl[0].algorithms[allSimulations[currentSimulation].algorithm - 1]
                 .lines
@@ -69,6 +70,7 @@
           <CodeBox
             v-else-if="challengeId"
             class="code"
+             :class="{'code-socks': mdl[0].link === 'socks'}"
             :algorithm="
               mdl[0].algorithms[mdl[0].challenges[parseInt(challengeId)-1].algorithm-1].lines
             "
@@ -76,6 +78,7 @@
           <CodeBox
             v-else
             class="code"
+             :class="{'code-socks': mdl[0].link === 'socks'}"
             :algorithm="mdl[0].algorithms[currentChosenAlgorithm - 1].lines"
           />
         </div>
@@ -156,7 +159,7 @@
           </div>
         </div>
 
-        <div v-else>
+        <div class="sock-selection" v-else>
           
           <div class="chooser">
             <h3
@@ -404,7 +407,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="customizer-sock-container">
                 <Sock
                   :isCustomizer="true"
                   :color="currentChosenSockColor"
@@ -833,8 +836,23 @@ export default {
   .code {
     width: 500px;
   }
+  .code-socks {
+    width: 655px;
+  }
   
+  
+
+
 }
+@media (max-width: 1540px) {
+  .customizer-sock-container {
+    max-width: 300px;
+    margin-left: -6rem;
+  }
+}
+
+
+
 @media (max-width: 1200px) {
   .shopping-list-text {
     margin-bottom: 0.9rem;
@@ -844,10 +862,62 @@ export default {
     padding-top: 5.4rem;
   }
   .code {
-    width: 400px;
+    width: 500px;
   }
+  .sorting {
+    max-width: 560px;
+   
+  }
+  .sorted, .baskets, .navigation-board{
+    width: 100%;
+    width: 500px;
+    margin-left: 5rem;
+  }
+  .code-socks {
+    max-width: 440px;
+    
+  }
+  .sock-collection, .add-button-outer {
+    max-width: 450px;
   
+  }
+  .sock-collection {
+    max-width: 400px;
+    margin-left: 1rem;
+  }
+
+
+  .sock-selection {
+    margin-left: 0rem;
+  }
+} 
+
+
+
+
+  @media (max-width: 1353px) {
   
+  .sorting {
+    width: 550px;
+    margin-left: -5rem;
+  }
+
+}
+ @media (max-width: 1274px) {
+  
+  .sorting {
+    width: 500px;
+    margin-left: -9rem;
+  }
+  .sorted, .baskets {
+    
+    width: 500px;
+  }
+  .code-socks {
+    width: 560px;
+    
+  }
+
 }
 @media (max-width: 1000px) {
   .shopping-list-text {
@@ -1044,12 +1114,7 @@ h3 {
     width: 640px;
   }
 }
-@media (max-width: 1000px) {
-  .all-items,
-  .customizer {
-    width: 528px;
-  }
-}
+
 
 .customizer-button {
  
@@ -1151,9 +1216,6 @@ h3 {
   margin-left: -80px;
 }
 
-.all-items-outer {
-
-}
 
 #shopping-list {
   width: 98%;

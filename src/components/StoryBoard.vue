@@ -224,6 +224,9 @@ export default {
 .text-style-robot {
   font-size: 22px;
 }
+.button-navigation {
+  width: 80px;
+}
 };
 @media (max-width: 700px) {
   .dialog-field {
