@@ -12,7 +12,7 @@
           class="module-icon"
           src="../assets/icons/cart.png"
           alt=""
-          srcset=""
+          srcset="" 
         />
       </ModuleButton>
       <ModuleButton
@@ -110,7 +110,7 @@ body {
   width: 70px;
   padding-top: 10px;
   filter: invert(0.7);
-  min-height: 50px;
+  min-height: 70px;
 }
 </style>
 
