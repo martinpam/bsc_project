@@ -31,8 +31,8 @@
                         },
                         {
                             "speaker": "Karin",
-                            "en": "Thats is quite easy. You take this shopping list and look for all the items..",
-                            "de": "Das ist ganz einfach. Du nimmst diese Einkaufsliste und suchst nach allen Artikeln.."
+                            "en": "That is quite easy. You take this shopping list and search for the articles..",
+                            "de": "Das ist ganz einfach. Du nimmst diese Einkaufsliste und suchst nach den Artikeln.."
                         },
                         {
                             "speaker": "Karin",
@@ -823,8 +823,8 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the shopping list and search for all these articles",
-                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "en": "Take the shopping list and search for the articles",
+                            "de": "Nimm die Einkaufsliste und suche nach diesen Artikeln",
                             "indent": 0
                         },
                         {
@@ -848,8 +848,8 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the shopping list and search for all these articles",
-                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "en": "Take the shopping list and search for the articles",
+                            "de": "Nimm die Einkaufsliste und suche nach diesen Artikeln",
                             "indent": 0
                         },
                         {
@@ -879,8 +879,8 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the shopping list and search for all these articles",
-                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "en": "Take the shopping list and search for the articles",
+                            "de": "Nimm die Einkaufsliste und suche nach diesen Artikeln",
                             "indent": 0
                         },
                         {
@@ -927,8 +927,8 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the shopping list and search for all these articles",
-                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "en": "Take the shopping list and search for the articles",
+                            "de": "Nimm die Einkaufsliste und suche nach diesen Artikeln",
                             "indent": 0
                         },
                         {
@@ -979,8 +979,8 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the shopping list and search for all these articles",
-                            "de": "Nimm die Einkaufsliste und suche nach all diesen Artikeln",
+                            "en": "Take the shopping list and search for the articles",
+                            "de": "Nimm die Einkaufsliste und suche nach diesen Artikeln",
                             "indent": 0
                         },
                         {
@@ -1031,7 +1031,7 @@
                             "indent": 0
                         },
                         {
-                            "en": "Take the map of item coordinates and calculate the shortes distances",
+                            "en": "Take the map of item coordinates and calculate the shortest distances",
                             "de": "Nimm die Karte mit Koordinaten und berechne die Distanzen der Artikel",
                             "indent": 0,
                             "highlight": true

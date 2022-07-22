@@ -242,7 +242,7 @@ export default {
     "algorithm",
     "shoppingListProp",
     "shelfData",
-    "allShelfs",
+    "allShelves",
     "isStory",
     "boughtItems",
     "challenge",
@@ -633,13 +633,13 @@ export default {
           let categoryItems = [];
 
           categoryItems.push(
-            ...this.allShelfs.filter(
+            ...this.allShelves.filter(
               (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
             )[0].items
           );
           if (this.size === "LARGE") {
             categoryItems.push(
-              ...this.allShelfs.filter(
+              ...this.allShelves.filter(
                 (s) => s.name.toLowerCase() === this.shelfs[i].classList[1]
               )[1].items
             );

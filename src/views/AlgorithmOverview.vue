@@ -351,7 +351,7 @@
               :size="allSimulations[currentSimulation].supermarket"
               :algorithm="allSimulations[currentSimulation].algorithm"
               :shoppingListProp="allSimulations[currentSimulation].shoppingList"
-              :allShelfs="
+              :allShelves="
                 mdl[0].supermarketLayouts.filter((l) => l.name === 'LARGE')[0]
                   .shelfs
               "
@@ -386,7 +386,7 @@
                   (challenge) => challenge.challengeId === challengeId
                 ).shoppingList
               "
-              :allShelfs="
+              :allShelves="
                 mdl[0].supermarketLayouts.filter((l) => l.name === 'LARGE')[0]
                   .shelfs
               "
@@ -418,7 +418,7 @@
               :size="currentChosenSupermarket"
               :algorithm="currentChosenAlgorithm"
               :shoppingListProp="currentChosenShoppingList"
-              :allShelfs="
+              :allShelves="
                 mdl[0].supermarketLayouts.filter((l) => l.name === 'LARGE')[0]
                   .shelfs
               "
@@ -680,14 +680,14 @@ export default {
     const getAllCategories = () => {
       if (props.moduleName !== "supermarket") return [];
 
-      let allShelfs = mdl.value[0].supermarketLayouts.filter(
+      let allShelves = mdl.value[0].supermarketLayouts.filter(
         (l) => l.name === "LARGE"
       )[0].shelfs;
       let res = [];
       let added = [];
       let i = 0;
 
-      allShelfs.forEach((element) => {
+      allShelves.forEach((element) => {
         if (added.indexOf(element.name) === -1) {
           res.push(element);
           added.push(element.name, i);
