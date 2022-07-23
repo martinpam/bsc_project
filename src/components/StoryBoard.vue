@@ -10,7 +10,7 @@
     <div class="story-board">
       <div class="button-navigation top">
         <img
-          @click="$router.go(-1)"
+          @click="$router.push({ path: '/' + mdl[0].link + '/chapters' })"
           src="../assets/icons/arrow-left-long-solid.svg"
           class="navigation-button smaller"
         />
@@ -83,11 +83,6 @@
         @handleClickForward="goForward"
         @handleClickBack="goBack"
         class="button-navigation"
-        :last="
-          chapterId == mdl[0].chapters.length &&
-          mdl[0].chapters[mdl[0].chapters.length - 1].conversation.length ==
-            currentIndex + 1
-        "
       />
     </div>
   </div>
@@ -125,7 +120,20 @@ export default {
     const currentIndex = ref(0);
 
     const goForward = () => {
+      console.log(
+        parseInt(props.chapterId),
+          mdl.value[0].chapters.length, 
+          mdl.value[0].chapters[mdl.value[0].chapters.length - 1].conversation.length,
+          (currentIndex.value + 1),    
+          )
       if (
+        parseInt(props.chapterId) === mdl.value[0].chapters.length && 
+        mdl.value[0].chapters[mdl.value[0].chapters.length - 1].conversation
+          .length ===
+          (currentIndex.value + 1)
+      ) {
+        router.push("/" + mdl.value[0].link);
+      } else if (
         currentIndex.value <
         mdl.value[0].chapters[chapterId.value - 1].conversation.length - 1
       ) {

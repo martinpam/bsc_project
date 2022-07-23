@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <div v-if="store" class="language-chooser">
       <div
@@ -17,7 +18,7 @@
         de
       </div>
     </div>
-    <router-view />
+    <router-view :key="$route.fullPath" />
   </div>
 </template>
 <script>

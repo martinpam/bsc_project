@@ -8,7 +8,6 @@
       />
       <div class="story-filler"></div>
       <img
-        v-if="!last"
         src="../assets/icons/forward-solid.svg"
         class="navigation-button"
         @click="$emit('handleClickForward')"

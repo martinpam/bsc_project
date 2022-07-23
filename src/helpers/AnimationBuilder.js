@@ -69,10 +69,10 @@ function addMoveAnimation(step, animations, counters, updates) {
         adjustWidth(oldElement, step.from, step.divideAndSweep, updates)
         fadeIn.play();
         if (step.to === 'sorted') {
-            sock.style.marginRight = '-3.2rem';
+            sock.style.marginRight = '-3.6rem';
         }
         if (step.to === 'sorted' && step.pairRight) {
-            sock.style.marginRight = '-1.4rem';
+            sock.style.marginRight = '-1.6rem';
         }
 
         adjustWidth(toElem, step.to, step.divideAndSweep, updates)
@@ -354,10 +354,10 @@ function addMoveAllAnimation(step, animations, counters, updates) {
             fadeIns[u].play()
 
             if (step.to === 'sorted') {
-                socktemp.style.marginRight = '-3.2rem';
+                socktemp.style.marginRight = '-3.6rem';
             }
             if (step.to === 'sorted' && u === (fadeOuts.length - 1)) {
-                socktemp.style.marginRight = '-1.4rem';
+                socktemp.style.marginRight = '-1.6rem';
             }
 
             adjustWidth(toElem, step.to, step.divideAndSweep, updates)
@@ -442,11 +442,6 @@ function adjustWidth(element, clazz, divideAndSweep, updates) {
     if (clazz === 'compare-pattern' || clazz === 'compare-lineAmount' || clazz === 'compare-patternColor' || clazz === 'compare') {
         const sockAmount = element.children.length
         element.style.width = (divideAndSweep && sockAmount === 1) ? '90px' : sockAmount <= 2 ? '150px' : sockAmount <= 10 ? (10 + sockAmount * 70) + 'px' : '760px'
-    } else if (clazz === 'start' || clazz === 'sorted') {
-        const sockAmount = element.children.length
-        element.style.height = clazz === 'sorted' && sockAmount > 12 ? '240px' : '120px';
-
-
     }
     updates.basket = !updates.basket;
 

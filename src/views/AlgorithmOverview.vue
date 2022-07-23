@@ -1054,7 +1054,7 @@ export default {
   .navigation-board {
     width: 100%;
     width: 500px;
-    margin-left: 5rem;
+    margin-left: 3.5rem;
   }
   .code-socks {
     max-width: 440px;
@@ -1419,5 +1419,13 @@ h3 {
 .right-side,
 .left-side {
   margin: 0 auto;
+}
+
+.color-picker, .customizer-left, .outer-picker, .customizer-right {
+  z-index: 4;
+}
+
+.customizer-sock-container {
+  z-index: 1;
 }
 </style>

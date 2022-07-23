@@ -1,8 +1,8 @@
 <template>
   <div class="sorting">
-    <div style="display: flex; justify-content: right; padding-right: 6rem">
+    <div style="display: flex; justify-content: right; padding-right: 6rem; minHeight: 45.52px">
       <h3 v-show="!challenge">{{ t("MOVES") + ": " + counters.moves }}</h3>
-      <div style="minwidth: 40px; minheight: 45.52px"></div>
+      <div style="minWidth: 40px; "></div>
       <h3 v-show="!challenge">
         {{ t("COMPARISONS") + ": " + counters.comparisons }}
       </h3>
@@ -115,8 +115,9 @@
       @retry="retryChallenge()"
       @answer="questionAnswered()"
       @continue="nextChallenge()"
+      @unlockNextChallenge="unlockNextChallenge()"
     >
-      <div class="question-socks">
+      <div class="question-socks" :class="{'left':orderedSocks.length > 5}">
         <Sock
           v-for="sock in orderedSocks"
           :key="sock"
@@ -292,14 +293,21 @@ export default {
       this.showQuestionModal = false;
     },
     retryChallenge() {
-      this.resetSimulation();
-      this.startSimulation();
+      this.resetSimulation(true);
+     
     },
-    nextChallenge() {
+    unlockNextChallenge() {
       setCookie("socks-challenges", this.challenge.challengeId);
+    },
+
+    nextChallenge() {
+      console.log(this.challenge)
       this.$router.push({
-        path: "/socks/challenges/" + (parseInt(this.challenge.challengeId) + 1),
+        path: `/socks/challenges/${(parseInt(this.challenge.challengeId) + 1)}`,
+    
       });
+      
+      console.log(this.challenge)
       this.resetSimulation(true);
       this.updateQuestions = !this.updateQuestions;
     },
@@ -313,34 +321,37 @@ export default {
     },
     resetSimulation(full) {
       this.showContinue = false;
-
-      this.finished = false;
-      const copy = copySockArray(this.socksProp);
-      this.$refs.buttonnavi.updatePlay(
-        copy.find((s) => s.type === "single") !== undefined &&
-          this.algorithm === 4
-      );
       this.gameStarted = false;
       this.playing = false;
       this.counters.moves = 0;
       this.counters.comparisons = 0;
-      this.currentAnimations = [];
-      this.disablePlay = this.containsSingleSock && this.algorithm === 4;
+      this.finished = false;
+      if (this.challenge) this.showQuestionModal = true;
 
-      this.animations.forEach((element) => {
-        element.animation.cancel();
-      });
       let itemsToDelete = document.querySelectorAll(".fake-sock");
 
       for (let i = 0; i < itemsToDelete.length; i++) {
         itemsToDelete[i].parentNode.removeChild(itemsToDelete[i]);
       }
 
+      const copy = copySockArray(this.socksProp);
+      this.$refs.buttonnavi.updatePlay(
+        copy.find((s) => s.type === "single") !== undefined &&
+          this.algorithm === 4
+      );
+      
+      this.currentAnimations = [];
+      this.disablePlay = this.containsSingleSock && this.algorithm === 4;
+
+      this.animations.forEach((element) => {
+        element.animation.cancel();
+      });
+     
       this.animations = [];
       if (full) this.socks = this.fillAndShuffleSocks();
       document.getElementsByClassName("start")[0].style.height = "120px";
       document.getElementsByClassName("start")[0].style.width = "100px";
-      document.getElementsByClassName("sorted")[0].style.height = "120px";
+
       this.startNotEmpty = this.getStartNotEmpty();
       this.sortedOutNotEmpty = this.getSortedOutNotEmpty();
 
@@ -458,7 +469,7 @@ export default {
 .box {
   background-color: burlywood;
   width: 80%;
-  height: 120px;
+ 
   display: flex;
   margin: 0 auto;
   border-radius: 8px;
@@ -486,6 +497,7 @@ export default {
   margin-bottom: 0.5rem;
   flex-wrap: nowrap;
   animation: append-animate 0.5s linear;
+  height: 120px;
 }
 
 .compare start-box-sock {
@@ -495,11 +507,22 @@ export default {
 .sorting {
   margin-top: -0.8rem;
   width: 1000px;
+  
 }
 
 .sorted {
   min-height: 120px;
+  display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(56px, 2fr));
+    padding-right: 2rem;
+
 }
+
+.sorted start-box-sock {
+  margin-left: -1rem;
+}
+
+
 .start-box-sock {
   padding-top: 0.6rem;
   margin-right: -2.3rem;
@@ -545,6 +568,10 @@ export default {
   margin-bottom: 0.8rem;
   overflow-x: hidden;
 }
+.left {
+  justify-content: left;
+}
+
 
 .question-sock {
   margin-right: -2.5rem;

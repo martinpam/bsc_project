@@ -43,23 +43,23 @@ export default {
     const { modules, error, load } = getModules();
     load();
 
-    const dev = false;
+    const unlockAll = false;
     const reset = false;
     if (reset) {
-      setCookie("supermarket-story", 0);
-      setCookie("socks-story", 0);
-      setCookie("supermarket-challenges", 0);
-      setCookie("socks-challenges", 0);
-    } else if (dev) {
-      setCookie("supermarket-story", 4);
-      setCookie("socks-story", 2);
-      setCookie("supermarket-challenges", 11);
-      setCookie("socks-challenges", 9);
+      setCookie("supermarket-story", 0, 365);
+      setCookie("socks-story", 0, 365);
+      setCookie("supermarket-challenges", 0, 365);
+      setCookie("socks-challenges", 0, 365);
+    } else if (unlockAll) {
+      setCookie("supermarket-story", 4, 365);
+      setCookie("socks-story", 2, 365);
+      setCookie("supermarket-challenges", 11, 365);
+      setCookie("socks-challenges", 9, 365);
     } else if (getCookie("supermarket-story") === "") {
-      setCookie("supermarket-story", 0);
-      setCookie("socks-story", 0);
-      setCookie("supermarket-challenges", 0);
-      setCookie("socks-challenges", 0);
+      setCookie("supermarket-story", 0, 365);
+      setCookie("socks-story", 0, 365);
+      setCookie("supermarket-challenges", 0, 365);
+      setCookie("socks-challenges", 0, 365);
     }
     return { modules, error, t };
   },

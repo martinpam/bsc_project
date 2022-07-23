@@ -225,6 +225,7 @@
       @retry="retryChallenge()"
       @answer="questionAnswered()"
       @continue="nextChallenge()"
+      @unlockNextChallenge="unlockNextChallenge()"
     />
   </div>
 </template>
@@ -423,9 +424,11 @@ export default {
       this.resetSimulation();
       this.startSimulation();
     },
+    unlockNextChallenge() {
+      setCookie("supermarket-challenges", this.challenge.challengeId);
+    },
     nextChallenge() {
       this.resetSimulation();
-      setCookie("supermarket-challenges", this.challenge.challengeId);
       this.$router.push({
         path:
           "/supermarket/challenges/" +

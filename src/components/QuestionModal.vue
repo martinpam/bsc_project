@@ -51,7 +51,7 @@
 <script>
 import { store } from "../store.js";
 import { ref } from "vue";
-import { t } from "../helpers/helperFunctions.js";
+import { t, setCookie } from "../helpers/helperFunctions.js";
 export default {
   props: [
     "question",
@@ -75,6 +75,9 @@ export default {
     animationFinished(newValue, oldValue) {
       if (newValue)
         this.correct = this.answeredByUser.en === this.correctAnswer;
+        if (this.correct) {
+          this.$emit("unlockNextChallenge");
+        }
     },
     updateQuestions(newValue, oldValue) {
       this.isAnswered = false;
@@ -184,11 +187,9 @@ export default {
   font-weight: 700;
   cursor: pointer;
   text-align: right;
-  width: 20%;
+  width: 100%;
 }
-.filler {
-  width: 80%;
-}
+
 .action-outer {
   width: 100%;
 

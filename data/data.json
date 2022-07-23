@@ -2361,7 +2361,7 @@
                         {
                             "color": "blue",
                             "lineAmount": 3,
-                            "pattern": "dots",
+                            "pattern": "None",
                             "patternColor": "black",
                             "type": "double"
                         }
@@ -2379,21 +2379,21 @@
                         {
                             "color": "blue",
                             "lineAmount": 3,
-                            "pattern": "dots",
+                            "pattern": "None",
                             "patternColor": "black",
                             "type": "double"
                         },
                         {
                             "color": "green",
                             "lineAmount": 3,
-                            "pattern": "dots",
+                            "pattern": "JKU",
                             "patternColor": "black",
                             "type": "double"
                         },
                         {
                             "color": "orange",
                             "lineAmount": 3,
-                            "pattern": "dots",
+                            "pattern": "TU",
                             "patternColor": "black",
                             "type": "double"
                         }
@@ -2905,23 +2905,23 @@
                         "type": "text"
                     },
                     "choices": [{
+                            "en": "2",
+                            "de": "2"
+                        },
+                        {
+                            "en": "3",
+                            "de": "3"
+                        },
+                        {
+                            "en": "0",
+                            "de": "0"
+                        },
+                        {
                             "en": "4",
                             "de": "4"
-                        },
-                        {
-                            "en": "6",
-                            "de": "6"
-                        },
-                        {
-                            "en": "8",
-                            "de": "8"
-                        },
-                        {
-                            "en": "10",
-                            "de": "10"
                         }
                     ],
-                    "answer": "8",
+                    "answer": "4",
                     "endMessage": {
                         "messageCorrect": {
                             "en": "Well done!",
