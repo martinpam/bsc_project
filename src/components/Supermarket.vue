@@ -234,7 +234,7 @@
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import QuestionModal from "../components/QuestionModal.vue";
-import { t, setCookie } from "../helpers/helperFunctions.js";
+import { t, setCookie, getCookie } from "../helpers/helperFunctions.js";
 
 import { onMounted } from "@vue/runtime-core";
 export default {
@@ -425,7 +425,9 @@ export default {
       this.startSimulation();
     },
     unlockNextChallenge() {
-      setCookie("supermarket-challenges", this.challenge.challengeId);
+      if (parseInt(getCookie("supermarket-challenges")) < parseInt(this.challenge.challengeId)) {
+        setCookie("supermarket-challenges", this.challenge.challengeId);
+      } 
     },
     nextChallenge() {
       this.resetSimulation();

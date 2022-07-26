@@ -136,17 +136,19 @@ export default {
       } else if (
         currentIndex.value <
         mdl.value[0].chapters[chapterId.value - 1].conversation.length - 1
+        
       ) {
         currentIndex.value++;
+        if (currentIndex.value ===
+        mdl.value[0].chapters[chapterId.value - 1].conversation.length - 2) {
+            if (parseInt(getCookie(props.moduleName === "supermarket" ? "supermarket-story": "socks-story")) < parseInt(chapterId.value)) {
+          setCookie(props.moduleName === "supermarket"? "supermarket-story": "socks-story",chapterId.value);
+        } 
+        }
       } else {
         chapterId.value++;
         router.push("/" + mdl.value[0].link + "/chapters/" + chapterId.value);
-        setCookie(
-          props.moduleName === "supermarket"
-            ? "supermarket-story"
-            : "socks-story",
-          chapterId.value - 1
-        );
+              
       }
     };
 

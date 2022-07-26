@@ -42,9 +42,10 @@ export default {
   setup() {
     const { modules, error, load } = getModules();
     load();
-
+    
     const unlockAll = false;
     const reset = false;
+
     if (reset) {
       setCookie("supermarket-story", 0, 365);
       setCookie("socks-story", 0, 365);

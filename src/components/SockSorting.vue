@@ -135,7 +135,7 @@
 <script>
 import Sock from "../components/Sock.vue";
 import { shuffle } from "../helpers/helperFunctions.js";
-import { copySockArray, t, setCookie } from "../helpers/helperFunctions.js";
+import { copySockArray, t, setCookie, getCookie } from "../helpers/helperFunctions.js";
 import { ref } from "@vue/reactivity";
 import ButtonNavigation from "../components/ButtonNavigation.vue";
 import runSimpleAlgo from "../helpers/SimpleAlgorithm.js";
@@ -297,7 +297,9 @@ export default {
      
     },
     unlockNextChallenge() {
-      setCookie("socks-challenges", this.challenge.challengeId);
+      if (parseInt(getCookie("socks-challenges")) < parseInt(this.challenge.challengeId)) {
+        setCookie("socks-challenges", this.challenge.challengeId);
+      } 
     },
 
     nextChallenge() {
